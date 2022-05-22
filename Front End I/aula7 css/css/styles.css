@@ -1,0 +1,21 @@
+h1  {
+    color: fuchsia;
+    background-color: grey;
+    font-family: Arial,  sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    }
+
+h2 {
+    color: blueviolet
+    font-size: 20px;
+}
+
+h3 {
+    
+    }
+
+.section #ngredientes{
+    color: blueviolet   
+    font-family: "lucida sans";
+}
