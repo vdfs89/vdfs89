@@ -1,0 +1,34 @@
+$ history
+    1  cd Downloads
+    2  ls
+    3  LS
+    4  pwd
+    5  ls - A      
+    6  ls -A       
+    7  man ls      
+    8  commands    
+    9  command     
+   10  command ls
+   11  twd
+   12  twt
+   13  pwd
+   14  comand/
+   15  command/
+   16  command
+   17  mkdir DH/ integracao_aula_1e2/
+   18  ls
+   19  mkdir integracao_aula_1e2/
+   20  mv integracao_aula_1e2/ DH/
+   21  cd DH/
+   22  cd integracao_aula_1e2/
+   23  mkdir historia_da_contabilidade/ o_que_faremos_hoje/ servidores/ interfaces_de_usuario/ infraestrutura/
+   24  touch historia_da_contabilidade/resumo.txt
+   25  touch o_que_faremos_hoje/resumo.txt
+   26  touch servidores/resumo.txt
+   27  touch interfaces_de_usuario/resumo.txt
+   28  touch infraestrutura/resumo.txt
+   29  ls
+   30  ls -a
+   31  ls -r
+   32  ls -R
+   33  history

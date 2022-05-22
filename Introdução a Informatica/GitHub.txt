@@ -1,0 +1,19 @@
+rm -rf - remove a pasta
+
+ls -l - mostra todos arquivos e pastas do diretório (tamanhos, extensões, data)
+touch - criar arquivos
+
+mv arquivo - renomear
+mv arquivo pasta/ - move arquivos ou diretórios
+
+pwd - local
+
+tab - auto completa
+
+\ - serve como espaço
+
+/recoverbin
+
+cp - copia
+
+cat - mostra o texto
