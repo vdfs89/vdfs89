@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: black;
+    position: absolute;
+    height: 100px;
+    width: 1024px;
+    left: 0px;
+    top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+   
+}
+
+.Topnav {
+    color: #f3f3f3;
+    position: absolute;
+    width: 276px;
+    height: 19px;
+    left: 720px;
+    top: 40px;
+    text-decoration: none;
+    font-size: 16px;
+    
+}
+
+.pizza1 {
+position: absolute;
+width: 234px;
+height: 80px;
+left: 20px;
+top: 10px;
+}
+
+body {
+    width: 986px;
+    height: 350px;
+    left: 19px;
+    top: 135px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: center;
+}
+
+.delivery   {
+    background-image: url(../img/delivery.png);
+    height: 350px;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 490px;
+    height: 350px;
+    left: 19px;
+    top: 135px;
+}
+
+.envio {
+    position: absolute;
+    width: 485px;
+    height: 28px;
+    left: 21px;
+    top: 139px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    top: 2px;
+    color: #FC200C;
+}
+
+a {
+    color: white;
+}
+
+.cardápio {
+position: absolute;
+width: 205px;
+height: 28px;
+left: 674px;
+top: 161px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 24px;
+line-height: 28px;
+color: #FC200C;
+}
+
+.ingredientes {
+position: absolute;
+width: 92px;
+height: 129px;
+left: 839px;
+top: 267px;
+background: url(../img/ingredientes.png);
+border-radius: 5px;
+}
+
+.card {
+color: black;
+position: absolute;
+width: 385px;
+height: 250px;
+left: 565px;
+top: 219px;
+box-sizing: border-box;
+font-size: 24px;
+}
+
+footer {
+    background-color: black;
+    position: absolute;
+    width: 1024px;
+    height: 150px;
+    left: 0;
+    top: 520px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;    
+}
+.bottom {
+    position: absolute;
+    width: 74px;
+    height: 112px;
+    left: 20px;
+    top: 19px;
+    color: #f3f3f3;
+    font-size: 16;
+    font-family: 'Roboto', sans-serif;
+}
+
+.pizza2 {
+    position: absolute;
+    width: 234px;
+    height: 80px;
+    bottom: 35px;
+    top: 35px;
+    padding-left: 75%;
+    }
