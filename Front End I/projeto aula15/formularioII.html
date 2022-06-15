@@ -1,0 +1,153 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styleF.css">
+
+    <title>Adicionar Novos Herois</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="bar-descount">
+               <span>20% de desconto em todos os produtos!</span>
+        </div>
+   
+        <div class="title">
+               <div class="Sale"></div>
+               <h1 class="t">Super-heróis</h1>
+        </div>
+   
+   
+        <div class="menu">
+            <nav>
+                <ul>
+                    <li><a href="">Contato</a></li>
+                    <li><a href="">Registrar-se</a></li>
+                    <li><a href="">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+
+    <main>
+
+        <section class="cadastro">
+            <h1>Adicionar seu super-herói</h1>
+
+            <h2>Adicione seu personagem favorito completando as informações</h2>
+
+            <form action="" method="post" class="formulario">
+                <div class="formulario__infos">
+
+                    <div class="form__col1">
+
+                        <div>
+                            <label for="nome">*Nome</label>
+                            <input type="text" name="nome" id="nome" required placeholder="Informe seu nome completo">
+                        </div>
+
+                        <div>
+                            <label for="dtNascimento">Data de Nascimento</label>
+                            <input type="date" name="dtNascimento" id="dtNascimento" required>
+                        </div>
+
+                        <div>
+                            <textarea name="descricao" id="descricao" placeholder="Descrição do super-herói"></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="form__col2">
+                        <div>
+                            <h4>Espécie</h4>
+                            <select name="especie" id="especie" required>
+                                <option value="none">Espécie</option>
+                                <option value="Humano">Humano</option>
+                                <option value="Alien">Alien</option>
+                            </select>
+                        </div>
+
+                        <div class="add_foto">
+                            <h4>Adicionar Foto</h4>
+                            <input type="file" id="foto" name="foto" accept="image/*" required>
+                        </div>
+
+                        <div class="Poderes">
+                             <h4>Poderes</h4>
+
+                            <div>
+                                <input type="checkbox" name="poderes" id="voar" value="voar" >
+                                <label for="voar">Voar</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="poderes" id="Super_Inteligência" value="Super Inteligência">
+                                <label for="Super_Inteligência">Super Inteligência</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="poderes" id="Super_Forca" value="Super Força">
+                                <label for="Super_Forca">Super Força</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="poderes" id="Invisibilidade" value="Invisibilidade">
+                                <label for="Invisibilidade">Invisibilidade</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="poderes" id="Teletransporte" value="Teletransporte">
+                                <label for="Teletransporte">Teletransporte</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="poderes" id="Controlar_Elementos" value="Controlar Elementos">
+                                <label for="Controlar_Elementos">Controlar Elementos</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="poderes" id="Super_Velocidade" value="Super Velocidade">
+                                <label for="Super_Velocidade">Super Velocidade</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="poderes" id="Invulnerabilidade" value="Invulnerabilidade">
+                                <label for="Invulnerabilidade">Invulnerabilidade</label>
+                            </div>
+                        </div>
+
+                        <hr></hr>
+
+                        <div class="TP">
+                            <h4>Tipo de Personagem</h4>
+                            <div class></div>
+                            <p><input type="radio" name="Tipo_de_Personagem" value="Herói / Heroína" id="Herói / Heroína" checked> 
+                            <label for="Tipo_de_Personagem">Herói / Heroína</label>
+                            </p>
+                            <p>
+                            <input type="radio" name="Tipo_de_Personagem" value="Vilão / Vilã" id="Vilão / Vilã"> 
+                            <label for="Tipo_de_Personagem">Vilão / Vilã</label>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    </div>
+
+                    <div class="formulario__botao">
+                        <input type="submit" value="Adicionar">
+                    </div>
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        
+        <span class="rodapé">Todos os direitos reservados a Front-end I</span>
+        <div class="img_Git"></div>
+
+    </footer>
+
+</body>
+
+</html>

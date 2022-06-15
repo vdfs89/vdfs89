@@ -1,15 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato&family=Roboto&family=Roboto+Flex:opsz,wght@8..144,200;8..144,300&family=Tiro+Devanagari+Hindi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto&display=swap');
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
 }
-/*font-family: 'Lato', sans-serif;
-font-family: 'Roboto', sans-serif;
-font-family: 'Roboto Flex', sans-serif;
-font-family: 'Tiro Devanagari Hindi', serif;*/
 
 body {
     width: auto;
@@ -19,9 +14,13 @@ body {
 }
 
 header {
-    background-color: lavender;
-    width: 1980px;
-    height: auto;
+    background-color: #009541; 
+    width: 100%;
+    height: 215px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif; 
+    padding: 10px;
 }
 
 .top {
@@ -30,22 +29,28 @@ header {
     width: auto;
     height: auto;
     align-items: center;
+    
 }
 
 .Logo {
-    background-image: url("../img/mapa_pontos_turisticos.jpg");
+    background-image: url("../img/bandeira_parana.gif");
     background-repeat: no-repeat;
     align-items: center;
     width: 300px;
     height: 180px;
     margin: auto;
+    background-position: center;
+    background-size: cover;
 }
 
 .navbar {
+    background-color: transparent;
     align-self: center;
-    align-content: stretch;
+    align-content: center;
     margin: auto;
-    font-size: 24px;
+    font-size: 1rem;
+    display: inline-block;
+    
 }
 
 li {
@@ -66,34 +71,281 @@ li a {
     text-decoration: none;
 }
 
-li a:hover:not(.active) {
-    background-color: grey;
-}
-
-li a.active {
-    color: white;
-    background-color: #04AA6D;
+li a:hover {
+    background-color: #111;
+    color: #009541;
 }
 
 main {
-    display: flex;
-    border-color: 5px solid black ;
-    padding: 10px solid black;
-}
-.Sobre_o_Estado {
-    background-image: url("../img/bandeira_parana.gif");
-    width: auto;
-    height: auto;
-    margin: 20px;
-    background-repeat: round; 
-    text-indent: 2em;  
+    background-color: whitesmoke;
+    
 }
 
-.Sobre_o_Estado h1 {
+.imagem {
+    background-image: url("../img/Cataratas2.jpg");
+    width: 100%;
+    height: 532px;
+    background-repeat: no-repeat;
+    background-size: cover;  
+}
+
+.sobre_o_estado{
+    text-indent: 1.5rem;
+    font-family: 'lobster', cursive;
+    padding: 5%;
+    align-self: center;
+}
+
+.sobre_o_estado H1 {
     text-align: center;
+    color: rgb(3,36,0);
+    font-size: 2rem;
+}
+
+.sobre_o_estado p {
+    text-align: justify;
+    opacity: 0.8;
+    text-align: center;
+}
+
+.Pontos_Turísticos {
+    margin-top: 2%;
+    text-align: justify;
+    padding: 2%;
+    background-color: whitesmoke;
+    font-size: 1.5rem;
+}
+
+.Pontos_Turísticos h2 {
+    margin: 5%;
+    text-align: justify;
+}
+.container_cards {
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+.ccard {
+    width: 30%;
+    height: 250px; 
+    margin: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: contain;
+    border: 2px solid black;
+    background-color: green;
+    border-radius: 31px;   
+}
+
+
+.card1 {
+    background-image: url("../img/card1.jpg");
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    justify-content: center;
+    border-radius: 30px;
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.card2 {
+    background-image: url("../img/card2.jpg");
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    background-position: center;
+    border-radius: 30px;    
+}
+
+.card3 {
+    background-image: url("../img/card3.jpg");
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    border-radius: 30px;
+    background-position: center;
 
 }
-.estado p {
+
+.card4 {
+    background-image: url("../img/card4.jpg");
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    border-radius: 30px;
+    background-position: center;
+}
+
+.card5 {
+    background-image: url("../img/card5.jpg");
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    border-radius: 30px;
+    background-position: center;
+}
+
+.card6 {
+    background-image: url("../img/card6.jpg");
+    width: 100%;
+    height: 250px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    justify-content: center;
+    border-radius: 30px;
+    background-position: center;
+}
+
+.Vídeo {
     text-align: justify;
-    font-size: 30px;
+    margin: 5%;
+    font-family: "lobster";
+    line-height: 3rem;
+    align-content: center;
+    font-size: 1.5rem;
+    padding: 2%;
+
+}
+
+.content_vídeo {
+    text-align: center;
+    margin: 2%;
+}
+
+iframe {
+    width: 560px;
+    height: 315px;
+}
+
+footer {
+background-color: #009541;
+width: 100%;
+height: 250px;
+display: flex;
+}
+
+footer h3{
+    margin: 5%;
+    color: white;
+}
+
+.content_redes {
+    flex-direction: row;
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.github {
+    background-image: url("../img/github.png");
+    background-size: contain;
+    border-radius: 50%;
+    width: 141px;
+    height: 141px;
+    align-items: center;
+    background-repeat: no-repeat;
+    
+}
+
+.linkedin {
+    background-image: url("../img/LinkedIn_logo.png");
+    background-size: contain;
+    border-radius: 50%;
+    width: 141px;
+    height: 141px;
+    align-self: center;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 425px) {
+
+    header {
+        height: auto; 
+    }
+
+    .top {
+        text-align: center;
+        flex-direction: column;       
+    }
+    .Logo {
+        width: 80%;
+        height: 140px;
+        margin: 1%;
+        align-self: center;
+        background-position: center;    
+    }
+
+    li {
+        flex-direction: column;
+        width: 60%;
+        margin: 1%;
+
+    }
+
+    main {
+        width: 100%;
+    }
+
+    .imagem {
+        background-size: contain;
+        height: 250px;
+        width: 100%;
+    }
+    
+    .container_cards {
+        width: 90%;
+        height: 90%;
+        flex-direction: column;
+    }
+
+    .ccard {
+        width: 100%;
+    }
+
+    .content_vídeo {
+        width: 80%;
+        height: 60%;
+
+    }
+
+    footer {
+        flex-direction: column;
+        font-size: 2rem;
+        height: 400px;
+    }
+
+    .content_redes {
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .linkedin {
+        margin: 2%;
+    }
+
+    .github {
+        margin: 2%;
+    }
 }
