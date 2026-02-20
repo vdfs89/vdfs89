@@ -53,6 +53,22 @@ Sou um profissional em transição estratégica, unindo **14 anos de resiliênci
 
 ---
 
+## 📈 Minhas Estatísticas no GitHub
+
+Aqui você pode ver o reflexo dos meus estudos diários em Ciência da Computação e IA:
+
+<p align="left">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=vdfs89&show_icons=true&theme=radical&include_all_commits=true&count_private=true" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=vdfs89&layout=compact&theme=radical" />
+</p>
+
+### 🔥 Sequência de Atividade (Streak)
+<p align="left">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=vdfs89&theme=radical" />
+</p>
+
+---
+
 ## 📫 Vamos construir o futuro da IA juntos?
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vitor-silva-7418111a2/)
