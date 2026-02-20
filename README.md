@@ -25,7 +25,7 @@ Sou um profissional em transição estratégica, unindo **14 anos de resiliênci
 - **Diferencial:** Implementação de aprendizado ativo com feedback em tempo real via IA Generativa.
 
 ### 🤸 [CorpoEmAcao](https://github.com/vdfs89/corpo-em-acao)
-**Plataforma de Alta Performance para Calistenia**
+**Plataforma de Alta Performance para Musculação**
 - **Stack:** Flutter e Python.
 - **Visão de Futuro:** Integrando Visão Computacional para contagem automática de repetições e correção de postura.
 
@@ -47,7 +47,7 @@ Sou um profissional em transição estratégica, unindo **14 anos de resiliênci
 ## ⚡ Além do Terminal
 
 - **Localização:** Curitiba/PR ❄️
-- **Estilo de Vida:** Praticante de calistenia, entusiasta de energia renovável (Solar/Eólica) e marcenaria.
+- **Estilo de Vida:** Praticante de Musculação, entusiasta de energia renovável (Solar/Eólica) e marcenaria.
 - **Mindset:** "O código limpo é a base; a arquitetura é o que sustenta o crescimento."
 - **Combustível:** Café preto, forte e sem açúcar. ☕
 
