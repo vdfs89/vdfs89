@@ -1,4 +1,7 @@
-<p align="right">
+<p align="center">
+  <img src="./assets/github-banner-vitor.png" alt="Vitor Silva GitHub Banner" width="100%">
+</p>
+<p align="left">
   <a href="#portuguese">Português 🇧🇷</a> | <a href="#english">English 🇺🇸</a>
 </p>
 
