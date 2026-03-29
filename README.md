@@ -46,7 +46,7 @@ Sou um desenvolvedor em transição estratégica, integrando uma sólida trajet�
 
 ## 📚 Educação & Evolução Contínua
 
-- **Graduação:** Ciência da Computação (Previsão de conclusão: **Julho de 2027**).
+- **Graduação:** Ciência da Computação (Previsão de conclusão: **JDezembro de 2026**).
 - **Pós-Graduação:** Data Science & Projetos de Cloud Computing (Em andamento).
 - **Foco Técnico:** MLOps, Arquitetura de Sistemas Distribuídos (MapReduce/Spark) e Engenharia de Prompt.
 
@@ -103,7 +103,7 @@ I am a software engineer executing a strategic career pivot, integrating a solid
 
 ## 📚 Education & Continuous Growth
 
-- **B.S. in Computer Science** (Expected Graduation: **July 2027**).
+- **B.S. in Computer Science** (Expected Graduation: **December 2026**).
 - **Post-Graduation:** Data Science & Cloud Computing Projects (In progress).
 - **Current Research:** MLOps, Distributed Systems Architecture (MapReduce/Spark), and Prompt Engineering.
 
