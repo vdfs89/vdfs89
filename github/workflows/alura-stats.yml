@@ -1,0 +1,18 @@
+name: Alura Stats Update
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Roda todo dia à meia-noite
+  workflow_dispatch: # Permite que você rode manualmente para testar agora
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Update Alura Stats
+        uses: leonardosnt/alura-stats-action@v1.1.0
+        with:
+          alura_username: vdfs89 
+          alura_token: ${{ secrets.ALURA_TOKEN }}
+          
