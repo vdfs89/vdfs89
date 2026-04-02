@@ -123,6 +123,10 @@ I am a software engineer executing a strategic career pivot, integrating a solid
 
 ---
 
+### 🎓 Alura Progress (Automated)
+
+---
+
 ## 📫 Vamos construir o futuro da IA juntos? | Let's build the future!
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vitor-silva-7418111a2/)
