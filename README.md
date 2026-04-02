@@ -112,8 +112,8 @@ I am a software engineer executing a strategic career pivot, integrating a solid
 ## 📈 Minhas Estatísticas | My Stats
 
 <p align="left">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=vdfs89&show_icons=true&theme=radical&include_all_commits=true&count_private=true&cache_seconds=1800" />
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=vdfs89&layout=compact&theme=radical&cache_seconds=1800" />
+  <img height="180" src="https://github-readme-stats.vercel.app/api?username=vdfs89&show_icons=true&theme=radical&include_all_commits=true&count_private=true" />
+  <img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=vdfs89&layout=compact&theme=radical" />
 </p>
 
 ### 🔥 Streak
