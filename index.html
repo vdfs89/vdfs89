@@ -1,17 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
+    <meta name="description" content="AI Engineer & Solutions Architect. Especialista em sistemas agenticos, RAG, LLM orchestration e APIs de produção.">
     <title>Vitor Silva | AI Engineer & Solutions Architect</title>
+    
+    <!-- OpenGraph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vitorsilva.dev">
+    <meta property="og:title" content="Vitor Silva | AI Engineer & Solutions Architect">
+    <meta property="og:description" content="Especialista em sistemas agenticos, RAG, orquestração de LLMs e APIs de produção. Portfolio premium com projetos ao vivo.">
+    <meta property="og:image" content="https://vitorsilva.dev/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vitor Silva | AI Engineer">
+    <meta name="twitter:description" content="Portfolio de IA: LLM orchestration, RAG systems, agentic workflows, FastAPI backends.">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a class="skip-link" href="#content">Skip to content</a>
+    <a class="skip-link" href="#content" data-i18n="skip">Pular para o conteúdo</a>
 
     <div class="site-bg" aria-hidden="true">
         <div class="site-bg__orb site-bg__orb--one"></div>
@@ -26,7 +38,7 @@
                 <span class="brand__mark">VS</span>
                 <span class="brand__text">
                     <strong>Vitor Silva</strong>
-                    <span>AI Engineer</span>
+                    <span data-i18n="brand.role">Engenheiro de IA</span>
                 </span>
             </a>
 
@@ -37,14 +49,16 @@
             </button>
 
             <nav class="nav" data-nav-menu>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#experience">Experience</a>
-                <a href="#stack">Stack</a>
-                <a href="#contact">Contact</a>
+                <a href="#about" data-i18n="nav.about">Sobre</a>
+                <a href="#projects" data-i18n="nav.projects">Projetos</a>
+                <a href="#experience" data-i18n="nav.experience">Experiência</a>
+                <a href="#stack" data-i18n="nav.stack">Stack</a>
+                <a href="#contact" data-i18n="nav.contact">Contato</a>
             </nav>
 
-            <a class="button button--ghost header__cta" href="mailto:vitor_diogo89@hotmail.com">Email Me</a>
+            <button class="button button--ghost lang-toggle header__lang-toggle" type="button" data-lang-toggle aria-label="Switch language">EN</button>
+
+            <a class="button button--ghost header__cta" href="mailto:vitor_diogo89@hotmail.com" data-i18n="header.email">Me escreva</a>
         </div>
     </header>
 
@@ -55,31 +69,31 @@
                 <div class="hero__content reveal">
                     <div class="eyebrow">
                         <span class="eyebrow__dot"></span>
-                        Open to international opportunities
+                        <span data-i18n="hero.eyebrow">Disponível para oportunidades internacionais</span>
                     </div>
 
-                    <p class="hero__role">AI Engineer and Solutions Architect</p>
+                    <p class="hero__role" data-i18n="hero.role">Engenheiro de IA e Solutions Architect</p>
                     <h1 class="hero__title">Vitor Silva</h1>
-                    <p class="hero__subtitle">I design AI systems that feel like real products: sharp, reliable, and ready for production.</p>
-                    <p class="hero__copy">LLMs, agentic workflows, RAG, automations, data pipelines, and backend systems - shaped with the discipline of someone who has operated mission-critical environments for more than a decade.</p>
+                    <p class="hero__subtitle" data-i18n="hero.subtitle">Eu desenho sistemas de IA que parecem produtos reais: precisos, confiáveis e prontos para produção.</p>
+                    <p class="hero__copy" data-i18n="hero.copy">LLMs, fluxos agênticos, RAG, automações, pipelines de dados e backend, com a disciplina de quem operou ambientes críticos por mais de uma década.</p>
 
                     <div class="hero__actions">
-                        <a class="button button--primary" href="#projects">View Projects</a>
-                        <a class="button button--secondary" href="#contact">Contact Me</a>
+                        <a class="button button--primary" href="#projects" data-i18n="hero.primaryCta">Ver Projetos</a>
+                        <a class="button button--secondary" href="#contact" data-i18n="hero.secondaryCta">Fale Comigo</a>
                     </div>
 
                     <div class="hero__meta">
                         <div class="meta-card">
                             <span>14+</span>
-                            <small>Years in operations</small>
+                            <small data-i18n="hero.meta.one">Anos em operações</small>
                         </div>
                         <div class="meta-card">
                             <span>3</span>
-                            <small>Featured AI projects</small>
+                            <small data-i18n="hero.meta.two">Projetos de IA em destaque</small>
                         </div>
                         <div class="meta-card">
-                            <span>Remote</span>
-                            <small>Available for global roles</small>
+                            <span data-i18n="hero.meta.three.value">Remoto</span>
+                            <small data-i18n="hero.meta.three.label">Disponível para vagas globais</small>
                         </div>
                     </div>
                 </div>
@@ -87,28 +101,28 @@
                 <aside class="hero__panel reveal reveal--delay-1">
                     <div class="profile-card">
                         <div class="profile-card__top">
-                            <span class="status-pill"><span></span> Available for new roles</span>
-                            <span class="profile-card__tag">Premium AI Portfolio</span>
+                            <span class="status-pill"><span></span> <span data-i18n="hero.status">Disponível para novas oportunidades</span></span>
+                            <span class="profile-card__tag" data-i18n="hero.panelTag">Portfólio Premium de IA</span>
                         </div>
 
                         <div class="profile-card__body">
-                            <p class="profile-card__label">Focus</p>
-                            <h2>Production AI systems with clear product value.</h2>
-                            <p>I build agents, retrieval systems, and operational tools with a strong balance between technical depth and user outcome.</p>
+                            <p class="profile-card__label" data-i18n="hero.focusLabel">Foco</p>
+                            <h2 data-i18n="hero.panelTitle">Sistemas de IA em produção com valor claro de produto.</h2>
+                            <p data-i18n="hero.panelCopy">Construo agentes, sistemas de recuperação e ferramentas operacionais com equilíbrio entre profundidade técnica e resultado para o usuário.</p>
                         </div>
 
                         <div class="profile-card__stats">
                             <div>
                                 <strong>AI</strong>
-                                <span>Agents and orchestration</span>
+                                <span data-i18n="hero.stat.one">Agentes e orquestração</span>
                             </div>
                             <div>
                                 <strong>Data</strong>
-                                <span>RAG, pipelines, analysis</span>
+                                <span data-i18n="hero.stat.two">RAG, pipelines, análise</span>
                             </div>
                             <div>
                                 <strong>Backend</strong>
-                                <span>FastAPI, Python, APIs</span>
+                                <span data-i18n="hero.stat.three">FastAPI, Python, APIs</span>
                             </div>
                         </div>
                     </div>
@@ -120,26 +134,26 @@
         <section class="section" id="about">
             <div class="container section__grid section__grid--split">
                 <div class="section-heading reveal">
-                    <p class="section-kicker">About</p>
-                    <h2>Measured engineering, refined execution, and AI with a product mindset.</h2>
+                    <p class="section-kicker" data-i18n="about.kicker">Sobre</p>
+                    <h2 data-i18n="about.title">Engenharia medida, execução refinada e IA com mentalidade de produto.</h2>
                 </div>
 
                 <div class="about-card reveal reveal--delay-1">
-                    <p>My background combines more than 14 years in operational environments with recent work in AI engineering, backend development, and applied machine learning.</p>
-                    <p>I focus on systems that are clear to understand, pleasant to use, and strong enough to support real usage in production settings.</p>
+                    <p data-i18n="about.copy.one">Minha trajetória combina mais de 14 anos em ambientes operacionais com trabalhos recentes em engenharia de IA, backend e machine learning aplicado.</p>
+                    <p data-i18n="about.copy.two">Meu foco está em sistemas claros de entender, agradáveis de usar e fortes o suficiente para sustentar uso real em produção.</p>
 
                     <div class="about-card__highlights">
                         <div>
                             <span>14+ years</span>
-                            <small>Operations and reliability mindset</small>
+                            <small data-i18n="about.highlight.one">Mentalidade de operação e confiabilidade</small>
                         </div>
                         <div>
                             <span>AI systems</span>
-                            <small>Agents, RAG, automation, data</small>
+                            <small data-i18n="about.highlight.two">Agentes, RAG, automação, dados</small>
                         </div>
                         <div>
                             <span>Global-ready</span>
-                            <small>Portfolio tuned for international hiring</small>
+                            <small data-i18n="about.highlight.three">Portfólio preparado para vagas internacionais</small>
                         </div>
                     </div>
                 </div>
@@ -150,18 +164,18 @@
         <section class="section" id="projects">
             <div class="container">
                 <div class="section-heading reveal">
-                    <p class="section-kicker">Featured Projects</p>
-                    <h2>Selected work with premium presentation and production-minded thinking.</h2>
+                    <p class="section-kicker" data-i18n="projects.kicker">Projetos em Destaque</p>
+                    <h2 data-i18n="projects.title">Trabalhos selecionados com apresentação premium e pensamento orientado à produção.</h2>
                 </div>
 
                 <div class="projects-grid">
                     <article class="project-card project-card--featured reveal">
                         <div class="project-card__header">
                             <span class="project-card__index">01</span>
-                            <span class="project-card__status">Featured</span>
+                            <span class="project-card__status" data-i18n="projects.status.featured">Em destaque</span>
                         </div>
                         <h3>FluencyForge</h3>
-                        <p>An adaptive learning system with multi-agent orchestration, designed to personalize study paths in real time using contextual retrieval and long-term state.</p>
+                        <p data-i18n="projects.one.copy">Sistema de aprendizagem adaptativa com orquestração multiagente, criado para personalizar trilhas de estudo em tempo real com recuperação contextual e estado de longo prazo.</p>
                         <div class="project-card__tags">
                             <span>LangGraph</span>
                             <span>FastAPI</span>
@@ -170,7 +184,8 @@
                             <span>Gemini API</span>
                         </div>
                         <div class="project-card__footer">
-                            <span>Multi-agent education workflow</span>
+                            <span data-i18n="projects.one.footer">Fluxo educacional multiagente</span>
+                            <a href="https://fluencyforge.streamlit.app/" target="_blank" rel="noreferrer" data-i18n="projects.demo">Ver demo</a>
                             <a href="https://github.com/vdfs89/fluencyforge" target="_blank" rel="noreferrer">GitHub</a>
                         </div>
                     </article>
@@ -178,10 +193,10 @@
                     <article class="project-card reveal reveal--delay-1">
                         <div class="project-card__header">
                             <span class="project-card__index">02</span>
-                            <span class="project-card__status project-card__status--amber">Live concept</span>
+                            <span class="project-card__status project-card__status--amber" data-i18n="projects.status.live">Conceito ativo</span>
                         </div>
                         <h3>MestreGrana</h3>
-                        <p>A financial assistant with multi-LLM routing and grounded responses, built to balance latency, cost, and answer quality.</p>
+                        <p data-i18n="projects.two.copy">Assistente financeiro com roteamento multi-LLM e respostas fundamentadas, criado para equilibrar latência, custo e qualidade das respostas.</p>
                         <div class="project-card__tags">
                             <span>Python</span>
                             <span>LangChain</span>
@@ -189,18 +204,19 @@
                             <span>FastAPI</span>
                         </div>
                         <div class="project-card__footer">
-                            <span>LLM orchestration and routing</span>
-                            <span class="project-card__note">Source available on request</span>
+                            <span data-i18n="projects.two.footer">Orquestração e roteamento de LLM</span>
+                            <a href="https://mestregrana.streamlit.app/" target="_blank" rel="noreferrer" data-i18n="projects.demo">Ver demo</a>
+                            <a href="https://github.com/vdfs89/InvestimentoDIO" target="_blank" rel="noreferrer">GitHub</a>
                         </div>
                     </article>
 
                     <article class="project-card reveal reveal--delay-2">
                         <div class="project-card__header">
                             <span class="project-card__index">03</span>
-                            <span class="project-card__status project-card__status--blue">2026</span>
+                            <span class="project-card__status project-card__status--blue" data-i18n="projects.status.year">2026</span>
                         </div>
                         <h3>Harmoniz.AI</h3>
-                        <p>A data-driven recommendation engine that connects biometrics, supplementation routines, and predictive AI into a personalized workflow.</p>
+                        <p data-i18n="projects.three.copy">Motor de recomendação orientado por dados que conecta biometria, rotinas de suplementação e IA preditiva em um fluxo personalizado.</p>
                         <div class="project-card__tags">
                             <span>Python</span>
                             <span>Data Analysis</span>
@@ -208,8 +224,9 @@
                             <span>Predictive AI</span>
                         </div>
                         <div class="project-card__footer">
-                            <span>Human performance analytics</span>
-                            <span class="project-card__note">Placeholder ready for edits</span>
+                            <span data-i18n="projects.three.footer">Análise de performance humana</span>
+                            <a href="https://harmonizai.streamlit.app/" target="_blank" rel="noreferrer" data-i18n="projects.demo">Ver demo</a>
+                            <a href="https://github.com/vdfs89/Harmoniz.AI" target="_blank" rel="noreferrer">GitHub</a>
                         </div>
                     </article>
                 </div>
@@ -220,21 +237,21 @@
         <section class="section" id="experience">
             <div class="container section__grid section__grid--experience">
                 <div class="section-heading reveal">
-                    <p class="section-kicker">Experience Timeline</p>
-                    <h2>Operational maturity meets modern AI engineering.</h2>
+                    <p class="section-kicker" data-i18n="experience.kicker">Linha do Tempo</p>
+                    <h2 data-i18n="experience.title">Maturidade operacional encontrando engenharia de IA moderna.</h2>
                 </div>
 
                 <div class="timeline reveal reveal--delay-1">
                     <article class="timeline-item">
                         <span class="timeline-item__marker"></span>
                         <div class="timeline-item__meta">2011 - Present</div>
-                        <h3>Brazilian Post and Telegraph Company</h3>
-                        <p class="timeline-item__subtitle">Operational Support | Curitiba, PR</p>
-                        <p>Built a strong reliability mindset through high-pressure operations, system continuity, and problem-solving in environments that do not tolerate failure.</p>
+                        <h3 data-i18n="experience.one.role">Empresa Brasileira de Correios e Telégrafos</h3>
+                        <p class="timeline-item__subtitle" data-i18n="experience.one.subtitle">Suporte Operacional | Curitiba, PR</p>
+                        <p data-i18n="experience.one.copy">Construí uma forte mentalidade de confiabilidade por meio de operações sob pressão, continuidade de sistemas e resolução de problemas em ambientes que não toleram falhas.</p>
                         <ul>
-                            <li>Supported critical workflows and service continuity.</li>
-                            <li>Contributed to corporate system implementation and user support.</li>
-                            <li>Developed a practical sense for risk, SLA, and execution quality.</li>
+                            <li data-i18n="experience.one.li1">Apoiei fluxos críticos e a continuidade dos serviços.</li>
+                            <li data-i18n="experience.one.li2">Contribuí para implementação de sistemas corporativos e suporte ao usuário.</li>
+                            <li data-i18n="experience.one.li3">Desenvolvi uma visão prática sobre risco, SLA e qualidade de execução.</li>
                         </ul>
                     </article>
 
@@ -242,24 +259,24 @@
                         <span class="timeline-item__marker"></span>
                         <div class="timeline-item__meta">2023 - 2027</div>
                         <h3>Descomplica Faculdade Digital</h3>
-                        <p class="timeline-item__subtitle">BSc in Computer Science</p>
-                        <p>Academic foundation in algorithms, systems, and software thinking, paired with self-directed study in AI engineering and backend design.</p>
+                        <p class="timeline-item__subtitle" data-i18n="experience.two.subtitle">Bacharelado em Ciência da Computação</p>
+                        <p data-i18n="experience.two.copy">Base acadêmica em algoritmos, sistemas e raciocínio de software, somada a estudos autodirigidos em engenharia de IA e backend.</p>
                         <ul>
-                            <li>Computer science fundamentals with a practical focus.</li>
-                            <li>Complementary studies in MLOps, APIs, and data engineering.</li>
+                            <li data-i18n="experience.two.li1">Fundamentos de ciência da computação com foco prático.</li>
+                            <li data-i18n="experience.two.li2">Estudos complementares em MLOps, APIs e engenharia de dados.</li>
                         </ul>
                     </article>
 
                     <article class="timeline-item">
                         <span class="timeline-item__marker timeline-item__marker--active"></span>
                         <div class="timeline-item__meta">2024 - Present</div>
-                        <h3>AI Engineer and Solutions Architect</h3>
-                        <p class="timeline-item__subtitle">Personal projects and portfolio work</p>
-                        <p>Shaping AI products with RAG, multi-agent flows, and production-ready APIs, always with an eye on clarity, maintainability, and business value.</p>
+                        <h3 data-i18n="experience.three.role">Engenheiro de IA e Solutions Architect</h3>
+                        <p class="timeline-item__subtitle" data-i18n="experience.three.subtitle">Projetos autorais e portfólio</p>
+                        <p data-i18n="experience.three.copy">Estruturando produtos de IA com RAG, fluxos multiagentes e APIs prontas para produção, sempre com foco em clareza, manutenção e valor de negócio.</p>
                         <ul>
-                            <li>Agentic systems with state, memory, and orchestration.</li>
-                            <li>FastAPI services with async patterns and structured interfaces.</li>
-                            <li>Retrieval pipelines designed for practical use cases.</li>
+                            <li data-i18n="experience.three.li1">Sistemas agênticos com estado, memória e orquestração.</li>
+                            <li data-i18n="experience.three.li2">Serviços FastAPI com padrões assíncronos e interfaces estruturadas.</li>
+                            <li data-i18n="experience.three.li3">Pipelines de recuperação pensados para casos de uso reais.</li>
                         </ul>
                     </article>
                 </div>
@@ -270,13 +287,13 @@
         <section class="section" id="stack">
             <div class="container">
                 <div class="section-heading reveal">
-                    <p class="section-kicker">Tech Stack</p>
-                    <h2>Organized by category, not by buzzword.</h2>
+                    <p class="section-kicker" data-i18n="stack.kicker">Stack</p>
+                    <h2 data-i18n="stack.title">Organizada por categoria, não por buzzword.</h2>
                 </div>
 
                 <div class="stack-grid">
                     <article class="stack-card reveal">
-                        <h3>Languages</h3>
+                        <h3 data-i18n="stack.languages">Linguagens</h3>
                         <div class="badge-grid">
                             <span>Python</span>
                             <span>Dart</span>
@@ -286,7 +303,7 @@
                     </article>
 
                     <article class="stack-card reveal reveal--delay-1">
-                        <h3>AI / ML</h3>
+                        <h3 data-i18n="stack.ai">IA / ML</h3>
                         <div class="badge-grid">
                             <span>LangGraph</span>
                             <span>LangChain</span>
@@ -298,7 +315,7 @@
                     </article>
 
                     <article class="stack-card reveal reveal--delay-2">
-                        <h3>Frameworks</h3>
+                        <h3 data-i18n="stack.frameworks">Frameworks</h3>
                         <div class="badge-grid">
                             <span>FastAPI</span>
                             <span>Flutter</span>
@@ -308,7 +325,7 @@
                     </article>
 
                     <article class="stack-card reveal">
-                        <h3>Data</h3>
+                        <h3 data-i18n="stack.data">Dados</h3>
                         <div class="badge-grid">
                             <span>MongoDB</span>
                             <span>PostgreSQL</span>
@@ -318,7 +335,7 @@
                     </article>
 
                     <article class="stack-card reveal reveal--delay-1">
-                        <h3>Cloud / MLOps</h3>
+                        <h3 data-i18n="stack.cloud">Cloud / MLOps</h3>
                         <div class="badge-grid">
                             <span>AWS</span>
                             <span>GCP</span>
@@ -330,7 +347,7 @@
                     </article>
 
                     <article class="stack-card reveal reveal--delay-2">
-                        <h3>Tools</h3>
+                        <h3 data-i18n="stack.tools">Ferramentas</h3>
                         <div class="badge-grid">
                             <span>Linux</span>
                             <span>WSL</span>
@@ -347,14 +364,14 @@
         <section class="section section--contact" id="contact">
             <div class="container">
                 <div class="contact-card reveal">
-                    <p class="section-kicker">Contact</p>
-                    <h2>Let's build something that feels like a real product.</h2>
-                    <p>If you are hiring for AI engineering, backend development, or product-focused technical roles, this portfolio is ready for the next conversation.</p>
+                    <p class="section-kicker" data-i18n="contact.kicker">Contato</p>
+                    <h2 data-i18n="contact.title">Vamos construir algo que pareça um produto de verdade.</h2>
+                    <p data-i18n="contact.copy">Se você está contratando para IA, backend ou funções técnicas com foco em produto, este portfólio está pronto para a próxima conversa.</p>
 
                     <div class="contact-card__actions">
-                        <a class="button button--primary" href="mailto:vitor_diogo89@hotmail.com">Email Me</a>
-                        <a class="button button--secondary" href="https://github.com/vdfs89" target="_blank" rel="noreferrer">GitHub</a>
-                        <a class="button button--secondary" href="https://linkedin.com/in/vdfs89" target="_blank" rel="noreferrer">LinkedIn</a>
+                        <a class="button button--primary" href="mailto:vitor_diogo89@hotmail.com" data-i18n="contact.email">Me escreva</a>
+                        <a class="button button--secondary" href="https://github.com/vdfs89" target="_blank" rel="noreferrer" data-i18n="contact.github">GitHub</a>
+                        <a class="button button--secondary" href="https://linkedin.com/in/vdfs89" target="_blank" rel="noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -365,28 +382,261 @@
     <footer class="footer">
         <div class="container footer__inner">
             <p>Vitor Silva</p>
-            <p>AI Engineer and Solutions Architect</p>
+            <p data-i18n="footer.role">Engenheiro de IA e Solutions Architect</p>
             <p>Curitiba, PR</p>
         </div>
     </footer>
 
     <script>
+        const translations = {
+            pt: {
+                skip: 'Pular para o conteúdo',
+                'brand.role': 'Engenheiro de IA',
+                'nav.about': 'Sobre',
+                'nav.projects': 'Projetos',
+                'nav.experience': 'Experiência',
+                'nav.stack': 'Stack',
+                'nav.contact': 'Contato',
+                'header.email': 'Me escreva',
+                'hero.eyebrow': 'Disponível para oportunidades internacionais',
+                'hero.role': 'Engenheiro de IA e Solutions Architect',
+                'hero.subtitle': 'Desenvolvo sistemas de IA com linguagem de produto, clareza arquitetural e foco em produção.',
+                'hero.copy': 'LLMs, fluxos agênticos, RAG, automações, pipelines de dados e backend, sustentados por uma base operacional construída em ambientes críticos.',
+                'hero.primaryCta': 'Ver Projetos',
+                'hero.secondaryCta': 'Fale Comigo',
+                'hero.meta.one': 'Anos em operações',
+                'hero.meta.two': 'Projetos de IA em destaque',
+                'hero.meta.three.value': 'Remoto',
+                'hero.meta.three.label': 'Disponível para vagas globais',
+                'hero.status': 'Disponível para novas oportunidades',
+                'hero.panelTag': 'Portfólio Premium de IA',
+                'hero.focusLabel': 'Foco',
+                'hero.panelTitle': 'Sistemas de IA em produção com valor claro para o negócio.',
+                'hero.panelCopy': 'Construo agentes, sistemas de recuperação e ferramentas operacionais com equilíbrio entre profundidade técnica e resultado para o usuário.',
+                'hero.stat.one': 'Agentes e orquestração',
+                'hero.stat.two': 'RAG, pipelines, análise',
+                'hero.stat.three': 'FastAPI, Python, APIs',
+                'about.kicker': 'Sobre',
+                'about.title': 'Engenharia precisa, execução consistente e IA orientada a produto.',
+                'about.copy.one': 'Minha trajetória combina mais de 14 anos em ambientes operacionais com trabalhos recentes em engenharia de IA, backend e machine learning aplicado.',
+                'about.copy.two': 'Meu foco está em sistemas claros de entender, agradáveis de usar e fortes o suficiente para sustentar uso real em produção.',
+                'about.highlight.one': 'Mentalidade de operação e confiabilidade',
+                'about.highlight.two': 'Agentes, RAG, automação, dados',
+                'about.highlight.three': 'Portfólio preparado para vagas internacionais',
+                'projects.kicker': 'Projetos em Destaque',
+                'projects.title': 'Trabalhos selecionados com linguagem visual premium e foco em produção.',
+                'projects.status.featured': 'Em destaque',
+                'projects.status.live': 'Conceito ativo',
+                'projects.status.year': '2026',
+                'projects.one.copy': 'Orquestração LangGraph com memória de longo prazo e RAG para personalização adaptativa. Fluxo multi-agente que equilibra latência e qualidade contextual em tempo real.',
+                'projects.one.footer': 'LangGraph + State Management + RAG',
+                'projects.demo': 'Ver demo',
+                'projects.two.copy': 'Roteamento inteligente entre OpenAI/Anthropic/Gemini com fallback strategy. Pipeline que otimiza latência, custo por token e qualidade de resposta em fluxos financeiros.',
+                'projects.two.footer': 'Multi-LLM Routing + Cost Optimization',
+                'projects.two.note': 'Código disponível sob consulta',
+                'projects.three.copy': 'Pipeline de ML preditivo com análise de series temporais e feature engineering. Integra biometria com suplementação via LLM contextual para recomendações personalizadas.',
+                'projects.three.footer': 'Time Series + LLM Pipeline + Data Analysis',
+                'projects.three.note': 'Placeholder pronto para edição',
+                'experience.kicker': 'Linha do Tempo',
+                'experience.title': 'Maturidade operacional aplicada à engenharia de IA moderna.',
+                'experience.one.role': 'Empresa Brasileira de Correios e Telégrafos',
+                'experience.one.subtitle': 'Suporte Operacional | Curitiba, PR',
+                'experience.one.copy': 'Construí uma forte mentalidade de confiabilidade por meio de operações sob pressão, continuidade de sistemas e resolução de problemas em ambientes que não toleram falhas.',
+                'experience.one.li1': 'Apoiei fluxos críticos e a continuidade dos serviços.',
+                'experience.one.li2': 'Contribuí para implementação de sistemas corporativos e suporte ao usuário.',
+                'experience.one.li3': 'Desenvolvi uma visão prática sobre risco, SLA e qualidade de execução.',
+                'experience.two.subtitle': 'Bacharelado em Ciência da Computação',
+                'experience.two.copy': 'Base acadêmica em algoritmos, sistemas e raciocínio de software, somada a estudos autodirigidos em engenharia de IA e backend.',
+                'experience.two.li1': 'Fundamentos de ciência da computação com foco prático.',
+                'experience.two.li2': 'Estudos complementares em MLOps, APIs e engenharia de dados.',
+                'experience.three.role': 'Engenheiro de IA e Solutions Architect',
+                'experience.three.subtitle': 'Projetos autorais e portfólio',
+                'experience.three.copy': 'Estruturando produtos de IA com RAG, fluxos multiagentes e APIs prontas para produção, sempre com foco em clareza, manutenção e valor de negócio.',
+                'experience.three.li1': 'Sistemas agênticos com estado, memória e orquestração.',
+                'experience.three.li2': 'Serviços FastAPI com padrões assíncronos e interfaces estruturadas.',
+                'experience.three.li3': 'Pipelines de recuperação pensados para casos de uso reais.',
+                'stack.kicker': 'Stack',
+                'stack.title': 'Organizada por categoria, não por buzzword.',
+                'stack.languages': 'Linguagens',
+                'stack.ai': 'IA / ML',
+                'stack.frameworks': 'Frameworks',
+                'stack.data': 'Dados',
+                'stack.cloud': 'Cloud / MLOps',
+                'stack.tools': 'Ferramentas',
+                'contact.kicker': 'Contato',
+                'contact.title': 'Vamos construir algo com padrão de produto real.',
+                'contact.copy': 'Se você está contratando para IA, backend ou funções técnicas com foco em produto, este portfólio está pronto para a próxima conversa.',
+                'contact.email': 'Me escreva',
+                'contact.github': 'GitHub',
+                'contact.linkedin': 'LinkedIn',
+                'footer.role': 'Engenheiro de IA e Solutions Architect',
+                langToggleLabel: 'EN'
+            },
+            en: {
+                skip: 'Skip to content',
+                'brand.role': 'AI Engineer',
+                'nav.about': 'About',
+                'nav.projects': 'Projects',
+                'nav.experience': 'Experience',
+                'nav.stack': 'Stack',
+                'nav.contact': 'Contact',
+                'header.email': 'Email Me',
+                'hero.eyebrow': 'Open to international opportunities',
+                'hero.role': 'AI Engineer and Solutions Architect',
+                'hero.subtitle': 'I build AI systems with product-level clarity, clean architecture, and a production-first mindset.',
+                'hero.copy': 'LLMs, agentic workflows, RAG, automations, data pipelines, and backend services, backed by more than a decade in mission-critical operations.',
+                'hero.primaryCta': 'View Projects',
+                'hero.secondaryCta': 'Contact Me',
+                'hero.meta.one': 'Years in operations',
+                'hero.meta.two': 'Featured AI projects',
+                'hero.meta.three.value': 'Remote',
+                'hero.meta.three.label': 'Available for global roles',
+                'hero.status': 'Available for new roles',
+                'hero.panelTag': 'Premium AI Portfolio',
+                'hero.focusLabel': 'Focus',
+                'hero.panelTitle': 'Production AI systems with clear business value.',
+                'hero.panelCopy': 'I build agents, retrieval systems, and operational tools with a strong balance between technical depth and user outcome.',
+                'hero.stat.one': 'Agents and orchestration',
+                'hero.stat.two': 'RAG, pipelines, analysis',
+                'hero.stat.three': 'FastAPI, Python, APIs',
+                'about.kicker': 'About',
+                'about.title': 'Precise engineering, consistent execution, and AI built with a product mindset.',
+                'about.copy.one': 'My background combines more than 14 years in operational environments with recent work in AI engineering, backend development, and applied machine learning.',
+                'about.copy.two': 'I focus on systems that are clear to understand, pleasant to use, and strong enough to support real usage in production settings.',
+                'about.highlight.one': 'Operations and reliability mindset',
+                'about.highlight.two': 'Agents, RAG, automation, data',
+                'about.highlight.three': 'Portfolio tuned for international hiring',
+                'projects.kicker': 'Featured Projects',
+                'projects.title': 'Selected work presented with a premium visual language and a production-first lens.',
+                'projects.status.featured': 'Featured',
+                'projects.status.live': 'Live concept',
+                'projects.status.year': '2026',
+                'projects.one.copy': 'LangGraph orchestration with long-term memory and RAG for adaptive personalization. Multi-agent workflow optimizing latency and contextual quality in real-time learning paths.',
+                'projects.one.footer': 'LangGraph + State Management + RAG',
+                'projects.demo': 'View demo',
+                'projects.two.copy': 'Intelligent routing across OpenAI/Anthropic/Gemini with failover strategy. Pipeline optimizing latency, cost-per-token, and response quality in financial workflows.',
+                'projects.two.footer': 'Multi-LLM Routing + Cost Optimization',
+                'projects.two.note': 'Source available on request',
+                'projects.three.copy': 'ML predictive pipeline with time-series analysis and feature engineering. Integrates biometrics with supplementation via contextual LLM for personalized recommendations at scale.',
+                'projects.three.footer': 'Time Series + LLM Pipeline + Data Analysis',
+                'projects.three.note': 'Placeholder ready for edits',
+                'experience.kicker': 'Experience Timeline',
+                'experience.title': 'Operational maturity applied to modern AI engineering.',
+                'experience.one.role': 'Brazilian Postal and Telegraph Service (ECT)',
+                'experience.one.subtitle': 'Operational Support | Curitiba, PR',
+                'experience.one.copy': 'Built a strong reliability mindset through high-pressure operations, system continuity, and problem-solving in environments that do not tolerate failure.',
+                'experience.one.li1': 'Supported critical workflows and service continuity.',
+                'experience.one.li2': 'Contributed to corporate system implementation and user support.',
+                'experience.one.li3': 'Developed a practical sense for risk, SLA, and execution quality.',
+                'experience.two.subtitle': 'BSc in Computer Science',
+                'experience.two.copy': 'Academic foundation in algorithms, systems, and software thinking, paired with self-directed study in AI engineering and backend design.',
+                'experience.two.li1': 'Computer science fundamentals with a practical focus.',
+                'experience.two.li2': 'Complementary studies in MLOps, APIs, and data engineering.',
+                'experience.three.role': 'AI Engineer and Solutions Architect',
+                'experience.three.subtitle': 'Independent projects and portfolio work',
+                'experience.three.copy': 'Shaping AI products with RAG, multi-agent flows, and production-ready APIs, always with an eye on clarity, maintainability, and business value.',
+                'experience.three.li1': 'Agentic systems with state, memory, and orchestration.',
+                'experience.three.li2': 'FastAPI services with async patterns and structured interfaces.',
+                'experience.three.li3': 'Retrieval pipelines designed for practical use cases.',
+                'stack.kicker': 'Tech Stack',
+                'stack.title': 'Organized by category, not by buzzword.',
+                'stack.languages': 'Languages',
+                'stack.ai': 'AI / ML',
+                'stack.frameworks': 'Frameworks',
+                'stack.data': 'Data',
+                'stack.cloud': 'Cloud / MLOps',
+                'stack.tools': 'Tools',
+                'contact.kicker': 'Contact',
+                'contact.title': "Let's build something with the standard of a real product.",
+                'contact.copy': 'If you are hiring for AI engineering, backend development, or product-focused technical roles, this portfolio is ready for the next conversation.',
+                'contact.email': 'Email Me',
+                'contact.github': 'GitHub',
+                'contact.linkedin': 'LinkedIn',
+                'footer.role': 'AI Engineer and Solutions Architect',
+                langToggleLabel: 'PT'
+            }
+        };
+
         const navToggle = document.querySelector('[data-nav-toggle]');
         const navMenu = document.querySelector('[data-nav-menu]');
+        const langToggle = document.querySelector('[data-lang-toggle]');
+        const i18nNodes = document.querySelectorAll('[data-i18n]');
+        const languageStorageKey = 'portfolio-language';
+        let currentLang = 'pt';
+
+        try {
+            const savedLang = localStorage.getItem(languageStorageKey);
+            if (savedLang === 'pt' || savedLang === 'en') {
+                currentLang = savedLang;
+            }
+        } catch (error) {
+            currentLang = 'pt';
+        }
+
+        function applyLanguage(lang) {
+            const dictionary = translations[lang];
+
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+
+            i18nNodes.forEach((node) => {
+                const key = node.dataset.i18n;
+                const value = dictionary[key];
+
+                if (typeof value === 'string') {
+                    node.textContent = value;
+                }
+            });
+
+            if (langToggle) {
+                langToggle.textContent = dictionary.langToggleLabel;
+                langToggle.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para português');
+            }
+        }
 
         if (navToggle && navMenu) {
             navToggle.addEventListener('click', () => {
                 const isOpen = navMenu.classList.toggle('nav--open');
                 navToggle.setAttribute('aria-expanded', String(isOpen));
+                if (isOpen) {
+                    const focusableElements = navMenu.querySelectorAll('a, button');
+                    if (focusableElements.length > 0) {
+                        focusableElements[0].focus();
+                    }
+                }
             });
 
             navMenu.querySelectorAll('a').forEach((link) => {
                 link.addEventListener('click', () => {
                     navMenu.classList.remove('nav--open');
                     navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.focus();
                 });
             });
+
+            // Focus trap for keyboard navigation in menu
+            document.addEventListener('keydown', (e) => {
+                const isMenuOpen = navMenu.classList.contains('nav--open');
+                if (isMenuOpen && e.key === 'Escape') {
+                    navMenu.classList.remove('nav--open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    navToggle.focus();
+                }
+            });
         }
+
+        if (langToggle) {
+            langToggle.addEventListener('click', () => {
+                currentLang = currentLang === 'pt' ? 'en' : 'pt';
+                try {
+                    localStorage.setItem(languageStorageKey, currentLang);
+                } catch (error) {
+                    // Ignore storage failures and keep the UI working.
+                }
+                applyLanguage(currentLang);
+            });
+        }
+
+        applyLanguage(currentLang);
 
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
