@@ -591,10 +591,10 @@ button {
     height: 100%;
     padding: 1.6rem;
     grid-column: span 4;
-    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
     background: linear-gradient(180deg, rgba(22, 29, 39, 0.95), rgba(17, 23, 32, 0.9));
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
+    transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .project-card--featured {
@@ -631,8 +631,8 @@ button {
 }
 
 .project-card p {
-    margin: 0.85rem 0 1.5rem;
-    flex-grow: 1;
+    flex: 1;
+    margin: 0.85rem 0 1.25rem;
     color: var(--muted);
 }
 
@@ -640,7 +640,8 @@ button {
     display: flex;
     flex-wrap: wrap;
     gap: 0.55rem;
-    margin-top: 1.2rem;
+    margin-top: auto;
+    margin-bottom: 1rem;
 }
 
 .project-card__tags span,
@@ -656,8 +657,7 @@ button {
 }
 
 .project-card__footer {
-    margin-top: auto;
-    padding-top: 1.2rem;
+    padding-top: 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     font-size: 0.9rem;
     color: var(--muted);
