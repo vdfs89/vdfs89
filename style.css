@@ -589,12 +589,13 @@ button {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 1.6rem;
+    padding: 2rem;
     grid-column: span 4;
     background: linear-gradient(180deg, rgba(22, 29, 39, 0.95), rgba(17, 23, 32, 0.9));
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     transition: transform 0.25s ease, border-color 0.25s ease;
+    justify-content: space-between;
 }
 
 .project-card--featured {
@@ -628,6 +629,12 @@ button {
 .contact-card h2 {
     margin: 0;
     font-size: 1.45rem;
+}
+
+.project-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    color: var(--accent);
 }
 
 .project-card p {
