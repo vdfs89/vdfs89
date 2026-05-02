@@ -581,14 +581,20 @@ button {
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 1rem;
+    gap: 1.5rem;
+    align-items: stretch;
 }
 
 .project-card {
-    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1.6rem;
     grid-column: span 4;
     transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
     background: linear-gradient(180deg, rgba(22, 29, 39, 0.95), rgba(17, 23, 32, 0.9));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
 }
 
 .project-card--featured {
@@ -625,7 +631,9 @@ button {
 }
 
 .project-card p {
-    margin: 0.85rem 0 0;
+    margin: 0.85rem 0 1.5rem;
+    flex-grow: 1;
+    color: var(--muted);
 }
 
 .project-card__tags {
@@ -648,8 +656,8 @@ button {
 }
 
 .project-card__footer {
-    margin-top: 1.4rem;
-    padding-top: 1rem;
+    margin-top: auto;
+    padding-top: 1.2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     font-size: 0.9rem;
     color: var(--muted);
