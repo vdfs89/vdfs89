@@ -1,686 +1,403 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
     <title>Vitor Silva | AI Engineer & Solutions Architect</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg:      #070b11;
-            --surface: rgba(255,255,255,0.04);
-            --border:  rgba(255,255,255,0.07);
-            --cyan:    #22d3ee;
-            --amber:   #f59e0b;
-            --indigo:  #818cf8;
-            --text:    #f1f5f9;
-            --muted:   #64748b;
-        }
-
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: 'DM Sans', sans-serif;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h1,h2,h3,h4,h5 { font-family: 'Syne', sans-serif; }
-
-        /* ─── Animated mesh background ─── */
-        .mesh-bg {
-            position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
-        }
-        .mesh-bg::before {
-            content: '';
-            position: absolute;
-            width: 650px; height: 650px;
-            border-radius: 50%;
-            background: radial-gradient(ellipse, rgba(34,211,238,0.09) 0%, transparent 70%);
-            top: -120px; left: -80px;
-            animation: float1 20s ease-in-out infinite;
-        }
-        .mesh-bg::after {
-            content: '';
-            position: absolute;
-            width: 520px; height: 520px;
-            border-radius: 50%;
-            background: radial-gradient(ellipse, rgba(245,158,11,0.07) 0%, transparent 70%);
-            bottom: 8%; right: -80px;
-            animation: float2 26s ease-in-out infinite;
-        }
-        @keyframes float1 {
-            0%,100% { transform: translate(0,0) scale(1); }
-            40%     { transform: translate(70px,50px) scale(1.1); }
-            70%     { transform: translate(-30px,90px) scale(0.95); }
-        }
-        @keyframes float2 {
-            0%,100% { transform: translate(0,0) scale(1); }
-            50%     { transform: translate(-90px,-60px) scale(1.15); }
-        }
-
-        /* ─── Dot grid ─── */
-        .dot-grid {
-            position: fixed; inset: 0; z-index: 0; pointer-events: none;
-            background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-            background-size: 40px 40px;
-            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
-        }
-
-        /* ─── Glass ─── */
-        .glass {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-        }
-
-        /* ─── Gradient / shimmer text ─── */
-        @keyframes shimmer {
-            0%   { background-position: -200% center; }
-            100% { background-position:  200% center; }
-        }
-        .shimmer-text {
-            background: linear-gradient(90deg, #22d3ee, #818cf8, #f59e0b);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: shimmer 7s linear infinite;
-        }
-        .gradient-text {
-            background: linear-gradient(120deg, #22d3ee, #818cf8 60%, #f59e0b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* ─── Navbar ─── */
-        nav {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-bottom: 1px solid var(--border);
-            background: rgba(7,11,17,0.75);
-        }
-        .nav-link {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.75rem;
-            letter-spacing: 0.06em;
-            color: #475569;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .nav-link:hover { color: var(--cyan); }
-        .nav-cta {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.72rem;
-            letter-spacing: 0.06em;
-            color: var(--cyan);
-            text-decoration: none;
-            padding: 6px 14px;
-            border: 1px solid rgba(34,211,238,0.25);
-            border-radius: 6px;
-            transition: background 0.2s;
-        }
-        .nav-cta:hover { background: rgba(34,211,238,0.08); }
-
-        /* ─── Buttons ─── */
-        .btn-primary {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 13px 30px;
-            background: linear-gradient(130deg, #22d3ee, #818cf8);
-            color: #070b11;
-            font-family: 'Syne', sans-serif;
-            font-weight: 700; font-size: 0.875rem;
-            border-radius: 8px; text-decoration: none;
-            transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
-        }
-        .btn-primary:hover {
-            opacity: 0.88;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 32px rgba(34,211,238,0.25);
-        }
-        .btn-ghost {
-            display: inline-flex; align-items: center; gap: 8px;
-            padding: 12px 28px;
-            border: 1px solid var(--border);
-            color: var(--text);
-            font-family: 'Syne', sans-serif;
-            font-weight: 600; font-size: 0.875rem;
-            border-radius: 8px; text-decoration: none;
-            transition: border-color 0.2s, background 0.2s;
-        }
-        .btn-ghost:hover { border-color: rgba(34,211,238,0.35); background: rgba(34,211,238,0.04); }
-
-        /* ─── Tags / Pills ─── */
-        .tag {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.65rem; letter-spacing: 0.1em;
-            padding: 4px 12px; border-radius: 100px;
-            background: rgba(34,211,238,0.07);
-            border: 1px solid rgba(34,211,238,0.18);
-            color: var(--cyan);
-            display: inline-block;
-            text-transform: uppercase;
-        }
-        .tag.amber {
-            background: rgba(245,158,11,0.07);
-            border-color: rgba(245,158,11,0.2);
-            color: var(--amber);
-        }
-        .tag.indigo {
-            background: rgba(129,140,248,0.07);
-            border-color: rgba(129,140,248,0.2);
-            color: #a5b4fc;
-        }
-
-        /* ─── Metric chips inside cards ─── */
-        .chip {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.65rem;
-            color: #64748b;
-            padding: 3px 9px; border-radius: 5px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.06);
-            white-space: nowrap;
-        }
-
-        /* ─── Project cards ─── */
-        .project-card {
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-7px);
-        }
-        .project-card.cyan:hover  { border-color: rgba(34,211,238,0.3);  box-shadow: 0 24px 60px rgba(34,211,238,0.08); }
-        .project-card.amber:hover { border-color: rgba(245,158,11,0.3);  box-shadow: 0 24px 60px rgba(245,158,11,0.08); }
-        .project-card.indigo:hover{ border-color: rgba(129,140,248,0.3); box-shadow: 0 24px 60px rgba(129,140,248,0.08); }
-
-        /* ─── Icon box ─── */
-        .icon-box {
-            width: 42px; height: 42px;
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.15rem;
-        }
-
-        /* ─── Timeline ─── */
-        .tl-line {
-            position: absolute; left: 0; top: 8px; bottom: 0; width: 1px;
-            background: linear-gradient(to bottom, var(--amber), var(--indigo), var(--cyan));
-        }
-        .tl-dot {
-            position: absolute; left: -5px;
-            width: 11px; height: 11px;
-            border-radius: 50%; border: 2px solid;
-            top: 6px;
-        }
-
-        /* ─── Scroll reveal ─── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(28px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-        .reveal.visible { opacity: 1; transform: translateY(0); }
-
-        /* ─── Status pulse ─── */
-        @keyframes pulse-ring {
-            0%   { box-shadow: 0 0 0 0 rgba(34,211,238,0.5); }
-            70%  { box-shadow: 0 0 0 6px rgba(34,211,238,0); }
-            100% { box-shadow: 0 0 0 0 rgba(34,211,238,0); }
-        }
-        .status-dot { animation: pulse-ring 2.2s ease-out infinite; }
-
-        /* ─── Scroll indicator ─── */
-        @keyframes scroll-drop {
-            0%,100% { transform: translateY(0); opacity: 0.8; }
-            50%     { transform: translateY(7px); opacity: 0.3; }
-        }
-        .scroll-cue { animation: scroll-drop 2s ease-in-out infinite; }
-
-        /* ─── Section number accent ─── */
-        .section-num {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 0.6rem; letter-spacing: 0.15em;
-            color: #1e293b;
-            position: absolute; left: 0; top: 0;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="mesh-bg"></div>
-    <div class="dot-grid"></div>
+    <a class="skip-link" href="#content">Skip to content</a>
 
-    <!-- ══════════════════════════════════════════
-         NAVBAR
-    ══════════════════════════════════════════ -->
-    <nav>
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" style="font-family:'IBM Plex Mono',monospace; font-size:0.85rem; letter-spacing:0.04em; text-decoration:none;">
-                <span style="color:var(--cyan);">vitor</span><span style="color:#334155;">silva</span><span style="color:var(--amber);">.page</span>
+    <div class="site-bg" aria-hidden="true">
+        <div class="site-bg__orb site-bg__orb--one"></div>
+        <div class="site-bg__orb site-bg__orb--two"></div>
+        <div class="site-bg__grid"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="header header--sticky">
+        <div class="container header__inner">
+            <a class="brand" href="#home" aria-label="Vitor Silva home">
+                <span class="brand__mark">VS</span>
+                <span class="brand__text">
+                    <strong>Vitor Silva</strong>
+                    <span>AI Engineer</span>
+                </span>
             </a>
-            <div class="flex items-center gap-6">
-                <a href="#projetos"    class="nav-link hidden sm:inline">projetos</a>
-                <a href="#experiencia" class="nav-link hidden sm:inline">experiência</a>
-                <a href="#stack"       class="nav-link hidden sm:inline">stack</a>
-                <a href="https://linkedin.com/in/vdfs89" target="_blank" class="nav-cta">↗ LinkedIn</a>
-            </div>
+
+            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav" data-nav-menu>
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#stack">Stack</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <a class="button button--ghost header__cta" href="mailto:vitor_diogo89@hotmail.com">Email Me</a>
         </div>
-    </nav>
+    </header>
 
-    <!-- ══════════════════════════════════════════
-         HERO
-    ══════════════════════════════════════════ -->
-    <section class="relative min-h-screen flex flex-col justify-center pt-28 pb-24 px-6">
-        <div class="max-w-5xl mx-auto relative z-10 w-full">
-
-            <!-- Status badge -->
-            <div class="mb-10 inline-flex items-center gap-3 px-4 py-2 rounded-full glass" style="border-color:rgba(34,211,238,0.18);">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 status-dot" style="background:var(--cyan);"></span>
-                <span style="font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:#64748b; letter-spacing:0.1em;">ABERTO A OPORTUNIDADES · AI ENGINEER / SOLUTIONS ARCHITECT</span>
-            </div>
-
-            <!-- Name -->
-            <h1 style="font-weight:900; font-size:clamp(3.8rem,10vw,8.5rem); line-height:0.93; letter-spacing:-0.02em; margin-bottom:1.5rem;">
-                <span class="shimmer-text">Vitor<br>Silva</span>
-            </h1>
-
-            <!-- Subtitle -->
-            <p style="font-size:clamp(1rem,2.2vw,1.35rem); font-weight:600; color:#94a3b8; margin-bottom:1.25rem; max-width:680px; line-height:1.4;">
-                AI Engineer & Solutions Architect —
-                <span style="color:var(--text);">Sistemas agênticos com LangGraph,<br>RAG & FastAPI.</span>
-            </p>
-
-            <!-- Value proposition -->
-            <p style="font-size:0.95rem; color:var(--muted); line-height:1.8; max-width:520px; margin-bottom:2.75rem;">
-                14 anos operando processos de missão crítica nos Correios + arquiteturas de IA de ponta.
-                <br>Não apenas construo sistemas —
-                <strong style="color:#94a3b8; font-weight:500;">entrego soluções que operam sob pressão real.</strong>
-            </p>
-
-            <!-- CTAs -->
-            <div class="flex flex-wrap gap-4 mb-16">
-                <a href="#projetos" class="btn-primary">Ver Projetos →</a>
-                <a href="mailto:vitor_diogo89@hotmail.com" class="btn-ghost">✉ Entrar em contato</a>
-            </div>
-
-            <!-- Stats -->
-            <div class="flex flex-wrap gap-4">
-                <div class="glass rounded-xl px-7 py-5 text-center" style="min-width:110px;">
-                    <div style="font-size:2rem; font-weight:900; color:var(--cyan); line-height:1;">14</div>
-                    <div style="font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:#475569; letter-spacing:0.12em; margin-top:4px; text-transform:uppercase;">Anos ECT</div>
-                </div>
-                <div class="glass rounded-xl px-7 py-5 text-center" style="min-width:110px;">
-                    <div style="font-size:2rem; font-weight:900; color:var(--indigo); line-height:1;">3</div>
-                    <div style="font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:#475569; letter-spacing:0.12em; margin-top:4px; text-transform:uppercase;">Projetos IA</div>
-                </div>
-                <div class="glass rounded-xl px-7 py-5 text-center" style="min-width:110px;">
-                    <div style="font-size:2rem; font-weight:900; color:var(--amber); line-height:1;">∞</div>
-                    <div style="font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:#475569; letter-spacing:0.12em; margin-top:4px; text-transform:uppercase;">Ambição</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Scroll cue -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 scroll-cue z-10">
-            <span style="font-family:'IBM Plex Mono',monospace; font-size:0.55rem; color:#1e293b; letter-spacing:0.2em;">SCROLL</span>
-            <div style="width:1px; height:36px; background:linear-gradient(to bottom, var(--cyan), transparent);"></div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════
-         PROJETOS
-    ══════════════════════════════════════════ -->
-    <section id="projetos" class="py-28 px-6 relative z-10">
-        <div class="max-w-6xl mx-auto">
-
-            <div class="mb-16 reveal">
-                <p class="tag mb-5">01 — Soluções de Engenharia</p>
-                <h2 style="font-size:clamp(2.2rem,4.5vw,3.2rem); font-weight:800; line-height:1.08;">
-                    Arquiteturas que<br>
-                    <span style="color:var(--cyan);">entregam valor de negócio.</span>
-                </h2>
-                <p style="color:var(--muted); margin-top:1rem; font-size:0.95rem; max-width:480px; line-height:1.75;">
-                    Três projetos, três domínios distintos — todos com o mesmo compromisso: IA que funciona em produção.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <!-- ── FluencyForge ── -->
-                <div class="project-card cyan glass rounded-2xl p-7 flex flex-col reveal">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-box" style="background:rgba(34,211,238,0.09); border:1px solid rgba(34,211,238,0.2);">🤖</div>
-                        <a href="https://github.com/vdfs89/fluencyforge" target="_blank"
-                           style="font-family:'IBM Plex Mono',monospace; font-size:0.7rem; color:#334155; text-decoration:none; transition:color .2s;"
-                           onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='#334155'">↗ GitHub</a>
+    <main id="content" class="page">
+        <!-- Hero -->
+        <section class="hero section" id="home">
+            <div class="container hero__grid">
+                <div class="hero__content reveal">
+                    <div class="eyebrow">
+                        <span class="eyebrow__dot"></span>
+                        Open to international opportunities
                     </div>
 
-                    <h3 style="font-weight:700; font-size:1.2rem; margin-bottom:6px;">FluencyForge</h3>
-                    <p style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:var(--cyan); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;">EdTech · Agentic AI</p>
+                    <p class="hero__role">AI Engineer and Solutions Architect</p>
+                    <h1 class="hero__title">Vitor Silva</h1>
+                    <p class="hero__subtitle">I design AI systems that feel like real products: sharp, reliable, and ready for production.</p>
+                    <p class="hero__copy">LLMs, agentic workflows, RAG, automations, data pipelines, and backend systems - shaped with the discipline of someone who has operated mission-critical environments for more than a decade.</p>
 
-                    <p style="color:#64748b; font-size:0.875rem; line-height:1.7; margin-bottom:16px; flex:1;">
-                        Pipeline pedagógico multi-agente com RAG que adapta currículo em tempo real ao perfil do aluno
-                        — eliminando o gap entre conteúdo genérico e aprendizagem efetiva. Agentes stateful com memória de longo prazo orquestrados via LangGraph.
-                    </p>
-
-                    <div class="flex flex-wrap gap-2 mb-5">
-                        <span class="chip">LangGraph</span>
-                        <span class="chip">FastAPI</span>
-                        <span class="chip">Flutter</span>
-                        <span class="chip">RAG</span>
-                        <span class="chip">Gemini API</span>
+                    <div class="hero__actions">
+                        <a class="button button--primary" href="#projects">View Projects</a>
+                        <a class="button button--secondary" href="#contact">Contact Me</a>
                     </div>
 
-                    <div style="border-top:1px solid rgba(255,255,255,0.05); padding-top:14px;">
-                        <p style="font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:#334155; line-height:1.9;">
-                            → Multi-agentes com gestão de estado pedagógico<br>
-                            → Personalização contextual por perfil do aluno
-                        </p>
+                    <div class="hero__meta">
+                        <div class="meta-card">
+                            <span>14+</span>
+                            <small>Years in operations</small>
+                        </div>
+                        <div class="meta-card">
+                            <span>3</span>
+                            <small>Featured AI projects</small>
+                        </div>
+                        <div class="meta-card">
+                            <span>Remote</span>
+                            <small>Available for global roles</small>
+                        </div>
                     </div>
                 </div>
 
-                <!-- ── MestreGrana ── -->
-                <div class="project-card amber glass rounded-2xl p-7 flex flex-col reveal" style="transition-delay:.1s;">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-box" style="background:rgba(245,158,11,0.09); border:1px solid rgba(245,158,11,0.2);">💹</div>
-                        <span style="font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:#334155; padding:3px 9px; border-radius:5px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07);">Em Prod.</span>
-                    </div>
+                <aside class="hero__panel reveal reveal--delay-1">
+                    <div class="profile-card">
+                        <div class="profile-card__top">
+                            <span class="status-pill"><span></span> Available for new roles</span>
+                            <span class="profile-card__tag">Premium AI Portfolio</span>
+                        </div>
 
-                    <h3 style="font-weight:700; font-size:1.2rem; margin-bottom:6px;">MestreGrana</h3>
-                    <p style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:var(--amber); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;">FinTech · LLM Orchestration</p>
+                        <div class="profile-card__body">
+                            <p class="profile-card__label">Focus</p>
+                            <h2>Production AI systems with clear product value.</h2>
+                            <p>I build agents, retrieval systems, and operational tools with a strong balance between technical depth and user outcome.</p>
+                        </div>
 
-                    <p style="color:#64748b; font-size:0.875rem; line-height:1.7; margin-bottom:16px; flex:1;">
-                        Consultor financeiro com orquestração multi-LLM e roteamento inteligente entre provedores
-                        — reduzindo latência e custo por query enquanto garante groundedness e precisão nas recomendações de investimento.
-                    </p>
-
-                    <div class="flex flex-wrap gap-2 mb-5">
-                        <span class="chip">Python</span>
-                        <span class="chip">LangChain</span>
-                        <span class="chip">MongoDB</span>
-                        <span class="chip">FastAPI</span>
-                        <span class="chip">REST APIs</span>
-                    </div>
-
-                    <div style="border-top:1px solid rgba(255,255,255,0.05); padding-top:14px;">
-                        <p style="font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:#334155; line-height:1.9;">
-                            → Insights de mercado em tempo real<br>
-                            → Fallback inteligente por custo/latência
-                        </p>
-                    </div>
-                </div>
-
-                <!-- ── Harmoniz.AI ── -->
-                <div class="project-card indigo glass rounded-2xl p-7 flex flex-col reveal" style="transition-delay:.2s;">
-                    <div class="flex items-start justify-between mb-6">
-                        <div class="icon-box" style="background:rgba(129,140,248,0.09); border:1px solid rgba(129,140,248,0.2);">⚡</div>
-                        <span style="font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:#334155; padding:3px 9px; border-radius:5px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07);">2026</span>
-                    </div>
-
-                    <h3 style="font-weight:700; font-size:1.2rem; margin-bottom:6px;">Harmoniz.AI</h3>
-                    <p style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:#a5b4fc; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;">HealthTech · Data-Driven</p>
-
-                    <p style="color:#64748b; font-size:0.875rem; line-height:1.7; margin-bottom:16px; flex:1;">
-                        Engine de otimização de performance humana que correlaciona protocolos de suplementação com feedback biométrico,
-                        gerando recomendações hiper-personalizadas via análise preditiva e LLM pipeline.
-                    </p>
-
-                    <div class="flex flex-wrap gap-2 mb-5">
-                        <span class="chip">Python</span>
-                        <span class="chip">Data Analysis</span>
-                        <span class="chip">LLM Pipeline</span>
-                        <span class="chip">Predictive AI</span>
-                    </div>
-
-                    <div style="border-top:1px solid rgba(255,255,255,0.05); padding-top:14px;">
-                        <p style="font-family:'IBM Plex Mono',monospace; font-size:0.68rem; color:#334155; line-height:1.9;">
-                            → Loops de feedback biométrico<br>
-                            → Recomendações personalizadas por perfil
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ══════════════════════════════════════════
-         EXPERIÊNCIA HÍBRIDA
-    ══════════════════════════════════════════ -->
-    <section id="experiencia" class="py-28 px-6 relative z-10">
-        <div class="max-w-6xl mx-auto">
-
-            <div class="mb-16 reveal">
-                <p class="tag amber mb-5">02 — O Diferencial</p>
-                <h2 style="font-size:clamp(2.2rem,4.5vw,3.2rem); font-weight:800; line-height:1.08;">
-                    Maturidade operacional.<br>
-                    <span style="color:var(--amber);">Stack de vanguarda.</span>
-                </h2>
-                <p style="color:var(--muted); margin-top:1rem; font-size:0.95rem; max-width:540px; line-height:1.75;">
-                    A maioria dos AI Engineers tem o código. Poucos têm 14 anos de operações em missão crítica
-                    que ensinam o que realmente importa: resiliência sistêmica, SLA e entrega sob pressão real.
-                </p>
-            </div>
-
-            <div class="grid lg:grid-cols-2 gap-14 items-start">
-
-                <!-- Timeline -->
-                <div class="relative pl-9 reveal">
-                    <div class="tl-line"></div>
-
-                    <!-- ECT -->
-                    <div class="mb-12 relative">
-                        <div class="tl-dot" style="border-color:var(--amber); background:var(--amber);"></div>
-                        <span style="font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--amber); letter-spacing:0.12em; display:block; margin-bottom:8px;">2011 → PRESENTE</span>
-                        <h4 style="font-weight:700; font-size:1.05rem; margin-bottom:4px;">Empresa Brasileira de Correios e Telégrafos</h4>
-                        <p style="font-size:0.78rem; color:var(--muted); margin-bottom:14px;">Agente de Correios · Suporte Operacional · Curitiba, PR</p>
-                        <ul style="font-size:0.85rem; color:#94a3b8; line-height:2; list-style:none;">
-                            <li>→ Garantia de continuidade operacional em larga escala com SLA rígido</li>
-                            <li>→ Ponto focal técnico na implementação de sistemas corporativos</li>
-                            <li>→ Perfil analítico forjado em 14 anos de resolução de problemas reais</li>
-                            <li>→ Liderança por influência em equipes de grande escala</li>
-                        </ul>
-                    </div>
-
-                    <!-- Faculdade -->
-                    <div class="mb-12 relative">
-                        <div class="tl-dot" style="border-color:var(--indigo); background:var(--indigo);"></div>
-                        <span style="font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--indigo); letter-spacing:0.12em; display:block; margin-bottom:8px;">2023 → 2027</span>
-                        <h4 style="font-weight:700; font-size:1.05rem; margin-bottom:4px;">Descomplica Faculdade Digital</h4>
-                        <p style="font-size:0.78rem; color:var(--muted); margin-bottom:14px;">Bacharelado em Ciência da Computação</p>
-                        <ul style="font-size:0.85rem; color:#94a3b8; line-height:2; list-style:none;">
-                            <li>→ Fundamentos formais em algoritmos, estruturas e sistemas distribuídos</li>
-                            <li>→ Complementado por trilhas em MLOps, FastAPI e Engenharia de Dados</li>
-                        </ul>
-                    </div>
-
-                    <!-- Hoje -->
-                    <div class="relative">
-                        <div class="tl-dot status-dot" style="border-color:var(--cyan); background:var(--cyan);"></div>
-                        <span style="font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--cyan); letter-spacing:0.12em; display:block; margin-bottom:8px;">2024 → AGORA</span>
-                        <h4 style="font-weight:700; font-size:1.05rem; margin-bottom:4px;">AI Engineer & Solutions Architect</h4>
-                        <p style="font-size:0.78rem; color:var(--muted); margin-bottom:14px;">Projetos Próprios · Open to Opportunities</p>
-                        <ul style="font-size:0.85rem; color:#94a3b8; line-height:2; list-style:none;">
-                            <li>→ Arquiteturas RAG com retrieval semântico e memória de longo prazo</li>
-                            <li>→ Sistemas agênticos stateful orquestrados via LangGraph</li>
-                            <li>→ APIs de alta performance com FastAPI + processamento assíncrono</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Value propositions -->
-                <div class="space-y-4 reveal" style="transition-delay:.15s;">
-
-                    <div class="glass rounded-xl p-6" style="border-color:rgba(245,158,11,0.14);">
-                        <div class="flex items-start gap-4">
-                            <div style="font-size:1.4rem; line-height:1; flex-shrink:0; margin-top:2px;">🎯</div>
+                        <div class="profile-card__stats">
                             <div>
-                                <h5 style="font-weight:700; margin-bottom:6px;">Entrega Sob Pressão</h5>
-                                <p style="font-size:0.85rem; color:#64748b; line-height:1.65;">
-                                    14 anos operando ambientes que não toleram downtime — essa mentalidade se traduz em código resiliente e arquiteturas à prova de falha.
-                                </p>
+                                <strong>AI</strong>
+                                <span>Agents and orchestration</span>
+                            </div>
+                            <div>
+                                <strong>Data</strong>
+                                <span>RAG, pipelines, analysis</span>
+                            </div>
+                            <div>
+                                <strong>Backend</strong>
+                                <span>FastAPI, Python, APIs</span>
                             </div>
                         </div>
                     </div>
+                </aside>
+            </div>
+        </section>
 
-                    <div class="glass rounded-xl p-6" style="border-color:rgba(34,211,238,0.14);">
-                        <div class="flex items-start gap-4">
-                            <div style="font-size:1.4rem; line-height:1; flex-shrink:0; margin-top:2px;">🧠</div>
-                            <div>
-                                <h5 style="font-weight:700; margin-bottom:6px;">Visão de Produto, Não Só de Código</h5>
-                                <p style="font-size:0.85rem; color:#64748b; line-height:1.65;">
-                                    Entendo processos de negócio porque os operei por mais de uma década. Projeto sistemas que resolvem o problema real, não apenas o técnico.
-                                </p>
-                            </div>
+        <!-- About -->
+        <section class="section" id="about">
+            <div class="container section__grid section__grid--split">
+                <div class="section-heading reveal">
+                    <p class="section-kicker">About</p>
+                    <h2>Measured engineering, refined execution, and AI with a product mindset.</h2>
+                </div>
+
+                <div class="about-card reveal reveal--delay-1">
+                    <p>My background combines more than 14 years in operational environments with recent work in AI engineering, backend development, and applied machine learning.</p>
+                    <p>I focus on systems that are clear to understand, pleasant to use, and strong enough to support real usage in production settings.</p>
+
+                    <div class="about-card__highlights">
+                        <div>
+                            <span>14+ years</span>
+                            <small>Operations and reliability mindset</small>
                         </div>
-                    </div>
-
-                    <div class="glass rounded-xl p-6" style="border-color:rgba(129,140,248,0.14);">
-                        <div class="flex items-start gap-4">
-                            <div style="font-size:1.4rem; line-height:1; flex-shrink:0; margin-top:2px;">⚙️</div>
-                            <div>
-                                <h5 style="font-weight:700; margin-bottom:6px;">Stack Moderna, Mindset de Engenheiro</h5>
-                                <p style="font-size:0.85rem; color:#64748b; line-height:1.65;">
-                                    LangGraph, RAG, FastAPI — não como buzzwords, mas como ferramentas aplicadas em projetos reais com objetivos de negócio mensuráveis.
-                                </p>
-                            </div>
+                        <div>
+                            <span>AI systems</span>
+                            <small>Agents, RAG, automation, data</small>
                         </div>
-                    </div>
-
-                    <div class="glass rounded-xl p-6">
-                        <p style="font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:#334155; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:12px;">Certificações Relevantes</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag">LangChain</span>
-                            <span class="tag indigo">Python Bootcamp</span>
-                            <span class="tag amber">Eng. de Dados</span>
-                            <span class="tag">Db Developer</span>
-                            <span class="tag indigo">IA Generativa</span>
-                            <span class="tag amber">Liderança</span>
+                        <div>
+                            <span>Global-ready</span>
+                            <small>Portfolio tuned for international hiring</small>
                         </div>
                     </div>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ══════════════════════════════════════════
-         STACK
-    ══════════════════════════════════════════ -->
-    <section id="stack" class="py-28 px-6 relative z-10">
-        <div class="max-w-6xl mx-auto">
-
-            <div class="mb-16 reveal">
-                <p class="tag indigo mb-5">03 — Tech Stack</p>
-                <h2 style="font-size:clamp(2.2rem,4.5vw,3.2rem); font-weight:800; line-height:1.08;">
-                    Ferramentas.<br>
-                    <span style="color:var(--indigo);">Não apenas palavras.</span>
-                </h2>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
-
-                <div class="glass rounded-xl p-6">
-                    <p style="font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:var(--cyan); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:14px;">IA & Agentes</p>
-                    <ul style="font-size:0.85rem; color:#94a3b8; line-height:2.1; list-style:none;">
-                        <li>LangGraph</li>
-                        <li>LangChain</li>
-                        <li>Gemini / Llama 3</li>
-                        <li>RAG Pipelines</li>
-                        <li>Prompt Engineering</li>
-                    </ul>
+        <!-- Projects -->
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="section-kicker">Featured Projects</p>
+                    <h2>Selected work with premium presentation and production-minded thinking.</h2>
                 </div>
 
-                <div class="glass rounded-xl p-6">
-                    <p style="font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:var(--amber); letter-spacing:0.15em; text-transform:uppercase; margin-bottom:14px;">Backend & APIs</p>
-                    <ul style="font-size:0.85rem; color:#94a3b8; line-height:2.1; list-style:none;">
-                        <li>Python 3 (Avançado)</li>
-                        <li>FastAPI</li>
-                        <li>SQLAlchemy</li>
-                        <li>Docker</li>
-                        <li>Linux / WSL</li>
-                    </ul>
+                <div class="projects-grid">
+                    <article class="project-card project-card--featured reveal">
+                        <div class="project-card__header">
+                            <span class="project-card__index">01</span>
+                            <span class="project-card__status">Featured</span>
+                        </div>
+                        <h3>FluencyForge</h3>
+                        <p>An adaptive learning system with multi-agent orchestration, designed to personalize study paths in real time using contextual retrieval and long-term state.</p>
+                        <div class="project-card__tags">
+                            <span>LangGraph</span>
+                            <span>FastAPI</span>
+                            <span>Flutter</span>
+                            <span>RAG</span>
+                            <span>Gemini API</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span>Multi-agent education workflow</span>
+                            <a href="https://github.com/vdfs89/fluencyforge" target="_blank" rel="noreferrer">GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal reveal--delay-1">
+                        <div class="project-card__header">
+                            <span class="project-card__index">02</span>
+                            <span class="project-card__status project-card__status--amber">Live concept</span>
+                        </div>
+                        <h3>MestreGrana</h3>
+                        <p>A financial assistant with multi-LLM routing and grounded responses, built to balance latency, cost, and answer quality.</p>
+                        <div class="project-card__tags">
+                            <span>Python</span>
+                            <span>LangChain</span>
+                            <span>MongoDB</span>
+                            <span>FastAPI</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span>LLM orchestration and routing</span>
+                            <span class="project-card__note">Source available on request</span>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal reveal--delay-2">
+                        <div class="project-card__header">
+                            <span class="project-card__index">03</span>
+                            <span class="project-card__status project-card__status--blue">2026</span>
+                        </div>
+                        <h3>Harmoniz.AI</h3>
+                        <p>A data-driven recommendation engine that connects biometrics, supplementation routines, and predictive AI into a personalized workflow.</p>
+                        <div class="project-card__tags">
+                            <span>Python</span>
+                            <span>Data Analysis</span>
+                            <span>LLM Pipeline</span>
+                            <span>Predictive AI</span>
+                        </div>
+                        <div class="project-card__footer">
+                            <span>Human performance analytics</span>
+                            <span class="project-card__note">Placeholder ready for edits</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="section" id="experience">
+            <div class="container section__grid section__grid--experience">
+                <div class="section-heading reveal">
+                    <p class="section-kicker">Experience Timeline</p>
+                    <h2>Operational maturity meets modern AI engineering.</h2>
                 </div>
 
-                <div class="glass rounded-xl p-6">
-                    <p style="font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:#a5b4fc; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:14px;">Dados & Infra</p>
-                    <ul style="font-size:0.85rem; color:#94a3b8; line-height:2.1; list-style:none;">
-                        <li>MongoDB</li>
-                        <li>PostgreSQL / SQL</li>
-                        <li>Snowflake</li>
-                        <li>Airflow</li>
-                        <li>Git & CI/CD</li>
-                    </ul>
+                <div class="timeline reveal reveal--delay-1">
+                    <article class="timeline-item">
+                        <span class="timeline-item__marker"></span>
+                        <div class="timeline-item__meta">2011 - Present</div>
+                        <h3>Brazilian Post and Telegraph Company</h3>
+                        <p class="timeline-item__subtitle">Operational Support | Curitiba, PR</p>
+                        <p>Built a strong reliability mindset through high-pressure operations, system continuity, and problem-solving in environments that do not tolerate failure.</p>
+                        <ul>
+                            <li>Supported critical workflows and service continuity.</li>
+                            <li>Contributed to corporate system implementation and user support.</li>
+                            <li>Developed a practical sense for risk, SLA, and execution quality.</li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-item__marker"></span>
+                        <div class="timeline-item__meta">2023 - 2027</div>
+                        <h3>Descomplica Faculdade Digital</h3>
+                        <p class="timeline-item__subtitle">BSc in Computer Science</p>
+                        <p>Academic foundation in algorithms, systems, and software thinking, paired with self-directed study in AI engineering and backend design.</p>
+                        <ul>
+                            <li>Computer science fundamentals with a practical focus.</li>
+                            <li>Complementary studies in MLOps, APIs, and data engineering.</li>
+                        </ul>
+                    </article>
+
+                    <article class="timeline-item">
+                        <span class="timeline-item__marker timeline-item__marker--active"></span>
+                        <div class="timeline-item__meta">2024 - Present</div>
+                        <h3>AI Engineer and Solutions Architect</h3>
+                        <p class="timeline-item__subtitle">Personal projects and portfolio work</p>
+                        <p>Shaping AI products with RAG, multi-agent flows, and production-ready APIs, always with an eye on clarity, maintainability, and business value.</p>
+                        <ul>
+                            <li>Agentic systems with state, memory, and orchestration.</li>
+                            <li>FastAPI services with async patterns and structured interfaces.</li>
+                            <li>Retrieval pipelines designed for practical use cases.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stack -->
+        <section class="section" id="stack">
+            <div class="container">
+                <div class="section-heading reveal">
+                    <p class="section-kicker">Tech Stack</p>
+                    <h2>Organized by category, not by buzzword.</h2>
                 </div>
 
-                <div class="glass rounded-xl p-6">
-                    <p style="font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:#94a3b8; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:14px;">Cloud & Mobile</p>
-                    <ul style="font-size:0.85rem; color:#94a3b8; line-height:2.1; list-style:none;">
-                        <li>Oracle Cloud</li>
-                        <li>AWS / GCP / Azure</li>
-                        <li>Flutter & Dart</li>
-                        <li>Clean Architecture</li>
-                        <li>SOLID</li>
-                    </ul>
+                <div class="stack-grid">
+                    <article class="stack-card reveal">
+                        <h3>Languages</h3>
+                        <div class="badge-grid">
+                            <span>Python</span>
+                            <span>Dart</span>
+                            <span>SQL</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </article>
+
+                    <article class="stack-card reveal reveal--delay-1">
+                        <h3>AI / ML</h3>
+                        <div class="badge-grid">
+                            <span>LangGraph</span>
+                            <span>LangChain</span>
+                            <span>RAG</span>
+                            <span>Prompt design</span>
+                            <span>Gemini API</span>
+                            <span>LLM orchestration</span>
+                        </div>
+                    </article>
+
+                    <article class="stack-card reveal reveal--delay-2">
+                        <h3>Frameworks</h3>
+                        <div class="badge-grid">
+                            <span>FastAPI</span>
+                            <span>Flutter</span>
+                            <span>REST APIs</span>
+                            <span>Clean Architecture</span>
+                        </div>
+                    </article>
+
+                    <article class="stack-card reveal">
+                        <h3>Data</h3>
+                        <div class="badge-grid">
+                            <span>MongoDB</span>
+                            <span>PostgreSQL</span>
+                            <span>Data Analysis</span>
+                            <span>ETL</span>
+                        </div>
+                    </article>
+
+                    <article class="stack-card reveal reveal--delay-1">
+                        <h3>Cloud / MLOps</h3>
+                        <div class="badge-grid">
+                            <span>AWS</span>
+                            <span>GCP</span>
+                            <span>Azure</span>
+                            <span>Docker</span>
+                            <span>GitHub</span>
+                            <span>CI/CD</span>
+                        </div>
+                    </article>
+
+                    <article class="stack-card reveal reveal--delay-2">
+                        <h3>Tools</h3>
+                        <div class="badge-grid">
+                            <span>Linux</span>
+                            <span>WSL</span>
+                            <span>Figma</span>
+                            <span>VS Code</span>
+                            <span>API testing</span>
+                        </div>
+                    </article>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ══════════════════════════════════════════
-         FOOTER / CTA
-    ══════════════════════════════════════════ -->
-    <footer class="py-24 px-6 relative z-10" style="border-top:1px solid rgba(255,255,255,0.05);">
-        <div class="max-w-5xl mx-auto text-center">
-            <p class="tag mb-8 inline-block">Contato</p>
+        <!-- Contact -->
+        <section class="section section--contact" id="contact">
+            <div class="container">
+                <div class="contact-card reveal">
+                    <p class="section-kicker">Contact</p>
+                    <h2>Let's build something that feels like a real product.</h2>
+                    <p>If you are hiring for AI engineering, backend development, or product-focused technical roles, this portfolio is ready for the next conversation.</p>
 
-            <h2 style="font-size:clamp(2.4rem,6vw,4rem); font-weight:900; line-height:1.08; margin-bottom:1.25rem;">
-                Vamos construir<br>
-                <span class="shimmer-text">o próximo nível?</span>
-            </h2>
-
-            <p style="color:#475569; font-size:0.95rem; max-width:480px; margin:0 auto 2.75rem; line-height:1.75;">
-                Aberto a posições como AI Engineer ou Solutions Architect.<br>
-                Maturidade profissional + skills de IA de ponta para o seu time.
-            </p>
-
-            <div class="flex flex-wrap justify-center gap-4 mb-14">
-                <a href="mailto:vitor_diogo89@hotmail.com" class="btn-primary">vitor_diogo89@hotmail.com →</a>
-                <a href="https://linkedin.com/in/vdfs89" target="_blank" class="btn-ghost">↗ LinkedIn</a>
-                <a href="https://github.com/vdfs89" target="_blank" class="btn-ghost">↗ GitHub</a>
+                    <div class="contact-card__actions">
+                        <a class="button button--primary" href="mailto:vitor_diogo89@hotmail.com">Email Me</a>
+                        <a class="button button--secondary" href="https://github.com/vdfs89" target="_blank" rel="noreferrer">GitHub</a>
+                        <a class="button button--secondary" href="https://linkedin.com/in/vdfs89" target="_blank" rel="noreferrer">LinkedIn</a>
+                    </div>
+                </div>
             </div>
+        </section>
+    </main>
 
-            <!-- GitHub stats row -->
-            <div class="flex flex-wrap justify-center gap-4 mb-14 reveal">
-                <img src="https://github-readme-stats.vercel.app/api?username=vdfs89&show_icons=true&theme=dark&bg_color=070b11&border_color=1e293b&title_color=22d3ee&icon_color=818cf8&text_color=94a3b8&include_all_commits=true&count_private=true&hide_border=false" alt="GitHub Stats" style="border-radius:12px; height:130px;" />
-                <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vdfs89&layout=compact&theme=dark&bg_color=070b11&border_color=1e293b&title_color=22d3ee&text_color=94a3b8" alt="Top Languages" style="border-radius:12px; height:130px;" />
-            </div>
-
-            <p style="font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:#1e293b; letter-spacing:0.12em;">
-                © 2026 VITOR SILVA · CURITIBA, PR · BUILT WITH CODE & CAFÉ PRETO ☕
-            </p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p>Vitor Silva</p>
+            <p>AI Engineer and Solutions Architect</p>
+            <p>Curitiba, PR</p>
         </div>
     </footer>
 
-    <!-- ══ Scroll Reveal ══ -->
     <script>
-        const io = new IntersectionObserver(entries => {
-            entries.forEach(e => {
-                if (e.isIntersecting) e.target.classList.add('visible');
+        const navToggle = document.querySelector('[data-nav-toggle]');
+        const navMenu = document.querySelector('[data-nav-menu]');
+
+        if (navToggle && navMenu) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navMenu.classList.toggle('nav--open');
+                navToggle.setAttribute('aria-expanded', String(isOpen));
             });
-        }, { threshold: 0.12 });
-        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+            navMenu.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('nav--open');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.18 });
+
+        revealElements.forEach((element) => revealObserver.observe(element));
     </script>
 </body>
 </html>
