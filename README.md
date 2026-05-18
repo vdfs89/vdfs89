@@ -3,7 +3,7 @@
 *Designing production-grade multi-agent systems, advanced RAG architectures, and highly resilient software systems.*
 
 Curitiba - PR, Brazil (Open to Remote / Hybrid / Global Opportunities)
-[LinkedIn](https://linkedin.com/in/vdfs89) | [GitHub](https://github.com/vdfs89) | [Official Portfolio](https://vitorsilva.page/) | [Email](mailto:vdfs89@gmail.com)
+[LinkedIn](https://linkedin.com/in/vdfs89) | [GitHub](https://github.com/vdfs89) | [Official Portfolio](https://vitorsilva.page/) | [Email](mailto:vitor_diogo89@hotmail.com)
 
 ---
 

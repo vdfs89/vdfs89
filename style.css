@@ -333,34 +333,42 @@ body::before {
 }
 
 .hero-actions,
-.contact-actions {
+.hero__actions,
+.contact-actions,
+.contact-card__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 0.9rem;
     margin-top: 2rem;
 }
 
-.button-primary {
+.button-primary,
+.button--primary {
     background: linear-gradient(135deg, var(--accent) 0%, #1fd0db 100%);
     color: #051015;
     box-shadow: 0 18px 36px rgba(20, 184, 196, 0.14);
 }
 
 .button-primary:hover,
-.button-primary:focus-visible {
+.button--primary:hover,
+.button-primary:focus-visible,
+.button--primary:focus-visible {
     transform: translateY(-2px);
     background: linear-gradient(135deg, var(--accent-hover) 0%, #19c3cf 100%);
     box-shadow: 0 22px 42px rgba(20, 184, 196, 0.2);
 }
 
-.button-secondary {
+.button-secondary,
+.button--secondary {
     border: 1px solid var(--border);
     color: var(--text);
     background: rgba(255, 255, 255, 0.02);
 }
 
 .button-secondary:hover,
-.button-secondary:focus-visible {
+.button--secondary:hover,
+.button-secondary:focus-visible,
+.button--secondary:focus-visible {
     transform: translateY(-2px);
     border-color: rgba(255, 255, 255, 0.14);
     background: rgba(255, 255, 255, 0.04);
@@ -838,6 +846,7 @@ body::before {
     transition: opacity 640ms ease, transform 640ms ease;
 }
 
+.reveal.is-visible,
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
@@ -855,6 +864,135 @@ body::before {
     100% {
         box-shadow: 0 0 0 0 rgba(20, 184, 196, 0);
     }
+}
+
+/* Highlight Timeline Item */
+.timeline-item.highlight {
+    border-left: 2px solid var(--accent);
+    padding-left: 1.6rem;
+    background: rgba(20, 184, 196, 0.02);
+}
+
+/* System Design Accordion */
+.project-architecture {
+    margin-top: 1.2rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: var(--radius-sm);
+    padding: 0.9rem 1.1rem;
+    font-size: 0.86rem;
+    text-align: left;
+    transition: background 180ms ease, border-color 180ms ease;
+}
+
+.project-architecture[open] {
+    background: rgba(20, 184, 196, 0.03);
+    border-color: rgba(20, 184, 196, 0.15);
+}
+
+.project-architecture summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--accent);
+    outline: none;
+    user-select: none;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.project-architecture summary:hover {
+    color: var(--accent-hover);
+}
+
+.architecture-content {
+    margin-top: 0.75rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.architecture-content p {
+    margin: 0 0 0.5rem 0;
+}
+
+.architecture-content ol {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+.architecture-content li {
+    margin-bottom: 0.4rem;
+}
+
+.architecture-content li:last-child {
+    margin-bottom: 0;
+}
+
+.architecture-content code {
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    color: #ff9fb2;
+    font-family: monospace;
+}
+
+/* Production Guardrails Section */
+.guardrails-section {
+    margin-top: 4.5rem;
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 3.5rem;
+}
+
+.guardrails-section h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    margin: 0 0 0.5rem;
+    color: var(--text);
+}
+
+.guardrails-subtitle {
+    color: var(--muted);
+    font-size: 0.98rem;
+    margin: 0 0 2rem 0;
+}
+
+.guardrails-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+}
+
+.guardrail-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+    border: 1px solid var(--border);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.guardrail-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: var(--shadow-lg);
+}
+
+.guardrail-card h4 {
+    color: var(--text);
+    margin: 0 0 0.7rem 0;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.guardrail-card p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 0;
 }
 
 @media (max-width: 1080px) {

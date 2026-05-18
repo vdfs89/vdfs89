@@ -78,8 +78,8 @@
                     <p class="hero__copy" data-i18n="hero.copy">LLMs, fluxos agênticos, RAG, automações, pipelines de dados e backend, com a disciplina de quem operou ambientes críticos por mais de uma década.</p>
 
                     <div class="hero__actions">
-                        <a class="button button--primary" href="#projects" data-i18n="hero.primaryCta">Ver Projetos</a>
-                        <a class="button button--secondary" href="#contact" data-i18n="hero.secondaryCta">Fale Comigo</a>
+                        <a class="button button--primary" href="#projects" data-i18n="hero.primaryCta">Ver Projetos de IA</a>
+                        <a class="button button--secondary" href="https://linkedin.com/in/vdfs89" target="_blank" rel="noreferrer" data-i18n="hero.secondaryCta">LinkedIn</a>
                     </div>
 
                     <div class="hero__meta">
@@ -108,21 +108,18 @@
                         <div class="profile-card__body">
                             <p class="profile-card__label" data-i18n="hero.focusLabel">Foco</p>
                             <h2 data-i18n="hero.panelTitle">Sistemas de IA em produção com valor claro de produto.</h2>
-                            <p data-i18n="hero.panelCopy">Construo agentes, sistemas de recuperação e ferramentas operacionais com equilíbrio entre profundidade técnica e resultado para o usuário.</p>
-                        </div>
-
-                        <div class="profile-card__stats">
-                            <div>
-                                <strong>AI</strong>
-                                <span data-i18n="hero.stat.one">Agentes e orquestração</span>
-                            </div>
-                            <div>
-                                <strong>Data</strong>
-                                <span data-i18n="hero.stat.two">RAG, pipelines, análise</span>
-                            </div>
-                            <div>
-                                <strong>Backend</strong>
-                                <span data-i18n="hero.stat.three">FastAPI, Python, APIs</span>
+                            <p class="profile-card__copy" data-i18n="hero.panelCopy">Substituo prompts simples por orquestração complexa de agentes, pipelines semânticos de RAG e governança absoluta de dados.</p>
+                            
+                            <div class="profile-card__stats">
+                                <div>
+                                    <strong data-i18n="hero.stat.one">LangGraph e múltiplos agentes</strong>
+                                </div>
+                                <div>
+                                    <strong data-i18n="hero.stat.two">Pipelines RAG e IDP de alta escala</strong>
+                                </div>
+                                <div>
+                                    <strong data-i18n="hero.stat.three">FastAPI, Python e ecossistema Flutter</strong>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -132,28 +129,24 @@
 
         <!-- About -->
         <section class="section" id="about">
-            <div class="container section__grid section__grid--split">
+            <div class="container section__grid">
                 <div class="section-heading reveal">
-                    <p class="section-kicker" data-i18n="about.kicker">Sobre</p>
-                    <h2 data-i18n="about.title">Engenharia medida, execução refinada e IA com mentalidade de produto.</h2>
+                    <p class="section-kicker" data-i18n="about.kicker">Proposta de Valor</p>
+                    <h2 data-i18n="about.title">Robustez operacional de missão crítica unida à engenharia de IA de ponta.</h2>
                 </div>
 
-                <div class="about-card reveal reveal--delay-1">
-                    <p data-i18n="about.copy.one">Minha trajetória combina mais de 14 anos em ambientes operacionais com trabalhos recentes em engenharia de IA, backend e machine learning aplicado.</p>
-                    <p data-i18n="about.copy.two">Meu foco está em sistemas claros de entender, agradáveis de usar e fortes o suficiente para sustentar uso real em produção.</p>
+                <div class="content-split reveal reveal--delay-1">
+                    <div class="text-block">
+                        <p data-i18n="about.copy.one">Utilizo inteligência artificial generativa não apenas como uma funcionalidade, mas como a base para estruturar e solucionar processos corporativos complexos. Combino essa visão a uma sólida experiência de 15 anos em governança e operações críticas nos Correios.</p>
+                        <p data-i18n="about.copy.two">Desenvolvo sistemas multi-agentes determinísticos baseados em máquinas de estado (LangGraph), mitigação ativa de alucinações, processamento inteligente de documentos (IDP) e pipelines robustos de RAG corporativo.</p>
+                    </div>
 
-                    <div class="about-card__highlights">
-                        <div>
-                            <span>14+ years</span>
-                            <small data-i18n="about.highlight.one">Mentalidade de operação e confiabilidade</small>
-                        </div>
-                        <div>
-                            <span>AI systems</span>
-                            <small data-i18n="about.highlight.two">Agentes, RAG, automação, dados</small>
-                        </div>
-                        <div>
-                            <span>Global-ready</span>
-                            <small data-i18n="about.highlight.three">Portfólio preparado para vagas internacionais</small>
+                    <div class="about-card">
+                        <span class="about-card-label" data-i18n="hero.focusLabel">Destaques</span>
+                        <div class="focus-list">
+                            <li data-i18n="about.highlight.one">Confiabilidade extrema sob pressão (15 anos Correios)</li>
+                            <li data-i18n="about.highlight.two">Sistemas multi-agentes e RAG avançado</li>
+                            <li data-i18n="about.highlight.three">Ciência da Computação & FIAP ML Engineering</li>
                         </div>
                     </div>
                 </div>
@@ -184,6 +177,19 @@
                             <span>MongoDB Atlas</span>
                             <span>OpenAI API</span>
                         </div>
+                        
+                        <details class="project-architecture reveal">
+                            <summary data-i18n="projects.one.arch.title">Ver System Design & Fluxo de IA</summary>
+                            <div class="architecture-content">
+                                <p><strong data-i18n="projects.one.arch.subtitle">Pipeline Agêntico Determinístico:</strong></p>
+                                <ol>
+                                    <li data-i18n="projects.one.arch.step1">Orquestração: LangGraph mantém o estado e gerencia a máquina de estados.</li>
+                                    <li data-i18n="projects.one.arch.step2">Validação Cruzada: Agente validador (LLM-as-a-Judge) audita o output do agente primário.</li>
+                                    <li data-i18n="projects.one.arch.step3">Prevenção de Alucinação: RAG integrado com base de dados financeiros indexada.</li>
+                                </ol>
+                            </div>
+                        </details>
+
                         <div class="project-card__footer">
                             <span data-i18n="projects.one.footer">Desafio: persistência de checkpoints e lógicas determinísticas.</span>
                             <div class="project-card__links">
@@ -208,6 +214,19 @@
                             <span>LangGraph</span>
                             <span>PostgreSQL</span>
                         </div>
+                        
+                        <details class="project-architecture reveal">
+                            <summary data-i18n="projects.two.arch.title">Ver System Design & Fluxo de IA</summary>
+                            <div class="architecture-content">
+                                <p><strong data-i18n="projects.two.arch.subtitle">Streaming Bidirecional de Baixa Latência:</strong></p>
+                                <ol>
+                                    <li data-i18n="projects.two.arch.step1">Transmissão em Tempo Real: Conexão assíncrona entre o cliente Flutter e o backend FastAPI.</li>
+                                    <li data-i18n="projects.two.arch.step2">Análise de Voz: Transcrição e avaliação gramatical assíncronas rodando em background threads.</li>
+                                    <li data-i18n="projects.two.arch.step3">Resposta Perceptiva: Entrega em tempo de resposta menor que 800ms utilizando chunks de áudio.</li>
+                                </ol>
+                            </div>
+                        </details>
+
                         <div class="project-card__footer">
                             <span data-i18n="projects.two.footer">Desafio: integração assíncrona FastAPI + Flutter e baixa latência.</span>
                             <div class="project-card__links">
@@ -223,7 +242,7 @@
                             <span class="project-card__status project-card__status--blue" data-i18n="projects.status.year">2026</span>
                         </div>
                         <h3>Aether Oncology</h3>
-                        <p data-i18n="projects.three.copy">Cockpit clínico e terminal de diagnóstico preditivo para oncologia, integrando modelos de Deep Learning (XAI) a uma experiência clínica premium.</p>
+                        <p data-i18n="projects.three.copy">Cockpit clínico e terminal de diagnóstico preditivo para oncologia, integrando models de Deep Learning (XAI) a uma experiência clínica premium.</p>
                         <div class="project-card__tags">
                             <span>Next.js</span>
                             <span>PyTorch</span>
@@ -231,6 +250,19 @@
                             <span>Tailwind CSS</span>
                             <span>Docker</span>
                         </div>
+                        
+                        <details class="project-architecture reveal">
+                            <summary data-i18n="projects.three.arch.title">Ver System Design & Fluxo de IA</summary>
+                            <div class="architecture-content">
+                                <p><strong data-i18n="projects.three.arch.subtitle">Explicabilidade & Processamento 3D:</strong></p>
+                                <ol>
+                                    <li data-i18n="projects.three.arch.step1">Predição de Diagnóstico: Modelo PyTorch prevê a probabilidade diagnóstica a partir dos inputs.</li>
+                                    <li data-i18n="projects.three.arch.step2">Explicabilidade (XAI): FastAPI calcula mapas de calor (gradientes integrados) em tempo real.</li>
+                                    <li data-i18n="projects.three.arch.step3">Aceleração por GPU: Visualização tridimensional da estrela-guia processada via WebGL shaders.</li>
+                                </ol>
+                            </div>
+                        </details>
+
                         <div class="project-card__footer">
                             <span data-i18n="projects.three.footer">Desafio: explicabilidade de modelos (XAI) e renderização paralela da estrela-guia.</span>
                             <div class="project-card__links">
@@ -254,6 +286,19 @@
                             <span>Pinecone</span>
                             <span>Docker</span>
                         </div>
+                        
+                        <details class="project-architecture reveal">
+                            <summary data-i18n="projects.four.arch.title">Ver System Design & Fluxo de IA</summary>
+                            <div class="architecture-content">
+                                <p><strong data-i18n="projects.four.arch.subtitle">Curadoria & Telemetria Avançada:</strong></p>
+                                <ol>
+                                    <li data-i18n="projects.four.arch.step1">Ingestão de Dados: Pipeline inteligente processa PDFs e relatórios não estruturados (IDP).</li>
+                                    <li data-i18n="projects.four.arch.step2">Base Semântica: Indexação em chunks estruturados no MongoDB Atlas e base vetorial Pinecone.</li>
+                                    <li data-i18n="projects.four.arch.step3">Rastreabilidade RAG: Telemetria contínua via LangSmith avaliando a qualidade e mitigando data drift.</li>
+                                </ol>
+                            </div>
+                        </details>
+
                         <div class="project-card__footer">
                             <span data-i18n="projects.four.footer">Desafio: esteira de observabilidade e evals via LangSmith contra drift.</span>
                             <div class="project-card__links">
@@ -275,7 +320,7 @@
 
                 <div class="timeline reveal reveal--delay-1">
                     <!-- Item 1: FIAP -->
-                    <article class="timeline-item">
+                    <article class="timeline-item highlight">
                         <span class="timeline-item__marker timeline-item__marker--active"></span>
                         <div class="timeline-item__meta">2025 - 2027</div>
                         <h3 data-i18n="experience.one.role">FIAP</h3>
@@ -375,6 +420,26 @@
                         </div>
                     </article>
                 </div>
+
+                <!-- Guardrails Section -->
+                <div class="guardrails-section reveal">
+                    <h3 data-i18n="guardrails.title">Guardrails de Produção & Eficiência</h3>
+                    <p class="guardrails-subtitle" data-i18n="guardrails.subtitle">Mentalidade focada na viabilidade econômica, segurança e latência de IA sob escala.</p>
+                    <div class="guardrails-grid">
+                        <div class="guardrail-card">
+                            <h4 data-i18n="guardrails.one.title">Otimização de Latência</h4>
+                            <p data-i18n="guardrails.one.copy">Arquiteturas baseadas em streaming de dados assíncronos para reduzir a latência percebida para menos de 800ms.</p>
+                        </div>
+                        <div class="guardrail-card">
+                            <h4 data-i18n="guardrails.two.title">Eficiência de Custo/Token</h4>
+                            <p data-i18n="guardrails.two.copy">Modelagem de prompts estruturados, cache de chamadas e roteamento dinâmico de LLMs para minimizar custos de API.</p>
+                        </div>
+                        <div class="guardrail-card">
+                            <h4 data-i18n="guardrails.three.title">Mitigação de Alucinação</h4>
+                            <p data-i18n="guardrails.three.copy">Construção de fluxos determinísticos validados por sistemas de validação cruzada (LLM-as-a-Judge).</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -388,6 +453,7 @@
 
                     <div class="contact-card__actions">
                         <a class="button button--primary" href="mailto:vitor_diogo89@hotmail.com" data-i18n="contact.email">Me escreva</a>
+                        <a class="button button--secondary" href="https://wa.me/5541991823939" target="_blank" rel="noreferrer" data-i18n="contact.whatsapp">WhatsApp</a>
                         <a class="button button--secondary" href="https://github.com/vdfs89" target="_blank" rel="noreferrer" data-i18n="contact.github">GitHub</a>
                         <a class="button button--secondary" href="https://linkedin.com/in/vdfs89" target="_blank" rel="noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
                     </div>
@@ -419,44 +485,44 @@
                 'hero.role': 'AI Builder & Fullstack Developer',
                 'hero.subtitle': 'Foco em Soluções AI-First',
                 'hero.copy': 'Profissional consolidado por 15 anos em operações de missão crítica nos Correios. Especialista graduando em Ciência da Computação e Pós-graduando em ML Engineering pela FIAP. Foco em arquiteturas multi-agentes assíncronas (LangGraph), tratamento de alucinações e governança de dados corporativos.',
-                'hero.primaryCta': 'Ver Projetos',
-                'hero.secondaryCta': 'Fale Comigo',
+                'hero.primaryCta': 'Ver Projetos de IA',
+                'hero.secondaryCta': 'LinkedIn',
                 'hero.meta.one': 'Anos em operações críticas',
                 'hero.meta.two': 'Projetos AI-First autorais',
                 'hero.meta.three.value': 'Remoto / Híbrido',
                 'hero.meta.three.label': 'Disponível para vagas sênior',
                 'hero.status': 'Disponível para novos desafios',
-                'hero.panelTag': 'Portfólio Premium',
-                'hero.focusLabel': 'Mentalidade',
-                'hero.panelTitle': 'Sistemas robustos de IA desenhados para problemas de negócio reais.',
-                'hero.panelCopy': 'Substituo abordagens superficiais de prompt design por orquestração de fluxos agênticos complexos, recuperação semântica e qualidade de dados.',
-                'hero.stat.one': 'LangGraph e multi-agentes',
-                'hero.stat.two': 'Pipelines de RAG e IDP',
-                'hero.stat.three': 'Python, FastAPI e Flutter',
+                'hero.panelTag': 'Portfólio Premium de IA',
+                'hero.focusLabel': 'Destaques',
+                'hero.panelTitle': 'Sistemas de IA em produção com valor claro de produto.',
+                'hero.panelCopy': 'Substituo prompts simples por orquestração complexa de agentes, pipelines semânticos de RAG e governança absoluta de dados.',
+                'hero.stat.one': 'LangGraph e múltiplos agentes',
+                'hero.stat.two': 'Pipelines RAG e IDP de alta escala',
+                'hero.stat.three': 'FastAPI, Python e ecossistema Flutter',
                 'about.kicker': 'Proposta de Valor',
-                'about.title': 'Robustez operacional de missão crítica aliada à vanguarda da IA.',
+                'about.title': 'Robustez operacional de missão crítica unida à engenharia de IA de ponta.',
                 'about.copy.one': 'Utilizo inteligência artificial generativa não apenas como uma funcionalidade, mas como a base para estruturar e solucionar processos corporativos complexos. Combino essa visão a uma sólida experiência de 15 anos em governança e operações críticas nos Correios.',
                 'about.copy.two': 'Desenvolvo sistemas multi-agentes determinísticos baseados em máquinas de estado (LangGraph), mitigação ativa de alucinações, processamento inteligente de documentos (IDP) e pipelines robustos de RAG corporativo.',
-                'about.highlight.one': 'Confiabilidade extrema sob pressão (15 anos ECT)',
+                'about.highlight.one': 'Confiabilidade extrema sob pressão (15 anos Correios)',
                 'about.highlight.two': 'Sistemas multi-agentes e RAG avançado',
                 'about.highlight.three': 'Ciência da Computação & FIAP ML Engineering',
                 'projects.kicker': 'Projetos em Destaque',
-                'projects.title': 'Sistemas avançados com vanguarda tecnológica e foco no usuário.',
+                'projects.title': 'Trabalhos selecionados com apresentação premium e pensamento orientado à produção.',
                 'projects.status.featured': 'Em destaque',
                 'projects.status.live': 'Conceito ativo',
                 'projects.status.year': '2026',
                 'projects.status.idp': 'Processamento Inteligente',
-                'projects.one.copy': 'Plataforma avançada de inteligência financeira sob arquitetura de múltiplos agentes autônomos. Validação cruzada de respostas para mitigar alucinações em ambientes regulados.',
+                'projects.one.copy': 'Plataforma avançada de inteligência financeira construída sob uma arquitetura de múltiplos agentes autônomos com validação cruzada para mitigar alucinações em ambientes regulados.',
                 'projects.one.footer': 'Desafio: persistência de checkpoints e lógicas determinísticas.',
                 'projects.demo': 'Ver demo',
-                'projects.two.copy': 'Ecossistema adaptativo de inglês técnico com agente multi-step que analisa o contexto e fornece feedbacks em tempo real por streaming de dados.',
+                'projects.two.copy': 'Tutor inteligente de inglês técnico com agente multi-step analisando proficiência e fornecendo feedbacks em tempo real por streaming de dados.',
                 'projects.two.footer': 'Desafio: integração assíncrona FastAPI + Flutter e baixa latência.',
-                'projects.three.copy': 'Cockpit clínico e terminal de diagnóstico preditivo para oncologia, integrando modelos de Deep Learning (XAI) a uma experiência clínica premium.',
+                'projects.three.copy': 'Cockpit clínico e terminal de diagnóstico preditivo para oncologia, integrando models de Deep Learning (XAI) a uma experiência clínica premium.',
                 'projects.three.footer': 'Desafio: explicabilidade de modelos (XAI) e renderização paralela da estrela-guia.',
-                'projects.four.copy': 'Arquitetura robusta para ingestão, chunking avançado e curadoria de dados não estruturados (PDFs, relatórios) em base semântica altamente consultável.',
+                'projects.four.copy': 'Ingestão e curadoria inteligente de dados não estruturados regulatórios em base semântica altamente consultável com pipeline RAG.',
                 'projects.four.footer': 'Desafio: esteira de observabilidade e evals via LangSmith contra drift.',
                 'experience.kicker': 'Linha do Tempo',
-                'experience.title': 'Maturidade operacional encontrando engenharia de IA avançada.',
+                'experience.title': 'Maturidade operacional encontrando engenharia de IA moderna.',
                 'experience.one.role': 'FIAP',
                 'experience.one.subtitle': 'Pós-Graduação em Machine Learning Engineering',
                 'experience.one.copy': 'Especialização avançada e prática focada em MLOps, Deep Learning, engenharia de atributos e implantação de LLMs corporativos em escala.',
@@ -474,13 +540,52 @@
                 'stack.cloud': 'Nuvem & Infraestrutura',
                 'stack.data': 'Bancos de Dados & Vetores',
                 'contact.kicker': 'Contato',
-                'contact.title': 'Vamos construir algo que pareça um produto real.',
-                'contact.copy': 'Se você busca um engenheiro capaz de projetar sistemas de IA confiáveis, resilientes e integrados a produtos maduros, entre em contato.',
+                'contact.title': 'Vamos construir algo que pareça um produto de verdade.',
+                'contact.copy': 'Se você está contratando para IA, backend ou funções técnicas com foco em produto, este portfólio está pronto para a próxima conversa.',
                 'contact.email': 'Me escreva',
+                'contact.whatsapp': 'WhatsApp',
                 'contact.github': 'GitHub',
                 'contact.linkedin': 'LinkedIn',
                 'footer.role': 'AI Builder & Fullstack Developer | Foco em Soluções AI-First',
-                langToggleLabel: 'EN'
+                langToggleLabel: 'EN',
+                
+                // MestreGrana Arch
+                'projects.one.arch.title': 'Ver System Design & Fluxo de IA',
+                'projects.one.arch.subtitle': 'Pipeline Agêntico Determinístico:',
+                'projects.one.arch.step1': 'Orquestração: LangGraph mantém o estado e gerencia a máquina de estados.',
+                'projects.one.arch.step2': 'Validação Cruzada: Agente validador (LLM-as-a-Judge) audita o output do agente primário.',
+                'projects.one.arch.step3': 'Prevenção de Alucinação: RAG integrado com base de dados financeiros indexada.',
+                
+                // FluencyForge Arch
+                'projects.two.arch.title': 'Ver System Design & Fluxo de IA',
+                'projects.two.arch.subtitle': 'Streaming Bidirecional de Baixa Latência:',
+                'projects.two.arch.step1': 'Transmissão em Tempo Real: Conexão assíncrona entre o cliente Flutter e o backend FastAPI.',
+                'projects.two.arch.step2': 'Análise de Voz: Transcrição e avaliação gramatical assíncronas rodando em background threads.',
+                'projects.two.arch.step3': 'Resposta Perceptiva: Entrega em tempo de resposta menor que 800ms utilizando chunks de áudio.',
+                
+                // Aether Oncology Arch
+                'projects.three.arch.title': 'Ver System Design & Fluxo de IA',
+                'projects.three.arch.subtitle': 'Explicabilidade & Processamento 3D:',
+                'projects.three.arch.step1': 'Predição de Diagnóstico: Modelo PyTorch prevê a probabilidade diagnóstica a partir dos inputs.',
+                'projects.three.arch.step2': 'Explicabilidade (XAI): FastAPI calcula mapas de calor (gradientes integrados) em tempo real.',
+                'projects.three.arch.step3': 'Aceleração por GPU: Visualização tridimensional da estrela-guia processada via WebGL shaders.',
+                
+                // Harmoniz.AI Arch
+                'projects.four.arch.title': 'Ver System Design & Fluxo de IA',
+                'projects.four.arch.subtitle': 'Curadoria & Telemetria Avançada:',
+                'projects.four.arch.step1': 'Ingestão de Dados: Pipeline inteligente processa PDFs e relatórios não estruturados (IDP).',
+                'projects.four.arch.step2': 'Base Semântica: Indexação em chunks estruturados no MongoDB Atlas e base vetorial Pinecone.',
+                'projects.four.arch.step3': 'Rastreabilidade RAG: Telemetria contínua via LangSmith avaliando a qualidade e mitigando data drift.',
+
+                // Guardrails
+                'guardrails.title': 'Guardrails de Produção & Eficiência',
+                'guardrails.subtitle': 'Mentalidade focada na viabilidade econômica, segurança e latência de IA sob escala.',
+                'guardrails.one.title': 'Otimização de Latência',
+                'guardrails.one.copy': 'Arquiteturas baseadas em streaming de dados assíncronos para reduzir a latência percebida para menos de 800ms.',
+                'guardrails.two.title': 'Eficiência de Custo/Token',
+                'guardrails.two.copy': 'Modelagem de prompts estruturados, cache de chamadas e roteamento dinâmico de LLMs para minimizar custos de API.',
+                'guardrails.three.title': 'Mitigação de Alucinação',
+                'guardrails.three.copy': 'Construção de fluxos determinísticos validados por sistemas de validação cruzada (LLM-as-a-Judge).'
             },
             en: {
                 skip: 'Skip to content',
@@ -495,20 +600,20 @@
                 'hero.role': 'AI Builder & Fullstack Developer',
                 'hero.subtitle': 'Focus on AI-First Solutions',
                 'hero.copy': 'Professional backed by 15 years in mission-critical operations at Correios. Pursuing a Computer Science degree and specializing in Machine Learning Engineering at FIAP. Expertise in async multi-agent architectures (LangGraph), hallucination mitigation, and enterprise data governance.',
-                'hero.primaryCta': 'View Projects',
-                'hero.secondaryCta': 'Contact Me',
+                'hero.primaryCta': 'View AI Projects',
+                'hero.secondaryCta': 'LinkedIn',
                 'hero.meta.one': 'Years in critical ops',
                 'hero.meta.two': 'Authorial AI-First projects',
                 'hero.meta.three.value': 'Remote / Hybrid',
                 'hero.meta.three.label': 'Available for senior roles',
                 'hero.status': 'Available for new challenges',
-                'hero.panelTag': 'Premium Portfolio',
-                'hero.focusLabel': 'Mindset',
-                'hero.panelTitle': 'Robust AI systems designed for real business problems.',
-                'hero.panelCopy': 'Replacing shallow prompting techniques with complex agentic workflows, semantic retrieval pipelines, and absolute data quality.',
-                'hero.stat.one': 'LangGraph & multi-agent',
-                'hero.stat.two': 'RAG & IDP pipelines',
-                'hero.stat.three': 'Python, FastAPI & Flutter',
+                'hero.panelTag': 'Premium AI Portfolio',
+                'hero.focusLabel': 'Highlights',
+                'hero.panelTitle': 'AI systems in production with clear product value.',
+                'hero.panelCopy': 'Replacing shallow prompt techniques with complex multi-agent orchestration, semantic RAG pipelines, and absolute data quality.',
+                'hero.stat.one': 'LangGraph and multi-agents',
+                'hero.stat.two': 'High-scale RAG & IDP pipelines',
+                'hero.stat.three': 'FastAPI, Python and Flutter ecosystem',
                 'about.kicker': 'Value Proposition',
                 'about.title': 'Mission-critical operational robustness meets cutting-edge AI.',
                 'about.copy.one': 'I leverage generative AI not merely as an isolated feature, but as the foundational layer to solve complex business workflows. I combine this vision with 15 years of solid experience in governance and critical operations at Correios.',
@@ -517,19 +622,19 @@
                 'about.highlight.two': 'Multi-agent systems & advanced RAG',
                 'about.highlight.three': 'Computer Science & FIAP ML Engineering',
                 'projects.kicker': 'Featured Projects',
-                'projects.title': 'Advanced systems combining technical excellence and user focus.',
+                'projects.title': 'Selected works with premium presentation and production-oriented mindset.',
                 'projects.status.featured': 'Featured',
                 'projects.status.live': 'Active Concept',
                 'projects.status.year': '2026',
                 'projects.status.idp': 'Intelligent Processing',
-                'projects.one.copy': 'Advanced financial intelligence platform powered by a multi-agent architecture. Cross-validation is used to mitigate hallucinations in regulated environments.',
+                'projects.one.copy': 'Advanced financial intelligence platform built under a multi-agent architecture with cross-validation to mitigate hallucinations in regulated environments.',
                 'projects.one.footer': 'Challenge: state checkpoints, concurrency, and deterministic logic.',
                 'projects.demo': 'View demo',
-                'projects.two.copy': 'Adaptive technical English ecosystem with a multi-step agent that analyzes conversational context and streams real-time feedback.',
+                'projects.two.copy': 'Intelligent technical English tutor with a multi-step agent that analyzes proficiency and streams real-time feedback.',
                 'projects.two.footer': 'Challenge: async FastAPI + Flutter integration and low latency.',
                 'projects.three.copy': 'Clinical cockpit and predictive diagnostic terminal for oncology, integrating Deep Learning models (XAI) with a premium clinical experience.',
-                'projects.three.footer': 'Challenge: model explainability (XAI) and parallel rendering of starfield shader.',
-                'projects.four.copy': 'Robust architecture for ingestion, advanced chunking, and curation of unstructured regulatory data into a highly consultable semantic base.',
+                'projects.three.footer': 'Challenge: model explainability (XAI) and parallel rendering of guidance-star.',
+                'projects.four.copy': 'Intelligent ingestion and curation of unstructured regulatory data into a highly consultable semantic base with a RAG pipeline.',
                 'projects.four.footer': 'Challenge: quality metrics and automated Evals via LangSmith against drift.',
                 'experience.kicker': 'Experience Timeline',
                 'experience.title': 'Operational maturity meets advanced AI engineering.',
@@ -550,13 +655,52 @@
                 'stack.cloud': 'Cloud & Infrastructure',
                 'stack.data': 'Databases & Vector Stores',
                 'contact.kicker': 'Contact',
-                'contact.title': "Let's build something with the standard of a real product.",
-                'contact.copy': 'If you are looking for an engineer who designs reliable, resilient AI systems integrated into mature products, let\'s chat.',
+                'contact.title': "Let's build something that looks like a real product.",
+                'contact.copy': 'If you are hiring for AI, backend or technical roles with a product focus, this portfolio is ready for the next conversation.',
                 'contact.email': 'Email Me',
+                'contact.whatsapp': 'WhatsApp',
                 'contact.github': 'GitHub',
                 'contact.linkedin': 'LinkedIn',
                 'footer.role': 'AI Builder & Fullstack Developer | Focus on AI-First Solutions',
-                langToggleLabel: 'PT'
+                langToggleLabel: 'PT',
+                
+                // MestreGrana Arch
+                'projects.one.arch.title': 'View System Design & AI Flow',
+                'projects.one.arch.subtitle': 'Deterministic Agentic Pipeline:',
+                'projects.one.arch.step1': 'Orchestration: LangGraph manages conversational state and the state machine.',
+                'projects.one.arch.step2': 'Cross-Validation: Validator agent (LLM-as-a-Judge) audits primary agent output.',
+                'projects.one.arch.step3': 'Hallucination Prevention: Integrated RAG with indexed financial database.',
+                
+                // FluencyForge Arch
+                'projects.two.arch.title': 'View System Design & AI Flow',
+                'projects.two.arch.subtitle': 'Low-Latency Bidirectional Streaming:',
+                'projects.two.arch.step1': 'Real-Time Transmission: Async socket streaming between Flutter client and FastAPI backend.',
+                'projects.two.arch.step2': 'Voice Analysis: Async speech-to-text and grammar telemetry running on background threads.',
+                'projects.two.arch.step3': 'Perceptive Response: Audio chunk streaming delivering sub-800ms user perceived latency.',
+                
+                // Aether Oncology Arch
+                'projects.three.arch.title': 'View System Design & AI Flow',
+                'projects.three.arch.subtitle': 'Explainability & 3D Rendering:',
+                'projects.three.arch.step1': 'Diagnostic Prediction: PyTorch neural net estimates oncology diagnostic probabilities.',
+                'projects.three.arch.step2': 'Explainability (XAI): Real-time FastAPI attribution heatmap calculation (integrated gradients).',
+                'projects.three.arch.step3': 'GPU Acceleration: Interactive clinical cockpit starfield rendered natively inside WebGL shaders.',
+                
+                // Harmoniz.AI Arch
+                'projects.four.arch.title': 'View System Design & AI Flow',
+                'projects.four.arch.subtitle': 'Curation & Advanced Telemetry:',
+                'projects.four.arch.step1': 'Data Ingestion: Intelligent parser processes unstructured PDFs and reports (IDP).',
+                'projects.four.arch.step2': 'Semantic Base: Structured chunks indexed in MongoDB Atlas and Pinecone vector store.',
+                'projects.four.arch.step3': 'RAG Telemetry: Continuous monitoring via LangSmith evaluating retriever quality against data drift.',
+
+                // Guardrails
+                'guardrails.title': 'Production Guardrails & Efficiency',
+                'guardrails.subtitle': 'Mindset focused on economic viability, safety, and latency of AI systems at scale.',
+                'guardrails.one.title': 'Latency Optimization',
+                'guardrails.one.copy': 'Architectures based on async data streaming to minimize user perceived latency to under 800ms.',
+                'guardrails.two.title': 'Cost & Token Efficiency',
+                'guardrails.two.copy': 'Structured prompts, state caching, and dynamic LLM routing to optimize token usage and API cost.',
+                'guardrails.three.title': 'Hallucination Mitigation',
+                'guardrails.three.copy': 'Deterministic workflow architectures validated by cross-checking systems (LLM-as-a-Judge).'
             }
         };
 
