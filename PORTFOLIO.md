@@ -104,4 +104,4 @@ Estou sempre aberto a conversar com **CTOs, Engineering Managers e Fundadores de
 *   💼 **LinkedIn:** [linkedin.com/in/vdfs89](https://linkedin.com/in/vdfs89)
 *   🐙 **GitHub:** [github.com/vdfs89](https://github.com/vdfs89)
 *   🌐 **Website Pessoal:** [vitorsilva.page](https://vitorsilva.page/)
-*   ✉️ **E-mail:** [vdfs89@gmail.com](mailto:vdfs89@gmail.com)
+*   ✉️ **E-mail:** [vitor_diogo89@hotmail.com](mailto:vitor_diogo89@hotmail.com)
