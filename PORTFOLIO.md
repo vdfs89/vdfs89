@@ -23,16 +23,16 @@ Minha especialização é a filosofia **AI-First**: não apenas integrar APIs de
 ┌───────────────────────────────────────┐   ┌───────────────────────────────────────┐
 │     INTELIGÊNCIA ARTIFICIAL (AI)      │   │         BACKEND & INTEGRAÇÃO          │
 ├───────────────────────────────────────┤   ├───────────────────────────────────────┤
-│ • Orquestração Multi-Agente (LangGraph)│   │ • Python (FastAPI, Streamlit, Flask)  │
+│ • Orquestração Multi-Agente(LangGraph) │   │ • Python (FastAPI, Streamlit, Flask)  │
 │ • Mitigação Avançada de Alucinações   │   │ • Node.js (JavaScript / TypeScript)   │
-│ • Pipelines de RAG & Chunking Semântico│   │ • Programação Assíncrona & Concorrência│
+│ • Pipelines RAG & Chunking Semântico  │   │ • Programação Assíncrona/Concorrência │
 │ • Governança & Curadoria de Dados     │   │ • Protocolos Web (REST, WebSockets)   │
 │ • Observabilidade (LangSmith & Evals) │   │ • State-Machine Logic & Determinismo  │
 └───────────────────────────────────────┘   └───────────────────────────────────────┘
 ┌───────────────────────────────────────┐   ┌───────────────────────────────────────┐
 │     INFRAESTRUTURA & MLOPs            │   │          BANCOS DE DADOS              │
 ├───────────────────────────────────────┤   ├───────────────────────────────────────┤
-│ • Containerização (Docker)            │   │ • Bancos Vetoriais (Pinecone, PGVector)│
+│ • Containerização (Docker)            │   │ • Bancos Vetoriais(Pinecone, PGVector) │
 │ • Cloud Computing (Azure Services)    │   │ • NoSQL (MongoDB)                     │
 │ • CI/CD Automático (GitHub Actions)   │   │ • Relacionais (PostgreSQL)            │
 │ • Arquitetura Serverless              │   │ • Pipelines ETL de Ingestão Complexa  │
