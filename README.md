@@ -26,7 +26,7 @@ An adaptive language-learning engine driven by stateful multi-agent workflows.
 An intelligent financial advisory ecosystem built around multi-LLM auditing.
 * **Architecture:** Python + LangChain + MongoDB Atlas + Streamlit.
 * **Key Innovation:** Implements a multi-model routing framework combined with an automated **AI Judge** layer to filter hallucinations, balancing token budget and answer accuracy.
-* 🌐 [Live Demo](https://mestregrana.streamlit.app/) | *Source code available upon request.*
+* 🐙 [GitHub](https://github.com/vdfs89/MestreGrana) | 🌐 [Live Demo](https://mestregrana.streamlit.app/) | *Source code available upon request.*
 
 ### 🍷 Harmoniz.AI
 A data-driven recommendation server built for sensory orchestration.

@@ -52,7 +52,7 @@ Minha especialização é a filosofia **AI-First**: não apenas integrar APIs de
 *   **⚡ O Desafio Técnico Superado:** 
     *   *Mitigação de Alucinação:* Em finanças, uma alucinação de dados pode custar milhões ou violar regras regulatórias. Desenvolvi um loop determinístico de validação cruzada no LangGraph, onde um Agente de Compliance analisa as saídas geradas confrontando-as com APIs de mercado estruturadas e regras fixas. Se houver discrepância de dados superiores a 0%, o fluxo é reiniciado de forma auto-corretiva.
     *   *Persistência de Estado Complexo:* Implementei um sistema de checkpointing customizado do LangGraph no MongoDB, permitindo salvar o estado exato da conversa e das árvores de decisão. Isso garante que interrupções de conexão ou sessões assíncronas de longa duração possam ser retomadas sem perda de progresso histórico.
-*   **Links:** 🐙 [Código no GitHub](https://github.com/vdfs89/mestre-grana) | 🌐 [Demo Ativa](https://mestregrana.streamlit.app/)
+*   **Links:** 🐙 [Código no GitHub](https://github.com/vdfs89/MestreGrana) | 🌐 [Demo Ativa](https://mestregrana.streamlit.app/)
 
 ---
 
