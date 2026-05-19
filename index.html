@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=1.1">
 </head>
 <body>
     <a class="skip-link" href="#content" data-i18n="skip">Pular para o conteúdo</a>
@@ -32,23 +32,14 @@
     </div>
 
     <!-- Header -->
-    <header class="header header--sticky">
-        <div class="container header__inner">
+    <header class="site-header">
+        <div class="container header-inner">
             <a class="brand" href="#home" aria-label="Vitor Silva home">
-                <span class="brand__mark">VS</span>
-                <span class="brand__text">
-                    <strong>Vitor Silva</strong>
-                    <span data-i18n="brand.role">Engenheiro de IA</span>
-                </span>
+                <span class="brand-accent">Vitor Silva</span>
+                <span class="brand-muted" data-i18n="brand.role">Dev AI-First</span>
             </a>
 
-            <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-            <nav class="nav" data-nav-menu>
+            <nav class="nav-links" data-nav-menu>
                 <a href="#about" data-i18n="nav.about">Sobre</a>
                 <a href="#projects" data-i18n="nav.projects">Projetos</a>
                 <a href="#experience" data-i18n="nav.experience">Experiência</a>
@@ -56,9 +47,15 @@
                 <a href="#contact" data-i18n="nav.contact">Contato</a>
             </nav>
 
-            <button class="button button--ghost lang-toggle header__lang-toggle" type="button" data-lang-toggle aria-label="Switch language">EN</button>
-
-            <a class="button button--ghost header__cta" href="mailto:vitor_diogo89@hotmail.com" data-i18n="header.email">Me escreva</a>
+            <div class="header-actions">
+                <button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch language">EN</button>
+                <a class="nav-button header-cta" href="mailto:vdfs89@gmail.com" data-i18n="header.email">Me escreva</a>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -452,7 +449,7 @@
                     <p data-i18n="contact.copy">Se você está contratando para IA, backend ou funções técnicas com foco em produto, este portfólio está pronto para a próxima conversa.</p>
 
                     <div class="contact-card__actions">
-                        <a class="button button--primary" href="mailto:vitor_diogo89@hotmail.com" data-i18n="contact.email">Me escreva</a>
+                        <a class="button button--primary" href="mailto:vdfs89@gmail.com" data-i18n="contact.email">Me escreva</a>
                         <a class="button button--secondary" href="https://wa.me/5541991823939" target="_blank" rel="noreferrer" data-i18n="contact.whatsapp">WhatsApp</a>
                         <a class="button button--secondary" href="https://github.com/vdfs89" target="_blank" rel="noreferrer" data-i18n="contact.github">GitHub</a>
                         <a class="button button--secondary" href="https://linkedin.com/in/vdfs89" target="_blank" rel="noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
@@ -742,9 +739,11 @@
 
         if (navToggle && navMenu) {
             navToggle.addEventListener('click', () => {
-                const isOpen = navMenu.classList.toggle('nav--open');
-                navToggle.setAttribute('aria-expanded', String(isOpen));
-                if (isOpen) {
+                const isOpen = navMenu.getAttribute('data-open') === 'true';
+                const nextOpen = !isOpen;
+                navMenu.setAttribute('data-open', String(nextOpen));
+                navToggle.setAttribute('aria-expanded', String(nextOpen));
+                if (nextOpen) {
                     const focusableElements = navMenu.querySelectorAll('a, button');
                     if (focusableElements.length > 0) {
                         focusableElements[0].focus();
@@ -754,7 +753,7 @@
 
             navMenu.querySelectorAll('a').forEach((link) => {
                 link.addEventListener('click', () => {
-                    navMenu.classList.remove('nav--open');
+                    navMenu.setAttribute('data-open', 'false');
                     navToggle.setAttribute('aria-expanded', 'false');
                     navToggle.focus();
                 });
@@ -762,9 +761,9 @@
 
             // Focus trap for keyboard navigation in menu
             document.addEventListener('keydown', (e) => {
-                const isMenuOpen = navMenu.classList.contains('nav--open');
+                const isMenuOpen = navMenu.getAttribute('data-open') === 'true';
                 if (isMenuOpen && e.key === 'Escape') {
-                    navMenu.classList.remove('nav--open');
+                    navMenu.setAttribute('data-open', 'false');
                     navToggle.setAttribute('aria-expanded', 'false');
                     navToggle.focus();
                 }

@@ -3,7 +3,7 @@
 *Designing production-grade multi-agent systems, advanced RAG architectures, and highly resilient software systems.*
 
 Curitiba - PR, Brazil (Open to Remote / Hybrid / Global Opportunities)
-[LinkedIn](https://linkedin.com/in/vdfs89) | [GitHub](https://github.com/vdfs89) | [Official Portfolio](https://vitorsilva.page/) | [Email](mailto:vitor_diogo89@hotmail.com)
+[LinkedIn](https://linkedin.com/in/vdfs89) | [GitHub](https://github.com/vdfs89) | [Official Portfolio](https://vitorsilva.page/) | [Email](mailto:vdfs89@gmail.com)
 
 ---
 
@@ -20,24 +20,24 @@ Minha especialização é a filosofia **AI-First**: não apenas integrar APIs de
 ## 🛠️ Grid de Hard Skills (Arquitetura & Engenharia)
 
 ```
-┌───────────────────────────────────────┐   ┌───────────────────────────────────────┐
-│     INTELIGÊNCIA ARTIFICIAL (AI)      │   │         BACKEND & INTEGRAÇÃO          │
-├───────────────────────────────────────┤   ├───────────────────────────────────────┤
-│ • Orquestração Multi-Agente (LangGraph)│   │ • Python (FastAPI, Streamlit, Flask)  │
-│ • Mitigação Avançada de Alucinações   │   │ • Node.js (JavaScript / TypeScript)   │
-│ • Pipelines de RAG & Chunking Semântico│   │ • Programação Assíncrona & Concorrência│
-│ • Governança & Curadoria de Dados     │   │ • Protocolos Web (REST, WebSockets)   │
-│ • Observabilidade (LangSmith & Evals) │   │ • State-Machine Logic & Determinismo  │
-└───────────────────────────────────────┘   └───────────────────────────────────────┘
-┌───────────────────────────────────────┐   ┌───────────────────────────────────────┐
-│     INFRAESTRUTURA & MLOPs            │   │          BANCOS DE DADOS              │
-├───────────────────────────────────────┤   ├───────────────────────────────────────┤
-│ • Containerização (Docker)            │   │ • Bancos Vetoriais (Pinecone, PGVector)│
-│ • Cloud Computing (Azure Services)    │   │ • NoSQL (MongoDB)                     │
-│ • CI/CD Automático (GitHub Actions)   │   │ • Relacionais (PostgreSQL)            │
-│ • Arquitetura Serverless              │   │ • Pipelines ETL de Ingestão Complexa  │
-│ • Monitoramento de Métricas de Deriva │   │ • Modelagem de Dados Não Estruturados │
-└───────────────────────────────────────┘   └───────────────────────────────────────┘
+┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐
+│     INTELIGÊNCIA ARTIFICIAL (AI)         │   │         BACKEND & INTEGRAÇÃO             │
+├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤
+│ • Orquestração Multi-Agente (LangGraph)  │   │ • Python (FastAPI, Streamlit, Flask)     │
+│ • Mitigação Avançada de Alucinações      │   │ • Node.js (JavaScript / TypeScript)      │
+│ • Pipelines de RAG & Chunking Semântico  │   │ • Programação Assíncrona & Concorrência  │
+│ • Governança & Curadoria de Dados        │   │ • Protocolos Web (REST, WebSockets)      │
+│ • Observabilidade (LangSmith & Evals)    │   │ • State-Machine Logic & Determinismo     │
+└──────────────────────────────────────────┘   └──────────────────────────────────────────┘
+┌──────────────────────────────────────────┐   ┌──────────────────────────────────────────┐
+│     INFRAESTRUTURA & MLOPs               │   │          BANCOS DE DADOS                 │
+├──────────────────────────────────────────┤   ├──────────────────────────────────────────┤
+│ • Containerização (Docker)               │   │ • Bancos Vetoriais (Pinecone, PGVector)  │
+│ • Cloud Computing (Azure Services)       │   │ • NoSQL (MongoDB)                        │
+│ • CI/CD Automático (GitHub Actions)      │   │ • Relacionais (PostgreSQL)               │
+│ • Arquitetura Serverless                 │   │ • Pipelines ETL de Ingestão Complexa     │
+│ • Monitoramento de Métricas de Deriva    │   │ • Modelagem de Dados Não Estruturados    │
+└──────────────────────────────────────────┘   └──────────────────────────────────────────┘
 ```
 
 ---
@@ -104,4 +104,4 @@ Estou sempre aberto a conversar com **CTOs, Engineering Managers e Fundadores de
 *   💼 **LinkedIn:** [linkedin.com/in/vdfs89](https://linkedin.com/in/vdfs89)
 *   🐙 **GitHub:** [github.com/vdfs89](https://github.com/vdfs89)
 *   🌐 **Website Pessoal:** [vitorsilva.page](https://vitorsilva.page/)
-*   ✉️ **E-mail:** [vitor_diogo89@hotmail.com](mailto:vitor_diogo89@hotmail.com)
+*   ✉️ **E-mail:** [vdfs89@gmail.com](mailto:vdfs89@gmail.com)
