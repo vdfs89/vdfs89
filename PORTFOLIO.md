@@ -63,7 +63,7 @@ Minha especialização é a filosofia **AI-First**: não apenas integrar APIs de
 *   **A Abordagem de Negócio:** Um ecossistema móvel e backend voltado para o aprendizado focado em negócios de tecnologia, medindo a retenção e o progresso do usuário através de interações contextuais personalizadas.
 *   **⚡ O Desafio Técnico Superado:** 
     *   *Streaming Assíncrono e Latência:* A resposta a conversas em tempo real requer processamento de altíssima velocidade. Solucionei a latência implementando streaming de dados bi-direcional utilizando endpoints assíncronos no FastAPI integrados a streams de áudio/texto no Flutter. O processamento pesado da avaliação gramatical roda de forma não-bloqueante no background, permitindo que a voz ou texto de resposta seja gerado em partes (tokens) antes mesmo que a análise completa termine, reduzindo o tempo percebido de resposta para menos de 800ms.
-*   **Links:** 🐙 [Código no GitHub](https://github.com/vdfs89/fluency-forge)
+*   **Links:** 🐙 [Código no GitHub](https://github.com/vdfs89/fluency-forge) | 🌐 [Demo Ativa](https://fluencyforge.streamlit.app/)
 
 ---
 

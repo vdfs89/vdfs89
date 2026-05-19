@@ -16,21 +16,23 @@ I bridge the gap between advanced artificial intelligence and production-ready s
 
 ## 🚀 Featured Production-Ready Projects
 
-### 🌟 [FluencyForge](https://github.com/vdfs89/fluencyforge)
+### 🌟 FluencyForge
 An adaptive language-learning engine driven by stateful multi-agent workflows.
 * **Architecture:** LangGraph + FastAPI + Flutter.
 * **Core Engine:** Utilizes advanced RAG and long-term memory states to dynamically personalize study tracks based on user conversational data.
+* 🐙 [GitHub](https://github.com/vdfs89/fluencyforge) | 🌐 [Live Demo](https://fluencyforge.streamlit.app/)
 
 ### 💰 MestreGrana
 An intelligent financial advisory ecosystem built around multi-LLM auditing.
 * **Architecture:** Python + LangChain + MongoDB Atlas + Streamlit.
 * **Key Innovation:** Implements a multi-model routing framework combined with an automated **AI Judge** layer to filter hallucinations, balancing token budget and answer accuracy.
-* *Source code available upon request.*
+* 🌐 [Live Demo](https://mestregrana.streamlit.app/) | *Source code available upon request.*
 
 ### 🍷 Harmoniz.AI
 A data-driven recommendation server built for sensory orchestration.
 * **Architecture:** Python (LCEL) + ChromaDB (Self-Querying) + Streamlit.
 * **Key Innovation:** Integrates real-time biometric inputs with predictive pipelines, utilizing PgHero-lite for database observability and monitoring.
+* 🐙 [GitHub](https://github.com/vdfs89/Harmoniz.AI) | 🌐 [Live Demo](https://harmonizai.streamlit.app/)
 
 ---
 
