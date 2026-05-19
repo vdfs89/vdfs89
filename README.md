@@ -56,4 +56,4 @@ A data-driven recommendation server built for sensory orchestration.
 
 * **Portfolio:** [vitorsilva.page](https://vitorsilva.page/)
 * **LinkedIn:** [linkedin.com/in/vitorsilva-aieng](https://www.linkedin.com/in/vitorsilva-aieng/)
-* **Email:** [vdfs89@gmail.com](mailto:vdfs89@gmail.com)
+* **Email:** [vitor_diogo89@hotmail.com](mailto:vitor_diogo89@hotmail.com)
