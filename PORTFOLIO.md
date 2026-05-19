@@ -3,7 +3,7 @@
 *Designing production-grade multi-agent systems, advanced RAG architectures, and highly resilient software systems.*
 
 Curitiba - PR, Brazil (Open to Remote / Hybrid / Global Opportunities)
-[LinkedIn](https://linkedin.com/in/vdfs89) | [GitHub](https://github.com/vdfs89) | [Official Portfolio](https://vitorsilva.page/) | [Email](mailto:vdfs89@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/vitorsilva-aieng/) | [GitHub](https://github.com/vdfs89) | [Official Portfolio](https://vitorsilva.page/) | [Email](mailto:vdfs89@gmail.com)
 
 ---
 
@@ -101,7 +101,7 @@ Minha especialização é a filosofia **AI-First**: não apenas integrar APIs de
 
 Estou sempre aberto a conversar com **CTOs, Engineering Managers e Fundadores de Startups** que buscam engenheiros focados na criação de produtos reais e sistemas de IA robustos.
 
-*   💼 **LinkedIn:** [linkedin.com/in/vdfs89](https://linkedin.com/in/vdfs89)
+*   💼 **LinkedIn:** [linkedin.com/in/vitorsilva-aieng](https://www.linkedin.com/in/vitorsilva-aieng/)
 *   🐙 **GitHub:** [github.com/vdfs89](https://github.com/vdfs89)
 *   🌐 **Website Pessoal:** [vitorsilva.page](https://vitorsilva.page/)
 *   ✉️ **E-mail:** [vdfs89@gmail.com](mailto:vdfs89@gmail.com)
