@@ -5,16 +5,6 @@ I bridge the gap between advanced artificial intelligence and production-ready s
 
 ---
 
-## 🐍 My Contribution Journey
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vdfs89/vdfs89/output/github-contribution-grid-snake-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vdfs89/vdfs89/output/github-contribution-grid-snake.svg">
-  <img alt="GitHub Snake Animation" src="https://raw.githubusercontent.com/vdfs89/vdfs89/output/github-contribution-grid-snake.svg">
-</picture>
-
----
-
 ## 🛠️ Tech Stack & Expertise
 
 * **Languages:** Python (Async/FastAPI), Dart (Flutter), SQL, JavaScript
@@ -57,3 +47,13 @@ A data-driven recommendation server built for sensory orchestration.
 * **Portfolio:** [vitorsilva.page](https://vitorsilva.page/)
 * **LinkedIn:** [linkedin.com/in/vitorsilva-aieng](https://www.linkedin.com/in/vitorsilva-aieng/)
 * **Email:** [vitor_diogo89@hotmail.com](mailto:vitor_diogo89@hotmail.com)
+
+---
+
+## 🐍 My Contribution Journey
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vdfs89/vdfs89/output/github-contribution-grid-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vdfs89/vdfs89/output/github-contribution-grid-snake.svg">
+  <img alt="GitHub Snake Animation" src="https://raw.githubusercontent.com/vdfs89/vdfs89/output/github-contribution-grid-snake.svg">
+</picture>
