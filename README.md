@@ -21,7 +21,7 @@ An adaptive language-learning engine driven by stateful multi-agent workflows.
 * **Architecture:** LangGraph + FastAPI + Flutter.
 * **Core Engine:** Utilizes advanced RAG and long-term memory states to dynamically personalize study tracks based on user conversational data.
 
-### 🪙 MestreGrana
+### 💰 MestreGrana
 An intelligent financial advisory ecosystem built around multi-LLM auditing.
 * **Architecture:** Python + LangChain + MongoDB Atlas + Streamlit.
 * **Key Innovation:** Implements a multi-model routing framework combined with an automated **AI Judge** layer to filter hallucinations, balancing token budget and answer accuracy.
