@@ -4,794 +4,976 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
-    <meta name="description" content="AI Engineer & Solutions Architect. Especialista em sistemas agenticos, RAG, LLM orchestration e APIs de produção.">
-    <title>Vitor Silva | AI Engineer & Solutions Architect</title>
-    
-    <!-- OpenGraph / Social Media -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vitorsilva.dev">
+    <meta name="description" content="AI Engineer & Solutions Architect. Sistemas agênticos, RAG, LLM orchestration e APIs de produção.">
+    <title>VITOR_SILVA.EXE | AI Engineer & Solutions Architect</title>
     <meta property="og:title" content="Vitor Silva | AI Engineer & Solutions Architect">
-    <meta property="og:description" content="Especialista em sistemas agenticos, RAG, orquestração de LLMs e APIs de produção. Portfolio premium com projetos ao vivo.">
-    <meta property="og:image" content="https://vitorsilva.dev/og-image.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vitor Silva | AI Engineer">
-    <meta name="twitter:description" content="Portfolio de IA: LLM orchestration, RAG systems, agentic workflows, FastAPI backends.">
-    
+    <meta property="og:description" content="Sistemas agênticos, RAG, orquestração de LLMs e APIs de produção.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=1.8">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+    /* ═══════════════════════════════════════
+       DESIGN TOKENS
+    ═══════════════════════════════════════ */
+    :root {
+        --black:       #000000;
+        --black-card:  #080808;
+        --green:       #00ff41;
+        --green-dim:   #00cc33;
+        --green-dark:  #006622;
+        --green-faint: rgba(0,255,65,0.05);
+        --muted:       #2e5c2e;
+        --text:        #b8e0b8;
+        --mono:        'IBM Plex Mono', monospace;
+        --display:     'Syne', sans-serif;
+        --glow-text:   0 0 4px #00ff41, 0 0 12px #00ff41, 0 0 28px #00cc33;
+        --glow-box:    0 0 5px rgba(0,255,65,0.35), 0 0 14px rgba(0,255,65,0.15), 0 0 30px rgba(0,204,51,0.08);
+        --glow-hover:  0 0 8px rgba(0,255,65,0.6), 0 0 22px rgba(0,255,65,0.28), 0 0 50px rgba(0,204,51,0.18);
+        --border-c:    rgba(0,255,65,0.24);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+        background: var(--black);
+        color: var(--text);
+        font-family: var(--mono);
+        line-height: 1.6;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Starfield ── */
+    #starfield { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+    /* ── CRT scanlines ── */
+    .crt {
+        position: fixed; inset: 0; z-index: 1; pointer-events: none;
+        background: repeating-linear-gradient(
+            to bottom, transparent 0, transparent 3px, rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px
+        );
+    }
+    /* ── Vignette ── */
+    .vig {
+        position: fixed; inset: 0; z-index: 2; pointer-events: none;
+        background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.65) 100%);
+    }
+
+    .site { position: relative; z-index: 10; }
+
+    /* ════════════════════════════════════
+       ANIMATIONS
+    ════════════════════════════════════ */
+    @keyframes flicker {
+        0%,19.9%,21%,23%,25%,54.9%,56%,100% { text-shadow: var(--glow-text); opacity: 1; }
+        20%,24%,55% { text-shadow: none; opacity: 0.85; }
+    }
+    @keyframes pulse-box {
+        0%,100% { box-shadow: var(--glow-box); }
+        50% { box-shadow: 0 0 3px rgba(0,255,65,0.15), 0 0 8px rgba(0,255,65,0.06); }
+    }
+    @keyframes blink {
+        0%,100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+    @keyframes reveal-fade {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ════════════════════════════════════
+       LAYOUT UTILS
+    ════════════════════════════════════ */
+    .wrap { width: min(1160px, calc(100% - 2rem)); margin: 0 auto; }
+    .sec { padding: 5.5rem 0; }
+    .sep { border: none; border-top: 1px solid rgba(0,255,65,0.1); box-shadow: 0 0 10px rgba(0,255,65,0.05); }
+
+    /* ════════════════════════════════════
+       PROMPT LABEL
+    ════════════════════════════════════ */
+    .prompt {
+        font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+        color: var(--green-dim); display: flex; align-items: center; gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    .prompt::before { content: '>'; color: var(--green); text-shadow: var(--glow-text); font-weight: 700; }
+
+    /* ════════════════════════════════════
+       CARDS / GLASS
+    ════════════════════════════════════ */
+    .card {
+        background: var(--black-card);
+        border: 1px solid var(--border-c);
+        border-radius: 2px;
+        box-shadow: var(--glow-box);
+        transition: box-shadow .3s ease, border-color .3s ease, transform .3s ease;
+    }
+    .card:hover { box-shadow: var(--glow-hover); border-color: rgba(0,255,65,0.5); transform: translateY(-4px); }
+
+    /* ════════════════════════════════════
+       HEADER
+    ════════════════════════════════════ */
+    .hdr {
+        position: sticky; top: 0; z-index: 80;
+        background: rgba(0,0,0,0.92); backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(0,255,65,0.15);
+        box-shadow: 0 1px 18px rgba(0,255,65,0.06);
+    }
+    .hdr-in {
+        display: flex; align-items: center; gap: 1.2rem;
+        min-height: 4.2rem; flex-wrap: wrap; position: relative;
+    }
+    .brand { text-decoration: none; display: flex; align-items: center; gap: 0.6rem; flex-shrink: 0; }
+    .brand-mark {
+        width: 2.6rem; height: 2.6rem;
+        background: var(--black-card); border: 1px solid rgba(0,255,65,0.4); border-radius: 2px;
+        display: grid; place-items: center;
+        font-weight: 700; font-size: 0.88rem; color: var(--green);
+        text-shadow: var(--glow-text); box-shadow: var(--glow-box);
+        animation: pulse-box 3s ease-in-out infinite;
+    }
+    .brand-name { font-weight: 700; font-size: 0.88rem; color: var(--green); text-shadow: var(--glow-text); letter-spacing: 0.04em; display: block; }
+    .brand-sub  { font-size: 0.58rem; color: var(--muted); letter-spacing: 0.1em; display: block; margin-top: 1px; }
+
+    .nav { display: flex; align-items: center; gap: 1.5rem; margin-left: auto; }
+    .nav a {
+        font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--muted); text-decoration: none;
+        transition: color .2s, text-shadow .2s;
+    }
+    .nav a:hover { color: var(--green); text-shadow: var(--glow-text); }
+
+    .btn {
+        display: inline-flex; align-items: center; gap: 0.4rem;
+        font-family: var(--mono); font-size: 0.72rem; font-weight: 600;
+        letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+        padding: 0.6rem 1.2rem; border-radius: 2px;
+        border: 1px solid rgba(0,255,65,0.38); background: transparent;
+        color: var(--green); text-shadow: 0 0 6px rgba(0,255,65,0.5);
+        box-shadow: var(--glow-box); cursor: pointer;
+        transition: background .2s, box-shadow .2s, border-color .2s;
+    }
+    .btn:hover { background: rgba(0,255,65,0.07); box-shadow: var(--glow-hover); border-color: rgba(0,255,65,0.65); }
+    .btn-solid  { background: rgba(0,255,65,0.09); border-color: rgba(0,255,65,0.5); }
+    .btn-solid:hover { background: rgba(0,255,65,0.16); }
+    .btn-sm { padding: 0.42rem 0.85rem; font-size: 0.65rem; }
+
+    .nav-toggle {
+        display: none; margin-left: auto;
+        width: 2.5rem; height: 2.5rem;
+        background: var(--black-card); border: 1px solid rgba(0,255,65,0.28); border-radius: 2px;
+        cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+    }
+    .nav-toggle span { width: 18px; height: 1.5px; background: var(--green); box-shadow: 0 0 4px var(--green); border-radius: 1px; display: block; }
+
+    /* ════════════════════════════════════
+       HERO
+    ════════════════════════════════════ */
+    .hero { padding: 7rem 0 5rem; }
+    .boot-line {
+        font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em;
+        display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+    .boot-line .ok { color: var(--green-dim); }
+
+    .hero-grid {
+        display: grid; grid-template-columns: 1fr 350px; gap: 3rem; align-items: start;
+    }
+
+    .hero-name {
+        font-family: var(--display); font-weight: 900;
+        font-size: clamp(4.5rem, 13vw, 9.5rem);
+        line-height: 0.88; letter-spacing: -0.02em;
+        color: var(--green); text-shadow: var(--glow-text);
+        animation: flicker 10s infinite;
+        margin-bottom: 1.1rem;
+    }
+    .hero-role { font-size: 0.75rem; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase; margin-bottom: 0.75rem; }
+    .hero-sub  { font-size: clamp(0.9rem, 1.8vw, 1.1rem); font-weight: 500; color: var(--text); max-width: 38rem; line-height: 1.65; margin-bottom: 0.85rem; }
+    .hero-copy { font-size: 0.85rem; color: var(--muted); max-width: 36rem; line-height: 1.8; margin-bottom: 2rem; }
+    .hero-actions { display: flex; gap: 0.85rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+
+    .cursor {
+        display: inline-block; width: 3px; height: 0.85em; vertical-align: middle;
+        background: var(--green); box-shadow: 0 0 6px var(--green);
+        animation: blink 1.1s step-end infinite; margin-left: 4px;
+    }
+
+    .stats { display: flex; gap: 0.85rem; flex-wrap: wrap; }
+    .stat {
+        background: var(--black-card); border: 1px solid var(--border-c);
+        border-radius: 2px; padding: 0.8rem 1rem; box-shadow: var(--glow-box);
+        min-width: 96px; text-align: center;
+    }
+    .stat-num { font-family: var(--display); font-weight: 900; font-size: 2rem; color: var(--green); text-shadow: var(--glow-text); line-height: 1; }
+    .stat-lbl { font-size: 0.58rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 4px; display: block; }
+
+    /* Hero panel */
+    .hero-panel {
+        background: var(--black-card); border: 1px solid var(--border-c);
+        border-radius: 2px; box-shadow: var(--glow-box); padding: 1.35rem;
+        position: sticky; top: 5.2rem;
+    }
+    .panel-top {
+        display: flex; justify-content: space-between; align-items: center;
+        border-bottom: 1px solid rgba(0,255,65,0.08); padding-bottom: 0.7rem; margin-bottom: 1rem;
+        font-size: 0.6rem; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase;
+    }
+    .panel-top::before { content: '// '; color: var(--green-dark); }
+    .status-pill {
+        display: inline-flex; align-items: center; gap: 0.4rem;
+        font-size: 0.6rem; letter-spacing: 0.08em;
+        color: var(--green-dim); padding: 0.28rem 0.6rem;
+        background: rgba(0,255,65,0.06); border: 1px solid rgba(0,255,65,0.18); border-radius: 2px;
+    }
+    .sdot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); box-shadow: 0 0 6px var(--green); animation: blink 2s ease-in-out infinite; }
+
+    .panel-title { font-family: var(--display); font-weight: 700; font-size: 1.18rem; color: var(--text); line-height: 1.2; margin: 0.85rem 0 0.5rem; }
+    .panel-copy  { font-size: 0.78rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.1rem; }
+    .panel-stats { border-top: 1px solid rgba(0,255,65,0.07); padding-top: 0.9rem; display: grid; gap: 0.55rem; }
+    .ps { display: flex; justify-content: space-between; font-size: 0.75rem; }
+    .ps-k { color: var(--muted); }
+    .ps-v { color: var(--green); font-weight: 600; }
+    .ps-v a { color: var(--green); text-decoration: none; }
+    .ps-v a:hover { text-shadow: var(--glow-text); }
+
+    /* ════════════════════════════════════
+       SECTION HEADINGS
+    ════════════════════════════════════ */
+    .sec-title {
+        font-family: var(--display); font-weight: 900;
+        font-size: clamp(2rem, 4.5vw, 3.4rem); line-height: 1.05; color: var(--text); margin-bottom: 0.65rem;
+    }
+    .sec-title .g { color: var(--green); text-shadow: var(--glow-text); }
+    .sec-desc { font-size: 0.88rem; color: var(--muted); max-width: 46ch; line-height: 1.8; margin-bottom: 2.8rem; }
+
+    /* ════════════════════════════════════
+       ABOUT
+    ════════════════════════════════════ */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start; }
+    .acard { padding: 1.6rem; }
+    .acard p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; }
+    .acard p + p { margin-top: 0.85rem; }
+    .highlights { display: grid; gap: 0.55rem; margin-top: 1.3rem; padding-top: 1.1rem; border-top: 1px solid rgba(0,255,65,0.07); }
+    .hl { display: flex; gap: 0.7rem; align-items: baseline; font-size: 0.78rem; }
+    .hl-k { color: var(--green); font-weight: 600; white-space: nowrap; min-width: 8ch; }
+    .hl-v { color: var(--muted); }
+
+    /* ════════════════════════════════════
+       BENTO PROJECTS
+    ════════════════════════════════════ */
+    .bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+    .b-main   { grid-column: span 7; }
+    .b-side   { grid-column: span 5; }
+    .b-third  { grid-column: span 4; }
+
+    .bc { background: var(--black-card); border: 1px solid var(--border-c); border-radius: 2px; box-shadow: var(--glow-box); padding: 1.65rem; display: flex; flex-direction: column; transition: box-shadow .3s, border-color .3s, transform .3s; }
+    .bc:hover { box-shadow: var(--glow-hover); border-color: rgba(0,255,65,0.48); transform: translateY(-5px); }
+
+    .bc-idx { font-size: 0.6rem; letter-spacing: 0.16em; color: var(--green-dark); display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.9rem; }
+    .badge { font-size: 0.6rem; letter-spacing: 0.1em; padding: 0.22rem 0.55rem; background: rgba(0,255,65,0.06); border: 1px solid rgba(0,255,65,0.2); border-radius: 2px; color: var(--green-dim); }
+    .badge-amber { background: rgba(245,158,11,0.06); border-color: rgba(245,158,11,0.2); color: #b88a0f; }
+    .badge-blue  { background: rgba(59,130,246,0.06);  border-color: rgba(59,130,246,0.2);  color: #5a84b8; }
+
+    .bc-title { font-family: var(--display); font-weight: 800; font-size: 1.45rem; color: var(--green); text-shadow: 0 0 10px rgba(0,255,65,0.38); line-height: 1.1; margin-bottom: 0.65rem; }
+    .bc-copy  { font-size: 0.82rem; color: var(--muted); line-height: 1.75; flex: 1; margin-bottom: 1rem; }
+
+    .metric { margin: 0.7rem 0; padding: 0.65rem 0.9rem; background: rgba(0,255,65,0.03); border-left: 2px solid rgba(0,255,65,0.38); border-top: 1px solid rgba(0,255,65,0.07); border-bottom: 1px solid rgba(0,255,65,0.07); }
+    .metric-val  { font-family: var(--display); font-weight: 900; font-size: 2rem; color: var(--green); text-shadow: var(--glow-text); line-height: 1; }
+    .metric-desc { font-size: 0.68rem; color: var(--muted); margin-top: 3px; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+    .tag  { font-size: 0.62rem; letter-spacing: 0.1em; padding: 0.28rem 0.55rem; background: rgba(0,255,65,0.03); border: 1px solid rgba(0,255,65,0.13); border-radius: 1px; color: #2a5c2a; text-transform: uppercase; }
+
+    .bc-footer { border-top: 1px solid rgba(0,255,65,0.07); padding-top: 0.9rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.7rem; color: var(--muted); }
+    .bc-footer a { color: var(--green); text-decoration: none; font-weight: 600; letter-spacing: 0.06em; transition: text-shadow .2s; }
+    .bc-footer a:hover { text-shadow: var(--glow-text); }
+    .bc-links { display: flex; gap: 0.85rem; }
+
+    /* stat mini card */
+    .b-stat { justify-content: center; align-items: center; text-align: center; }
+    .b-stat .metric-val { font-size: 2.4rem; }
+    .b-stat .metric-desc { margin-top: 0.45rem; }
+
+    /* ════════════════════════════════════
+       EXPERIENCE
+    ════════════════════════════════════ */
+    .exp-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 3rem; align-items: start; }
+
+    .timeline { position: relative; padding-left: 1.9rem; }
+    .timeline::before {
+        content: ''; position: absolute; left: 4px; top: 10px; bottom: 0; width: 1px;
+        background: linear-gradient(to bottom, var(--green), rgba(0,255,65,0.08));
+        box-shadow: 0 0 6px rgba(0,255,65,0.25);
+    }
+
+    .tl { position: relative; background: var(--black-card); border: 1px solid rgba(0,255,65,0.18); border-radius: 2px; padding: 1.25rem 1.25rem 1.25rem 1.1rem; margin-bottom: 1rem; box-shadow: var(--glow-box); transition: box-shadow .3s, border-color .3s; }
+    .tl:hover { box-shadow: var(--glow-hover); border-color: rgba(0,255,65,0.4); }
+    .tl-dot  { position: absolute; left: -2.3rem; top: 1.4rem; width: 10px; height: 10px; border-radius: 50%; border: 2px solid; background: var(--black); }
+    .tl-dot-g { border-color: var(--green); box-shadow: 0 0 7px var(--green); }
+    .tl-dot-a { border-color: #22c55e; background: #22c55e; box-shadow: 0 0 8px #22c55e; animation: blink 2s ease-in-out infinite; }
+    .tl-date  { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green-dim); margin-bottom: 0.4rem; }
+    .tl-title { font-family: var(--display); font-weight: 700; font-size: 0.96rem; color: var(--text); margin-bottom: 0.2rem; }
+    .tl-sub   { font-size: 0.72rem; color: var(--muted); margin-bottom: 0.65rem; }
+    .tl-copy  { font-size: 0.8rem; color: var(--muted); line-height: 1.7; margin-bottom: 0.65rem; }
+    .tl-list  { list-style: none; }
+    .tl-list li { font-size: 0.78rem; color: #3a6e3a; line-height: 1.65; padding-left: 1rem; position: relative; }
+    .tl-list li::before { content: '→'; position: absolute; left: 0; color: var(--green-dark); }
+
+    /* value props */
+    .vp-grid { display: grid; gap: 0.8rem; }
+    .vp { background: var(--black-card); border: 1px solid rgba(0,255,65,0.17); border-radius: 2px; padding: 1rem 1.1rem; box-shadow: var(--glow-box); display: flex; gap: 0.85rem; align-items: flex-start; }
+    .vp-icon  { font-size: 1.1rem; flex-shrink: 0; margin-top: 2px; }
+    .vp-title { font-weight: 700; font-size: 0.85rem; color: var(--text); margin-bottom: 3px; }
+    .vp-copy  { font-size: 0.77rem; color: var(--muted); line-height: 1.65; }
+
+    /* ════════════════════════════════════
+       STACK
+    ════════════════════════════════════ */
+    .stack-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .sc { background: var(--black-card); border: 1px solid rgba(0,255,65,0.18); border-radius: 2px; padding: 1.25rem; box-shadow: var(--glow-box); transition: box-shadow .3s, border-color .3s, transform .3s; }
+    .sc:hover { box-shadow: var(--glow-hover); border-color: rgba(0,255,65,0.4); transform: translateY(-3px); }
+    .sc-cat { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--green-dim); margin-bottom: 0.9rem; padding-bottom: 0.6rem; border-bottom: 1px solid rgba(0,255,65,0.09); }
+    .sc-items { display: flex; flex-direction: column; gap: 0.38rem; }
+    .sc-i { font-size: 0.8rem; color: #3a6e3a; }
+    .sc-i.top { color: var(--text); font-weight: 500; }
+
+    /* ════════════════════════════════════
+       CONTACT
+    ════════════════════════════════════ */
+    .contact-box {
+        background: var(--black-card); border: 1px solid rgba(0,255,65,0.25); border-radius: 2px;
+        box-shadow: var(--glow-box); padding: 3rem 2.5rem;
+        text-align: center; max-width: 640px; margin: 0 auto;
+    }
+    .contact-title { font-family: var(--display); font-weight: 900; font-size: clamp(2rem, 5vw, 3rem); color: var(--green); text-shadow: var(--glow-text); line-height: 1.05; margin: 0.65rem 0 0.9rem; }
+    .contact-copy  { font-size: 0.85rem; color: var(--muted); line-height: 1.8; max-width: 44ch; margin: 0 auto 1.8rem; }
+    .contact-acts  { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+
+    /* ════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════ */
+    .footer { border-top: 1px solid rgba(0,255,65,0.1); box-shadow: 0 -1px 10px rgba(0,255,65,0.05); padding: 1.4rem 0; }
+    .footer-in { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.68rem; color: var(--muted); flex-wrap: wrap; }
+
+    /* ════════════════════════════════════
+       SCROLL REVEAL
+    ════════════════════════════════════ */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.v { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .18s; }
+    .d3 { transition-delay: .26s; }
+
+    /* ════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════ */
+    @media (max-width: 1080px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .hero-panel { position: static; max-width: 400px; }
+        .about-grid, .exp-grid { grid-template-columns: 1fr; }
+        .stack-grid { grid-template-columns: repeat(2, 1fr); }
+        .b-main, .b-side { grid-column: span 12; }
+        .b-third { grid-column: span 12; }
+    }
+    @media (max-width: 820px) {
+        .nav { display: none; }
+        .nav.open {
+            display: flex; flex-direction: column; align-items: flex-start; gap: 0.9rem;
+            position: absolute; top: calc(100% + 1px); left: 0; right: 0;
+            background: rgba(0,0,0,0.97); padding: 1.1rem 1.4rem;
+            border-bottom: 1px solid rgba(0,255,65,0.16);
+        }
+        .nav-toggle { display: flex; }
+    }
+    @media (max-width: 580px) {
+        .sec { padding: 4rem 0; }
+        .stack-grid { grid-template-columns: 1fr; }
+        .contact-box { padding: 2rem 1.4rem; }
+    }
+    </style>
 </head>
 <body>
-    <a class="skip-link" href="#content" data-i18n="skip">Pular para o conteúdo</a>
 
-    <div class="site-bg" aria-hidden="true">
-        <div class="site-bg__orb site-bg__orb--one"></div>
-        <div class="site-bg__orb site-bg__orb--two"></div>
-        <div class="site-bg__grid"></div>
-    </div>
+<canvas id="starfield"></canvas>
+<div class="crt" aria-hidden="true"></div>
+<div class="vig" aria-hidden="true"></div>
 
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="brand" href="#home" aria-label="Vitor Silva home">
-                <span class="brand-accent">Vitor Silva</span>
-                <span class="brand-muted" data-i18n="brand.role">Dev AI-First</span>
+<div class="site">
+
+    <!-- ── HEADER ── -->
+    <header class="hdr">
+        <div class="wrap hdr-in">
+            <a class="brand" href="#home">
+                <div class="brand-mark">VS</div>
+                <div>
+                    <span class="brand-name">VITOR_SILVA</span>
+                    <span class="brand-sub" data-i18n="brand.sub">AI ENGINEER & SOLUTIONS ARCHITECT</span>
+                </div>
             </a>
 
-            <nav class="nav-links" data-nav-menu>
-                <a href="#about" data-i18n="nav.about">Sobre</a>
-                <a href="#projects" data-i18n="nav.projects">Projetos</a>
-                <a href="#experience" data-i18n="nav.experience">Experiência</a>
-                <a href="#stack" data-i18n="nav.stack">Stack</a>
-                <a href="#contact" data-i18n="nav.contact">Contato</a>
+            <button class="nav-toggle" id="navToggle" type="button" aria-label="toggle nav" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <nav class="nav" id="navMenu">
+                <a href="#about"      data-i18n="nav.about">SOBRE</a>
+                <a href="#projects"   data-i18n="nav.projects">PROJETOS</a>
+                <a href="#experience" data-i18n="nav.exp">EXPERIÊNCIA</a>
+                <a href="#stack"      data-i18n="nav.stack">STACK</a>
+                <a href="#contact"    data-i18n="nav.contact">CONTATO</a>
             </nav>
 
-            <div class="header-actions">
-                <button class="lang-toggle" type="button" data-lang-toggle aria-label="Switch language">EN</button>
-                <a class="nav-button header-cta" href="mailto:vitor_diogo89@hotmail.com" data-i18n="header.email">Me escreva</a>
-                <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+            <button class="btn btn-sm" id="langBtn" type="button" aria-label="trocar idioma">EN</button>
+            <a class="btn btn-solid btn-sm" href="mailto:mkmillhouse89@gmail.com" data-i18n="nav.cta">CONTATO</a>
         </div>
     </header>
 
-    <main id="content" class="page">
-        <!-- Hero -->
-        <section class="hero section" id="home">
-            <div class="container hero__grid">
-                <div class="hero__content reveal">
-                    <div class="eyebrow">
-                        <span class="eyebrow__dot"></span>
-                        <span data-i18n="hero.eyebrow">Disponível para oportunidades internacionais</span>
-                    </div>
+    <main>
 
-                    <p class="hero__role" data-i18n="hero.role">Engenheiro de IA e Solutions Architect</p>
-                    <h1 class="hero__title">Vitor Silva</h1>
-                    <p class="hero__subtitle" data-i18n="hero.subtitle">Eu desenho sistemas de IA que parecem produtos reais: precisos, confiáveis e prontos para produção.</p>
-                    <p class="hero__copy" data-i18n="hero.copy">LLMs, fluxos agênticos, RAG, automações, pipelines de dados e backend, com a disciplina de quem operou ambientes críticos por mais de uma década.</p>
-
-                    <div class="hero__actions">
-                        <a class="button button--primary" href="#projects" data-i18n="hero.primaryCta">Ver Projetos de IA</a>
-                        <a class="button button--secondary" href="https://www.linkedin.com/in/vitorsilva-aieng/" target="_blank" rel="noreferrer" data-i18n="hero.secondaryCta">LinkedIn</a>
-                    </div>
-
-                    <div class="hero__meta">
-                        <div class="meta-card">
-                            <span>14+</span>
-                            <small data-i18n="hero.meta.one">Anos em operações</small>
-                        </div>
-                        <div class="meta-card">
-                            <span>3</span>
-                            <small data-i18n="hero.meta.two">Projetos de IA em destaque</small>
-                        </div>
-                    </div>
+        <!-- ══ HERO ══ -->
+        <section class="hero sec" id="home">
+            <div class="wrap">
+                <div class="boot-line reveal">
+                    <span class="ok">SYSTEM.OK</span> <span>──</span>
+                    <span class="ok">AI_ENGINEER.INIT</span> <span>──</span>
+                    <span class="ok">LANGGRAPH.LOADED</span> <span>──</span>
+                    <span class="ok">RAG.READY</span> <span>──</span>
+                    <span class="ok" data-i18n="hero.boot">DISPONÍVEL PARA CONTRATAÇÃO</span>
                 </div>
 
-                <aside class="hero__panel reveal reveal--delay-1">
-                    <div class="profile-card">
-                        <div class="profile-card__top">
-                            <span class="status-pill"><span></span> <span data-i18n="hero.status">Disponível para novas oportunidades</span></span>
-                            <span class="profile-card__tag" data-i18n="hero.panelTag">Portfólio Premium de IA</span>
+                <div class="hero-grid">
+                    <div class="reveal">
+                        <p class="hero-role" data-i18n="hero.role">AI Engineer & Solutions Architect</p>
+                        <h1 class="hero-name">VITOR<br>SILVA<span class="cursor"></span></h1>
+                        <p class="hero-sub"  data-i18n="hero.sub">Desenvolvo sistemas de IA com precisão de produto real: agentes stateful, RAG arquitetado e APIs prontas para produção.</p>
+                        <p class="hero-copy" data-i18n="hero.copy">LLMs, fluxos agênticos com LangGraph, RAG de alta fidelidade e FastAPI assíncrono — sustentados por 15 anos operando ambientes que não toleram falhas.</p>
+                        <div class="hero-actions">
+                            <a class="btn btn-solid" href="#projects" data-i18n="hero.cta1">VER PROJETOS →</a>
+                            <a class="btn" href="#contact" data-i18n="hero.cta2">FALE COMIGO</a>
                         </div>
-
-                        <div class="profile-card__body">
-                            <p class="profile-card__label" data-i18n="hero.focusLabel">Foco</p>
-                            <h2 data-i18n="hero.panelTitle">Sistemas de IA em produção com valor claro de produto.</h2>
-                            <p class="profile-card__copy" data-i18n="hero.panelCopy">Substituo prompts simples por orquestração complexa de agentes, pipelines semânticos de RAG e governança absoluta de dados.</p>
-                            
-                            <div class="profile-card__stats">
-                                <div>
-                                    <strong data-i18n="hero.stat.one">LangGraph e múltiplos agentes</strong>
-                                </div>
-                                <div>
-                                    <strong data-i18n="hero.stat.two">Pipelines RAG e IDP de alta escala</strong>
-                                </div>
-                                <div>
-                                    <strong data-i18n="hero.stat.three">FastAPI, Python e ecossistema Flutter</strong>
-                                </div>
-                            </div>
+                        <div class="stats">
+                            <div class="stat"><div class="stat-num">15+</div><span class="stat-lbl" data-i18n="hero.s1">Anos ECT</span></div>
+                            <div class="stat"><div class="stat-num">4</div><span class="stat-lbl" data-i18n="hero.s2">Projetos IA</span></div>
+                            <div class="stat"><div class="stat-num" style="text-shadow:var(--glow-text);">∞</div><span class="stat-lbl" data-i18n="hero.s3">Ambição</span></div>
                         </div>
                     </div>
-                </aside>
-            </div>
-        </section>
 
-        <!-- About -->
-        <section class="section" id="about">
-            <div class="container section__grid">
-                <div class="section-heading reveal">
-                    <p class="section-kicker" data-i18n="about.kicker">Proposta de Valor</p>
-                    <h2 data-i18n="about.title">Robustez operacional de missão crítica unida à engenharia de IA de ponta.</h2>
-                </div>
-
-                <div class="content-split reveal reveal--delay-1">
-                    <div class="text-block">
-                        <p data-i18n="about.copy.one">Utilizo inteligência artificial generativa não apenas como uma funcionalidade, mas como a base para estruturar e solucionar processos corporativos complexos. Combino essa visão a uma sólida experiência de 15 anos em governança e operações críticas nos Correios.</p>
-                        <p data-i18n="about.copy.two">Desenvolvo sistemas multi-agentes determinísticos baseados em máquinas de estado (LangGraph), mitigação ativa de alucinações, processamento inteligente de documentos (IDP) e pipelines robustos de RAG corporativo.</p>
-                    </div>
-
-                    <div class="about-card">
-                        <span class="about-card-label" data-i18n="hero.focusLabel">Destaques</span>
-                        <div class="focus-list">
-                            <li data-i18n="about.highlight.one">Confiabilidade extrema sob pressão (15 anos Correios)</li>
-                            <li data-i18n="about.highlight.two">Sistemas multi-agentes e RAG avançado</li>
-                            <li data-i18n="about.highlight.three">Ciência da Computação & FIAP ML Engineering</li>
+                    <div class="hero-panel reveal d1">
+                        <div class="panel-top">
+                            <span data-i18n="panel.hdr">PERFIL_ATUAL</span>
+                            <span class="status-pill"><span class="sdot"></span><span data-i18n="panel.status">DISPONÍVEL</span></span>
+                        </div>
+                        <div class="prompt" style="margin-bottom:0.4rem;"><span data-i18n="panel.focus">FOCO</span></div>
+                        <p class="panel-title" data-i18n="panel.title">Sistemas de IA com valor claro de negócio.</p>
+                        <p class="panel-copy"  data-i18n="panel.copy">Agentes, pipelines de recuperação e ferramentas operacionais com equilíbrio entre profundidade técnica e resultado real.</p>
+                        <div class="panel-stats">
+                            <div class="ps"><span class="ps-k">AI_STACK</span><span class="ps-v">LangGraph / RAG</span></div>
+                            <div class="ps"><span class="ps-k">BACKEND</span><span class="ps-v">FastAPI / Python</span></div>
+                            <div class="ps"><span class="ps-k">LOCATION</span><span class="ps-v">Curitiba / Remote</span></div>
+                            <div class="ps"><span class="ps-k">GITHUB</span><span class="ps-v"><a href="https://github.com/vdfs89" target="_blank" rel="noreferrer">vdfs89 →</a></span></div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects -->
-        <section class="section" id="projects">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <p class="section-kicker" data-i18n="projects.kicker">Projetos em Destaque</p>
-                    <h2 data-i18n="projects.title">Trabalhos selecionados com apresentação premium e pensamento orientado à produção.</h2>
-                </div>
+        <hr class="sep">
 
-                <div class="projects-grid">
-                    <!-- Project 1: MestreGrana -->
-                    <article class="project-card project-card--featured reveal">
-                        <div class="project-card__header">
-                            <span class="project-card__index">01</span>
-                            <span class="project-card__status" data-i18n="projects.status.featured">Em destaque</span>
+        <!-- ══ ABOUT ══ -->
+        <section class="sec" id="about">
+            <div class="wrap">
+                <div class="prompt reveal" data-i18n="about.prompt">SOBRE / ABOUT</div>
+                <h2 class="sec-title reveal">Engenharia <span class="g">precisa.</span><br>Execução <span class="g">confiável.</span></h2>
+                <div class="about-grid">
+                    <div class="card acard reveal">
+                        <p data-i18n="about.p1">Minha trajetória combina mais de 15 anos em ambientes operacionais de missão crítica com construção recente de sistemas de IA, backend e ML aplicado.</p>
+                        <p data-i18n="about.p2">Foco em sistemas claros de entender, agradáveis de usar e robustos o suficiente para sustentarem uso real em produção — não apenas demos.</p>
+                        <div class="highlights">
+                            <div class="hl"><span class="hl-k">15+ anos</span><span class="hl-v" data-i18n="about.h1">Mentalidade de operação e confiabilidade sistêmica</span></div>
+                            <div class="hl"><span class="hl-k">AI systems</span><span class="hl-v" data-i18n="about.h2">Agentes, RAG, orquestração, pipelines de dados</span></div>
+                            <div class="hl"><span class="hl-k">Global</span><span class="hl-v" data-i18n="about.h3">Portfólio preparado para oportunidades internacionais</span></div>
                         </div>
-                        <h3>MestreGrana</h3>
-                        <p data-i18n="projects.one.copy">Plataforma avançada de inteligência financeira construída sob uma arquitetura de múltiplos agentes autônomos com validação cruzada para mitigar alucinações em ambientes regulados.</p>
-                        <div class="project-card__tags">
-                            <span>Python</span>
-                            <span>LangGraph</span>
-                            <span>Streamlit</span>
-                            <span>MongoDB Atlas</span>
-                            <span>OpenAI API</span>
+                    </div>
+                    <div style="display:grid; gap:0.8rem;">
+                        <div class="card acard reveal d1">
+                            <div class="prompt" style="margin-bottom:0.5rem;"><span data-i18n="about.c1t">MISSÃO CRÍTICA</span></div>
+                            <p data-i18n="about.c1p">Operei 15 anos em ambientes sem tolerância a falhas. Essa mentalidade se reflete em código defensivo, tratamento de erros robusto e arquiteturas resilientes.</p>
                         </div>
-                        
-                        <details class="project-architecture reveal">
-                            <summary data-i18n="projects.one.arch.title">Ver System Design & Fluxo de IA</summary>
-                            <div class="architecture-content">
-                                <p><strong data-i18n="projects.one.arch.subtitle">Pipeline Agêntico Determinístico:</strong></p>
-                                <ol>
-                                    <li data-i18n="projects.one.arch.step1">Orquestração: LangGraph mantém o estado e gerencia a máquina de estados.</li>
-                                    <li data-i18n="projects.one.arch.step2">Validação Cruzada: Agente validador (LLM-as-a-Judge) audita o output do agente primário.</li>
-                                    <li data-i18n="projects.one.arch.step3">Prevenção de Alucinação: RAG integrado com base de dados financeiros indexada.</li>
-                                </ol>
-                            </div>
-                        </details>
-
-                        <div class="project-card__footer">
-                            <span data-i18n="projects.one.footer">Desafio: persistência de checkpoints e lógicas determinísticas.</span>
-                            <div class="project-card__links">
-                                <a href="https://mestregrana.streamlit.app/" target="_blank" rel="noreferrer" data-i18n="projects.demo">Ver demo</a>
-                                <a href="https://github.com/vdfs89/MestreGrana" target="_blank" rel="noreferrer">GitHub</a>
-                            </div>
+                        <div class="card acard reveal d2">
+                            <div class="prompt" style="margin-bottom:0.5rem;"><span data-i18n="about.c2t">PRODUTO, NÃO SÓ CÓDIGO</span></div>
+                            <p data-i18n="about.c2p">Entendo processos de negócio porque os operei por mais de uma década. Projeto soluções que resolvem o problema real, não apenas o técnico.</p>
                         </div>
-                    </article>
-
-                    <!-- Project 2: FluencyForge -->
-                    <article class="project-card reveal reveal--delay-1">
-                        <div class="project-card__header">
-                            <span class="project-card__index">02</span>
-                            <span class="project-card__status project-card__status--amber" data-i18n="projects.status.live">Conceito ativo</span>
-                        </div>
-                        <h3>FluencyForge</h3>
-                        <p data-i18n="projects.two.copy">Tutor inteligente de inglês técnico com agente multi-step analisando proficiência e fornecendo feedbacks em tempo real por streaming de dados.</p>
-                        <div class="project-card__tags">
-                            <span>FastAPI</span>
-                            <span>Flutter</span>
-                            <span>Dart</span>
-                            <span>LangGraph</span>
-                            <span>PostgreSQL</span>
-                        </div>
-                        
-                        <details class="project-architecture reveal">
-                            <summary data-i18n="projects.two.arch.title">Ver System Design & Fluxo de IA</summary>
-                            <div class="architecture-content">
-                                <p><strong data-i18n="projects.two.arch.subtitle">Streaming Bidirecional de Baixa Latência:</strong></p>
-                                <ol>
-                                    <li data-i18n="projects.two.arch.step1">Transmissão em Tempo Real: Conexão assíncrona entre o cliente Flutter e o backend FastAPI.</li>
-                                    <li data-i18n="projects.two.arch.step2">Análise de Voz: Transcrição e avaliação gramatical assíncronas rodando em background threads.</li>
-                                    <li data-i18n="projects.two.arch.step3">Resposta Perceptiva: Entrega em tempo de resposta menor que 800ms utilizando chunks de áudio.</li>
-                                </ol>
-                            </div>
-                        </details>
-
-                        <div class="project-card__footer">
-                            <span data-i18n="projects.two.footer">Desafio: integração assíncrona FastAPI + Flutter e baixa latência.</span>
-                            <div class="project-card__links">
-                                <a href="https://fluencyforge.streamlit.app/" target="_blank" rel="noreferrer" data-i18n="projects.demo">Ver demo</a>
-                                <a href="https://github.com/vdfs89/fluency-forge" target="_blank" rel="noreferrer">GitHub</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 3: Aether Oncology -->
-                    <article class="project-card reveal reveal--delay-2">
-                        <div class="project-card__header">
-                            <span class="project-card__index">03</span>
-                            <span class="project-card__status project-card__status--blue" data-i18n="projects.status.year">2026</span>
-                        </div>
-                        <h3>Aether Oncology</h3>
-                        <p data-i18n="projects.three.copy">Cockpit clínico e terminal de diagnóstico preditivo para oncologia, integrando models de Deep Learning (XAI) a uma experiência clínica premium.</p>
-                        <div class="project-card__tags">
-                            <span>Next.js</span>
-                            <span>PyTorch</span>
-                            <span>FastAPI</span>
-                            <span>Tailwind CSS</span>
-                            <span>Docker</span>
-                        </div>
-                        
-                        <details class="project-architecture reveal">
-                            <summary data-i18n="projects.three.arch.title">Ver System Design & Fluxo de IA</summary>
-                            <div class="architecture-content">
-                                <p><strong data-i18n="projects.three.arch.subtitle">Explicabilidade & Processamento 3D:</strong></p>
-                                <ol>
-                                    <li data-i18n="projects.three.arch.step1">Predição de Diagnóstico: Modelo PyTorch prevê a probabilidade diagnóstica a partir dos inputs.</li>
-                                    <li data-i18n="projects.three.arch.step2">Explicabilidade (XAI): FastAPI calcula mapas de calor (gradientes integrados) em tempo real.</li>
-                                    <li data-i18n="projects.three.arch.step3">Aceleração por GPU: Visualização tridimensional da estrela-guia processada via WebGL shaders.</li>
-                                </ol>
-                            </div>
-                        </details>
-
-                        <div class="project-card__footer">
-                            <span data-i18n="projects.three.footer">Desafio: explicabilidade de modelos (XAI) e renderização paralela da estrela-guia.</span>
-                            <div class="project-card__links">
-                                <a href="https://github.com/vdfs89/Aether_Oncology" target="_blank" rel="noreferrer">GitHub</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project 4: Harmoniz.AI -->
-                    <article class="project-card reveal">
-                        <div class="project-card__header">
-                            <span class="project-card__index">04</span>
-                            <span class="project-card__status project-card__status--green" data-i18n="projects.status.idp">Processamento Inteligente</span>
-                        </div>
-                        <h3>Harmoniz.AI</h3>
-                        <p data-i18n="projects.four.copy">Ingestão e curadoria inteligente de dados não estruturados regulatórios em base semântica altamente consultável com pipeline RAG.</p>
-                        <div class="project-card__tags">
-                            <span>Python</span>
-                            <span>LangChain</span>
-                            <span>Azure Search</span>
-                            <span>Pinecone</span>
-                            <span>Docker</span>
-                        </div>
-                        
-                        <details class="project-architecture reveal">
-                            <summary data-i18n="projects.four.arch.title">Ver System Design & Fluxo de IA</summary>
-                            <div class="architecture-content">
-                                <p><strong data-i18n="projects.four.arch.subtitle">Curadoria & Telemetria Avançada:</strong></p>
-                                <ol>
-                                    <li data-i18n="projects.four.arch.step1">Ingestão de Dados: Pipeline inteligente processa PDFs e relatórios não estruturados (IDP).</li>
-                                    <li data-i18n="projects.four.arch.step2">Base Semântica: Indexação em chunks estruturados no MongoDB Atlas e base vetorial Pinecone.</li>
-                                    <li data-i18n="projects.four.arch.step3">Rastreabilidade RAG: Telemetria contínua via LangSmith avaliando a qualidade e mitigando data drift.</li>
-                                </ol>
-                            </div>
-                        </details>
-
-                        <div class="project-card__footer">
-                            <span data-i18n="projects.four.footer">Desafio: esteira de observabilidade e evals via LangSmith contra drift.</span>
-                            <div class="project-card__links">
-                                <a href="https://harmonizai.streamlit.app/" target="_blank" rel="noreferrer" data-i18n="projects.demo">Ver demo</a>
-                                <a href="https://github.com/vdfs89/harmoniz-ai" target="_blank" rel="noreferrer">GitHub</a>
-                            </div>
-                        </div>
-                    </article>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Experience -->
-        <section class="section" id="experience">
-            <div class="container section__grid section__grid--experience">
-                <div class="section-heading reveal">
-                    <p class="section-kicker" data-i18n="experience.kicker">Linha do Tempo</p>
-                    <h2 data-i18n="experience.title">Maturidade operacional encontrando engenharia de IA moderna.</h2>
-                </div>
+        <hr class="sep">
 
-                <div class="timeline reveal reveal--delay-1">
-                    <!-- Item 1: FIAP -->
-                    <article class="timeline-item highlight">
-                        <span class="timeline-item__marker timeline-item__marker--active"></span>
-                        <div class="timeline-item__meta">2026 - 2027</div>
-                        <h3 data-i18n="experience.one.role">FIAP</h3>
-                        <p class="timeline-item__subtitle" data-i18n="experience.one.subtitle">Pós-Graduação em Machine Learning Engineering</p>
-                        <p data-i18n="experience.one.copy">Especialização avançada e prática focada em MLOps, Deep Learning, engenharia de atributos e implantação de LLMs corporativos em escala.</p>
-                    </article>
+        <!-- ══ PROJECTS ══ -->
+        <section class="sec" id="projects">
+            <div class="wrap">
+                <div class="prompt reveal" data-i18n="proj.prompt">PROJETOS / PROJECTS</div>
+                <h2 class="sec-title reveal">Arquiteturas que<br><span class="g">geram valor de negócio.</span></h2>
+                <p class="sec-desc reveal" data-i18n="proj.desc">A dor real não é construir IA — é confiar nela em produção. Meus projetos atacam governança, guardrails e controle de alucinação.</p>
 
-                    <!-- Item 2: Descomplica -->
-                    <article class="timeline-item">
-                        <span class="timeline-item__marker"></span>
-                        <div class="timeline-item__meta">2023 - 2026</div>
-                        <h3 data-i18n="experience.two.role">Descomplica Faculdade Digital</h3>
-                        <p class="timeline-item__subtitle" data-i18n="experience.two.subtitle">Bacharelado em Ciência da Computação</p>
-                        <p data-i18n="experience.two.copy">Sólida formação teórica em estruturas de dados, algoritmos, complexidade computacional, segurança e arquitetura de sistemas.</p>
-                    </article>
+                <div class="bento">
 
-                    <!-- Item 3: Correios ECT -->
-                    <article class="timeline-item">
-                        <span class="timeline-item__marker"></span>
-                        <div class="timeline-item__meta">2011 - 2026</div>
-                        <h3 data-i18n="experience.three.role">Correios ECT</h3>
-                        <p class="timeline-item__subtitle" data-i18n="experience.three.subtitle">Gestão de Processos e Operações Críticas</p>
-                        <p data-i18n="experience.three.copy">Liderança técnica e gestão de processos em operações de missão crítica sob forte pressão, auditorias rigorosas, SLAs exigentes e conformidade regulatória.</p>
-                    </article>
+                    <!-- MestreGrana (flagship) -->
+                    <div class="bc b-main reveal">
+                        <div class="bc-idx"><span>01 · FINTECH · GOVERNANÇA DE IA</span><span class="badge badge-amber" data-i18n="proj.live">ATIVO</span></div>
+                        <h3 class="bc-title">MestreGrana</h3>
+                        <p class="bc-copy" data-i18n="p2.copy">Consultor financeiro com arquitetura multi-agente orquestrada via LangGraph (grafos de estado). Implementa RAG avançado e um sistema de LLMs atuando como "juízes" — guardrails que auditam e mitigam alucinações antes da resposta chegar ao usuário. Tratamento de JSONs complexos e roteamento multi-LLM com foco em groundedness, governança e custo.</p>
+                        <div class="metric">
+                            <div class="metric-val" data-i18n="p2.metricv">Multi-LLM Judges</div>
+                            <div class="metric-desc" data-i18n="p2.metric">Guardrails de auditoria + mitigação de alucinações em produção</div>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">LangGraph</span><span class="tag">FastAPI</span><span class="tag">Python</span>
+                            <span class="tag">RAG</span><span class="tag">Multi-LLM</span><span class="tag">MongoDB</span>
+                        </div>
+                        <div class="bc-footer">
+                            <span data-i18n="p2.foot">State Graphs + Multi-LLM Guardrails</span>
+                            <div class="bc-links">
+                                <a href="https://mestregrana.streamlit.app/" target="_blank" rel="noreferrer" data-i18n="proj.demo">DEMO →</a>
+                                <a href="https://github.com/vdfs89/InvestimentoDIO" target="_blank" rel="noreferrer">GITHUB →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FluencyForge -->
+                    <div class="bc b-side reveal d1">
+                        <div class="bc-idx"><span>02 · EDTECH · AGENTIC AI</span><span class="badge">FEATURED</span></div>
+                        <h3 class="bc-title">FluencyForge</h3>
+                        <p class="bc-copy" data-i18n="p1.copy">Pipeline pedagógico multi-agente com RAG que adapta currículo em tempo real ao perfil do aluno — agentes stateful com memória de longo prazo orquestrados via LangGraph.</p>
+                        <div class="tags">
+                            <span class="tag">LangGraph</span><span class="tag">FastAPI</span><span class="tag">RAG</span><span class="tag">Flutter</span>
+                        </div>
+                        <div class="bc-footer">
+                            <span data-i18n="p1.foot">LangGraph + State Management + RAG</span>
+                            <div class="bc-links">
+                                <a href="https://fluencyforge.streamlit.app/" target="_blank" rel="noreferrer" data-i18n="proj.demo">DEMO →</a>
+                                <a href="https://github.com/vdfs89/fluencyforge" target="_blank" rel="noreferrer">GITHUB →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Aether Oncology -->
+                    <div class="bc b-third reveal">
+                        <div class="bc-idx"><span>03 · HEALTHTECH · FULL STACK</span><span class="badge badge-blue">2026</span></div>
+                        <h3 class="bc-title">Aether Oncology</h3>
+                        <p class="bc-copy" data-i18n="p4.copy">Aplicação full stack na área da saúde — frontend moderno (React / Flutter) consumindo backend Python via APIs, com foco em integração robusta e confiabilidade de dados clínicos.</p>
+                        <div class="tags">
+                            <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Flutter</span><span class="tag">Python</span>
+                        </div>
+                        <div class="bc-footer">
+                            <span data-i18n="p4.foot">Full Stack · API-Driven</span>
+                            <div class="bc-links">
+                                <a href="https://github.com/vdfs89" target="_blank" rel="noreferrer">GITHUB →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Harmoniz.AI -->
+                    <div class="bc b-third reveal d1">
+                        <div class="bc-idx"><span>04 · HEALTHTECH · DATA</span><span class="badge badge-blue">2026</span></div>
+                        <h3 class="bc-title">Harmoniz.AI</h3>
+                        <p class="bc-copy" data-i18n="p3.copy">Engine de otimização de performance humana correlacionando suplementação com feedback biométrico — recomendações via análise preditiva e LLM pipeline.</p>
+                        <div class="tags">
+                            <span class="tag">Python</span><span class="tag">Predictive AI</span><span class="tag">LLM Pipeline</span>
+                        </div>
+                        <div class="bc-footer">
+                            <span data-i18n="p3.foot">Time Series + LLM</span>
+                            <div class="bc-links">
+                                <a href="https://harmonizai.streamlit.app/" target="_blank" rel="noreferrer" data-i18n="proj.demo">DEMO →</a>
+                                <a href="https://github.com/vdfs89/Harmoniz.AI" target="_blank" rel="noreferrer">GITHUB →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Guardrails stat -->
+                    <div class="bc b-third b-stat reveal d2">
+                        <div class="metric-val" style="font-size:1.9rem;text-shadow:var(--glow-text);">GUARDRAILS</div>
+                        <div class="metric-desc" style="margin-top:0.5rem;" data-i18n="stat.guard">Sistemas multi-LLM de auditoria e controle de alucinação em produção</div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Stack -->
-        <section class="section" id="stack">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <p class="section-kicker" data-i18n="stack.kicker">Stack</p>
-                    <h2 data-i18n="stack.title">Organizada por categoria, não por buzzword.</h2>
+        <hr class="sep">
+
+        <!-- ══ EXPERIENCE ══ -->
+        <section class="sec" id="experience">
+            <div class="wrap">
+                <div class="prompt reveal" data-i18n="exp.prompt">EXPERIÊNCIA / EXPERIENCE</div>
+                <h2 class="sec-title reveal">Maturidade operacional.<br><span class="g">Stack de vanguarda.</span></h2>
+                <p class="sec-desc reveal" data-i18n="exp.desc">A maioria dos AI Engineers tem o código. Poucos têm 15 anos de missão crítica que ensinam resiliência sistêmica real.</p>
+
+                <div class="exp-grid">
+                    <div class="timeline">
+                        <div class="tl reveal">
+                            <span class="tl-dot tl-dot-g"></span>
+                            <div class="tl-date">2011 → PRESENTE</div>
+                            <div class="tl-title" data-i18n="e1.title">Empresa Brasileira de Correios e Telégrafos</div>
+                            <div class="tl-sub"   data-i18n="e1.sub">Suporte Operacional · Curitiba, PR</div>
+                            <p class="tl-copy"    data-i18n="e1.copy">Mentalidade de confiabilidade forjada em operações sob pressão, continuidade de sistemas e resolução de problemas em ambientes que não toleram falhas.</p>
+                            <ul class="tl-list">
+                                <li data-i18n="e1.l1">Garantia de SLA e continuidade operacional em larga escala</li>
+                                <li data-i18n="e1.l2">Ponto focal na implementação de sistemas corporativos</li>
+                                <li data-i18n="e1.l3">Perfil analítico para identificação e mitigação de falhas em tempo real</li>
+                            </ul>
+                        </div>
+                        <div class="tl reveal d1">
+                            <span class="tl-dot tl-dot-g"></span>
+                            <div class="tl-date">2023 → 2026</div>
+                            <div class="tl-title">Descomplica Faculdade Digital</div>
+                            <div class="tl-sub" data-i18n="e2.sub">Bacharelado em Ciência da Computação</div>
+                            <ul class="tl-list">
+                                <li data-i18n="e2.l1">Fundamentos formais em algoritmos, sistemas e computação distribuída</li>
+                                <li data-i18n="e2.l2">Trilhas complementares: MLOps, FastAPI e Engenharia de Dados</li>
+                            </ul>
+                        </div>
+                        <div class="tl reveal d2">
+                            <span class="tl-dot tl-dot-g"></span>
+                            <div class="tl-date">2026 → 2027</div>
+                            <div class="tl-title" data-i18n="e4.title">FIAP</div>
+                            <div class="tl-sub" data-i18n="e4.sub">Pós-Graduação em Machine Learning Engineering</div>
+                            <ul class="tl-list">
+                                <li data-i18n="e4.l1">MLOps, deploy de modelos e pipelines de ML em produção</li>
+                                <li data-i18n="e4.l2">Arquitetura de sistemas de IA escaláveis e governança de modelos</li>
+                            </ul>
+                        </div>
+                        <div class="tl reveal d3">
+                            <span class="tl-dot tl-dot-a"></span>
+                            <div class="tl-date">2024 → AGORA</div>
+                            <div class="tl-title" data-i18n="e3.title">AI Engineer & Solutions Architect</div>
+                            <div class="tl-sub"   data-i18n="e3.sub">Projetos autorais · Open to Opportunities</div>
+                            <ul class="tl-list">
+                                <li data-i18n="e3.l1">Sistemas agênticos stateful com memória e orquestração LangGraph</li>
+                                <li data-i18n="e3.l2">APIs FastAPI com padrões assíncronos e alta performance</li>
+                                <li data-i18n="e3.l3">Pipelines RAG para casos de uso reais com precisão semântica</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="vp-grid reveal d1">
+                        <div class="vp"><span class="vp-icon">🎯</span>
+                            <div><div class="vp-title" data-i18n="vp1.t">Entrega Sob Pressão</div>
+                                 <div class="vp-copy"  data-i18n="vp1.c">15 anos sem tolerância a downtime traduzem-se em código defensivo e arquiteturas que degradam com graciosidade.</div></div>
+                        </div>
+                        <div class="vp"><span class="vp-icon">🧠</span>
+                            <div><div class="vp-title" data-i18n="vp2.t">Visão de Produto, Não Só de Código</div>
+                                 <div class="vp-copy"  data-i18n="vp2.c">Entendo processos de negócio porque os operei. Projeto sistemas que resolvem o problema real, não apenas o técnico.</div></div>
+                        </div>
+                        <div class="vp"><span class="vp-icon">⚙️</span>
+                            <div><div class="vp-title" data-i18n="vp3.t">Stack Moderna, Mindset de Engenheiro</div>
+                                 <div class="vp-copy"  data-i18n="vp3.c">LangGraph, RAG, FastAPI — não como buzzwords, mas aplicadas em projetos com objetivos de negócio mensuráveis.</div></div>
+                        </div>
+                        <div class="vp"><span class="vp-icon">📜</span>
+                            <div><div class="vp-title" data-i18n="vp4.t">Certificações</div>
+                                 <div class="tags" style="margin-top:0.5rem;">
+                                     <span class="tag">LangChain</span><span class="tag">Python DIO</span>
+                                     <span class="tag">Eng. Dados</span><span class="tag">Db Dev</span><span class="tag">IA Gen</span>
+                                 </div></div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <hr class="sep">
+
+        <!-- ══ STACK ══ -->
+        <section class="sec" id="stack">
+            <div class="wrap">
+                <div class="prompt reveal" data-i18n="stk.prompt">TECH STACK / FERRAMENTAS</div>
+                <h2 class="sec-title reveal">Ferramentas.<br><span class="g">Não apenas palavras.</span></h2>
 
                 <div class="stack-grid">
-                    <!-- Category 1: AI & Orquestração -->
-                    <article class="stack-card reveal">
-                        <h3 data-i18n="stack.ai">AI & Orquestração</h3>
-                        <div class="badge-grid">
-                            <span>LangGraph</span>
-                            <span>LangChain</span>
-                            <span>OpenAI API</span>
-                            <span>Azure OpenAI</span>
-                            <span>Prompt Engineering</span>
-                            <span>Structured Outputs</span>
+                    <div class="sc reveal">
+                        <div class="sc-cat">IA / ML</div>
+                        <div class="sc-items">
+                            <span class="sc-i top">LangGraph</span>
+                            <span class="sc-i top">LangChain</span>
+                            <span class="sc-i top">RAG Pipelines</span>
+                            <span class="sc-i">Gemini / Llama 3</span>
+                            <span class="sc-i">Prompt Engineering</span>
+                            <span class="sc-i">LLM Orchestration</span>
                         </div>
-                    </article>
-
-                    <!-- Category 2: Backend & Integrações -->
-                    <article class="stack-card reveal reveal--delay-1">
-                        <h3 data-i18n="stack.backend">Backend & Integrações</h3>
-                        <div class="badge-grid">
-                            <span>Python</span>
-                            <span>FastAPI</span>
-                            <span>Django</span>
-                            <span>Node.js</span>
-                            <span>RESTful APIs</span>
-                            <span>Message Queues</span>
+                    </div>
+                    <div class="sc reveal d1">
+                        <div class="sc-cat">BACKEND &amp; APIs</div>
+                        <div class="sc-items">
+                            <span class="sc-i top">Python 3 (Avançado)</span>
+                            <span class="sc-i top">FastAPI</span>
+                            <span class="sc-i">SQLAlchemy</span>
+                            <span class="sc-i">Docker</span>
+                            <span class="sc-i">Linux / WSL</span>
+                            <span class="sc-i">Clean Architecture</span>
                         </div>
-                    </article>
-
-                    <!-- Category 3: Frontend & Mobile -->
-                    <article class="stack-card reveal reveal--delay-2">
-                        <h3 data-i18n="stack.frontend">Frontend & Mobile</h3>
-                        <div class="badge-grid">
-                            <span>Dart</span>
-                            <span>Flutter</span>
-                            <span>JavaScript</span>
-                            <span>Chart.js</span>
+                    </div>
+                    <div class="sc reveal d2">
+                        <div class="sc-cat">DADOS &amp; INFRA</div>
+                        <div class="sc-items">
+                            <span class="sc-i top">MongoDB</span>
+                            <span class="sc-i top">PostgreSQL</span>
+                            <span class="sc-i">Snowflake</span>
+                            <span class="sc-i">Airflow</span>
+                            <span class="sc-i">Data Analysis</span>
+                            <span class="sc-i">ETL Pipelines</span>
                         </div>
-                    </article>
-
-                    <!-- Category 4: Nuvem & Infraestrutura -->
-                    <article class="stack-card reveal">
-                        <h3 data-i18n="stack.cloud">Nuvem & Infraestrutura</h3>
-                        <div class="badge-grid">
-                            <span>Microsoft Azure</span>
-                            <span>AWS (Lambda/S3)</span>
-                            <span>Docker</span>
-                            <span>WSL</span>
-                            <span>Gitflow</span>
-                        </div>
-                    </article>
-
-                    <!-- Category 5: Bancos de Dados & Vetores -->
-                    <article class="stack-card reveal reveal--delay-1">
-                        <h3 data-i18n="stack.data">Bancos de Dados & Vetores</h3>
-                        <div class="badge-grid">
-                            <span>MongoDB Atlas</span>
-                            <span>Cosmos DB</span>
-                            <span>PostgreSQL</span>
-                            <span>MySQL</span>
-                            <span>Pinecone</span>
-                            <span>Chroma</span>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Guardrails Section -->
-                <div class="guardrails-section reveal">
-                    <h3 data-i18n="guardrails.title">Guardrails de Produção & Eficiência</h3>
-                    <p class="guardrails-subtitle" data-i18n="guardrails.subtitle">Mentalidade focada na viabilidade econômica, segurança e latência de IA sob escala.</p>
-                    <div class="guardrails-grid">
-                        <div class="guardrail-card">
-                            <h4 data-i18n="guardrails.one.title">Otimização de Latência</h4>
-                            <p data-i18n="guardrails.one.copy">Arquiteturas baseadas em streaming de dados assíncronos para reduzir a latência percebida para menos de 800ms.</p>
-                        </div>
-                        <div class="guardrail-card">
-                            <h4 data-i18n="guardrails.two.title">Eficiência de Custo/Token</h4>
-                            <p data-i18n="guardrails.two.copy">Modelagem de prompts estruturados, cache de chamadas e roteamento dinâmico de LLMs para minimizar custos de API.</p>
-                        </div>
-                        <div class="guardrail-card">
-                            <h4 data-i18n="guardrails.three.title">Mitigação de Alucinação</h4>
-                            <p data-i18n="guardrails.three.copy">Construção de fluxos determinísticos validados por sistemas de validação cruzada (LLM-as-a-Judge).</p>
+                    </div>
+                    <div class="sc reveal d3">
+                        <div class="sc-cat">CLOUD &amp; MOBILE</div>
+                        <div class="sc-items">
+                            <span class="sc-i top">Oracle Cloud</span>
+                            <span class="sc-i">AWS / GCP / Azure</span>
+                            <span class="sc-i">Flutter &amp; Dart</span>
+                            <span class="sc-i">Git &amp; CI/CD</span>
+                            <span class="sc-i">SOLID / DDD</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact -->
-        <section class="section section--contact" id="contact">
-            <div class="container">
-                <div class="contact-card reveal">
-                    <p class="section-kicker" data-i18n="contact.kicker">Contato</p>
-                    <h2 data-i18n="contact.title">Vamos construir algo que pareça um produto de verdade.</h2>
-                    <p data-i18n="contact.copy">Se você está contratando para IA, backend ou funções técnicas com foco em produto, este portfólio está pronto para a próxima conversa.</p>
+        <hr class="sep">
 
-                    <div class="contact-card__actions">
-                        <a class="button button--primary" href="mailto:vitor_diogo89@hotmail.com" data-i18n="contact.email">Me escreva</a>
-                        <a class="button button--secondary" href="https://wa.me/5541991823939" target="_blank" rel="noreferrer" data-i18n="contact.whatsapp">WhatsApp</a>
-                        <a class="button button--secondary" href="https://github.com/vdfs89" target="_blank" rel="noreferrer" data-i18n="contact.github">GitHub</a>
-                        <a class="button button--secondary" href="https://www.linkedin.com/in/vitorsilva-aieng/" target="_blank" rel="noreferrer" data-i18n="contact.linkedin">LinkedIn</a>
+        <!-- ══ CONTACT ══ -->
+        <section class="sec" id="contact">
+            <div class="wrap">
+                <div class="prompt reveal" style="justify-content:center;" data-i18n="con.prompt">CONTATO / CONTACT</div>
+                <div class="contact-box reveal">
+                    <div class="prompt" style="justify-content:center; margin-bottom:0.4rem;"><span data-i18n="con.kicker">INICIAR CONVERSA</span></div>
+                    <h2 class="contact-title" data-i18n="con.title">Vamos construir o<br>próximo nível?</h2>
+                    <p class="contact-copy" data-i18n="con.copy">Aberto a posições como AI Engineer ou Solutions Architect. Maturidade profissional + stack de IA de vanguarda para o seu time.</p>
+                    <div class="contact-acts">
+                        <a class="btn btn-solid" href="mailto:mkmillhouse89@gmail.com" data-i18n="con.email">EMAIL →</a>
+                        <a class="btn" href="https://www.linkedin.com/in/vitorsilva-aieng/" target="_blank" rel="noreferrer">LINKEDIN →</a>
+                        <a class="btn" href="https://github.com/vdfs89" target="_blank" rel="noreferrer">GITHUB →</a>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
-        <div class="container footer__inner">
-            <p>Vitor Silva</p>
-            <p data-i18n="footer.role">AI Builder & Fullstack Developer | Foco em Soluções AI-First</p>
+        <div class="wrap footer-in">
+            <span>VITOR_SILVA &copy; 2026</span>
+            <span data-i18n="foot.role">AI Engineer & Solutions Architect</span>
+            <span>CURITIBA, PR · BRASIL ☕</span>
         </div>
     </footer>
 
-    <script>
-        const translations = {
-            pt: {
-                skip: 'Pular para o conteúdo',
-                'brand.role': 'Dev AI-First',
-                'nav.about': 'Sobre',
-                'nav.projects': 'Projetos',
-                'nav.experience': 'Experiência',
-                'nav.stack': 'Stack',
-                'nav.contact': 'Contato',
-                'header.email': 'Me escreva',
-                'hero.eyebrow': 'Curitiba - PR | Disponível para projetos globais',
-                'hero.role': 'AI Builder & Fullstack Developer',
-                'hero.subtitle': 'Foco em Soluções AI-First',
-                'hero.copy': 'Profissional consolidado por 15 anos em operações de missão crítica nos Correios. Especialista graduando em Ciência da Computação e Pós-graduando em ML Engineering pela FIAP. Foco em arquiteturas multi-agentes assíncronas (LangGraph), tratamento de alucinações e governança de dados corporativos.',
-                'hero.primaryCta': 'Ver Projetos de IA',
-                'hero.secondaryCta': 'LinkedIn',
-                'hero.meta.one': 'Anos em operações críticas',
-                'hero.meta.two': 'Projetos AI-First autorais',
-                'hero.meta.three.value': 'Remoto / Híbrido',
-                'hero.meta.three.label': 'Disponível para vagas globais',
-                'hero.status': 'Disponível para novos desafios',
-                'hero.panelTag': 'Portfólio Premium de IA',
-                'hero.focusLabel': 'Destaques',
-                'hero.panelTitle': 'Sistemas de IA em produção com valor claro de produto.',
-                'hero.panelCopy': 'Substituo prompts simples por orquestração complexa de agentes, pipelines semânticos de RAG e governança absoluta de dados.',
-                'hero.stat.one': 'LangGraph e múltiplos agentes',
-                'hero.stat.two': 'Pipelines RAG e IDP de alta escala',
-                'hero.stat.three': 'FastAPI, Python e ecossistema Flutter',
-                'about.kicker': 'Proposta de Valor',
-                'about.title': 'Robustez operacional de missão crítica unida à engenharia de IA de ponta.',
-                'about.copy.one': 'Utilizo inteligência artificial generativa não apenas como uma funcionalidade, mas como a base para estruturar e solucionar processos corporativos complexos. Combino essa visão a uma sólida experiência de 15 anos em governança e operações críticas nos Correios.',
-                'about.copy.two': 'Desenvolvo sistemas multi-agentes determinísticos baseados em máquinas de estado (LangGraph), mitigação ativa de alucinações, processamento inteligente de documentos (IDP) e pipelines robustos de RAG corporativo.',
-                'about.highlight.one': 'Confiabilidade extrema sob pressão (15 anos Correios)',
-                'about.highlight.two': 'Sistemas multi-agentes e RAG avançado',
-                'about.highlight.three': 'Ciência da Computação & FIAP ML Engineering',
-                'projects.kicker': 'Projetos em Destaque',
-                'projects.title': 'Trabalhos selecionados com apresentação premium e pensamento orientado à produção.',
-                'projects.status.featured': 'Em destaque',
-                'projects.status.live': 'Conceito ativo',
-                'projects.status.year': '2026',
-                'projects.status.idp': 'Processamento Inteligente',
-                'projects.one.copy': 'Plataforma avançada de inteligência financeira construída sob uma arquitetura de múltiplos agentes autônomos com validação cruzada para mitigar alucinações em ambientes regulados.',
-                'projects.one.footer': 'Desafio: persistência de checkpoints e lógicas determinísticas.',
-                'projects.demo': 'Ver demo',
-                'projects.two.copy': 'Tutor inteligente de inglês técnico com agente multi-step analisando proficiência e fornecendo feedbacks em tempo real por streaming de dados.',
-                'projects.two.footer': 'Desafio: integração assíncrona FastAPI + Flutter e baixa latência.',
-                'projects.three.copy': 'Cockpit clínico e terminal de diagnóstico preditivo para oncologia, integrando models de Deep Learning (XAI) a uma experiência clínica premium.',
-                'projects.three.footer': 'Desafio: explicabilidade de modelos (XAI) e renderização paralela da estrela-guia.',
-                'projects.four.copy': 'Ingestão e curadoria inteligente de dados não estruturados regulatórios em base semântica altamente consultável com pipeline RAG.',
-                'projects.four.footer': 'Desafio: esteira de observabilidade e evals via LangSmith contra drift.',
-                'experience.kicker': 'Linha do Tempo',
-                'experience.title': 'Maturidade operacional encontrando engenharia de IA moderna.',
-                'experience.one.role': 'FIAP',
-                'experience.one.subtitle': 'Pós-Graduação em Machine Learning Engineering',
-                'experience.one.copy': 'Especialização avançada e prática focada em MLOps, Deep Learning, engenharia de atributos e implantação de LLMs corporativos em escala.',
-                'experience.two.role': 'Descomplica Faculdade Digital',
-                'experience.two.subtitle': 'Bacharelado em Ciência da Computação',
-                'experience.two.copy': 'Sólida formação teórica em estruturas de dados, algoritmos, complexidade computacional, segurança e arquitetura de sistemas.',
-                'experience.three.role': 'Correios ECT',
-                'experience.three.subtitle': 'Gestão de Processos e Operações Críticas',
-                'experience.three.copy': 'Liderança técnica e gestão de processos em operações de missão crítica sob forte pressão, auditorias rigorosas, SLAs exigentes e conformidade regulatória.',
-                'stack.kicker': 'Stack de Alta Performance',
-                'stack.title': 'Organizada por categoria, não por buzzword.',
-                'stack.ai': 'AI & Orquestração',
-                'stack.backend': 'Backend & Integrações',
-                'stack.frontend': 'Frontend & Mobile',
-                'stack.cloud': 'Nuvem & Infraestrutura',
-                'stack.data': 'Bancos de Dados & Vetores',
-                'contact.kicker': 'Contato',
-                'contact.title': 'Vamos construir algo que pareça um produto de verdade.',
-                'contact.copy': 'Se você está contratando para IA, backend ou funções técnicas com foco em produto, este portfólio está pronto para a próxima conversa.',
-                'contact.email': 'Me escreva',
-                'contact.whatsapp': 'WhatsApp',
-                'contact.github': 'GitHub',
-                'contact.linkedin': 'LinkedIn',
-                'footer.role': 'AI Builder & Fullstack Developer | Foco em Soluções AI-First',
-                langToggleLabel: 'EN',
-                
-                // MestreGrana Arch
-                'projects.one.arch.title': 'Ver System Design & Fluxo de IA',
-                'projects.one.arch.subtitle': 'Pipeline Agêntico Determinístico:',
-                'projects.one.arch.step1': 'Orquestração: LangGraph mantém o estado e gerencia a máquina de estados.',
-                'projects.one.arch.step2': 'Validação Cruzada: Agente validador (LLM-as-a-Judge) audita o output do agente primário.',
-                'projects.one.arch.step3': 'Prevenção de Alucinação: RAG integrado com base de dados financeiros indexada.',
-                
-                // FluencyForge Arch
-                'projects.two.arch.title': 'Ver System Design & Fluxo de IA',
-                'projects.two.arch.subtitle': 'Streaming Bidirecional de Baixa Latência:',
-                'projects.two.arch.step1': 'Transmissão em Tempo Real: Conexão assíncrona entre o cliente Flutter e o backend FastAPI.',
-                'projects.two.arch.step2': 'Análise de Voz: Transcrição e avaliação gramatical assíncronas rodando em background threads.',
-                'projects.two.arch.step3': 'Resposta Perceptiva: Entrega em tempo de resposta menor que 800ms utilizando chunks de áudio.',
-                
-                // Aether Oncology Arch
-                'projects.three.arch.title': 'Ver System Design & Fluxo de IA',
-                'projects.three.arch.subtitle': 'Explicabilidade & Processamento 3D:',
-                'projects.three.arch.step1': 'Predição de Diagnóstico: Modelo PyTorch prevê a probabilidade diagnóstica a partir dos inputs.',
-                'projects.three.arch.step2': 'Explicabilidade (XAI): FastAPI calcula mapas de calor (gradientes integrados) em tempo real.',
-                'projects.three.arch.step3': 'Aceleração por GPU: Visualização tridimensional da estrela-guia processada via WebGL shaders.',
-                
-                // Harmoniz.AI Arch
-                'projects.four.arch.title': 'Ver System Design & Fluxo de IA',
-                'projects.four.arch.subtitle': 'Curadoria & Telemetria Avançada:',
-                'projects.four.arch.step1': 'Ingestão de Dados: Pipeline inteligente processa PDFs e relatórios não estruturados (IDP).',
-                'projects.four.arch.step2': 'Base Semântica: Indexação em chunks estruturados no MongoDB Atlas e base vetorial Pinecone.',
-                'projects.four.arch.step3': 'Rastreabilidade RAG: Telemetria contínua via LangSmith avaliando a qualidade e mitigando data drift.',
+</div><!-- /site -->
 
-                // Guardrails
-                'guardrails.title': 'Guardrails de Produção & Eficiência',
-                'guardrails.subtitle': 'Mentalidade focada na viabilidade econômica, segurança e latência de IA sob escala.',
-                'guardrails.one.title': 'Otimização de Latência',
-                'guardrails.one.copy': 'Arquiteturas baseadas em streaming de dados assíncronos para reduzir a latência percebida para menos de 800ms.',
-                'guardrails.two.title': 'Eficiência de Custo/Token',
-                'guardrails.two.copy': 'Modelagem de prompts estruturados, cache de chamadas e roteamento dinâmico de LLMs para minimizar custos de API.',
-                'guardrails.three.title': 'Mitigação de Alucinação',
-                'guardrails.three.copy': 'Construção de fluxos determinísticos validados por sistemas de validação cruzada (LLM-as-a-Judge).'
-            },
-            en: {
-                skip: 'Skip to content',
-                'brand.role': 'AI-First Dev',
-                'nav.about': 'About',
-                'nav.projects': 'Projects',
-                'nav.experience': 'Experience',
-                'nav.stack': 'Stack',
-                'nav.contact': 'Contact',
-                'header.email': 'Email Me',
-                'hero.eyebrow': 'Curitiba - PR | Available for global projects',
-                'hero.role': 'AI Builder & Fullstack Developer',
-                'hero.subtitle': 'Focus on AI-First Solutions',
-                'hero.copy': 'Professional backed by 15 years in mission-critical operations at Correios. Pursuing a Computer Science degree and specializing in Machine Learning Engineering at FIAP. Expertise in async multi-agent architectures (LangGraph), hallucination mitigation, and enterprise data governance.',
-                'hero.primaryCta': 'View AI Projects',
-                'hero.secondaryCta': 'LinkedIn',
-                'hero.meta.one': 'Years in critical ops',
-                'hero.meta.two': 'Authorial AI-First projects',
-                'hero.meta.three.value': 'Remote / Hybrid',
-                'hero.meta.three.label': 'Available for global roles',
-                'hero.status': 'Available for new challenges',
-                'hero.panelTag': 'Premium AI Portfolio',
-                'hero.focusLabel': 'Highlights',
-                'hero.panelTitle': 'AI systems in production with clear product value.',
-                'hero.panelCopy': 'Replacing shallow prompt techniques with complex multi-agent orchestration, semantic RAG pipelines, and absolute data quality.',
-                'hero.stat.one': 'LangGraph and multi-agents',
-                'hero.stat.two': 'High-scale RAG & IDP pipelines',
-                'hero.stat.three': 'FastAPI, Python and Flutter ecosystem',
-                'about.kicker': 'Value Proposition',
-                'about.title': 'Mission-critical operational robustness meets cutting-edge AI.',
-                'about.copy.one': 'I leverage generative AI not merely as an isolated feature, but as the foundational layer to solve complex business workflows. I combine this vision with 15 years of solid experience in governance and critical operations at Correios.',
-                'about.copy.two': 'I design deterministic multi-agent architectures using state machines (LangGraph), active hallucination mitigation, intelligent document processing (IDP), and enterprise-grade RAG.',
-                'about.highlight.one': 'Extreme reliability under pressure (15 years Correios)',
-                'about.highlight.two': 'Multi-agent systems & advanced RAG',
-                'about.highlight.three': 'Computer Science & FIAP ML Engineering',
-                'projects.kicker': 'Featured Projects',
-                'projects.title': 'Selected works with premium presentation and production-oriented mindset.',
-                'projects.status.featured': 'Featured',
-                'projects.status.live': 'Active Concept',
-                'projects.status.year': '2026',
-                'projects.status.idp': 'Intelligent Processing',
-                'projects.one.copy': 'Advanced financial intelligence platform built under a multi-agent architecture with cross-validation to mitigate hallucinations in regulated environments.',
-                'projects.one.footer': 'Challenge: state checkpoints, concurrency, and deterministic logic.',
-                'projects.demo': 'View demo',
-                'projects.two.copy': 'Intelligent technical English tutor with a multi-step agent that analyzes proficiency and streams real-time feedback.',
-                'projects.two.footer': 'Challenge: async FastAPI + Flutter integration and low latency.',
-                'projects.three.copy': 'Clinical cockpit and predictive diagnostic terminal for oncology, integrating Deep Learning models (XAI) with a premium clinical experience.',
-                'projects.three.footer': 'Challenge: model explainability (XAI) and parallel rendering of guidance-star.',
-                'projects.four.copy': 'Intelligent ingestion and curation of unstructured regulatory data into a highly consultable semantic base with a RAG pipeline.',
-                'projects.four.footer': 'Challenge: quality metrics and automated Evals via LangSmith against drift.',
-                'experience.kicker': 'Experience Timeline',
-                'experience.title': 'Operational maturity meets advanced AI engineering.',
-                'experience.one.role': 'FIAP',
-                'experience.one.subtitle': 'Post-Graduation in Machine Learning Engineering',
-                'experience.one.copy': 'Advanced, hands-on specialization focused on MLOps, Deep Learning, feature engineering, and enterprise LLM deployment at scale.',
-                'experience.two.role': 'Descomplica Digital University',
-                'experience.two.subtitle': 'BSc in Computer Science',
-                'experience.two.copy': 'Solid theoretical foundation in data structures, algorithms, computational complexity, security, and systems architecture.',
-                'experience.three.role': 'Correios ECT',
-                'experience.three.subtitle': 'Process & Critical Operations Management',
-                'experience.three.copy': 'Technical leadership and process management in mission-critical operations under tight SLAs, strict auditing, and regulatory compliance.',
-                'stack.kicker': 'High-Performance Stack',
-                'stack.title': 'Organized by category, not by buzzword.',
-                'stack.ai': 'AI & Orchestration',
-                'stack.backend': 'Backend & Integrations',
-                'stack.frontend': 'Frontend & Mobile',
-                'stack.cloud': 'Cloud & Infrastructure',
-                'stack.data': 'Databases & Vector Stores',
-                'contact.kicker': 'Contact',
-                'contact.title': "Let's build something that looks like a real product.",
-                'contact.copy': 'If you are hiring for AI, backend or technical roles with a product focus, this portfolio is ready for the next conversation.',
-                'contact.email': 'Email Me',
-                'contact.whatsapp': 'WhatsApp',
-                'contact.github': 'GitHub',
-                'contact.linkedin': 'LinkedIn',
-                'footer.role': 'AI Builder & Fullstack Developer | Focus on AI-First Solutions',
-                langToggleLabel: 'PT',
-                
-                // MestreGrana Arch
-                'projects.one.arch.title': 'View System Design & AI Flow',
-                'projects.one.arch.subtitle': 'Deterministic Agentic Pipeline:',
-                'projects.one.arch.step1': 'Orchestration: LangGraph manages conversational state and the state machine.',
-                'projects.one.arch.step2': 'Cross-Validation: Validator agent (LLM-as-a-Judge) audits primary agent output.',
-                'projects.one.arch.step3': 'Hallucination Prevention: Integrated RAG with indexed financial database.',
-                
-                // FluencyForge Arch
-                'projects.two.arch.title': 'View System Design & AI Flow',
-                'projects.two.arch.subtitle': 'Low-Latency Bidirectional Streaming:',
-                'projects.two.arch.step1': 'Real-Time Transmission: Async socket streaming between Flutter client and FastAPI backend.',
-                'projects.two.arch.step2': 'Voice Analysis: Async speech-to-text and grammar telemetry running on background threads.',
-                'projects.two.arch.step3': 'Perceptive Response: Audio chunk streaming delivering sub-800ms user perceived latency.',
-                
-                // Aether Oncology Arch
-                'projects.three.arch.title': 'View System Design & AI Flow',
-                'projects.three.arch.subtitle': 'Explainability & 3D Rendering:',
-                'projects.three.arch.step1': 'Diagnostic Prediction: PyTorch neural net estimates oncology diagnostic probabilities.',
-                'projects.three.arch.step2': 'Explainability (XAI): Real-time FastAPI attribution heatmap calculation (integrated gradients).',
-                'projects.three.arch.step3': 'GPU Acceleration: Interactive clinical cockpit starfield rendered natively inside WebGL shaders.',
-                
-                // Harmoniz.AI Arch
-                'projects.four.arch.title': 'View System Design & AI Flow',
-                'projects.four.arch.subtitle': 'Curation & Advanced Telemetry:',
-                'projects.four.arch.step1': 'Data Ingestion: Intelligent parser processes unstructured PDFs and reports (IDP).',
-                'projects.four.arch.step2': 'Semantic Base: Structured chunks indexed in MongoDB Atlas and Pinecone vector store.',
-                'projects.four.arch.step3': 'RAG Telemetry: Continuous monitoring via LangSmith evaluating retriever quality against data drift.',
+<script>
+/* ═══ STARFIELD ═══ */
+(function(){
+    const c = document.getElementById('starfield');
+    const x = c.getContext('2d');
+    let W, H, stars = [];
+    function resize(){ W = c.width = innerWidth; H = c.height = innerHeight; }
+    function init(){
+        stars = [];
+        const n = Math.floor(W*H/5500);
+        for(let i=0;i<n;i++) stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*.8+.15,a:Math.random(),d:(Math.random()-.5)*.005});
+    }
+    function draw(){
+        x.clearRect(0,0,W,H);
+        stars.forEach(s=>{
+            s.a+=s.d; if(s.a<=0||s.a>=1)s.d*=-1;
+            x.beginPath(); x.arc(s.x,s.y,s.r,0,Math.PI*2);
+            x.fillStyle=`rgba(255,255,255,${s.a*.12})`; x.fill();
+        });
+        requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize',()=>{resize();init();});
+    resize(); init(); draw();
+})();
 
-                // Guardrails
-                'guardrails.title': 'Production Guardrails & Efficiency',
-                'guardrails.subtitle': 'Mindset focused on economic viability, safety, and latency of AI systems at scale.',
-                'guardrails.one.title': 'Latency Optimization',
-                'guardrails.one.copy': 'Architectures based on async data streaming to minimize user perceived latency to under 800ms.',
-                'guardrails.two.title': 'Cost & Token Efficiency',
-                'guardrails.two.copy': 'Structured prompts, state caching, and dynamic LLM routing to optimize token usage and API cost.',
-                'guardrails.three.title': 'Hallucination Mitigation',
-                'guardrails.three.copy': 'Deterministic workflow architectures validated by cross-checking systems (LLM-as-a-Judge).'
-            }
-        };
+/* ═══ i18n ═══ */
+const T = {
+  pt: {
+    'brand.sub':'AI ENGINEER & SOLUTIONS ARCHITECT','nav.about':'SOBRE','nav.projects':'PROJETOS','nav.exp':'EXPERIÊNCIA',
+    'nav.stack':'STACK','nav.contact':'CONTATO','nav.cta':'CONTATO',
+    'hero.boot':'DISPONÍVEL PARA CONTRATAÇÃO','hero.role':'AI Engineer & Solutions Architect',
+    'hero.sub':'Desenvolvo sistemas de IA com precisão de produto real: agentes stateful, RAG arquitetado e APIs prontas para produção.',
+    'hero.copy':'LLMs, fluxos agênticos com LangGraph, RAG de alta fidelidade e FastAPI assíncrono — sustentados por 15 anos operando ambientes que não toleram falhas.',
+    'hero.cta1':'VER PROJETOS →','hero.cta2':'FALE COMIGO',
+    'hero.s1':'Anos ECT','hero.s2':'Projetos IA','hero.s3':'Ambição',
+    'panel.hdr':'PERFIL_ATUAL','panel.status':'DISPONÍVEL','panel.focus':'FOCO',
+    'panel.title':'Sistemas de IA com valor claro de negócio.',
+    'panel.copy':'Agentes, pipelines de recuperação e ferramentas operacionais com equilíbrio entre profundidade técnica e resultado real.',
+    'about.prompt':'SOBRE / ABOUT',
+    'about.p1':'Minha trajetória combina mais de 15 anos em ambientes operacionais de missão crítica com construção recente de sistemas de IA, backend e ML aplicado.',
+    'about.p2':'Foco em sistemas claros de entender, agradáveis de usar e robustos o suficiente para sustentarem uso real em produção — não apenas demos.',
+    'about.h1':'Mentalidade de operação e confiabilidade sistêmica',
+    'about.h2':'Agentes, RAG, orquestração, pipelines de dados',
+    'about.h3':'Portfólio preparado para oportunidades internacionais',
+    'about.c1t':'MISSÃO CRÍTICA','about.c1p':'Operei 15 anos em ambientes sem tolerância a falhas. Essa mentalidade se reflete em código defensivo, tratamento de erros robusto e arquiteturas resilientes.',
+    'about.c2t':'PRODUTO, NÃO SÓ CÓDIGO','about.c2p':'Entendo processos de negócio porque os operei por mais de uma década. Projeto soluções que resolvem o problema real, não apenas o técnico.',
+    'proj.prompt':'PROJETOS / PROJECTS','proj.desc':'A dor real não é construir IA — é confiar nela em produção. Meus projetos atacam governança, guardrails e controle de alucinação.','proj.demo':'DEMO →','proj.live':'ATIVO',
+    'p2.copy':'Consultor financeiro com arquitetura multi-agente orquestrada via LangGraph (grafos de estado). Implementa RAG avançado e um sistema de LLMs atuando como "juízes" — guardrails que auditam e mitigam alucinações antes da resposta chegar ao usuário. Tratamento de JSONs complexos e roteamento multi-LLM com foco em groundedness, governança e custo.',
+    'p2.metricv':'Multi-LLM Judges','p2.metric':'Guardrails de auditoria + mitigação de alucinações em produção','p2.foot':'State Graphs + Multi-LLM Guardrails',
+    'p1.copy':'Pipeline pedagógico multi-agente com RAG que adapta currículo em tempo real ao perfil do aluno — agentes stateful com memória de longo prazo orquestrados via LangGraph.','p1.foot':'LangGraph + State Management + RAG',
+    'p4.copy':'Aplicação full stack na área da saúde — frontend moderno (React / Flutter) consumindo backend Python via APIs, com foco em integração robusta e confiabilidade de dados clínicos.','p4.foot':'Full Stack · API-Driven',
+    'p3.copy':'Engine de otimização de performance humana correlacionando suplementação com feedback biométrico — recomendações via análise preditiva e LLM pipeline.','p3.foot':'Time Series + LLM',
+    'stat.guard':'Sistemas multi-LLM de auditoria e controle de alucinação em produção',
+    'exp.prompt':'EXPERIÊNCIA / EXPERIENCE','exp.desc':'A maioria dos AI Engineers tem o código. Poucos têm 15 anos de missão crítica que ensinam resiliência sistêmica real.',
+    'e1.title':'Empresa Brasileira de Correios e Telégrafos','e1.sub':'Suporte Operacional · Curitiba, PR',
+    'e1.copy':'Mentalidade de confiabilidade forjada em operações sob pressão e resolução de problemas em ambientes que não toleram falhas.',
+    'e1.l1':'Garantia de SLA e continuidade operacional em larga escala','e1.l2':'Ponto focal na implementação de sistemas corporativos','e1.l3':'Perfil analítico para mitigação de falhas em tempo real',
+    'e2.sub':'Bacharelado em Ciência da Computação','e2.l1':'Fundamentos formais em algoritmos, sistemas e computação distribuída','e2.l2':'Trilhas complementares: MLOps, FastAPI e Engenharia de Dados',
+    'e4.title':'FIAP','e4.sub':'Pós-Graduação em Machine Learning Engineering',
+    'e4.l1':'MLOps, deploy de modelos e pipelines de ML em produção','e4.l2':'Arquitetura de sistemas de IA escaláveis e governança de modelos',
+    'e3.title':'AI Engineer & Solutions Architect','e3.sub':'Projetos autorais · Open to Opportunities',
+    'e3.l1':'Sistemas agênticos stateful com memória e orquestração LangGraph','e3.l2':'APIs FastAPI com padrões assíncronos e alta performance','e3.l3':'Pipelines RAG para casos de uso reais com precisão semântica',
+    'vp1.t':'Entrega Sob Pressão','vp1.c':'15 anos sem tolerância a downtime traduzem-se em código defensivo e arquiteturas que degradam com graciosidade.',
+    'vp2.t':'Visão de Produto, Não Só de Código','vp2.c':'Entendo processos de negócio porque os operei. Projeto sistemas que resolvem o problema real.',
+    'vp3.t':'Stack Moderna, Mindset de Engenheiro','vp3.c':'LangGraph, RAG, FastAPI — não como buzzwords, mas aplicadas em projetos com objetivos mensuráveis.',
+    'vp4.t':'Certificações',
+    'stk.prompt':'TECH STACK / FERRAMENTAS',
+    'con.prompt':'CONTATO / CONTACT','con.kicker':'INICIAR CONVERSA','con.title':'Vamos construir o próximo nível?',
+    'con.copy':'Aberto a posições como AI Engineer ou Solutions Architect. Maturidade profissional + stack de IA de vanguarda.','con.email':'EMAIL →',
+    'foot.role':'AI Engineer & Solutions Architect',
+    _lbl:'EN'
+  },
+  en: {
+    'brand.sub':'AI ENGINEER & SOLUTIONS ARCHITECT','nav.about':'ABOUT','nav.projects':'PROJECTS','nav.exp':'EXPERIENCE',
+    'nav.stack':'STACK','nav.contact':'CONTACT','nav.cta':'CONTACT',
+    'hero.boot':'OPEN TO OPPORTUNITIES','hero.role':'AI Engineer & Solutions Architect',
+    'hero.sub':'I build AI systems with product-level precision: stateful agents, architected RAG and production-ready APIs.',
+    'hero.copy':'LLMs, agentic workflows with LangGraph, high-fidelity RAG and async FastAPI — backed by 15 years in mission-critical operations.',
+    'hero.cta1':'VIEW PROJECTS →','hero.cta2':'CONTACT ME',
+    'hero.s1':'Years ECT','hero.s2':'AI Projects','hero.s3':'Ambition',
+    'panel.hdr':'CURRENT_PROFILE','panel.status':'AVAILABLE','panel.focus':'FOCUS',
+    'panel.title':'AI systems with clear business value.',
+    'panel.copy':'Agents, retrieval pipelines and operational tools balancing technical depth with real user outcomes.',
+    'about.prompt':'ABOUT / SOBRE',
+    'about.p1':'My background combines 15+ years in mission-critical operational environments with recent work in AI engineering, backend and applied ML.',
+    'about.p2':'I focus on systems that are clear to understand, pleasant to use and robust enough to sustain real production usage — not just demos.',
+    'about.h1':'Operations and reliability mindset','about.h2':'Agents, RAG, orchestration, data pipelines','about.h3':'Portfolio tuned for international opportunities',
+    'about.c1t':'MISSION-CRITICAL','about.c1p':'15 years in zero-tolerance-for-failure environments. That mindset shows up as defensive code, robust error handling and gracefully degrading architectures.',
+    'about.c2t':'PRODUCT, NOT JUST CODE','about.c2p':'I understand business processes because I operated them for over a decade. I design solutions that solve the real problem, not just the technical one.',
+    'proj.prompt':'PROJECTS / PROJETOS','proj.desc':'The real challenge isn\'t building AI — it\'s trusting it in production. My projects target governance, guardrails and hallucination control.','proj.demo':'DEMO →','proj.live':'LIVE',
+    'p2.copy':'Financial advisor built on a multi-agent architecture orchestrated with LangGraph (state graphs). Implements advanced RAG and a multi-LLM "judge" system — guardrails that audit and mitigate hallucinations before responses reach the user. Complex JSON handling and multi-LLM routing focused on groundedness, governance and cost.',
+    'p2.metricv':'Multi-LLM Judges','p2.metric':'Audit guardrails + hallucination mitigation in production','p2.foot':'State Graphs + Multi-LLM Guardrails',
+    'p1.copy':'Multi-agent pedagogical pipeline with RAG adapting curriculum in real-time to the learner\'s profile — stateful agents with long-term memory orchestrated via LangGraph.','p1.foot':'LangGraph + State Management + RAG',
+    'p4.copy':'Full-stack healthcare application — modern frontend (React / Flutter) consuming a Python backend via APIs, focused on robust integration and clinical data reliability.','p4.foot':'Full Stack · API-Driven',
+    'p3.copy':'Human performance optimization engine correlating supplementation with biometric feedback — recommendations via predictive analysis and LLM pipeline.','p3.foot':'Time Series + LLM',
+    'stat.guard':'Multi-LLM audit and hallucination-control systems in production',
+    'exp.prompt':'EXPERIENCE / EXPERIÊNCIA','exp.desc':'Most AI Engineers have the code. Few have 15 years of mission-critical ops teaching real systemic resilience.',
+    'e1.title':'Brazilian Postal & Telegraph Service (ECT)','e1.sub':'Operational Support · Curitiba, PR',
+    'e1.copy':'Reliability mindset forged through high-pressure operations and problem-solving in environments that do not tolerate failures.',
+    'e1.l1':'SLA guarantee and large-scale operational continuity','e1.l2':'Technical focal point for corporate system implementation','e1.l3':'Analytical profile for real-time failure mitigation',
+    'e2.sub':'BSc in Computer Science','e2.l1':'Formal foundations in algorithms, systems and distributed computing','e2.l2':'Complementary tracks: MLOps, FastAPI and Data Engineering',
+    'e4.title':'FIAP','e4.sub':'Postgraduate in Machine Learning Engineering',
+    'e4.l1':'MLOps, model deployment and ML pipelines in production','e4.l2':'Scalable AI system architecture and model governance',
+    'e3.title':'AI Engineer & Solutions Architect','e3.sub':'Independent projects · Open to Opportunities',
+    'e3.l1':'Stateful agentic systems with memory and LangGraph orchestration','e3.l2':'FastAPI services with async patterns and high performance','e3.l3':'RAG pipelines designed for real use cases with semantic precision',
+    'vp1.t':'Delivery Under Pressure','vp1.c':'15 years of zero-downtime tolerance translate into defensive code and architectures that degrade gracefully.',
+    'vp2.t':'Product Vision, Not Just Code','vp2.c':'I understand business processes because I operated them. I design systems that solve the real problem.',
+    'vp3.t':'Modern Stack, Engineer Mindset','vp3.c':'LangGraph, RAG, FastAPI — not as buzzwords, but applied in projects with measurable business objectives.',
+    'vp4.t':'Certifications',
+    'stk.prompt':'TECH STACK / FERRAMENTAS',
+    'con.prompt':'CONTACT / CONTATO','con.kicker':'INITIATE CONVERSATION','con.title':"Let's build the next level?",
+    'con.copy':'Open to AI Engineer or Solutions Architect positions. Professional maturity + cutting-edge AI stack for your team.','con.email':'EMAIL →',
+    'foot.role':'AI Engineer & Solutions Architect',
+    _lbl:'ES'
+  },
+  es: {
+    'brand.sub':'INGENIERO DE IA & ARQUITECTO DE SOLUCIONES','nav.about':'SOBRE MÍ','nav.projects':'PROYECTOS','nav.exp':'EXPERIENCIA',
+    'nav.stack':'STACK','nav.contact':'CONTACTO','nav.cta':'CONTACTO',
+    'hero.boot':'DISPONIBLE PARA OPORTUNIDADES','hero.role':'Ingeniero de IA & Arquitecto de Soluciones',
+    'hero.sub':'Construyo sistemas de IA con precisión de producto real: agentes stateful, RAG arquitectado y APIs listas para producción.',
+    'hero.copy':'LLMs, flujos agénticos con LangGraph, RAG de alta fidelidad y FastAPI asíncrono — respaldados por 15 años en operaciones de misión crítica.',
+    'hero.cta1':'VER PROYECTOS →','hero.cta2':'CONTÁCTAME',
+    'hero.s1':'Años ECT','hero.s2':'Proyectos IA','hero.s3':'Ambición',
+    'panel.hdr':'PERFIL_ACTUAL','panel.status':'DISPONIBLE','panel.focus':'ENFOQUE',
+    'panel.title':'Sistemas de IA con valor claro de negocio.',
+    'panel.copy':'Agentes, pipelines de recuperación y herramientas operacionales equilibrando profundidad técnica con resultados reales.',
+    'about.prompt':'SOBRE MÍ / ABOUT',
+    'about.p1':'Mi trayectoria combina más de 15 años en entornos operacionales de misión crítica con la construcción reciente de sistemas de IA, backend y ML aplicado.',
+    'about.p2':'Foco en sistemas claros de entender, agradables de usar y robustos para soportar uso real en producción — no solo demos.',
+    'about.h1':'Mentalidad de operación y confiabilidad sistémica',
+    'about.h2':'Agentes, RAG, orquestación, pipelines de datos',
+    'about.h3':'Portfolio preparado para oportunidades internacionales',
+    'about.c1t':'MISIÓN CRÍTICA','about.c1p':'Operé 15 años en entornos de cero tolerancia a fallos. Esa mentalidad se refleja en código defensivo, manejo robusto de errores y arquitecturas resilientes.',
+    'about.c2t':'PRODUCTO, NO SOLO CÓDIGO','about.c2p':'Entiendo los procesos de negocio porque los operé durante más de una década. Diseño soluciones que resuelven el problema real, no solo el técnico.',
+    'proj.prompt':'PROYECTOS / PROJECTS','proj.desc':'El verdadero desafío no es construir IA — es confiar en ella en producción. Mis proyectos atacan gobernanza, guardrails y control de alucinaciones.','proj.demo':'DEMO →','proj.live':'ACTIVO',
+    'p2.copy':'Asesor financiero con arquitectura multi-agente orquestada con LangGraph (grafos de estado). Implementa RAG avanzado y un sistema de LLMs como "jueces" — guardrails que auditan y mitigan alucinaciones antes de llegar al usuario. Manejo de JSONs complejos y enrutamiento multi-LLM con foco en groundedness, gobernanza y costo.',
+    'p2.metricv':'Multi-LLM Judges','p2.metric':'Guardrails de auditoría + mitigación de alucinaciones en producción','p2.foot':'State Graphs + Multi-LLM Guardrails',
+    'p1.copy':'Pipeline pedagógico multi-agente con RAG que adapta el currículo en tiempo real al perfil del alumno — agentes stateful con memoria de largo plazo orquestados con LangGraph.','p1.foot':'LangGraph + State Management + RAG',
+    'p4.copy':'Aplicación full stack en el área de salud — frontend moderno (React / Flutter) consumiendo backend Python vía APIs, con foco en integración robusta y confiabilidad de datos clínicos.','p4.foot':'Full Stack · API-Driven',
+    'p3.copy':'Motor de optimización de performance humana correlacionando suplementación con feedback biométrico — recomendaciones vía análisis predictivo y pipeline de LLM.','p3.foot':'Time Series + LLM',
+    'stat.guard':'Sistemas multi-LLM de auditoría y control de alucinaciones en producción',
+    'exp.prompt':'EXPERIENCIA / EXPERIENCE','exp.desc':'La mayoría de los AI Engineers tienen el código. Pocos tienen 15 años de misión crítica que enseñan resiliencia sistémica real.',
+    'e1.title':'Empresa Brasileña de Correos y Telégrafos','e1.sub':'Soporte Operacional · Curitiba, PR',
+    'e1.copy':'Mentalidad de confiabilidad forjada en operaciones bajo presión y resolución de problemas en entornos que no toleran fallos.',
+    'e1.l1':'Garantía de SLA y continuidad operacional a gran escala','e1.l2':'Punto focal en la implementación de sistemas corporativos','e1.l3':'Perfil analítico para mitigación de fallos en tiempo real',
+    'e2.sub':'Licenciatura en Ciencias de la Computación','e2.l1':'Fundamentos formales en algoritmos, sistemas y computación distribuida','e2.l2':'Tracks complementarios: MLOps, FastAPI e Ingeniería de Datos',
+    'e4.title':'FIAP','e4.sub':'Posgrado en Machine Learning Engineering',
+    'e4.l1':'MLOps, despliegue de modelos y pipelines de ML en producción','e4.l2':'Arquitectura de sistemas de IA escalables y gobernanza de modelos',
+    'e3.title':'Ingeniero de IA & Arquitecto de Soluciones','e3.sub':'Proyectos propios · Abierto a Oportunidades',
+    'e3.l1':'Sistemas agénticos stateful con memoria y orquestación LangGraph','e3.l2':'APIs FastAPI con patrones asíncronos y alto rendimiento','e3.l3':'Pipelines RAG para casos de uso reales con precisión semántica',
+    'vp1.t':'Entrega Bajo Presión','vp1.c':'15 años sin tolerancia a downtime se traducen en código defensivo y arquitecturas que degradan con elegancia.',
+    'vp2.t':'Visión de Producto, No Solo Código','vp2.c':'Entiendo los procesos de negocio porque los operé. Diseño sistemas que resuelven el problema real.',
+    'vp3.t':'Stack Moderno, Mentalidad de Ingeniero','vp3.c':'LangGraph, RAG, FastAPI — no como buzzwords, sino aplicadas en proyectos con objetivos de negocio medibles.',
+    'vp4.t':'Certificaciones',
+    'stk.prompt':'TECH STACK / HERRAMIENTAS',
+    'con.prompt':'CONTACTO / CONTACT','con.kicker':'INICIAR CONVERSACIÓN','con.title':'¿Construimos el próximo nivel?',
+    'con.copy':'Abierto a posiciones como Ingeniero de IA o Arquitecto de Soluciones. Madurez profesional + stack de IA de vanguardia para tu equipo.','con.email':'EMAIL →',
+    'foot.role':'Ingeniero de IA & Arquitecto de Soluciones',
+    _lbl:'PT'
+  }
+};
 
-        const navToggle = document.querySelector('[data-nav-toggle]');
-        const navMenu = document.querySelector('[data-nav-menu]');
-        const langToggle = document.querySelector('[data-lang-toggle]');
-        const i18nNodes = document.querySelectorAll('[data-i18n]');
-        const languageStorageKey = 'portfolio-language';
-        let currentLang = 'pt';
+let lang = 'pt';
+try{ const s=localStorage.getItem('vs-lang'); if(s==='en'||s==='pt'||s==='es') lang=s; }catch(_){}
 
-        try {
-            const savedLang = localStorage.getItem(languageStorageKey);
-            if (savedLang === 'pt' || savedLang === 'en') {
-                currentLang = savedLang;
-            }
-        } catch (error) {
-            currentLang = 'pt';
-        }
+function applyLang(l){
+    const d=T[l];
+    document.documentElement.lang = l==='pt'?'pt-BR':l==='es'?'es':'en';
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+        const v=d[el.dataset.i18n];
+        if(typeof v==='string') el.textContent=v;
+    });
+    const b=document.getElementById('langBtn');
+    if(b) b.textContent=d._lbl;
+}
 
-        function applyLanguage(lang) {
-            const dictionary = translations[lang];
+document.getElementById('langBtn').addEventListener('click',()=>{
+    lang = lang==='pt'?'en':lang==='en'?'es':'pt';
+    try{localStorage.setItem('vs-lang',lang);}catch(_){}
+    applyLang(lang);
+});
+applyLang(lang);
 
-            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+/* ═══ Nav toggle ═══ */
+const tog=document.getElementById('navToggle');
+const men=document.getElementById('navMenu');
+tog.addEventListener('click',()=>{
+    const o=men.classList.toggle('open');
+    tog.setAttribute('aria-expanded',String(o));
+});
+men.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    men.classList.remove('open'); tog.setAttribute('aria-expanded','false');
+}));
+document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&men.classList.contains('open')){
+        men.classList.remove('open'); tog.setAttribute('aria-expanded','false');
+    }
+});
 
-            i18nNodes.forEach((node) => {
-                const key = node.dataset.i18n;
-                const value = dictionary[key];
-
-                if (typeof value === 'string') {
-                    node.textContent = value;
-                }
-            });
-
-            if (langToggle) {
-                langToggle.textContent = dictionary.langToggleLabel;
-                langToggle.setAttribute('aria-label', lang === 'pt' ? 'Switch to English' : 'Mudar para português');
-            }
-        }
-
-        if (navToggle && navMenu) {
-            navToggle.addEventListener('click', () => {
-                const isOpen = navMenu.getAttribute('data-open') === 'true';
-                const nextOpen = !isOpen;
-                navMenu.setAttribute('data-open', String(nextOpen));
-                navToggle.setAttribute('aria-expanded', String(nextOpen));
-                if (nextOpen) {
-                    const focusableElements = navMenu.querySelectorAll('a, button');
-                    if (focusableElements.length > 0) {
-                        focusableElements[0].focus();
-                    }
-                }
-            });
-
-            navMenu.querySelectorAll('a').forEach((link) => {
-                link.addEventListener('click', () => {
-                    navMenu.setAttribute('data-open', 'false');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                    navToggle.focus();
-                });
-            });
-
-            // Focus trap for keyboard navigation in menu
-            document.addEventListener('keydown', (e) => {
-                const isMenuOpen = navMenu.getAttribute('data-open') === 'true';
-                if (isMenuOpen && e.key === 'Escape') {
-                    navMenu.setAttribute('data-open', 'false');
-                    navToggle.setAttribute('aria-expanded', 'false');
-                    navToggle.focus();
-                }
-            });
-        }
-
-        if (langToggle) {
-            langToggle.addEventListener('click', () => {
-                currentLang = currentLang === 'pt' ? 'en' : 'pt';
-                try {
-                    localStorage.setItem(languageStorageKey, currentLang);
-                } catch (error) {
-                    // Ignore storage failures and keep the UI working.
-                }
-                applyLanguage(currentLang);
-            });
-        }
-
-        applyLanguage(currentLang);
-
-        const revealElements = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                }
-            });
-        }, { threshold: 0.18 });
-
-        revealElements.forEach((element) => revealObserver.observe(element));
-    </script>
+/* ═══ Scroll reveal ═══ */
+const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v');});
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
