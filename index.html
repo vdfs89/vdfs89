@@ -484,7 +484,7 @@
         <section class="sec" id="about">
             <div class="wrap">
                 <div class="prompt reveal" data-i18n="about.prompt">SOBRE / ABOUT</div>
-                <h2 class="sec-title reveal">Engenharia <span class="g">precisa.</span><br>Execução <span class="g">confiável.</span></h2>
+                <h2 class="sec-title reveal" data-i18n-html="about.title">Engenharia <span class="g">precisa.</span><br>Execução <span class="g">confiável.</span></h2>
                 <div class="about-grid">
                     <div class="card acard reveal">
                         <p data-i18n="about.p1">Minha trajetória combina mais de 15 anos em ambientes operacionais de missão crítica com construção recente de sistemas de IA, backend e ML aplicado.</p>
@@ -515,7 +515,7 @@
         <section class="sec" id="projects">
             <div class="wrap">
                 <div class="prompt reveal" data-i18n="proj.prompt">PROJETOS / PROJECTS</div>
-                <h2 class="sec-title reveal">Arquiteturas que<br><span class="g">geram valor de negócio.</span></h2>
+                <h2 class="sec-title reveal" data-i18n-html="proj.title">Arquiteturas que<br><span class="g">geram valor de negócio.</span></h2>
                 <p class="sec-desc reveal" data-i18n="proj.desc">A dor real não é construir IA — é confiar nela em produção. Meus projetos atacam governança, guardrails e controle de alucinação.</p>
 
                 <div class="bento">
@@ -609,7 +609,7 @@
         <section class="sec" id="experience">
             <div class="wrap">
                 <div class="prompt reveal" data-i18n="exp.prompt">EXPERIÊNCIA / EXPERIENCE</div>
-                <h2 class="sec-title reveal">Maturidade operacional.<br><span class="g">Stack de vanguarda.</span></h2>
+                <h2 class="sec-title reveal" data-i18n-html="exp.title">Maturidade operacional.<br><span class="g">Stack de vanguarda.</span></h2>
                 <p class="sec-desc reveal" data-i18n="exp.desc">A maioria dos AI Engineers tem o código. Poucos têm 15 anos de missão crítica que ensinam resiliência sistêmica real.</p>
 
                 <div class="exp-grid">
@@ -690,7 +690,7 @@
         <section class="sec" id="stack">
             <div class="wrap">
                 <div class="prompt reveal" data-i18n="stk.prompt">TECH STACK / FERRAMENTAS</div>
-                <h2 class="sec-title reveal">Ferramentas.<br><span class="g">Não apenas palavras.</span></h2>
+                <h2 class="sec-title reveal" data-i18n-html="stk.title">Ferramentas.<br><span class="g">Não apenas palavras.</span></h2>
 
                 <div class="stack-grid">
                     <div class="sc reveal">
@@ -809,6 +809,10 @@ const T = {
     'panel.hdr':'PERFIL_ATUAL','panel.status':'DISPONÍVEL','panel.focus':'FOCO',
     'panel.title':'Sistemas de IA com valor claro de negócio.',
     'panel.copy':'Agentes, pipelines de recuperação e ferramentas operacionais com equilíbrio entre profundidade técnica e resultado real.',
+    'about.title':'Engenharia <span class="g">precisa.</span><br>Execução <span class="g">confiável.</span>',
+    'proj.title':'Arquiteturas que<br><span class="g">geram valor de negócio.</span>',
+    'exp.title':'Maturidade operacional.<br><span class="g">Stack de vanguarda.</span>',
+    'stk.title':'Ferramentas.<br><span class="g">Não apenas palavras.</span>',
     'about.prompt':'SOBRE / ABOUT',
     'about.p1':'Minha trajetória combina mais de 15 anos em ambientes operacionais de missão crítica com construção recente de sistemas de IA, backend e ML aplicado.',
     'about.p2':'Foco em sistemas claros de entender, agradáveis de usar e robustos o suficiente para sustentarem uso real em produção — não apenas demos.',
@@ -854,6 +858,10 @@ const T = {
     'panel.hdr':'CURRENT_PROFILE','panel.status':'AVAILABLE','panel.focus':'FOCUS',
     'panel.title':'AI systems with clear business value.',
     'panel.copy':'Agents, retrieval pipelines and operational tools balancing technical depth with real user outcomes.',
+    'about.title':'Precise <span class="g">engineering.</span><br>Reliable <span class="g">execution.</span>',
+    'proj.title':'Architectures that<br><span class="g">generate business value.</span>',
+    'exp.title':'Operational maturity.<br><span class="g">Cutting-edge stack.</span>',
+    'stk.title':'Tools.<br><span class="g">Not just buzzwords.</span>',
     'about.prompt':'ABOUT / SOBRE',
     'about.p1':'My background combines 15+ years in mission-critical operational environments with recent work in AI engineering, backend and applied ML.',
     'about.p2':'I focus on systems that are clear to understand, pleasant to use and robust enough to sustain real production usage — not just demos.',
@@ -897,6 +905,10 @@ const T = {
     'panel.hdr':'PERFIL_ACTUAL','panel.status':'DISPONIBLE','panel.focus':'ENFOQUE',
     'panel.title':'Sistemas de IA con valor claro de negocio.',
     'panel.copy':'Agentes, pipelines de recuperación y herramientas operacionales equilibrando profundidad técnica con resultados reales.',
+    'about.title':'Ingeniería <span class="g">precisa.</span><br>Ejecución <span class="g">confiable.</span>',
+    'proj.title':'Arquitecturas que<br><span class="g">generan valor de negocio.</span>',
+    'exp.title':'Madurez operacional.<br><span class="g">Stack de vanguardia.</span>',
+    'stk.title':'Herramientas.<br><span class="g">No solo palabras.</span>',
     'about.prompt':'SOBRE MÍ / ABOUT',
     'about.p1':'Mi trayectoria combina más de 15 años en entornos operacionales de misión crítica con la construcción reciente de sistemas de IA, backend y ML aplicado.',
     'about.p2':'Foco en sistemas claros de entender, agradables de usar y robustos para soportar uso real en producción — no solo demos.',
@@ -942,6 +954,10 @@ function applyLang(l){
     document.querySelectorAll('[data-i18n]').forEach(el=>{
         const v=d[el.dataset.i18n];
         if(typeof v==='string') el.textContent=v;
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+        const v=d[el.dataset.i18nHtml];
+        if(typeof v==='string') el.innerHTML=v;
     });
     const b=document.getElementById('langBtn');
     if(b) b.textContent=d._lbl;
