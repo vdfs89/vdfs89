@@ -4,10 +4,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="color-scheme" content="dark">
-    <meta name="description" content="AI Engineer & Solutions Architect. Sistemas agênticos, RAG, LLM orchestration e APIs de produção.">
-    <title>VITOR_SILVA.EXE | AI Engineer & Solutions Architect</title>
-    <meta property="og:title" content="Vitor Silva | AI Engineer & Solutions Architect">
-    <meta property="og:description" content="Sistemas agênticos, RAG, orquestração de LLMs e APIs de produção.">
+    <meta name="description" content="Machine Learning Engineer & AI Solutions Architect. LangGraph, RAG, Multi-LLM Guardrails, FastAPI. Sistemas agênticos prontos para produção. Curitiba, Brasil.">
+    <meta name="keywords" content="AI Engineer, Machine Learning Engineer, LangGraph, RAG, guardrails, FastAPI, Python, LLM, agentes, Curitiba">
+    <meta name="author" content="Vitor Silva">
+    <meta name="robots" content="index, follow">
+    <title>Vitor Silva | Machine Learning Engineer & AI Solutions Architect</title>
+    <link rel="canonical" href="https://vitorsilva.page/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vitorsilva.page/">
+    <meta property="og:title" content="Vitor Silva | Machine Learning Engineer & AI Solutions Architect">
+    <meta property="og:description" content="Machine Learning Engineer especializado em LangGraph, RAG, Multi-LLM Guardrails e FastAPI. Sistemas agênticos de produção.">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vitor Silva | Machine Learning Engineer & AI Solutions Architect">
+    <meta name="twitter:description" content="LangGraph, RAG, Multi-LLM Guardrails e FastAPI. Sistemas de IA prontos para produção.">
+
+    <!-- JSON-LD Person Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Vitor Silva",
+      "jobTitle": "Machine Learning Engineer & AI Solutions Architect",
+      "url": "https://vitorsilva.page",
+      "sameAs": [
+        "https://www.linkedin.com/in/vitorsilva-aieng/",
+        "https://github.com/vdfs89"
+      ],
+      "knowsAbout": [
+        "LangGraph", "RAG", "Multi-LLM Guardrails", "LLM Orchestration",
+        "FastAPI", "Python", "LangChain", "AI Agents", "Machine Learning Engineering",
+        "Agentic Systems", "Data Pipelines", "MLOps"
+      ],
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Descomplica Faculdade Digital" },
+        { "@type": "CollegeOrUniversity", "name": "FIAP" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Curitiba",
+        "addressRegion": "PR",
+        "addressCountry": "BR"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD Service Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI Engineering & Machine Learning Freelancer",
+      "provider": { "@type": "Person", "name": "Vitor Silva", "url": "https://vitorsilva.page" },
+      "serviceType": ["AI Systems Development", "RAG Pipelines", "LLM Orchestration", "FastAPI Backend", "AI Governance"],
+      "areaServed": { "@type": "Place", "name": "Worldwide (Remote)" },
+      "availableChannel": { "@type": "ServiceChannel", "serviceUrl": "https://vitorsilva.page/#contact" }
+    }
+    </script>
+
+    <!-- JSON-LD FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Como contratar um freelancer de IA com LangGraph?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Entre em contato pelo email ou LinkedIn. Em até 24h fazemos uma call de alinhamento para definir escopo, prazo e investimento." } },
+        { "@type": "Question", "name": "O que faz um Machine Learning Engineer freelancer?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Projeta e implementa sistemas de IA para uso real: agentes autônomos, pipelines RAG, guardrails contra alucinação, APIs de ML e integrações com LLMs." } },
+        { "@type": "Question", "name": "How to hire an AI freelancer with LangGraph?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Reach out via email or LinkedIn. Within 24h we schedule an alignment call to define scope, timeline and budget." } },
+        { "@type": "Question", "name": "What does a Machine Learning Engineer freelancer do?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Designs and implements AI systems for real use: autonomous agents, RAG pipelines, hallucination guardrails, ML APIs and LLM integrations." } }
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -339,6 +417,31 @@
     .sc-i.top { color: var(--text); font-weight: 500; }
 
     /* ════════════════════════════════════
+       SERVICES
+    ════════════════════════════════════ */
+    .srv-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+    .srv { background: var(--black-card); border: 1px solid rgba(0,255,65,0.18); border-radius: 2px; padding: 1.35rem; box-shadow: var(--glow-box); transition: box-shadow .3s, border-color .3s, transform .3s; }
+    .srv:hover { box-shadow: var(--glow-hover); border-color: rgba(0,255,65,0.4); transform: translateY(-3px); }
+    .srv-icon  { font-size: 1.4rem; margin-bottom: 0.7rem; }
+    .srv-title { font-family: var(--display); font-weight: 700; font-size: 0.92rem; color: var(--text); margin-bottom: 0.4rem; }
+    .srv-copy  { font-size: 0.78rem; color: var(--muted); line-height: 1.65; }
+    .srv-remote { grid-column: span 3; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+    .srv-remote .srv-title { font-size: 1rem; }
+
+    /* FAQ */
+    .faq { display: grid; gap: 0.6rem; margin-top: 2rem; }
+    .faq-item { background: var(--black-card); border: 1px solid rgba(0,255,65,0.15); border-radius: 2px; overflow: hidden; }
+    .faq-q { width: 100%; background: none; border: none; color: var(--text); font-family: var(--mono); font-size: 0.83rem; font-weight: 600; text-align: left; padding: 1rem 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .faq-q:hover { color: var(--green); }
+    .faq-q::after { content: '+'; color: var(--green); font-size: 1.1rem; flex-shrink: 0; transition: transform .2s; }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a { font-size: 0.8rem; color: var(--muted); line-height: 1.75; padding: 0 1.1rem 1rem; display: none; }
+    .faq-item.open .faq-a { display: block; }
+
+    @media (max-width: 820px) { .srv-grid { grid-template-columns: 1fr 1fr; } .srv-remote { grid-column: span 2; } }
+    @media (max-width: 580px) { .srv-grid { grid-template-columns: 1fr; } .srv-remote { grid-column: span 1; } }
+
+    /* ════════════════════════════════════
        CONTACT
     ════════════════════════════════════ */
     .contact-box {
@@ -421,6 +524,7 @@
                 <a href="#projects"   data-i18n="nav.projects">PROJETOS</a>
                 <a href="#experience" data-i18n="nav.exp">EXPERIÊNCIA</a>
                 <a href="#stack"      data-i18n="nav.stack">STACK</a>
+                <a href="#services"   data-i18n="nav.services">SERVIÇOS</a>
                 <a href="#contact"    data-i18n="nav.contact">CONTATO</a>
             </nav>
 
@@ -742,6 +846,72 @@
 
         <hr class="sep">
 
+        <!-- ══ SERVICES ══ -->
+        <section class="sec" id="services">
+            <div class="wrap">
+                <div class="prompt reveal" data-i18n="srv.prompt">SERVIÇOS / SERVICES</div>
+                <h2 class="sec-title reveal" data-i18n-html="srv.title">Freelancer global.<br><span class="g">Disponível agora.</span></h2>
+                <p class="sec-desc reveal" data-i18n="srv.desc">Atendo clientes remotamente no Brasil e no mundo. Stack de IA de produção, entrega com qualidade de produto.</p>
+
+                <div class="srv-grid reveal">
+                    <div class="srv">
+                        <div class="srv-icon">🤖</div>
+                        <div class="srv-title" data-i18n="srv1.t">Sistemas Agênticos com LangGraph</div>
+                        <p class="srv-copy" data-i18n="srv1.c">Arquitetura e desenvolvimento de agentes stateful com memória, orquestração multi-agente e fluxos de decisão robustos.</p>
+                    </div>
+                    <div class="srv">
+                        <div class="srv-icon">🔍</div>
+                        <div class="srv-title" data-i18n="srv2.t">RAG & Retrieval Pipelines</div>
+                        <p class="srv-copy" data-i18n="srv2.c">Pipelines de recuperação semântica de alta fidelidade para aplicações de Q&A, suporte e knowledge bases empresariais.</p>
+                    </div>
+                    <div class="srv">
+                        <div class="srv-icon">🛡️</div>
+                        <div class="srv-title" data-i18n="srv3.t">Guardrails & Governança de IA</div>
+                        <p class="srv-copy" data-i18n="srv3.c">Sistemas multi-LLM de auditoria que mitigam alucinações antes de chegarem ao usuário. Controle de custo e groundedness.</p>
+                    </div>
+                    <div class="srv">
+                        <div class="srv-icon">⚡</div>
+                        <div class="srv-title" data-i18n="srv4.t">APIs FastAPI & Backend Python</div>
+                        <p class="srv-copy" data-i18n="srv4.c">Backends assíncronos de alta performance integrando modelos de IA, bancos de dados e serviços externos.</p>
+                    </div>
+                    <div class="srv">
+                        <div class="srv-icon">📊</div>
+                        <div class="srv-title" data-i18n="srv5.t">Consultoria em Arquitetura de IA</div>
+                        <p class="srv-copy" data-i18n="srv5.c">Avaliação de arquitetura, escolha de modelos, custo vs. precisão e roadmap de implementação para times que adotam IA.</p>
+                    </div>
+                    <div class="srv srv-remote">
+                        <div>
+                            <div class="srv-title" data-i18n="srv6.t">🌐 Remoto Global</div>
+                            <p class="srv-copy" data-i18n="srv6.c">Disponível para projetos freelance no Brasil e internacionais. Inglês fluente para comunicação técnica.</p>
+                        </div>
+                        <a class="btn btn-solid" href="#contact" data-i18n="srv.cta">FALAR SOBRE PROJETO →</a>
+                    </div>
+                </div>
+
+                <div class="prompt" style="margin-top:2rem;"><span data-i18n="faq.prompt">PERGUNTAS FREQUENTES</span></div>
+                <div class="faq reveal">
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" onclick="toggleFaq(this)" data-i18n="faq1.q">Como contratar um freelancer de IA com LangGraph?</button>
+                        <p class="faq-a" data-i18n="faq1.a">Entre em contato pelo email ou LinkedIn. Explique o problema de negócio e o contexto técnico. Em até 24h fazemos uma call de alinhamento para definir escopo, prazo e investimento.</p>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" onclick="toggleFaq(this)" data-i18n="faq2.q">O que faz um Machine Learning Engineer freelancer?</button>
+                        <p class="faq-a" data-i18n="faq2.a">Projeta e implementa sistemas de IA para uso real: agentes autônomos, pipelines RAG, guardrails contra alucinação, APIs de ML e integrações com LLMs como GPT, Gemini e Llama.</p>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" onclick="toggleFaq(this)" data-i18n="faq3.q">Atende clientes fora do Brasil?</button>
+                        <p class="faq-a" data-i18n="faq3.a">Sim. Atendo clientes remotamente em qualquer país. Comunicação técnica em português e inglês. Disponível para contratos internacionais via plataformas como Deel, Remote ou direto.</p>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" onclick="toggleFaq(this)" data-i18n="faq4.q">Qual a diferença entre RAG e um chatbot comum?</button>
+                        <p class="faq-a" data-i18n="faq4.a">Um chatbot comum responde com o que o modelo foi treinado — pode alucinar ou estar desatualizado. RAG recupera informações reais da sua base de dados antes de responder, garantindo precisão e rastreabilidade.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="sep">
+
         <!-- ══ CONTACT ══ -->
         <section class="sec" id="contact">
             <div class="wrap">
@@ -800,7 +970,7 @@
 const T = {
   pt: {
     'brand.sub':'AI ENGINEER & SOLUTIONS ARCHITECT','nav.about':'SOBRE','nav.projects':'PROJETOS','nav.exp':'EXPERIÊNCIA',
-    'nav.stack':'STACK','nav.contact':'CONTATO','nav.cta':'CONTATO',
+    'nav.stack':'STACK','nav.services':'SERVIÇOS','nav.contact':'CONTATO','nav.cta':'CONTATO',
     'hero.boot':'DISPONÍVEL PARA CONTRATAÇÃO','hero.role':'AI Engineer & Solutions Architect',
     'hero.sub':'Desenvolvo sistemas de IA com precisão de produto real: agentes stateful, RAG arquitetado e APIs prontas para produção.',
     'hero.copy':'LLMs, fluxos agênticos com LangGraph, RAG de alta fidelidade e FastAPI assíncrono — sustentados por 15 anos operando ambientes que não toleram falhas.',
@@ -842,6 +1012,20 @@ const T = {
     'vp3.t':'Stack Moderna, Mindset de Engenheiro','vp3.c':'LangGraph, RAG, FastAPI — não como buzzwords, mas aplicadas em projetos com objetivos mensuráveis.',
     'vp4.t':'Certificações',
     'stk.prompt':'TECH STACK / FERRAMENTAS',
+    'srv.prompt':'SERVIÇOS / SERVICES','srv.title':'Freelancer global.<br><span class="g">Disponível agora.</span>',
+    'srv.desc':'Atendo clientes remotamente no Brasil e no mundo. Stack de IA de produção, entrega com qualidade de produto.',
+    'srv1.t':'Sistemas Agênticos com LangGraph','srv1.c':'Arquitetura e desenvolvimento de agentes stateful com memória, orquestração multi-agente e fluxos de decisão robustos.',
+    'srv2.t':'RAG & Retrieval Pipelines','srv2.c':'Pipelines de recuperação semântica de alta fidelidade para Q&A, suporte e knowledge bases empresariais.',
+    'srv3.t':'Guardrails & Governança de IA','srv3.c':'Sistemas multi-LLM de auditoria que mitigam alucinações antes de chegarem ao usuário. Controle de custo e groundedness.',
+    'srv4.t':'APIs FastAPI & Backend Python','srv4.c':'Backends assíncronos de alta performance integrando modelos de IA, bancos de dados e serviços externos.',
+    'srv5.t':'Consultoria em Arquitetura de IA','srv5.c':'Avaliação de arquitetura, escolha de modelos, custo vs. precisão e roadmap para times que adotam IA.',
+    'srv6.t':'🌐 Remoto Global','srv6.c':'Disponível para projetos freelance no Brasil e internacionais. Inglês fluente para comunicação técnica.',
+    'srv.cta':'FALAR SOBRE PROJETO →',
+    'faq.prompt':'PERGUNTAS FREQUENTES',
+    'faq1.q':'Como contratar um freelancer de IA com LangGraph?','faq1.a':'Entre em contato pelo email ou LinkedIn. Explique o problema de negócio e o contexto técnico. Em até 24h fazemos uma call de alinhamento para definir escopo, prazo e investimento.',
+    'faq2.q':'O que faz um Machine Learning Engineer freelancer?','faq2.a':'Projeta e implementa sistemas de IA para uso real: agentes autônomos, pipelines RAG, guardrails contra alucinação, APIs de ML e integrações com LLMs como GPT, Gemini e Llama.',
+    'faq3.q':'Atende clientes fora do Brasil?','faq3.a':'Sim. Atendo clientes remotamente em qualquer país. Comunicação técnica em português e inglês. Disponível para contratos via Deel, Remote ou direto.',
+    'faq4.q':'Qual a diferença entre RAG e um chatbot comum?','faq4.a':'Um chatbot comum responde com o que o modelo foi treinado — pode alucinar ou estar desatualizado. RAG recupera informações reais da sua base antes de responder, garantindo precisão e rastreabilidade.',
     'con.prompt':'CONTATO / CONTACT','con.kicker':'INICIAR CONVERSA','con.title':'Vamos construir o próximo nível?',
     'con.copy':'Aberto a posições como AI Engineer ou Solutions Architect. Maturidade profissional + stack de IA de vanguarda.','con.email':'EMAIL →',
     'foot.role':'AI Engineer & Solutions Architect',
@@ -849,7 +1033,7 @@ const T = {
   },
   en: {
     'brand.sub':'AI ENGINEER & SOLUTIONS ARCHITECT','nav.about':'ABOUT','nav.projects':'PROJECTS','nav.exp':'EXPERIENCE',
-    'nav.stack':'STACK','nav.contact':'CONTACT','nav.cta':'CONTACT',
+    'nav.stack':'STACK','nav.services':'SERVICES','nav.contact':'CONTACT','nav.cta':'CONTACT',
     'hero.boot':'OPEN TO OPPORTUNITIES','hero.role':'AI Engineer & Solutions Architect',
     'hero.sub':'I build AI systems with product-level precision: stateful agents, architected RAG and production-ready APIs.',
     'hero.copy':'LLMs, agentic workflows with LangGraph, high-fidelity RAG and async FastAPI — backed by 15 years in mission-critical operations.',
@@ -889,6 +1073,20 @@ const T = {
     'vp3.t':'Modern Stack, Engineer Mindset','vp3.c':'LangGraph, RAG, FastAPI — not as buzzwords, but applied in projects with measurable business objectives.',
     'vp4.t':'Certifications',
     'stk.prompt':'TECH STACK / FERRAMENTAS',
+    'srv.prompt':'SERVICES / SERVIÇOS','srv.title':'Global freelancer.<br><span class="g">Available now.</span>',
+    'srv.desc':'I work remotely with clients in Brazil and worldwide. Production-grade AI stack, product-quality delivery.',
+    'srv1.t':'Agentic Systems with LangGraph','srv1.c':'Architecture and development of stateful agents with memory, multi-agent orchestration and robust decision flows.',
+    'srv2.t':'RAG & Retrieval Pipelines','srv2.c':'High-fidelity semantic retrieval pipelines for Q&A, support and enterprise knowledge bases.',
+    'srv3.t':'AI Guardrails & Governance','srv3.c':'Multi-LLM audit systems that mitigate hallucinations before they reach the user. Cost control and groundedness.',
+    'srv4.t':'FastAPI & Python Backend','srv4.c':'High-performance async backends integrating AI models, databases and external services.',
+    'srv5.t':'AI Architecture Consulting','srv5.c':'Architecture review, model selection, cost vs. accuracy trade-offs and implementation roadmap for teams adopting AI.',
+    'srv6.t':'🌐 Remote Global','srv6.c':'Available for freelance projects in Brazil and internationally. Fluent English for technical communication.',
+    'srv.cta':'TALK ABOUT A PROJECT →',
+    'faq.prompt':'FREQUENTLY ASKED QUESTIONS',
+    'faq1.q':'How to hire an AI freelancer with LangGraph?','faq1.a':'Reach out via email or LinkedIn. Describe the business problem and technical context. Within 24h we schedule an alignment call to define scope, timeline and budget.',
+    'faq2.q':'What does a Machine Learning Engineer freelancer do?','faq2.a':'Designs and implements AI systems for real use: autonomous agents, RAG pipelines, hallucination guardrails, ML APIs and LLM integrations (GPT, Gemini, Llama).',
+    'faq3.q':'Do you work with international clients?','faq3.a':'Yes. I serve clients remotely in any country. Technical communication in Portuguese and English. Available for international contracts via Deel, Remote or direct.',
+    'faq4.q':'What is the difference between RAG and a regular chatbot?','faq4.a':'A regular chatbot answers from what the model was trained on — it can hallucinate or be outdated. RAG retrieves real information from your data before answering, ensuring accuracy and traceability.',
     'con.prompt':'CONTACT / CONTATO','con.kicker':'INITIATE CONVERSATION','con.title':"Let's build the next level?",
     'con.copy':'Open to AI Engineer or Solutions Architect positions. Professional maturity + cutting-edge AI stack for your team.','con.email':'EMAIL →',
     'foot.role':'AI Engineer & Solutions Architect',
@@ -896,7 +1094,7 @@ const T = {
   },
   es: {
     'brand.sub':'INGENIERO DE IA & ARQUITECTO DE SOLUCIONES','nav.about':'SOBRE MÍ','nav.projects':'PROYECTOS','nav.exp':'EXPERIENCIA',
-    'nav.stack':'STACK','nav.contact':'CONTACTO','nav.cta':'CONTACTO',
+    'nav.stack':'STACK','nav.services':'SERVICIOS','nav.contact':'CONTACTO','nav.cta':'CONTACTO',
     'hero.boot':'DISPONIBLE PARA OPORTUNIDADES','hero.role':'Ingeniero de IA & Arquitecto de Soluciones',
     'hero.sub':'Construyo sistemas de IA con precisión de producto real: agentes stateful, RAG arquitectado y APIs listas para producción.',
     'hero.copy':'LLMs, flujos agénticos con LangGraph, RAG de alta fidelidad y FastAPI asíncrono — respaldados por 15 años en operaciones de misión crítica.',
@@ -938,6 +1136,20 @@ const T = {
     'vp3.t':'Stack Moderno, Mentalidad de Ingeniero','vp3.c':'LangGraph, RAG, FastAPI — no como buzzwords, sino aplicadas en proyectos con objetivos de negocio medibles.',
     'vp4.t':'Certificaciones',
     'stk.prompt':'TECH STACK / HERRAMIENTAS',
+    'srv.prompt':'SERVICIOS / SERVICES','srv.title':'Freelancer global.<br><span class="g">Disponible ahora.</span>',
+    'srv.desc':'Trabajo con clientes de forma remota en Brasil y en todo el mundo. Stack de IA de producción, entrega con calidad de producto.',
+    'srv1.t':'Sistemas Agénticos con LangGraph','srv1.c':'Arquitectura y desarrollo de agentes stateful con memoria, orquestación multi-agente y flujos de decisión robustos.',
+    'srv2.t':'RAG & Retrieval Pipelines','srv2.c':'Pipelines de recuperación semántica de alta fidelidad para Q&A, soporte y bases de conocimiento empresariales.',
+    'srv3.t':'Guardrails & Gobernanza de IA','srv3.c':'Sistemas multi-LLM de auditoría que mitigan alucinaciones antes de llegar al usuario. Control de costo y groundedness.',
+    'srv4.t':'APIs FastAPI & Backend Python','srv4.c':'Backends asíncronos de alto rendimiento integrando modelos de IA, bases de datos y servicios externos.',
+    'srv5.t':'Consultoría en Arquitectura de IA','srv5.c':'Evaluación de arquitectura, selección de modelos, costo vs. precisión y hoja de ruta para equipos que adoptan IA.',
+    'srv6.t':'🌐 Remoto Global','srv6.c':'Disponible para proyectos freelance en Brasil e internacionales. Inglés fluido para comunicación técnica.',
+    'srv.cta':'HABLAR SOBRE UN PROYECTO →',
+    'faq.prompt':'PREGUNTAS FRECUENTES',
+    'faq1.q':'¿Cómo contratar un freelancer de IA con LangGraph?','faq1.a':'Contáctame por email o LinkedIn. Describe el problema de negocio y el contexto técnico. En 24h agendamos una llamada para definir alcance, plazo e inversión.',
+    'faq2.q':'¿Qué hace un Machine Learning Engineer freelancer?','faq2.a':'Diseña e implementa sistemas de IA para uso real: agentes autónomos, pipelines RAG, guardrails contra alucinación, APIs de ML e integraciones con LLMs como GPT, Gemini y Llama.',
+    'faq3.q':'¿Atiende clientes fuera de Brasil?','faq3.a':'Sí. Trabajo con clientes remotamente en cualquier país. Comunicación técnica en portugués e inglés. Disponible para contratos internacionales vía Deel, Remote o directo.',
+    'faq4.q':'¿Cuál es la diferencia entre RAG y un chatbot común?','faq4.a':'Un chatbot común responde con lo que el modelo fue entrenado — puede alucinar o estar desactualizado. RAG recupera información real de tu base antes de responder, garantizando precisión y trazabilidad.',
     'con.prompt':'CONTACTO / CONTACT','con.kicker':'INICIAR CONVERSACIÓN','con.title':'¿Construimos el próximo nivel?',
     'con.copy':'Abierto a posiciones como Ingeniero de IA o Arquitecto de Soluciones. Madurez profesional + stack de IA de vanguardia para tu equipo.','con.email':'EMAIL →',
     'foot.role':'Ingeniero de IA & Arquitecto de Soluciones',
@@ -985,6 +1197,14 @@ document.addEventListener('keydown',e=>{
         men.classList.remove('open'); tog.setAttribute('aria-expanded','false');
     }
 });
+
+/* ═══ FAQ toggle ═══ */
+function toggleFaq(btn){
+    const item=btn.closest('.faq-item');
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el=>el.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+}
 
 /* ═══ Scroll reveal ═══ */
 const io=new IntersectionObserver(entries=>{
