@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VS:// — Vitor Silva · AI Engineer Dashboard</title>
+<meta name="description" content="Dashboard profissional de Vitor Silva — AI Engineer & Solutions Architect. Agentic AI, RAG, LLM Systems.">
+
+<!-- ÚNICA dependência externa: Google Fonts (Syne + IBM Plex Mono) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ════════════════════════════════════════════════════════════════
+   IDENTIDADE VISUAL — TERMINAL RETRO-FUTURISTA
+   Paleta: fundo #0a0a0a · superfícies #111/#161616 · neon #00FF41
+   ════════════════════════════════════════════════════════════════ */
+:root{
+  --bg:        #0a0a0a;
+  --surf-1:    #111111;
+  --surf-2:    #161616;
+  --neon:      #00FF41;
+  --neon-dim:  rgba(0,255,65,.25);
+  --neon-soft: rgba(0,255,65,.08);
+  --txt:       #d6d6d6;
+  --txt-dim:   #8b8b8b;
+  --font-tit:  "Syne", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --radius:    4px;            /* estética angular: raio máximo 4px */
+  --sidebar-w: 236px;
+  --glow:      0 0 12px rgba(0,255,65,.28), 0 0 2px rgba(0,255,65,.45);
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{
+  background:var(--bg);
+  color:var(--txt);
+  font-family:var(--font-mono);
+  font-size:14px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+::selection{ background:var(--neon); color:#000; }
+
+/* Scrollbar discreta no tema */
+::-webkit-scrollbar{ width:8px; height:8px; }
+::-webkit-scrollbar-track{ background:var(--bg); }
+::-webkit-scrollbar-thumb{ background:#222; border:1px solid var(--neon-dim); }
+::-webkit-scrollbar-thumb:hover{ background:var(--neon-dim); }
+
+/* ── Starfield (canvas fixo atrás de tudo) ─────────────────────── */
+#starfield{
+  position:fixed; inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* ── Scanlines CRT (overlay por cima de TUDO) ──────────────────── */
+.scanlines{
+  position:fixed; inset:0;
+  z-index:9999;
+  pointer-events:none;
+  background:repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,.16) 0px,
+    rgba(0,0,0,.16) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  opacity:.5;
+}
+/* leve vinheta CRT nas bordas */
+.scanlines::after{
+  content:"";
+  position:absolute; inset:0;
+  background:radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,.45) 100%);
+}
+
+/* ── Cursor piscante "_" ───────────────────────────────────────── */
+.cursor{
+  display:inline-block;
+  color:var(--neon);
+  animation:blink 1s steps(1) infinite;
+  font-weight:600;
+}
+@keyframes blink{ 50%{ opacity:0; } }
+
+/* ── Tags estilo terminal: [ PRODUÇÃO ] ────────────────────────── */
+.tag{
+  display:inline-block;
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  font-weight:600;
+  letter-spacing:.08em;
+  color:var(--neon);
+  border:1px solid var(--neon-dim);
+  background:var(--neon-soft);
+  padding:2px 8px;
+  border-radius:var(--radius);
+  white-space:nowrap;
+  text-transform:uppercase;
+}
+.tag::before{ content:"[ "; opacity:.6; }
+.tag::after { content:" ]"; opacity:.6; }
+.tag--amber{ color:#ffb347; border-color:rgba(255,179,71,.3); background:rgba(255,179,71,.06); }
+.tag--cyan { color:#4dd6ff; border-color:rgba(77,214,255,.3); background:rgba(77,214,255,.06); }
+.tag--dim  { color:var(--txt-dim); border-color:#2a2a2a; background:transparent; }
+
+/* ════════════════════════════════════════════════════════════════
+   LAYOUT — SIDEBAR FIXA + CONTEÚDO
+   ════════════════════════════════════════════════════════════════ */
+.sidebar{
+  position:fixed;
+  top:0; left:0; bottom:0;
+  width:var(--sidebar-w);
+  background:#0d0d0d;
+  border-right:1px solid var(--neon-dim);
+  display:flex;
+  flex-direction:column;
+  z-index:100;
+  transition:transform .3s ease;
+}
+.sidebar__logo{
+  font-family:var(--font-tit);
+  font-weight:800;
+  font-size:26px;
+  color:var(--neon);
+  padding:24px 20px 18px;
+  letter-spacing:.02em;
+  text-shadow:0 0 14px rgba(0,255,65,.35);
+  border-bottom:1px solid #1c1c1c;
+  user-select:none;
+}
+.sidebar__logo small{
+  display:block;
+  font-family:var(--font-mono);
+  font-size:10px;
+  font-weight:400;
+  color:var(--txt-dim);
+  letter-spacing:.18em;
+  margin-top:2px;
+}
+.sidebar__nav{
+  flex:1;
+  padding:14px 10px;
+  overflow-y:auto;
+}
+.nav-item{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  width:100%;
+  background:none;
+  border:1px solid transparent;
+  border-radius:var(--radius);
+  color:var(--txt-dim);
+  font-family:var(--font-mono);
+  font-size:13px;
+  padding:10px 12px;
+  margin-bottom:3px;
+  cursor:pointer;
+  text-align:left;
+  transition:color .18s, border-color .18s, background .18s, transform .18s;
+}
+.nav-item svg{ width:16px; height:16px; flex-shrink:0; stroke:currentColor; fill:none; stroke-width:1.6; }
+.nav-item:hover{ color:var(--txt); background:var(--surf-2); transform:translateX(2px); }
+.nav-item.ativa{
+  color:var(--neon);
+  border-color:var(--neon-dim);
+  background:var(--neon-soft);
+  box-shadow:inset 2px 0 0 var(--neon);
+}
+.sidebar__footer{
+  padding:16px 20px;
+  border-top:1px solid #1c1c1c;
+  font-size:11px;
+  color:var(--txt-dim);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.status-online{ color:var(--neon); }
+.status-online .dot{
+  display:inline-block;
+  width:7px; height:7px;
+  background:var(--neon);
+  border-radius:50%;
+  margin-right:6px;
+  box-shadow:0 0 8px var(--neon);
+  animation:pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse{ 50%{ opacity:.35; } }
+
+/* ── Botão hamburger (só mobile) ───────────────────────────────── */
+.hamburger{
+  display:none;
+  position:fixed;
+  top:14px; left:14px;
+  z-index:200;
+  width:42px; height:42px;
+  background:var(--surf-1);
+  border:1px solid var(--neon-dim);
+  border-radius:var(--radius);
+  cursor:pointer;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+}
+.hamburger span{
+  display:block;
+  width:18px; height:2px;
+  background:var(--neon);
+  transition:transform .25s, opacity .25s;
+}
+.hamburger.aberto span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.hamburger.aberto span:nth-child(2){ opacity:0; }
+.hamburger.aberto span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* backdrop do menu mobile */
+.backdrop{
+  display:none;
+  position:fixed; inset:0;
+  background:rgba(0,0,0,.65);
+  z-index:90;
+}
+.backdrop.visivel{ display:block; }
+
+/* ── Conteúdo principal ────────────────────────────────────────── */
+.main{
+  margin-left:var(--sidebar-w);
+  padding:28px 36px 64px;
+  position:relative;
+  z-index:1;
+  min-height:100vh;
+  max-width:1280px;
+}
+.breadcrumb{
+  font-size:12.5px;
+  color:var(--txt-dim);
+  margin-bottom:26px;
+  border:1px solid #1e1e1e;
+  background:rgba(17,17,17,.7);
+  border-radius:var(--radius);
+  padding:8px 14px;
+  display:inline-block;
+}
+.breadcrumb .path{ color:var(--neon); }
+
+/* ── Seções SPA: troca sem reload, com fade/slide ──────────────── */
+.secao{ display:none; }
+.secao.ativa{
+  display:block;
+  animation:fadeSlide .38s ease both;
+}
+@keyframes fadeSlide{
+  from{ opacity:0; transform:translateY(14px); }
+  to  { opacity:1; transform:translateY(0); }
+}
+
+.secao-titulo{
+  font-family:var(--font-tit);
+  font-weight:700;
+  font-size:24px;
+  color:#fff;
+  letter-spacing:.01em;
+  margin-bottom:4px;
+}
+.secao-titulo::before{ content:"// "; color:var(--neon); }
+.secao-sub{
+  color:var(--txt-dim);
+  font-size:12.5px;
+  margin-bottom:28px;
+}
+
+/* ── Cards genéricos ───────────────────────────────────────────── */
+.card{
+  background:var(--surf-1);
+  border:1px solid var(--neon-dim);
+  border-radius:var(--radius);
+  padding:20px;
+  transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.card:hover{
+  border-color:var(--neon);
+  transform:translateY(-2px);
+  box-shadow:var(--glow);
+}
+.card h3{
+  font-family:var(--font-tit);
+  font-size:16px;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:8px;
+}
+
+/* ── Bloco estilo output de terminal ───────────────────────────── */
+.term-block{
+  background:#0c0c0c;
+  border:1px solid var(--neon-dim);
+  border-radius:var(--radius);
+  padding:18px 20px;
+  font-size:13px;
+  line-height:1.75;
+  position:relative;
+  overflow-x:auto;
+}
+.term-block .prompt{ color:var(--neon); font-weight:600; }
+.term-block .out{ color:var(--txt); }
+.term-block::before{
+  content:"● ● ●";
+  position:absolute;
+  top:6px; right:12px;
+  font-size:8px;
+  letter-spacing:3px;
+  color:#2c2c2c;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SEÇÃO 1 — PAINEL GERAL
+   ════════════════════════════════════════════════════════════════ */
+.hero-titulo{
+  font-family:var(--font-tit);
+  font-weight:800;
+  font-size:clamp(22px, 3.4vw, 36px);
+  color:#fff;
+  letter-spacing:.01em;
+  min-height:1.3em;
+  margin-bottom:10px;
+}
+.hero-titulo .typed{ color:var(--neon); text-shadow:0 0 18px rgba(0,255,65,.3); }
+.hero-status{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px;
+  color:var(--txt-dim);
+  font-size:13px;
+  margin-bottom:30px;
+}
+
+.metricas{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(190px,1fr));
+  gap:14px;
+  margin-bottom:30px;
+}
+.metric-card{
+  background:var(--surf-1);
+  border:1px solid var(--neon-dim);
+  border-radius:var(--radius);
+  padding:20px 18px 16px;
+  transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.metric-card:hover{ border-color:var(--neon); transform:translateY(-2px); box-shadow:var(--glow); }
+.metric-num{
+  font-family:var(--font-tit);
+  font-weight:800;
+  font-size:36px;
+  color:var(--neon);
+  line-height:1.1;
+  text-shadow:0 0 16px rgba(0,255,65,.25);
+}
+.metric-label{
+  font-size:11.5px;
+  color:var(--txt-dim);
+  margin-top:6px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+
+.painel-grid{
+  display:grid;
+  grid-template-columns:1.6fr 1fr;
+  gap:14px;
+  margin-bottom:26px;
+  align-items:stretch;
+}
+.deploy-card .deploy-nome{
+  font-family:var(--font-tit);
+  font-weight:700;
+  font-size:20px;
+  color:#fff;
+  margin:6px 0 4px;
+}
+.botoes-links{ display:flex; flex-wrap:wrap; gap:10px; }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  font-weight:600;
+  letter-spacing:.06em;
+  color:var(--neon);
+  background:transparent;
+  border:1px solid var(--neon-dim);
+  border-radius:var(--radius);
+  padding:9px 18px;
+  cursor:pointer;
+  text-decoration:none;
+  text-transform:uppercase;
+  transition:background .2s, box-shadow .2s, transform .2s, border-color .2s;
+}
+.btn:hover{
+  background:var(--neon-soft);
+  border-color:var(--neon);
+  box-shadow:var(--glow);
+  transform:translateY(-1px);
+}
+.btn--solid{ background:var(--neon); color:#000; border-color:var(--neon); }
+.btn--solid:hover{ background:#33ff67; }
+
+/* ════════════════════════════════════════════════════════════════
+   SEÇÃO 2 — PERFIL
+   ════════════════════════════════════════════════════════════════ */
+.perfil-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:14px;
+  margin-top:14px;
+}
+.dado-linha{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  padding:9px 0;
+  border-bottom:1px dashed #232323;
+  font-size:13px;
+}
+.dado-linha:last-child{ border-bottom:none; }
+.dado-linha .k{ color:var(--txt-dim); }
+.dado-linha .v{ color:var(--txt); text-align:right; }
+
+.pilares{ list-style:none; margin-top:10px; }
+.pilares li{
+  padding:8px 0 8px 26px;
+  position:relative;
+  border-bottom:1px dashed #232323;
+  font-size:13px;
+}
+.pilares li:last-child{ border-bottom:none; }
+.pilares li::before{
+  content:"✓";
+  position:absolute; left:4px;
+  color:var(--neon);
+  font-weight:600;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SEÇÃO 3 — EXPERIÊNCIA (timeline vertical)
+   ════════════════════════════════════════════════════════════════ */
+.timeline{
+  position:relative;
+  margin-left:10px;
+  padding-left:30px;
+}
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:0; top:6px; bottom:6px;
+  width:2px;
+  background:linear-gradient(180deg, var(--neon), rgba(0,255,65,.12));
+  box-shadow:0 0 10px rgba(0,255,65,.35);
+}
+.tl-no{
+  position:relative;
+  margin-bottom:22px;
+}
+.tl-no::before{
+  content:"";
+  position:absolute;
+  left:-36px; top:22px;
+  width:11px; height:11px;
+  background:var(--bg);
+  border:2px solid var(--neon);
+  border-radius:50%;
+  box-shadow:0 0 10px rgba(0,255,65,.5);
+}
+.tl-periodo{
+  font-size:11px;
+  color:var(--neon);
+  letter-spacing:.1em;
+  margin-bottom:6px;
+}
+.tl-cargo{
+  font-family:var(--font-tit);
+  font-weight:700;
+  font-size:17px;
+  color:#fff;
+}
+.tl-org{ color:var(--txt-dim); font-size:12.5px; margin-bottom:10px; }
+.tl-bullets{ list-style:none; margin-top:8px; }
+.tl-bullets li{
+  font-size:13px;
+  padding:4px 0 4px 18px;
+  position:relative;
+  color:var(--txt);
+}
+.tl-bullets li::before{
+  content:"▸";
+  position:absolute; left:0;
+  color:var(--neon);
+}
+.tl-stack{ margin-top:12px; display:flex; flex-wrap:wrap; gap:7px; }
+
+/* ════════════════════════════════════════════════════════════════
+   SEÇÃO 4 — FORMAÇÃO (barras de progresso)
+   ════════════════════════════════════════════════════════════════ */
+.formacao-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+  gap:14px;
+}
+.progress{
+  height:8px;
+  background:#1c1c1c;
+  border:1px solid #262626;
+  border-radius:var(--radius);
+  overflow:hidden;
+  margin:10px 0 6px;
+}
+.progress__fill{
+  height:100%;
+  width:0;                                   /* animado via JS quando visível */
+  background:linear-gradient(90deg, rgba(0,255,65,.55), var(--neon));
+  box-shadow:0 0 10px rgba(0,255,65,.5);
+  transition:width 1.2s cubic-bezier(.22,1,.36,1);
+}
+.progress-label{
+  display:flex;
+  justify-content:space-between;
+  font-size:11.5px;
+  color:var(--txt-dim);
+}
+.disciplinas{ margin-top:12px; display:flex; flex-wrap:wrap; gap:7px; }
+
+/* ════════════════════════════════════════════════════════════════
+   SEÇÃO 5 — PROJETOS & STACK
+   ════════════════════════════════════════════════════════════════ */
+.filtros{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:20px;
+}
+.filtro-btn{
+  font-family:var(--font-mono);
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--txt-dim);
+  background:transparent;
+  border:1px solid #2a2a2a;
+  border-radius:var(--radius);
+  padding:6px 14px;
+  cursor:pointer;
+  transition:all .2s;
+}
+.filtro-btn::before{ content:"[ "; opacity:.5; }
+.filtro-btn::after { content:" ]"; opacity:.5; }
+.filtro-btn:hover{ color:var(--txt); border-color:var(--txt-dim); }
+.filtro-btn.ativa{
+  color:var(--neon);
+  border-color:var(--neon);
+  background:var(--neon-soft);
+  box-shadow:0 0 8px rgba(0,255,65,.18);
+}
+
+.projetos-grid{ display:grid; gap:16px; }
+.projeto-card{
+  background:var(--surf-1);
+  border:1px solid var(--neon-dim);
+  border-radius:var(--radius);
+  padding:22px;
+  transition:border-color .2s, transform .2s, box-shadow .2s, opacity .3s;
+}
+.projeto-card:hover{ border-color:var(--neon); transform:translateY(-2px); box-shadow:var(--glow); }
+.projeto-card.flagship{ border-color:rgba(0,255,65,.45); background:linear-gradient(160deg, #121712 0%, var(--surf-1) 45%); }
+.projeto-card.oculto{ display:none; }
+.projeto-head{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:10px;
+  margin-bottom:10px;
+}
+.projeto-nome{
+  font-family:var(--font-tit);
+  font-weight:800;
+  font-size:19px;
+  color:#fff;
+  letter-spacing:.02em;
+}
+.projeto-desc{ font-size:13px; color:var(--txt); margin-bottom:12px; max-width:75ch; }
+.projeto-arq{ font-size:12.5px; color:var(--txt-dim); margin-bottom:14px; max-width:80ch; }
+.projeto-arq strong{ color:var(--neon); font-weight:600; }
+.stack-tags{ display:flex; flex-wrap:wrap; gap:7px; margin-bottom:14px; }
+
+.ascii-diagrama{
+  font-family:var(--font-mono);
+  font-size:11px;
+  line-height:1.45;
+  color:var(--neon);
+  background:#0c0c0c;
+  border:1px solid var(--neon-dim);
+  border-radius:var(--radius);
+  padding:14px 16px;
+  overflow-x:auto;
+  margin-bottom:14px;
+  text-shadow:0 0 6px rgba(0,255,65,.2);
+}
+.projeto-metricas{
+  display:flex;
+  flex-wrap:wrap;
+  gap:18px;
+  font-size:12px;
+  color:var(--txt-dim);
+  margin-bottom:14px;
+}
+.projeto-metricas b{ color:var(--neon); font-weight:600; }
+
+.stack-completo{
+  margin-top:34px;
+}
+.stack-grupo{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:10px;
+  padding:13px 0;
+  border-bottom:1px dashed #232323;
+}
+.stack-grupo:last-child{ border-bottom:none; }
+.stack-grupo .grupo-nome{
+  min-width:90px;
+  font-size:11.5px;
+  font-weight:600;
+  letter-spacing:.08em;
+  color:var(--neon);
+  text-transform:uppercase;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SEÇÃO 6 — CERTIFICAÇÕES (destaque + grid + gráfico de barras CSS)
+   ════════════════════════════════════════════════════════════════ */
+.cert-destaque{
+  background:linear-gradient(160deg, #121712 0%, var(--surf-1) 50%);
+  border:1px solid rgba(0,255,65,.45);
+  border-radius:var(--radius);
+  padding:24px;
+  margin-bottom:26px;
+}
+.cert-plano{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  color:var(--txt-dim);
+  margin-top:12px;
+}
+.cert-plano .seta{ color:var(--neon); }
+
+.cursos-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(250px,1fr));
+  gap:12px;
+  margin-top:18px;
+}
+.curso-card{
+  background:var(--surf-2);
+  border:1px solid #242424;
+  border-radius:var(--radius);
+  padding:14px 16px;
+  font-size:12.5px;
+  transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.curso-card:hover{ border-color:var(--neon); transform:translateY(-2px); box-shadow:var(--glow); }
+.curso-card.oculto{ display:none; }
+.curso-nome{ color:#fff; font-weight:600; margin-bottom:4px; }
+.curso-meta{ color:var(--txt-dim); font-size:11.5px; display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap; }
+
+/* gráfico de barras horizontal — CSS puro */
+.grafico{ margin-top:30px; }
+.grafico-linha{
+  display:grid;
+  grid-template-columns:110px 1fr 64px;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+  font-size:12px;
+}
+.grafico-linha .area{ color:var(--txt-dim); text-align:right; }
+.grafico-linha .horas{ color:var(--neon); }
+.barra-track{
+  height:14px;
+  background:#1a1a1a;
+  border:1px solid #262626;
+  border-radius:var(--radius);
+  overflow:hidden;
+}
+.barra-fill{
+  height:100%;
+  width:0;                                   /* animado via JS quando visível */
+  background:repeating-linear-gradient(
+    -45deg,
+    var(--neon) 0 6px,
+    rgba(0,255,65,.55) 6px 12px
+  );
+  box-shadow:0 0 8px rgba(0,255,65,.35);
+  transition:width 1.1s cubic-bezier(.22,1,.36,1);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SEÇÃO 7 — CONQUISTAS
+   ════════════════════════════════════════════════════════════════ */
+.conquista-ultima{
+  background:linear-gradient(160deg, #121712 0%, var(--surf-1) 50%);
+  border:1px solid rgba(0,255,65,.45);
+  border-radius:var(--radius);
+  padding:20px 22px;
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+.conquista-ultima svg{ width:38px; height:38px; stroke:var(--neon); fill:none; stroke-width:1.5; filter:drop-shadow(0 0 8px rgba(0,255,65,.4)); }
+.badges-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(220px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.badge-card{
+  background:var(--surf-2);
+  border:1px solid #242424;
+  border-radius:var(--radius);
+  padding:16px;
+  display:flex;
+  gap:13px;
+  align-items:flex-start;
+  transition:border-color .2s, transform .2s, box-shadow .2s;
+}
+.badge-card:hover{ border-color:var(--neon); transform:translateY(-2px); box-shadow:var(--glow); }
+.badge-card.oculto{ display:none; }
+.badge-card svg{ width:26px; height:26px; flex-shrink:0; stroke:var(--neon); fill:none; stroke-width:1.6; margin-top:2px; }
+.badge-nome{ color:#fff; font-weight:600; font-size:12.5px; }
+.badge-meta{ color:var(--txt-dim); font-size:11px; margin-top:3px; }
+
+/* ════════════════════════════════════════════════════════════════
+   SEÇÃO 8 — ASSISTENTE IA (chat estilo terminal)
+   ════════════════════════════════════════════════════════════════ */
+.chat-janela{
+  background:#0c0c0c;
+  border:1px solid var(--neon-dim);
+  border-radius:var(--radius);
+  display:flex;
+  flex-direction:column;
+  height:560px;
+  max-height:72vh;
+  overflow:hidden;
+}
+.chat-header{
+  background:var(--surf-1);
+  border-bottom:1px solid var(--neon-dim);
+  padding:10px 16px;
+  font-size:12px;
+  color:var(--neon);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  letter-spacing:.04em;
+}
+.chat-header .leds span{
+  display:inline-block;
+  width:9px; height:9px;
+  border-radius:50%;
+  margin-left:6px;
+  background:#2c2c2c;
+}
+.chat-header .leds span:first-child{ background:var(--neon); box-shadow:0 0 6px var(--neon); }
+.chat-corpo{
+  flex:1;
+  overflow-y:auto;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.msg{ max-width:88%; font-size:13px; line-height:1.65; }
+.msg--bot{
+  align-self:flex-start;
+  color:var(--txt);
+}
+.msg--bot .msg-prefixo{ color:var(--neon); font-weight:600; }
+.msg--user{
+  align-self:flex-end;
+  color:#cfe9d4;
+  background:var(--neon-soft);
+  border:1px solid var(--neon-dim);
+  border-radius:var(--radius);
+  padding:8px 13px;
+}
+.chat-sugestoes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  padding:10px 16px;
+  border-top:1px dashed #222;
+}
+.sugestao{
+  font-family:var(--font-mono);
+  font-size:11px;
+  color:var(--txt-dim);
+  background:transparent;
+  border:1px solid #2a2a2a;
+  border-radius:var(--radius);
+  padding:5px 11px;
+  cursor:pointer;
+  transition:all .2s;
+}
+.sugestao:hover{ color:var(--neon); border-color:var(--neon-dim); background:var(--neon-soft); }
+.chat-input-area{
+  display:flex;
+  gap:10px;
+  padding:12px 16px;
+  border-top:1px solid var(--neon-dim);
+  background:var(--surf-1);
+}
+.chat-input-area .prompt-char{ color:var(--neon); align-self:center; font-weight:600; }
+#chatInput{
+  flex:1;
+  background:transparent;
+  border:none;
+  outline:none;
+  color:var(--txt);
+  font-family:var(--font-mono);
+  font-size:13px;
+  caret-color:var(--neon);
+}
+#chatInput::placeholder{ color:#4a4a4a; }
+.chat-enviar{
+  font-family:var(--font-mono);
+  font-size:12px;
+  font-weight:600;
+  color:#000;
+  background:var(--neon);
+  border:none;
+  border-radius:var(--radius);
+  padding:7px 16px;
+  cursor:pointer;
+  letter-spacing:.06em;
+  transition:background .2s, box-shadow .2s;
+}
+.chat-enviar:hover{ background:#33ff67; box-shadow:var(--glow); }
+
+/* ════════════════════════════════════════════════════════════════
+   RESPONSIVO — mobile-first ajustes
+   ════════════════════════════════════════════════════════════════ */
+@media (max-width: 900px){
+  .sidebar{ transform:translateX(-100%); }
+  .sidebar.aberta{ transform:translateX(0); box-shadow:8px 0 30px rgba(0,0,0,.6); }
+  .hamburger{ display:flex; }
+  .main{ margin-left:0; padding:74px 18px 56px; }
+  .painel-grid{ grid-template-columns:1fr; }
+  .grafico-linha{ grid-template-columns:84px 1fr 52px; }
+  .msg{ max-width:100%; }
+}
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Starfield animado (canvas) -->
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<!-- Overlay de scanlines CRT -->
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- Botão hamburger (mobile) -->
+<button class="hamburger" id="hamburger" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="sidebar">
+  <span></span><span></span><span></span>
+</button>
+<div class="backdrop" id="backdrop"></div>
+
+<!-- ═══════════════ SIDEBAR ═══════════════ -->
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar__logo">
+    VS://<span class="cursor">_</span>
+    <small>AI ENGINEER DASHBOARD</small>
+  </div>
+
+  <nav class="sidebar__nav" aria-label="Navegação principal" id="navPrincipal">
+    <!-- Ícones SVG inline minimalistas (stroke = currentColor) -->
+    <button class="nav-item ativa" data-secao="painel" aria-label="Painel Geral">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Painel Geral
+    </button>
+    <button class="nav-item" data-secao="perfil" aria-label="Perfil">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      Perfil
+    </button>
+    <button class="nav-item" data-secao="experiencia" aria-label="Experiência">
+      <svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="1"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>
+      Experiência
+    </button>
+    <button class="nav-item" data-secao="formacao" aria-label="Formação">
+      <svg viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V17c0 1.5 2.7 3 6 3s6-1.5 6-3v-5.5"/><path d="M22 9v6"/></svg>
+      Formação
+    </button>
+    <button class="nav-item" data-secao="projetos" aria-label="Projetos e Stack">
+      <svg viewBox="0 0 24 24"><path d="M8 6l-5 6 5 6"/><path d="M16 6l5 6-5 6"/><path d="M13 4l-2 16"/></svg>
+      Projetos &amp; Stack
+    </button>
+    <button class="nav-item" data-secao="certificacoes" aria-label="Certificações">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg>
+      Certificações
+    </button>
+    <button class="nav-item" data-secao="conquistas" aria-label="Conquistas">
+      <svg viewBox="0 0 24 24"><path d="M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M7 6H4a3 3 0 0 0 3 5"/><path d="M17 6h3a3 3 0 0 1-3 5"/><path d="M12 14v4"/><path d="M8 20h8"/></svg>
+      Conquistas
+    </button>
+    <button class="nav-item" data-secao="assistente" aria-label="Assistente de IA">
+      <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M7 9l3 3-3 3"/><path d="M12 15h5"/></svg>
+      Assistente IA
+    </button>
+  </nav>
+
+  <div class="sidebar__footer">
+    <span class="status-online"><span class="dot"></span>ONLINE</span>
+    <span id="anoAtual">2026</span>
+  </div>
+</aside>
+
+<!-- ═══════════════ CONTEÚDO ═══════════════ -->
+<main class="main" id="conteudo">
+  <div class="breadcrumb" aria-live="polite">
+    <span class="path">~</span>/dashboard/<span class="path" id="breadcrumbSecao">painel-geral</span>
+  </div>
+
+  <!-- SEÇÃO 1 — PAINEL GERAL -->
+  <section class="secao ativa" id="secao-painel" aria-label="Painel Geral">
+    <h1 class="hero-titulo"><span class="typed" id="typedTitulo"></span><span class="cursor">_</span></h1>
+    <div class="hero-status" id="heroStatus"></div>
+    <div class="metricas" id="metricasGrid"></div>
+
+    <div class="term-block" id="posicionamento" style="margin-bottom:26px;"></div>
+
+    <div class="painel-grid">
+      <div class="card deploy-card" id="deployCard"></div>
+      <div class="card">
+        <h3>Conectar</h3>
+        <p style="color:var(--txt-dim);font-size:12.5px;margin-bottom:14px;">Canais oficiais e portfólio.</p>
+        <div class="botoes-links" id="botoesLinks"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 2 — PERFIL -->
+  <section class="secao" id="secao-perfil" aria-label="Perfil">
+    <h2 class="secao-titulo">Perfil</h2>
+    <p class="secao-sub">resumo executivo · dados · diretrizes · pilares</p>
+    <div class="card" style="margin-bottom:14px;">
+      <h3>Resumo Executivo</h3>
+      <p id="resumoExecutivo" style="font-size:13px;max-width:85ch;"></p>
+    </div>
+    <div class="perfil-grid">
+      <div class="card"><h3>Dados</h3><div id="dadosGrid"></div></div>
+      <div class="card"><h3>Diretrizes Profissionais</h3><div id="diretrizesGrid"></div></div>
+    </div>
+    <div class="card" style="margin-top:14px;">
+      <h3>Pilares de Expertise</h3>
+      <ul class="pilares" id="pilaresLista"></ul>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 3 — EXPERIÊNCIA -->
+  <section class="secao" id="secao-experiencia" aria-label="Experiência">
+    <h2 class="secao-titulo">Experiência</h2>
+    <p class="secao-sub">15 anos de operações mission-critical → sistemas de IA em produção</p>
+    <div class="timeline" id="timelineExp"></div>
+  </section>
+
+  <!-- SEÇÃO 4 — FORMAÇÃO -->
+  <section class="secao" id="secao-formacao" aria-label="Formação">
+    <h2 class="secao-titulo">Formação</h2>
+    <p class="secao-sub">formação acadêmica em curso</p>
+    <div class="formacao-grid" id="formacaoGrid"></div>
+  </section>
+
+  <!-- SEÇÃO 5 — PROJETOS & STACK -->
+  <section class="secao" id="secao-projetos" aria-label="Projetos e Stack">
+    <h2 class="secao-titulo">Projetos &amp; Stack</h2>
+    <p class="secao-sub">sistemas reais, em produção ou em evolução ativa</p>
+    <div class="filtros" id="filtrosProjetos" role="group" aria-label="Filtrar projetos"></div>
+    <div class="projetos-grid" id="projetosGrid"></div>
+
+    <div class="stack-completo card" style="margin-top:30px;">
+      <h3>Stack Completo</h3>
+      <div id="stackGrupos"></div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 6 — CERTIFICAÇÕES -->
+  <section class="secao" id="secao-certificacoes" aria-label="Certificações">
+    <h2 class="secao-titulo">Certificações</h2>
+    <p class="secao-sub">certificação em progresso + formação contínua</p>
+    <div class="cert-destaque" id="certDestaque"></div>
+    <div class="filtros" id="filtrosCursos" role="group" aria-label="Filtrar cursos por categoria"></div>
+    <div class="cursos-grid" id="cursosGrid"></div>
+    <div class="grafico card" id="graficoHoras">
+      <h3 style="margin-bottom:18px;">Distribuição de horas por área</h3>
+      <div id="graficoLinhas"></div>
+    </div>
+    <div class="grafico card" id="graficoXP" style="margin-top:14px;">
+      <h3 style="margin-bottom:18px;">Top habilidades por XP (DIO)</h3>
+      <div id="graficoXPLinhas"></div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 7 — CONQUISTAS -->
+  <section class="secao" id="secao-conquistas" aria-label="Conquistas">
+    <h2 class="secao-titulo">Conquistas</h2>
+    <p class="secao-sub" id="conquistasContador"></p>
+    <div class="conquista-ultima" id="ultimaConquista"></div>
+    <div class="filtros" id="filtrosConquistas" role="group" aria-label="Filtrar conquistas"></div>
+    <div class="badges-grid" id="badgesGrid"></div>
+  </section>
+
+  <!-- SEÇÃO 8 — ASSISTENTE IA -->
+  <section class="secao" id="secao-assistente" aria-label="Assistente de IA">
+    <h2 class="secao-titulo">Assistente IA</h2>
+    <p class="secao-sub">pergunte sobre projetos, stack, experiência ou contato</p>
+    <div class="chat-janela">
+      <div class="chat-header">
+        <span>vitor_ai — assistente do portfólio v1.0</span>
+        <span class="leds"><span></span><span></span><span></span></span>
+      </div>
+      <div class="chat-corpo" id="chatCorpo" aria-live="polite"></div>
+      <div class="chat-sugestoes" id="chatSugestoes"></div>
+      <form class="chat-input-area" id="chatForm">
+        <span class="prompt-char">&gt;</span>
+        <input type="text" id="chatInput" placeholder="digite sua pergunta..." autocomplete="off" aria-label="Pergunta para o assistente">
+        <button type="submit" class="chat-enviar">ENVIAR</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   DADOS — EDITE APENAS ESTE OBJETO
+   Tudo que aparece no dashboard vem daqui. Os campos marcados com
+   [PREENCHER] devem ser substituídos pelos valores reais.
+   A lógica de renderização está mais abaixo e NÃO precisa ser tocada.
+   ════════════════════════════════════════════════════════════════ */
+const DATA = {
+
+  /* ── Identidade / Painel Geral ── */
+  nome: "VITOR SILVA — AI ENGINEER & SOLUTIONS ARCHITECT",
+  localizacao: "Curitiba, PR",
+  disponibilidade: "DISPONÍVEL PARA OPORTUNIDADES",
+
+  metricas: [
+    { valor: 15,  sufixo: "",   label: "Anos de operações mission-critical" },
+    { valor: 4,   sufixo: "",   label: "Projetos AI em produção" },
+    { valor: 3,   sufixo: "",   label: "Idiomas (PT · EN · ES)" },
+    { valor: 80, sufixo: "", label: "Certificados de formação contínua" }
+  ],
+
+  posicionamento:
+    "15 anos de operações mission-critical (governança de SLA, " +
+    "auditoria de dados, gestão logística) aplicados a sistemas " +
+    "de IA agêntica confiáveis, governados e prontos para produção.",
+
+  ultimoDeploy: {
+    nome: "MestreGrana",
+    status: "AO VIVO",
+    descricao: "Multi-agent financial advisor — orquestração LangGraph + judge multi-LLM em produção.",
+    link: "#[PREENCHER link do deploy]"
+  },
+
+  links: {
+    linkedin:  "#[PREENCHER URL LinkedIn]",
+    github:    "#[PREENCHER URL GitHub]",
+    portfolio: "#[PREENCHER URL Portfolio]"
+  },
+
+  /* ── Perfil ── */
+  resumoExecutivo:
+    "[PREENCHER — resumo executivo de 3-4 linhas. Sugestão de estrutura: " +
+    "quem você é + diferencial dos 15 anos de operações + o que constrói " +
+    "hoje em AI Engineering + o tipo de problema que resolve.]",
+
+  dados: [
+    { k: "Localização", v: "Curitiba, PR, Brasil" },
+    { k: "Modalidade",  v: "Remoto · CLT/PJ · Internacional" },
+    { k: "Idiomas",     v: "PT-BR nativo · EN avançado · ES intermediário" },
+    { k: "Foco",        v: "Agentic AI · RAG · LLM Systems · MLOps" }
+  ],
+
+  diretrizes: [
+    { k: "Modelo desejado", v: "CLT/PJ remoto" },
+    { k: "Pretensão",       v: "a combinar" },           /* NÃO exibir valores */
+    { k: "Eixos",           v: "AI Engineering · Backend · Arquitetura" }
+  ],
+
+  pilares: [
+    "Governança de sistemas multi-agente",
+    "RAG em produção",
+    "Guardrails multi-LLM",
+    "APIs FastAPI escaláveis",
+    "Observabilidade de pipelines LLM"
+  ],
+
+  /* ── Experiência (timeline — do mais recente para o mais antigo) ── */
+  experiencia: [
+    {
+      periodo: "2024 — ATUAL",
+      cargo: "AI Engineer & Solutions Architect",
+      org: "Independente",
+      badge: "ESPECIALISTA",
+      bullets: [
+        "Construção de sistemas agentic AI em produção",
+        "Arquitetura de orquestração multi-agente com guardrails e auditoria",
+        "Deploy e operação de APIs LLM com observabilidade ponta a ponta"
+      ],
+      stack: ["LangGraph", "LangChain", "FastAPI", "RAG", "Docker"]
+    },
+    {
+      periodo: "[PREENCHER período]",
+      cargo: "[PREENCHER cargo sênior real] — Governança de SLA & Auditoria de Dados",
+      org: "ECT (Correios)",
+      badge: "SÊNIOR",
+      bullets: [
+        "Governança de SLA sobre [PREENCHER MÉTRICA — ex: volume/contratos] ",
+        "Auditoria de dados operacionais com impacto de [PREENCHER MÉTRICA]",
+        "[PREENCHER bullet de impacto com número]"
+      ],
+      stack: []
+    },
+    {
+      periodo: "[PREENCHER período]",
+      cargo: "[PREENCHER cargo pleno real] — Gestão de Frota & Logística",
+      org: "ECT (Correios)",
+      badge: "PLENO",
+      bullets: [
+        "Gestão de frota/logística cobrindo [PREENCHER MÉTRICA — ex: nº de veículos/rotas]",
+        "Consolidação de dados operacionais para decisão [PREENCHER MÉTRICA]"
+      ],
+      stack: []
+    },
+    {
+      periodo: "[PREENCHER período]",
+      cargo: "[PREENCHER cargo inicial real] — Operações",
+      org: "ECT (Correios)",
+      badge: "INICIAL",
+      bullets: [
+        "Operações de base em ambiente mission-critical [PREENCHER MÉTRICA]",
+        "[PREENCHER bullet de impacto]"
+      ],
+      stack: []
+    }
+  ],
+
+  /* ── Formação ── */
+  formacao: [
+    {
+      curso: "Pós-Graduação em ML Engineering",
+      instituicao: "FIAP",
+      status: "EM CURSO",
+      progresso: 40,                      /* [PREENCHER % real] */
+      previsao: "[PREENCHER previsão de conclusão]",
+      foco: "Machine Learning Engineering, MLOps e sistemas de IA em escala.",
+      disciplinas: ["MLOps", "Deep Learning", "Engenharia de Dados", "Cloud ML"]
+    },
+    {
+      curso: "Bacharelado em Ciência da Computação",
+      instituicao: "[PREENCHER instituição]",
+      status: "EM CURSO",
+      progresso: 50,                      /* [PREENCHER % real] */
+      previsao: "[PREENCHER previsão de conclusão]",
+      foco: "Fundamentos de computação, algoritmos e engenharia de software.",
+      disciplinas: ["Algoritmos", "Estruturas de Dados", "Banco de Dados", "Redes"]
+    }
+  ],
+
+  /* ── Projetos (categorias para filtro: ai | fullstack | pipeline) ── */
+  projetos: [
+    {
+      nome: "MESTREGRANA",
+      tags: ["FLAGSHIP", "PRODUÇÃO"],
+      flagship: true,
+      categorias: ["ai"],
+      descricao: "Multi-agent financial advisor — consultoria financeira com agentes especializados e respostas auditadas.",
+      arquitetura:
+        "Orquestração <strong>LangGraph</strong> coordenando agentes especializados; sistema de " +
+        "<strong>judge multi-LLM</strong> para guardrails de qualidade e segurança; <strong>RAG</strong> com " +
+        "embeddings para grounding em base de conhecimento; camada de <strong>governança e auditoria</strong> " +
+        "registrando e validando cada resposta antes da entrega.",
+      stack: ["LangGraph", "LangChain", "FastAPI", "PostgreSQL", "RAG", "Docker"],
+      metricas: [
+        { k: "Latência p95", v: "[PREENCHER]" },
+        { k: "Uptime", v: "[PREENCHER]" },
+        { k: "Acurácia (judge)", v: "[PREENCHER]" }
+      ],
+      diagrama:
+"┌─────────┐    ┌──────────────┐    ┌────────────────┐\n" +
+"│ Usuário │───▶│   FastAPI    │───▶│   LangGraph    │\n" +
+"└─────────┘    │   Gateway    │    │  Orquestrador  │\n" +
+"               └──────────────┘    └───────┬────────┘\n" +
+"                       ┌───────────────────┼───────────────────┐\n" +
+"                       ▼                   ▼                   ▼\n" +
+"               ┌──────────────┐    ┌──────────────┐    ┌──────────────┐\n" +
+"               │     RAG      │    │    Judge     │    │  Governança  │\n" +
+"               │  Embeddings  │    │  Multi-LLM   │    │ & Auditoria  │\n" +
+"               └──────┬───────┘    └──────┬───────┘    └──────┬───────┘\n" +
+"                      └───────────────────┼───────────────────┘\n" +
+"                                          ▼\n" +
+"                                ┌──────────────────┐\n" +
+"                                │ Resposta validada │\n" +
+"                                └──────────────────┘",
+      links: [
+        { label: "GitHub", url: "#[PREENCHER]" },
+        { label: "Demo Ao Vivo", url: "#[PREENCHER]", solid: true }
+      ]
+    },
+    {
+      nome: "FLUENCYFORGE",
+      tags: ["EDTECH", "MULTI-AGENT"],
+      flagship: false,
+      categorias: ["ai"],
+      descricao: "Plataforma edtech de aprendizado de idiomas com agentes de conversação, correção e progressão adaptativa.",
+      arquitetura:
+        "Sistema multi-agente com papéis de tutor, avaliador e planejador de currículo; " +
+        "pipeline de feedback estruturado por nível do aluno.",
+      stack: ["LangChain", "FastAPI", "Python", "MongoDB"],
+      metricas: [{ k: "Status", v: "[PREENCHER]" }],
+      diagrama: null,
+      links: [{ label: "GitHub", url: "#[PREENCHER]" }]
+    },
+    {
+      nome: "AETHER ONCOLOGY",
+      tags: ["HEALTHCARE", "FULL-STACK"],
+      flagship: false,
+      categorias: ["fullstack"],
+      descricao: "Plataforma full-stack de apoio à jornada oncológica — acompanhamento de pacientes, dados clínicos e mobile.",
+      arquitetura:
+        "Frontend web em React, app mobile em Flutter, API Node.js e serviços auxiliares em Python.",
+      stack: ["React", "Node.js", "Flutter", "Python"],
+      metricas: [{ k: "Demo", v: "disponível" }],
+      diagrama: null,
+      links: [
+        { label: "GitHub", url: "#[PREENCHER]" },
+        { label: "Demo", url: "#[PREENCHER]", solid: true }
+      ]
+    },
+    {
+      nome: "HARMONIZ.AI",
+      tags: ["LLM PIPELINE"],
+      flagship: false,
+      categorias: ["pipeline"],
+      descricao: "Pipeline LLM para harmonização e enriquecimento de dados com validação automatizada em etapas.",
+      arquitetura:
+        "Pipeline em estágios com extração, normalização via LLM, validação por regras e persistência auditável.",
+      stack: ["Python", "LangChain", "PostgreSQL", "Docker"],
+      metricas: [{ k: "Status", v: "[PREENCHER]" }],
+      diagrama: null,
+      links: [{ label: "GitHub", url: "#[PREENCHER]" }]
+    }
+  ],
+
+  filtrosProjetos: [
+    { id: "todos",     label: "TODOS" },
+    { id: "ai",        label: "AI/AGENTS" },
+    { id: "fullstack", label: "FULL-STACK" },
+    { id: "pipeline",  label: "PIPELINE" }
+  ],
+
+  stackCompleto: [
+    { grupo: "AI/LLM",   itens: ["LangGraph", "LangChain", "RAG", "Embeddings", "Multi-agent"] },
+    { grupo: "Backend",  itens: ["Python", "FastAPI", "Node.js"] },
+    { grupo: "Data",     itens: ["PostgreSQL", "MongoDB"] },
+    { grupo: "Frontend", itens: ["React", "Flutter"] },
+    { grupo: "Infra",    itens: ["Docker", "GCP/AWS"] }
+  ],
+
+  /* ── Certificações ── */
+  certDestaque: {
+    nome: "AWS Certified AI Practitioner (AIF-C01)",
+    status: "EM PROGRESSO",
+    progresso: 55,                        /* [PREENCHER % real] */
+    plano: ["AWS Skill Builder", "Udemy", "Mocks"],
+    previsao: "[PREENCHER previsão da prova]"
+  },
+
+  /* categorias: ai | backend | data | soft | dev | outros
+     (dados reais — DIO, LinkedIn Learning e Udemy; cargas horárias
+     estimadas em 1h quando a plataforma não informa) */
+  cursos: [
+    { nome: "Visualização de Dados no Neo4j Browser", inst: "DIO", horas: "1h", data: "2026-05-26", cat: "data" },
+    { nome: "Analista de Dados: 10 Competências Profissionais Essenciais", inst: "LinkedIn Learning", horas: "1h", data: "2026-05-21", cat: "data" },
+    { nome: "Introdução à Experiência Santander 2025 - 2º Semestre", inst: "DIO", horas: "1h", data: "2026-05-18", cat: "dev" },
+    { nome: "Instalando Ambiente Neo4j Desktop", inst: "DIO", horas: "1h", data: "2026-05-07", cat: "data" },
+    { nome: "Utilizando Copilotos de Desenvolvimento de Software", inst: "DIO", horas: "1h", data: "2026-05-02", cat: "ai" },
+    { nome: "Introdução a Graph Database e Neo4j", inst: "DIO", horas: "1h", data: "2026-04-30", cat: "data" },
+    { nome: "Introdução ao Desenvolvimento Low-Code", inst: "DIO", horas: "1h", data: "2026-04-28", cat: "ai" },
+    { nome: "Natural ou Fake Natty? Como Vencer na Era das IAs Generativas!", inst: "DIO", horas: "1h", data: "2026-04-25", cat: "ai" },
+    { nome: "Boas-vindas ao Bradesco - GenAI & Dados", inst: "DIO", horas: "1h", data: "2026-04-02", cat: "ai" },
+    { nome: "Técnicas de Engenharia de Prompt", inst: "DIO", horas: "1h", data: "2026-03-31", cat: "ai" },
+    { nome: "Visão Computacional", inst: "DIO", horas: "1h", data: "2026-03-27", cat: "ai" },
+    { nome: "Aplicações Práticas da Inteligência Artificial", inst: "DIO", horas: "1h", data: "2026-02-24", cat: "ai" },
+    { nome: "Boas-vindas à Aceleração Microsoft - Azure AI Agents", inst: "DIO", horas: "1h", data: "2026-02-19", cat: "ai" },
+    { nome: "Desafio de Projeto Final — Construa seu Assistente Virtual com IA Generativa", inst: "DIO", horas: "1h", data: "2026-02-19", cat: "ai" },
+    { nome: "Boas-vindas ao Bootcamp Santander 2026 - Rust AI Developer", inst: "DIO", horas: "1h", data: "2026-02-19", cat: "backend" },
+    { nome: "O que são IAs Generativas", inst: "DIO", horas: "1h", data: "2026-02-13", cat: "ai" },
+    { nome: "Boas-vindas ao Bootcamp: Neo4j - Análise de Dados com Grafos", inst: "DIO", horas: "1h", data: "2026-02-07", cat: "data" },
+    { nome: "Bootcamps DIO: Educação Gratuita e Empregabilidade Juntas!", inst: "DIO", horas: "1h", data: "2026-01-26", cat: "dev" },
+    { nome: "Acelere sua Aprendizagem com IA: Explore o Poder do NotebookLM", inst: "DIO", horas: "1h", data: "2026-01-11", cat: "ai" },
+    { nome: "Visualização de Dados: Como Transmitir Informações de Forma Eficaz", inst: "LinkedIn Learning", horas: "2h", data: "2026-01-01", cat: "data" },
+    { nome: "Introdução à Engenharia de Prompts", inst: "DIO", horas: "1h", data: "2025-12-24", cat: "ai" },
+    { nome: "Bradesco - GenAI & Dados", inst: "DIO", horas: "1h", data: "2025-12-17", cat: "ai" },
+    { nome: "Cibersegurança para Líderes: Como Lidar com um Ataque Cibernético", inst: "LinkedIn Learning", horas: "1h", data: "2025-12-05", cat: "outros" },
+    { nome: "Fundamentos de Business Intelligence (BI)", inst: "DIO", horas: "1h", data: "2025-11-28", cat: "data" },
+    { nome: "Introdução ao Bootcamp Machine Learning para Iniciantes", inst: "DIO", horas: "1h", data: "2025-11-27", cat: "ai" },
+    { nome: "Positividade e Inteligência Emocional", inst: "Udemy", horas: "1h", data: "2025-11-26", cat: "soft" },
+    { nome: "O Guia COMPLETO Para Alta Produtividade + 4 Cursos Extras", inst: "Udemy", horas: "1h", data: "2025-11-25", cat: "soft" },
+    { nome: "Boas Práticas de Modelagem Orientada a Grafos (Modelagem e Performance)", inst: "DIO", horas: "1h", data: "2025-11-21", cat: "data" },
+    { nome: "Aspectos Essenciais da Análise Estratégica de Negócios", inst: "LinkedIn Learning", horas: "1h", data: "2025-11-21", cat: "outros" },
+    { nome: "Associando Conceitos de IAs Generativas", inst: "DIO", horas: "1h", data: "2025-11-16", cat: "ai" },
+    { nome: "Introdução à Inteligência Artificial", inst: "DIO", horas: "1h", data: "2025-11-14", cat: "ai" },
+    { nome: "Eleva a tua vida com PNL", inst: "Udemy", horas: "1h", data: "2025-11-13", cat: "soft" },
+    { nome: "Algoritmos e Aprendizado de Máquina", inst: "DIO", horas: "1h", data: "2025-11-11", cat: "ai" },
+    { nome: "Processamento de Linguagem Natural", inst: "DIO", horas: "1h", data: "2025-10-17", cat: "ai" },
+    { nome: "Competências Indispensáveis para seus Primeiros 90 Dias na Gerência", inst: "LinkedIn Learning", horas: "1h", data: "2025-10-17", cat: "soft" },
+    { nome: "Utilizando Microsoft Copilot para Escrever Consultas SQL", inst: "DIO", horas: "1h", data: "2025-10-13", cat: "ai" },
+    { nome: "A Era da IA: Machine Learning, LLMs, IA Generativa e Agentes", inst: "DIO", horas: "1h", data: "2025-10-12", cat: "ai" },
+    { nome: "Fundamentos de Modelos de Linguagem de Grande Escala", inst: "DIO", horas: "1h", data: "2025-10-10", cat: "ai" },
+    { nome: "Trabalhando com Microsoft Copilot", inst: "DIO", horas: "1h", data: "2025-10-07", cat: "ai" },
+    { nome: "Aplicações e Impacto da IA no Mundo Atual", inst: "DIO", horas: "1h", data: "2025-10-04", cat: "ai" },
+    { nome: "Nexa - Fundamentos de IA Generativa com Bedrock", inst: "DIO", horas: "1h", data: "2025-09-28", cat: "ai" },
+    { nome: "Introdução à Gamificação", inst: "Udemy", horas: "1h", data: "2025-09-19", cat: "soft" },
+    { nome: "Como Construir e Liderar Equipes de TI Inclusivas", inst: "LinkedIn Learning", horas: "1h", data: "2025-09-12", cat: "soft" },
+    { nome: "Introdução à Aceleração Microsoft - IA Arquitetura de Dados", inst: "DIO", horas: "1h", data: "2025-09-02", cat: "ai" },
+    { nome: "Ambiente de Desenvolvimento e Primeiros Passos com Python", inst: "DIO", horas: "1h", data: "2025-08-17", cat: "backend" },
+    { nome: "Storytelling que Vende: Narrativa de Produtos com IA", inst: "LinkedIn Learning", horas: "1h", data: "2025-08-08", cat: "soft" },
+    { nome: "Resolvendo Cálculos com Python", inst: "DIO", horas: "1h", data: "2025-08-04", cat: "backend" },
+    { nome: "Como Melhorar o Suporte de TI em Ambientes Híbridos", inst: "LinkedIn Learning", horas: "1h", data: "2025-08-02", cat: "outros" },
+    { nome: "Boas-vindas ao Accenture - Python para Análise e Automação de Dados", inst: "DIO", horas: "1h", data: "2025-07-18", cat: "data" },
+    { nome: "Estruturas Condicionais e de Repetição em Python", inst: "DIO", horas: "1h", data: "2025-07-13", cat: "backend" },
+    { nome: "Aplicando Decisões e Repetições na Prática", inst: "DIO", horas: "1h", data: "2025-07-10", cat: "outros" },
+    { nome: "Liderança Coaching em 7 Dias", inst: "Udemy", horas: "1h", data: "2025-07-09", cat: "soft" },
+    { nome: "Inglês para Negócios para Nativos de Português: Pronunciação", inst: "LinkedIn Learning", horas: "1h", data: "2025-07-06", cat: "soft" },
+    { nome: "Negocie como um Lobo - Técnicas de Vendas", inst: "Udemy", horas: "1h", data: "2025-07-05", cat: "soft" },
+    { nome: "Timidez: Torne-se o centro das atenções em 30 dias", inst: "Udemy", horas: "1h", data: "2025-06-30", cat: "soft" },
+    { nome: "Tipos de Operadores com Python", inst: "DIO", horas: "1h", data: "2025-06-26", cat: "backend" },
+    { nome: "Versionamento de Código com Git e GitHub", inst: "DIO", horas: "1h", data: "2025-06-20", cat: "backend" },
+    { nome: "Como Promover o Envolvimento Emocional de seus Colaboradores", inst: "LinkedIn Learning", horas: "1h", data: "2025-06-16", cat: "soft" },
+    { nome: "Criando um Processo de ETL com Excel e Power Query", inst: "DIO", horas: "1h", data: "2025-06-06", cat: "data" },
+    { nome: "Posicionamento Estratégico para Profissionais de Alto Potencial", inst: "LinkedIn Learning", horas: "1h", data: "2025-06-04", cat: "soft" },
+    { nome: "Inteligência Artificial Explicável (xAI) com Python", inst: "Udemy", horas: "1h", data: "2025-06-04", cat: "ai" },
+    { nome: "Dominando Funções Python", inst: "DIO", horas: "1h", data: "2025-05-23", cat: "backend" },
+    { nome: "Desafios de Projetos: Crie Um Portfólio Vencedor", inst: "DIO", horas: "1h", data: "2025-05-17", cat: "dev" },
+    { nome: "Introdução a Banco de Dados Relacionais", inst: "DIO", horas: "1h", data: "2025-04-26", cat: "data" },
+    { nome: "Como Se Tornar uma Liderança Inspiradora e Atrair os Melhores Talentos", inst: "LinkedIn Learning", horas: "2h", data: "2025-04-26", cat: "soft" },
+    { nome: "Desafios de Código: Aperfeiçoe Sua Lógica e Pensamento Computacional", inst: "DIO", horas: "1h", data: "2025-04-16", cat: "backend" },
+    { nome: "Trabalhando com Listas em Python", inst: "DIO", horas: "1h", data: "2025-04-14", cat: "backend" },
+    { nome: "Manipulando Strings com Python", inst: "DIO", horas: "1h", data: "2025-04-12", cat: "backend" },
+    { nome: "Introdução ao Excel 365", inst: "DIO", horas: "1h", data: "2025-04-12", cat: "data" },
+    { nome: "Jogos, Microaprendizado e Gamificação na Educação", inst: "Udemy", horas: "1h", data: "2025-04-10", cat: "soft" },
+    { nome: "Conversando por Voz Com o ChatGPT Utilizando Whisper (OpenAI) e Python", inst: "DIO", horas: "1h", data: "2025-04-01", cat: "ai" },
+    { nome: "Aprendendo a Utilizar Dicionários em Python", inst: "DIO", horas: "1h", data: "2025-03-27", cat: "backend" },
+    { nome: "Entendendo Operações Bancárias com Python", inst: "DIO", horas: "1h", data: "2025-03-13", cat: "backend" },
+    { nome: "ForteMente - Desenvolvimento Pessoal", inst: "Udemy", horas: "1h", data: "2025-02-24", cat: "soft" },
+    { nome: "Fundamentos de Programação com Python", inst: "DIO", horas: "1h", data: "2025-02-21", cat: "backend" },
+    { nome: "Conhecendo Tuplas em Python", inst: "DIO", horas: "1h", data: "2025-02-19", cat: "backend" },
+    { nome: "Explorando Conjuntos em Python", inst: "DIO", horas: "1h", data: "2025-02-07", cat: "backend" },
+    { nome: "Construindo Soluções com Funções em Python", inst: "DIO", horas: "1h", data: "2025-01-20", cat: "backend" },
+    { nome: "Conhecendo a Linguagem de Programação Python", inst: "DIO", horas: "1h", data: "2025-01-16", cat: "backend" },
+    { nome: "Manipulação de Coleções e Funções em Python", inst: "DIO", horas: "1h", data: "2025-01-16", cat: "backend" }
+  ],
+
+  filtrosCursos: [
+    { id: "todos",   label: "TODOS" },
+    { id: "ai",      label: "AI/ML" },
+    { id: "backend", label: "BACKEND" },
+    { id: "data",    label: "DATA" },
+    { id: "soft",    label: "SOFT SKILLS" },
+    { id: "dev",     label: "DEV" },
+    { id: "outros",  label: "OUTROS" }
+  ],
+
+  /* horas por área (calculado dos 80 certificados — total 82h estimadas) */
+  horasPorArea: [
+    { area: "AI/ML",       horas: 27 },
+    { area: "Backend",     horas: 18 },
+    { area: "Soft Skills", horas: 17 },
+    { area: "Data",        horas: 13 },
+    { area: "Outros",      horas: 4 },
+    { area: "Dev",         horas: 3 }
+  ],
+
+  /* habilidades certificadas na DIO (XP real do perfil) */
+  habilidades: [
+    { nome: "Liderança", xp: 720 },
+    { nome: "Marketing Pessoal", xp: 480 },
+    { nome: "Amazon Bedrock", xp: 480 },
+    { nome: "IA Generativa", xp: 480 },
+    { nome: "Python", xp: 468 },
+    { nome: "Inteligência Artificial (IA)", xp: 440 },
+    { nome: "Whisper", xp: 240 },
+    { nome: "Mentalidade de Crescimento", xp: 240 },
+    { nome: "Microsoft Fabric", xp: 240 },
+    { nome: "Ciência de Dados", xp: 240 },
+    { nome: "Aprendizagem Contínua", xp: 240 },
+    { nome: "Neo4j", xp: 172 },
+    { nome: "LLMs", xp: 60 },
+    { nome: "GitHub", xp: 40 },
+    { nome: "SQL", xp: 36 },
+    { nome: "Arquitetura de Sistemas", xp: 32 },
+    { nome: "Low-code", xp: 24 },
+    { nome: "ETL", xp: 16 },
+    { nome: "Microsoft Copilot", xp: 16 },
+    { nome: "Data", xp: 12 },
+    { nome: "Engenharia de Prompt", xp: 12 },
+    { nome: "Excel", xp: 12 }
+  ],
+
+  /* ── Conquistas (dados reais — o 1º item vira "última desbloqueada") ── */
+  conquistas: [
+    { nome: "80º certificado concluído — Visualização de Dados no Neo4j Browser", cat: "certificacao", data: "2026-05-26", icone: "award" },
+    { nome: "58 conquistas desbloqueadas na DIO",            cat: "formacao",     data: "2026", icone: "layers" },
+    { nome: "22 habilidades com XP certificado na DIO",      cat: "formacao",     data: "2026", icone: "book" },
+    { nome: "4 projetos publicados na DIO",                  cat: "projeto",      data: "2026", icone: "git" },
+    { nome: "12 cursos concluídos no LinkedIn Learning",     cat: "formacao",     data: "2026", icone: "clock" },
+    { nome: "10 cursos concluídos na Udemy",                 cat: "formacao",     data: "2026", icone: "clock" },
+    { nome: "MestreGrana em produção [ AO VIVO ]",           cat: "projeto",      data: "2026", icone: "rocket" }
+  ],
+
+  filtrosConquistas: [
+    { id: "todos",        label: "TODAS" },
+    { id: "projeto",      label: "PROJETOS" },
+    { id: "formacao",     label: "FORMAÇÃO" },
+    { id: "certificacao", label: "CERTIFICAÇÕES" },
+    { id: "comunidade",   label: "COMUNIDADE" }
+  ],
+
+  /* ── Assistente IA — base de conhecimento local (sem API externa) ──
+     Cada regra: lista de palavras-chave → resposta.
+     A PRIMEIRA regra cujo keyword aparecer na pergunta vence.        */
+  chat: {
+    saudacao:
+      "Olá! Sou o vitor_ai, assistente do portfólio. Posso falar sobre " +
+      "projetos, stack, experiência, formação ou contato. O que você quer saber?",
+    sugestoes: [
+      "Qual o projeto flagship?",
+      "Qual a stack principal?",
+      "Resumo da experiência",
+      "Como entrar em contato?"
+    ],
+    regras: [
+      {
+        keywords: ["mestregrana", "flagship", "projeto", "projetos", "portfolio", "portfólio"],
+        resposta:
+          "O projeto flagship é o MESTREGRANA [ PRODUÇÃO ] — um multi-agent financial advisor " +
+          "com orquestração LangGraph, judge multi-LLM para guardrails, RAG com embeddings e " +
+          "camada de governança/auditoria de respostas. Outros projetos: FluencyForge (edtech " +
+          "multi-agente), Aether Oncology (healthcare full-stack) e Harmoniz.AI (pipeline LLM). " +
+          "Veja a seção Projetos & Stack para detalhes."
+      },
+      {
+        keywords: ["stack", "tecnologia", "tecnologias", "ferramenta", "linguagem", "framework"],
+        resposta:
+          "Stack principal: AI/LLM → LangGraph, LangChain, RAG, Embeddings, Multi-agent · " +
+          "Backend → Python, FastAPI, Node.js · Data → PostgreSQL, MongoDB · " +
+          "Frontend → React, Flutter · Infra → Docker, GCP/AWS."
+      },
+      {
+        keywords: ["experiencia", "experiência", "ect", "correios", "carreira", "trajetoria", "trajetória", "trabalho"],
+        resposta:
+          "Resumo da experiência: 15 anos de operações mission-critical na ECT/Correios " +
+          "(governança de SLA, auditoria de dados, gestão de frota e logística), e desde 2024 " +
+          "atuação como AI Engineer & Solutions Architect independente, construindo sistemas " +
+          "agentic AI em produção com LangGraph, FastAPI, RAG e Docker."
+      },
+      {
+        keywords: ["formacao", "formação", "fiap", "faculdade", "estudo", "graduacao", "graduação", "pos", "pós"],
+        resposta:
+          "Formação em curso: Pós-Graduação em ML Engineering (FIAP) e Bacharelado em " +
+          "Ciência da Computação. Além disso, 80 certificados de formação contínua " +
+          "(DIO, LinkedIn Learning e Udemy) e a certificação AWS AI Practitioner " +
+          "(AIF-C01) em progresso."
+      },
+      {
+        keywords: ["certificacao", "certificação", "certificacoes", "certificações", "aws", "aif"],
+        resposta:
+          "Certificação em foco: AWS Certified AI Practitioner (AIF-C01) [ EM PROGRESSO ], " +
+          "com plano de estudo AWS Skill Builder → Udemy → Mocks. Além dela, já são 80 " +
+          "certificados concluídos entre DIO, LinkedIn Learning e Udemy — detalhes na " +
+          "seção Certificações."
+      },
+      {
+        keywords: ["contato", "email", "e-mail", "linkedin", "github", "falar", "contratar", "oportunidade"],
+        resposta:
+          "Para entrar em contato: LinkedIn, GitHub e Portfolio — os botões estão no Painel " +
+          "Geral. Vitor está [ DISPONÍVEL PARA OPORTUNIDADES ] em modelo remoto CLT/PJ, " +
+          "inclusive internacional."
+      },
+      {
+        keywords: ["idioma", "idiomas", "ingles", "inglês", "espanhol", "lingua", "língua"],
+        resposta:
+          "Idiomas: Português nativo, Inglês avançado e Espanhol intermediário."
+      },
+      {
+        keywords: ["oi", "ola", "olá", "hello", "hi", "bom dia", "boa tarde", "boa noite"],
+        resposta:
+          "Olá! 👋 Pergunte sobre o projeto flagship, a stack, a experiência ou como entrar em contato."
+      }
+    ],
+    fallback:
+      "Hmm, ainda não tenho resposta para isso. Tente perguntar sobre: projetos, " +
+      "stack, experiência, formação, certificações ou contato — ou use as sugestões acima. :)"
+  }
+};
+
+/* ════════════════════════════════════════════════════════════════
+   LÓGICA DE RENDERIZAÇÃO — não precisa editar daqui para baixo
+   ════════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+
+const $  = (sel) => document.querySelector(sel);
+const $$ = (sel) => document.querySelectorAll(sel);
+
+/* escapa texto vindo do DATA antes de inserir em HTML */
+function esc(s){
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[c]));
+}
+
+/* biblioteca mínima de ícones SVG para conquistas */
+const ICONES = {
+  rocket: '<svg viewBox="0 0 24 24"><path d="M5 15l-2 6 6-2"/><path d="M12 15l-3-3c1-5 4-8 10-9-1 6-4 9-9 12z"/><circle cx="14" cy="10" r="1.5"/></svg>',
+  layers: '<svg viewBox="0 0 24 24"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/></svg>',
+  book:   '<svg viewBox="0 0 24 24"><path d="M4 4h7v16H6a2 2 0 0 1-2-2z"/><path d="M20 4h-7v16h5a2 2 0 0 0 2-2z"/></svg>',
+  clock:  '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>',
+  award:  '<svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg>',
+  git:    '<svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="12" r="2.5"/><path d="M6 8.5v7M8 7l7.5 4"/></svg>'
+};
+const iconeDe = (n) => ICONES[n] || ICONES.award;
+
+/* ── STARFIELD — estrelas sutis em movimento (canvas) ──────────── */
+(function starfield(){
+  const cv = $("#starfield");
+  const ctx = cv.getContext("2d");
+  let estrelas = [];
+  function dimensiona(){
+    cv.width = innerWidth;
+    cv.height = innerHeight;
+    const qtd = Math.min(160, Math.floor(innerWidth * innerHeight / 9000));
+    estrelas = Array.from({ length: qtd }, () => ({
+      x: Math.random() * cv.width,
+      y: Math.random() * cv.height,
+      r: Math.random() * 1.3 + .2,
+      v: Math.random() * .25 + .05,          /* velocidade vertical */
+      a: Math.random() * .5 + .15            /* alpha base */
+    }));
+  }
+  function desenha(){
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    for (const e of estrelas){
+      e.y -= e.v;                            /* deriva suave para cima */
+      if (e.y < -2){ e.y = cv.height + 2; e.x = Math.random() * cv.width; }
+      const tw = e.a + Math.sin(Date.now() / 900 + e.x) * .12;  /* cintilação */
+      ctx.fillStyle = "rgba(0,255,65," + Math.max(.05, tw * .55) + ")";
+      ctx.fillRect(e.x, e.y, e.r, e.r);      /* pixel quadrado = estética terminal */
+    }
+    requestAnimationFrame(desenha);
+  }
+  addEventListener("resize", dimensiona);
+  dimensiona();
+  desenha();
+})();
+
+/* ── NAVEGAÇÃO SPA ─────────────────────────────────────────────── */
+const NOMES_BREADCRUMB = {
+  painel: "painel-geral", perfil: "perfil", experiencia: "experiencia",
+  formacao: "formacao", projetos: "projetos", certificacoes: "certificacoes",
+  conquistas: "conquistas", assistente: "assistente-ia"
+};
+
+function mostraSecao(id){
+  $$(".secao").forEach(s => s.classList.remove("ativa"));
+  $("#secao-" + id).classList.add("ativa");
+  $$(".nav-item").forEach(b => b.classList.toggle("ativa", b.dataset.secao === id));
+  $("#breadcrumbSecao").textContent = NOMES_BREADCRUMB[id] || id;
+  fechaMenuMobile();
+  window.scrollTo({ top: 0 });
+  /* dispara animações dependentes de visibilidade da seção */
+  if (id === "formacao")      animaProgressos("#secao-formacao .progress__fill");
+  if (id === "certificacoes"){ animaProgressos("#secao-certificacoes .progress__fill"); animaBarras(); }
+}
+
+$("#navPrincipal").addEventListener("click", (ev) => {
+  const btn = ev.target.closest(".nav-item");
+  if (btn) mostraSecao(btn.dataset.secao);
+});
+
+/* ── MENU MOBILE (hamburger) ───────────────────────────────────── */
+const sidebar  = $("#sidebar");
+const hamb     = $("#hamburger");
+const backdrop = $("#backdrop");
+function fechaMenuMobile(){
+  sidebar.classList.remove("aberta");
+  hamb.classList.remove("aberto");
+  hamb.setAttribute("aria-expanded", "false");
+  backdrop.classList.remove("visivel");
+}
+hamb.addEventListener("click", () => {
+  const aberto = sidebar.classList.toggle("aberta");
+  hamb.classList.toggle("aberto", aberto);
+  hamb.setAttribute("aria-expanded", String(aberto));
+  backdrop.classList.toggle("visivel", aberto);
+});
+backdrop.addEventListener("click", fechaMenuMobile);
+
+/* ── TYPEWRITER do título do painel ────────────────────────────── */
+(function typewriter(){
+  const alvo = $("#typedTitulo");
+  const texto = DATA.nome;
+  let i = 0;
+  (function tique(){
+    if (i <= texto.length){
+      alvo.textContent = texto.slice(0, i++);
+      setTimeout(tique, 38);
+    }
+  })();
+})();
+
+/* ── COUNT-UP das métricas (dispara ao entrar na viewport) ─────── */
+function countUp(el, fim, sufixo){
+  const dur = 1300;
+  const t0 = performance.now();
+  (function frame(t){
+    const p = Math.min(1, (t - t0) / dur);
+    const eased = 1 - Math.pow(1 - p, 3);              /* easeOutCubic */
+    el.textContent = Math.round(fim * eased) + sufixo;
+    if (p < 1) requestAnimationFrame(frame);
+  })(t0);
+}
+
+/* ── RENDER: Painel Geral ──────────────────────────────────────── */
+$("#heroStatus").innerHTML =
+  '<span>📍 ' + esc(DATA.localizacao) + '</span> · <span class="tag">' + esc(DATA.disponibilidade) + '</span>';
+
+$("#metricasGrid").innerHTML = DATA.metricas.map(m =>
+  '<div class="metric-card">' +
+    '<div class="metric-num" data-valor="' + m.valor + '" data-sufixo="' + esc(m.sufixo) + '">0</div>' +
+    '<div class="metric-label">' + esc(m.label) + '</div>' +
+  '</div>'
+).join("");
+
+/* observa as métricas e dispara o count-up uma única vez */
+const obsMetricas = new IntersectionObserver((entradas) => {
+  entradas.forEach(e => {
+    if (e.isIntersecting){
+      const el = e.target;
+      countUp(el, Number(el.dataset.valor), el.dataset.sufixo);
+      obsMetricas.unobserve(el);
+    }
+  });
+}, { threshold: .4 });
+$$(".metric-num").forEach(el => obsMetricas.observe(el));
+
+$("#posicionamento").innerHTML =
+  '<span class="prompt">$ cat positioning.txt</span><br>' +
+  '<span class="out">' + esc(DATA.posicionamento) + '</span>';
+
+$("#deployCard").innerHTML =
+  '<h3>Último deploy</h3>' +
+  '<div class="deploy-nome">' + esc(DATA.ultimoDeploy.nome) + '</div>' +
+  '<span class="tag">' + esc(DATA.ultimoDeploy.status) + '</span>' +
+  '<p style="color:var(--txt-dim);font-size:12.5px;margin-top:12px;">' + esc(DATA.ultimoDeploy.descricao) + '</p>';
+
+$("#botoesLinks").innerHTML =
+  '<a class="btn" href="' + esc(DATA.links.linkedin) + '" target="_blank" rel="noopener">LinkedIn</a>' +
+  '<a class="btn" href="' + esc(DATA.links.github) + '" target="_blank" rel="noopener">GitHub</a>' +
+  '<a class="btn btn--solid" href="' + esc(DATA.links.portfolio) + '" target="_blank" rel="noopener">Portfolio</a>';
+
+/* ── RENDER: Perfil ────────────────────────────────────────────── */
+$("#resumoExecutivo").textContent = DATA.resumoExecutivo;
+
+const linhaDado = (d) =>
+  '<div class="dado-linha"><span class="k">' + esc(d.k) + '</span><span class="v">' + esc(d.v) + '</span></div>';
+$("#dadosGrid").innerHTML      = DATA.dados.map(linhaDado).join("");
+$("#diretrizesGrid").innerHTML = DATA.diretrizes.map(linhaDado).join("");
+$("#pilaresLista").innerHTML   = DATA.pilares.map(p => "<li>" + esc(p) + "</li>").join("");
+
+/* ── RENDER: Experiência (timeline) ────────────────────────────── */
+$("#timelineExp").innerHTML = DATA.experiencia.map(x =>
+  '<div class="tl-no">' +
+    '<div class="card">' +
+      '<div class="tl-periodo">' + esc(x.periodo) + '</div>' +
+      '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">' +
+        '<span class="tl-cargo">' + esc(x.cargo) + '</span>' +
+        '<span class="tag tag--cyan">' + esc(x.badge) + '</span>' +
+      '</div>' +
+      '<div class="tl-org">' + esc(x.org) + '</div>' +
+      '<ul class="tl-bullets">' + x.bullets.map(b => "<li>" + esc(b) + "</li>").join("") + '</ul>' +
+      (x.stack.length
+        ? '<div class="tl-stack">' + x.stack.map(s => '<span class="tag tag--dim">' + esc(s) + '</span>').join("") + '</div>'
+        : "") +
+    '</div>' +
+  '</div>'
+).join("");
+
+/* ── RENDER: Formação ──────────────────────────────────────────── */
+$("#formacaoGrid").innerHTML = DATA.formacao.map(f =>
+  '<div class="card">' +
+    '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px;">' +
+      '<h3 style="margin:0;">' + esc(f.curso) + '</h3>' +
+      '<span class="tag tag--amber">' + esc(f.status) + '</span>' +
+    '</div>' +
+    '<div style="color:var(--txt-dim);font-size:12.5px;">' + esc(f.instituicao) + '</div>' +
+    '<div class="progress"><div class="progress__fill" data-progresso="' + f.progresso + '"></div></div>' +
+    '<div class="progress-label"><span>progresso</span><span style="color:var(--neon);">' + f.progresso + '%</span></div>' +
+    '<p style="font-size:12.5px;margin-top:12px;">' + esc(f.foco) + '</p>' +
+    '<div style="color:var(--txt-dim);font-size:11.5px;margin-top:8px;">previsão: ' + esc(f.previsao) + '</div>' +
+    '<div class="disciplinas">' + f.disciplinas.map(d => '<span class="tag tag--dim">' + esc(d) + '</span>').join("") + '</div>' +
+  '</div>'
+).join("");
+
+/* anima barras de progresso (formação e cert) quando a seção abre */
+function animaProgressos(seletor){
+  requestAnimationFrame(() => {
+    $$(seletor).forEach(el => { el.style.width = el.dataset.progresso + "%"; });
+  });
+}
+
+/* ── RENDER: Projetos & filtros ────────────────────────────────── */
+function montaFiltros(containerSel, filtros, aoFiltrar){
+  const cont = $(containerSel);
+  cont.innerHTML = filtros.map((f, i) =>
+    '<button class="filtro-btn' + (i === 0 ? " ativa" : "") + '" data-filtro="' + f.id + '">' + esc(f.label) + '</button>'
+  ).join("");
+  cont.addEventListener("click", (ev) => {
+    const btn = ev.target.closest(".filtro-btn");
+    if (!btn) return;
+    cont.querySelectorAll(".filtro-btn").forEach(b => b.classList.toggle("ativa", b === btn));
+    aoFiltrar(btn.dataset.filtro);
+  });
+}
+
+$("#projetosGrid").innerHTML = DATA.projetos.map(p =>
+  '<article class="projeto-card' + (p.flagship ? " flagship" : "") + '" data-cats="' + p.categorias.join(" ") + '">' +
+    '<div class="projeto-head">' +
+      '<span class="projeto-nome">' + esc(p.nome) + '</span>' +
+      p.tags.map(t => '<span class="tag">' + esc(t) + '</span>').join("") +
+    '</div>' +
+    '<p class="projeto-desc">' + esc(p.descricao) + '</p>' +
+    /* arquitetura usa <strong> controlado pelo DATA (conteúdo próprio, não input externo) */
+    '<p class="projeto-arq">' + p.arquitetura + '</p>' +
+    '<div class="stack-tags">' + p.stack.map(s => '<span class="tag tag--dim">' + esc(s) + '</span>').join("") + '</div>' +
+    (p.diagrama ? '<pre class="ascii-diagrama">' + esc(p.diagrama) + '</pre>' : "") +
+    '<div class="projeto-metricas">' +
+      p.metricas.map(m => '<span>' + esc(m.k) + ': <b>' + esc(m.v) + '</b></span>').join("") +
+    '</div>' +
+    '<div class="botoes-links">' +
+      p.links.map(l => '<a class="btn' + (l.solid ? " btn--solid" : "") + '" href="' + esc(l.url) + '" target="_blank" rel="noopener">' + esc(l.label) + '</a>').join("") +
+    '</div>' +
+  '</article>'
+).join("");
+
+montaFiltros("#filtrosProjetos", DATA.filtrosProjetos, (filtro) => {
+  $$("#projetosGrid .projeto-card").forEach(card => {
+    const cats = card.dataset.cats.split(" ");
+    card.classList.toggle("oculto", filtro !== "todos" && !cats.includes(filtro));
+  });
+});
+
+$("#stackGrupos").innerHTML = DATA.stackCompleto.map(g =>
+  '<div class="stack-grupo">' +
+    '<span class="grupo-nome">' + esc(g.grupo) + '</span>' +
+    g.itens.map(i => '<span class="tag tag--dim">' + esc(i) + '</span>').join("") +
+  '</div>'
+).join("");
+
+/* ── RENDER: Certificações ─────────────────────────────────────── */
+const cd = DATA.certDestaque;
+$("#certDestaque").innerHTML =
+  '<div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">' +
+    '<h3 style="font-family:var(--font-tit);font-size:17px;color:#fff;margin:0;">' + esc(cd.nome) + '</h3>' +
+    '<span class="tag tag--amber">' + esc(cd.status) + '</span>' +
+  '</div>' +
+  '<div class="progress"><div class="progress__fill" data-progresso="' + cd.progresso + '"></div></div>' +
+  '<div class="progress-label"><span>preparação</span><span style="color:var(--neon);">' + cd.progresso + '%</span></div>' +
+  '<div class="cert-plano">plano: ' +
+    cd.plano.map(p => '<span class="tag tag--dim">' + esc(p) + '</span>').join('<span class="seta">→</span>') +
+  '</div>' +
+  '<div style="color:var(--txt-dim);font-size:11.5px;margin-top:10px;">previsão: ' + esc(cd.previsao) + '</div>';
+
+$("#cursosGrid").innerHTML = DATA.cursos.map(c =>
+  '<div class="curso-card" data-cat="' + esc(c.cat) + '">' +
+    '<div class="curso-nome">' + esc(c.nome) + '</div>' +
+    '<div class="curso-meta"><span>' + esc(c.inst) + '</span><span>' + esc(c.horas) + ' · ' + esc(c.data) + '</span></div>' +
+  '</div>'
+).join("");
+
+montaFiltros("#filtrosCursos", DATA.filtrosCursos, (filtro) => {
+  $$("#cursosGrid .curso-card").forEach(card => {
+    card.classList.toggle("oculto", filtro !== "todos" && card.dataset.cat !== filtro);
+  });
+});
+
+/* gráfico de barras horizontal (CSS puro, largura proporcional) */
+const maxHoras = Math.max(...DATA.horasPorArea.map(h => h.horas));
+$("#graficoLinhas").innerHTML = DATA.horasPorArea.map(h =>
+  '<div class="grafico-linha">' +
+    '<span class="area">' + esc(h.area) + '</span>' +
+    '<div class="barra-track"><div class="barra-fill" data-pct="' + Math.round(h.horas / maxHoras * 100) + '"></div></div>' +
+    '<span class="horas">' + h.horas + 'h</span>' +
+  '</div>'
+).join("");
+
+/* gráfico de XP por habilidade (DIO) — top 12, mesma estética */
+const topHabilidades = DATA.habilidades.slice(0, 12);
+const maxXP = Math.max(...topHabilidades.map(h => h.xp));
+$("#graficoXPLinhas").innerHTML = topHabilidades.map(h =>
+  '<div class="grafico-linha">' +
+    '<span class="area">' + esc(h.nome) + '</span>' +
+    '<div class="barra-track"><div class="barra-fill" data-pct="' + Math.round(h.xp / maxXP * 100) + '"></div></div>' +
+    '<span class="horas">' + h.xp + 'xp</span>' +
+  '</div>'
+).join("");
+
+function animaBarras(){
+  requestAnimationFrame(() => {
+    $$("#secao-certificacoes .barra-fill").forEach(el => { el.style.width = el.dataset.pct + "%"; });
+  });
+}
+
+/* ── RENDER: Conquistas ────────────────────────────────────────── */
+$("#conquistasContador").textContent =
+  DATA.conquistas.length + " conquistas registradas · filtre por categoria";
+
+const ultima = DATA.conquistas[0];
+$("#ultimaConquista").innerHTML =
+  iconeDe(ultima.icone) +
+  '<div>' +
+    '<div style="font-size:11px;color:var(--neon);letter-spacing:.1em;margin-bottom:4px;">ÚLTIMA CONQUISTA DESBLOQUEADA</div>' +
+    '<div style="font-family:var(--font-tit);font-weight:700;color:#fff;">' + esc(ultima.nome) + '</div>' +
+    '<div style="color:var(--txt-dim);font-size:11.5px;margin-top:3px;">' + esc(ultima.cat) + ' · ' + esc(ultima.data) + '</div>' +
+  '</div>';
+
+$("#badgesGrid").innerHTML = DATA.conquistas.map(c =>
+  '<div class="badge-card" data-cat="' + esc(c.cat) + '">' +
+    iconeDe(c.icone) +
+    '<div>' +
+      '<div class="badge-nome">' + esc(c.nome) + '</div>' +
+      '<div class="badge-meta">' + esc(c.cat) + ' · ' + esc(c.data) + '</div>' +
+    '</div>' +
+  '</div>'
+).join("");
+
+montaFiltros("#filtrosConquistas", DATA.filtrosConquistas, (filtro) => {
+  $$("#badgesGrid .badge-card").forEach(card => {
+    card.classList.toggle("oculto", filtro !== "todos" && card.dataset.cat !== filtro);
+  });
+});
+
+/* ── ASSISTENTE IA — chat local por palavras-chave ─────────────────
+   ▼▼▼ INTEGRAÇÃO FUTURA COM GEMINI API ▼▼▼
+   Para trocar o matching local por um LLM real, substitua a função
+   `respondeLocal(pergunta)` por uma chamada assíncrona, por exemplo:
+
+     async function respondeLLM(pergunta){
+       const r = await fetch(
+         "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=SUA_KEY",
+         { method: "POST", headers: { "Content-Type": "application/json" },
+           body: JSON.stringify({ contents: [{ parts: [{ text: pergunta }] }] }) }
+       );
+       const j = await r.json();
+       return j.candidates[0].content.parts[0].text;
+     }
+
+   IMPORTANTE: não exponha a API key no frontend em produção —
+   use um backend/proxy (ex: endpoint FastAPI) para fazer a chamada.
+   ▲▲▲ FIM DA NOTA DE INTEGRAÇÃO ▲▲▲                                */
+
+function normaliza(s){
+  return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+}
+
+function respondeLocal(pergunta){
+  const q = normaliza(pergunta);
+  for (const regra of DATA.chat.regras){
+    if (regra.keywords.some(k => q.includes(normaliza(k)))) return regra.resposta;
+  }
+  return DATA.chat.fallback;
+}
+
+const chatCorpo = $("#chatCorpo");
+
+function addMsgUser(texto){
+  const div = document.createElement("div");
+  div.className = "msg msg--user";
+  div.textContent = texto;
+  chatCorpo.appendChild(div);
+  chatCorpo.scrollTop = chatCorpo.scrollHeight;
+}
+
+/* mensagem do bot com efeito de digitação */
+function addMsgBot(texto, instantaneo){
+  const div = document.createElement("div");
+  div.className = "msg msg--bot";
+  div.innerHTML = '<span class="msg-prefixo">vitor_ai&gt;</span> <span class="msg-texto"></span>';
+  chatCorpo.appendChild(div);
+  const alvo = div.querySelector(".msg-texto");
+  if (instantaneo){
+    alvo.textContent = texto;
+    chatCorpo.scrollTop = chatCorpo.scrollHeight;
+    return;
+  }
+  let i = 0;
+  (function tique(){
+    if (i <= texto.length){
+      alvo.textContent = texto.slice(0, i);
+      i += 2;                                /* 2 chars por tique = digitação ágil */
+      chatCorpo.scrollTop = chatCorpo.scrollHeight;
+      setTimeout(tique, 14);
+    }
+  })();
+}
+
+/* sugestões clicáveis */
+$("#chatSugestoes").innerHTML = DATA.chat.sugestoes.map(s =>
+  '<button type="button" class="sugestao">' + esc(s) + '</button>'
+).join("");
+$("#chatSugestoes").addEventListener("click", (ev) => {
+  const btn = ev.target.closest(".sugestao");
+  if (!btn) return;
+  enviaPergunta(btn.textContent);
+});
+
+function enviaPergunta(texto){
+  const t = texto.trim();
+  if (!t) return;
+  addMsgUser(t);
+  setTimeout(() => addMsgBot(respondeLocal(t)), 350);   /* pequena pausa "pensando" */
+}
+
+$("#chatForm").addEventListener("submit", (ev) => {
+  ev.preventDefault();
+  const input = $("#chatInput");
+  enviaPergunta(input.value);
+  input.value = "";
+});
+
+/* saudação inicial */
+addMsgBot(DATA.chat.saudacao, true);
+
+/* ── ano no footer da sidebar ──────────────────────────────────── */
+$("#anoAtual").textContent = new Date().getFullYear();
+
+})();
+</script>
+</body>
+</html>

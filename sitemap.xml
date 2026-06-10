@@ -12,4 +12,10 @@
     <xhtml:link rel="alternate" hreflang="es"        href="https://vitorsilva.page/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vitorsilva.page/"/>
   </url>
+  <url>
+    <loc>https://vitorsilva.page/dashboard.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
