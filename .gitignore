@@ -78,3 +78,6 @@ build/
 # Obsolete Experimental Themes
 stitch_agentic_neon_terminal/
 
+# Claude Code (local settings)
+.claude/
+
