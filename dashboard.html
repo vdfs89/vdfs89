@@ -1090,7 +1090,8 @@ const DATA = {
   links: {
     linkedin:  "#[PREENCHER URL LinkedIn]",
     github:    "#[PREENCHER URL GitHub]",
-    portfolio: "#[PREENCHER URL Portfolio]"
+    portfolio: "#[PREENCHER URL Portfolio]",
+    email:     "mailto:mkmillhouse89@gmail.com"
   },
 
   /* ── Perfil ── */
@@ -1509,9 +1510,9 @@ const DATA = {
       {
         keywords: ["contato", "email", "e-mail", "linkedin", "github", "falar", "contratar", "oportunidade"],
         resposta:
-          "Para entrar em contato: LinkedIn, GitHub e Portfolio — os botões estão no Painel " +
-          "Geral. Vitor está [ DISPONÍVEL PARA OPORTUNIDADES ] em modelo remoto CLT/PJ, " +
-          "inclusive internacional."
+          "Para entrar em contato: e-mail mkmillhouse89@gmail.com ou pelos botões de " +
+          "LinkedIn, GitHub e Portfolio no Painel Geral. Vitor está [ DISPONÍVEL PARA " +
+          "OPORTUNIDADES ] em modelo remoto CLT/PJ, inclusive internacional."
       },
       {
         keywords: ["idioma", "idiomas", "ingles", "inglês", "espanhol", "lingua", "língua"],
@@ -1693,7 +1694,8 @@ $("#deployCard").innerHTML =
 $("#botoesLinks").innerHTML =
   '<a class="btn" href="' + esc(DATA.links.linkedin) + '" target="_blank" rel="noopener">LinkedIn</a>' +
   '<a class="btn" href="' + esc(DATA.links.github) + '" target="_blank" rel="noopener">GitHub</a>' +
-  '<a class="btn btn--solid" href="' + esc(DATA.links.portfolio) + '" target="_blank" rel="noopener">Portfolio</a>';
+  '<a class="btn btn--solid" href="' + esc(DATA.links.portfolio) + '" target="_blank" rel="noopener">Portfolio</a>' +
+  '<a class="btn" href="' + esc(DATA.links.email) + '">E-mail</a>';
 
 /* ── RENDER: Perfil ────────────────────────────────────────────── */
 $("#resumoExecutivo").textContent = DATA.resumoExecutivo;
