@@ -862,15 +862,80 @@ body{
 /* ════════════════════════════════════════════════════════════════
    RESPONSIVO — mobile-first ajustes
    ════════════════════════════════════════════════════════════════ */
+
+/* ≤900px — tablet portrait + todos os phones */
 @media (max-width: 900px){
   .sidebar{ transform:translateX(-100%); }
   .sidebar.aberta{ transform:translateX(0); box-shadow:8px 0 30px rgba(0,0,0,.6); }
   .hamburger{ display:flex; }
-  .main{ margin-left:0; padding:74px 18px 56px; }
+  .main{ margin-left:0; padding:70px 22px 56px; max-width:100%; }
   .painel-grid{ grid-template-columns:1fr; }
-  .grafico-linha{ grid-template-columns:84px 1fr 52px; }
+  .grafico-linha{ grid-template-columns:90px 1fr 54px; }
   .msg{ max-width:100%; }
+  /* sidebar aberta: itens maiores para toque */
+  .sidebar.aberta .nav-item{ min-height:44px; font-size:14px; }
+  .sidebar.aberta .nav-item svg{ width:18px; height:18px; }
+  /* grids de 2 colunas colapsam mais cedo */
+  .perfil-grid{ grid-template-columns:1fr; }
+  .formacao-grid{ grid-template-columns:1fr; }
+  /* chat adapta à altura da viewport */
+  .chat-janela{ height:auto; max-height:calc(100vh - 190px); }
+  /* breadcrumb não transborda */
+  .breadcrumb{ display:block; word-break:break-all; }
 }
+
+/* ≤600px — phones em retrato */
+@media (max-width: 600px){
+  .main{ padding:66px 14px 48px; }
+  /* métricas: 2×2 em vez de 4 em linha */
+  .metricas{ grid-template-columns:repeat(2,1fr); gap:10px; }
+  .metric-num{ font-size:28px; }
+  .metric-label{ font-size:10.5px; }
+  .secao-titulo{ font-size:20px; }
+  .secao-sub{ margin-bottom:20px; }
+  /* cards de projeto com menos padding */
+  .projeto-card{ padding:16px; }
+  /* ASCII diagram menor para caber sem scroll horizontal */
+  .ascii-diagrama{ font-size:9px; padding:10px 12px; }
+  /* grids de 2 colunas → 1 coluna */
+  .cursos-grid{ grid-template-columns:1fr; }
+  .badges-grid{ grid-template-columns:1fr; }
+  /* sugestões do chat */
+  .chat-sugestoes{ gap:5px; }
+  .sugestao{ font-size:10.5px; padding:5px 9px; }
+  /* timeline sem sangria excessiva */
+  .timeline{ margin-left:4px; padding-left:22px; }
+  /* gráfico de barras */
+  .grafico-linha{ grid-template-columns:80px 1fr 48px; font-size:11.5px; }
+}
+
+/* ≤420px — phones pequenos (SE, Moto G, Galaxy A) */
+@media (max-width: 420px){
+  .main{ padding:62px 10px 40px; }
+  .metricas{ gap:8px; }
+  .metric-num{ font-size:24px; }
+  /* titulo hero menor */
+  .hero-titulo{ font-size:clamp(16px,5.5vw,22px) !important; }
+  /* tags compactas */
+  .tag{ font-size:9px; padding:2px 5px; }
+  .stack-tags{ gap:5px; }
+  /* filtros */
+  .filtros{ gap:5px; }
+  .filtro-btn{ font-size:9.5px; padding:4px 9px; }
+  /* botões */
+  .btn{ padding:7px 13px; font-size:11px; }
+  .botoes-links{ gap:7px; }
+  /* gráfico */
+  .grafico-linha{ grid-template-columns:64px 1fr 42px; font-size:10.5px; }
+  /* chat */
+  .chat-janela{ max-height:calc(100vh - 160px); }
+  .chat-header{ font-size:10.5px; padding:8px 12px; }
+  #chatInput{ font-size:12px; }
+  .chat-enviar{ padding:6px 12px; font-size:11px; }
+  /* diagrama ASCII ainda menor */
+  .ascii-diagrama{ font-size:8px; }
+}
+
 @media (prefers-reduced-motion: reduce){
   *, *::before, *::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
 }
