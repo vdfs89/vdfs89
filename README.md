@@ -22,7 +22,7 @@ The governance pain large companies are fighting in production *today* — hallu
 | Project | What it solves | Stack |
 |---------|----------------|-------|
 | **[MestreGrana](https://github.com/vdfs89/InvestimentoDIO)** | Multi-agent financial advisor with a **multi-LLM "judge" system** — guardrails that audit and mitigate hallucinations before they reach the user. Advanced RAG + state-graph orchestration. | `LangGraph` `FastAPI` `Python` `MongoDB` |
-| **Aether Oncology** | Full-stack healthcare app — modern frontend consuming a robust Python backend via APIs. | `React` `Node.js` `Flutter` `Python` |
+| **[Aether Oncology](https://github.com/vdfs89/Aether_Oncology)** | Full-stack healthcare app — modern frontend consuming a robust Python backend via APIs. | `React` `Node.js` `Flutter` `Python` |
 | **[FluencyForge](https://github.com/vdfs89/fluencyforge)** | Multi-agent EdTech platform with RAG for real-time pedagogical personalization and stateful long-term memory. | `LangGraph` `FastAPI` `RAG` |
 | **[Harmoniz.AI](https://github.com/vdfs89/Harmoniz.AI)** | Human-performance engine correlating biometric data via predictive analysis + LLM pipeline. | `Python` `LLM Pipeline` `Data Analysis` |
 
@@ -70,7 +70,7 @@ A dor de governança que grandes empresas enfrentam em produção *hoje* — con
 | Projeto | O que resolve | Stack |
 |---------|---------------|-------|
 | **[MestreGrana](https://github.com/vdfs89/InvestimentoDIO)** | Consultor financeiro multi-agente com **sistema de LLMs-juízes** — guardrails que auditam e mitigam alucinações antes de chegar ao usuário. RAG avançado + orquestração por grafos de estado. | `LangGraph` `FastAPI` `Python` `MongoDB` |
-| **Aether Oncology** | Aplicação full stack na saúde — frontend moderno consumindo backend Python robusto via APIs. | `React` `Node.js` `Flutter` `Python` |
+| **[Aether Oncology](https://github.com/vdfs89/Aether_Oncology)** | Aplicação full stack na saúde — frontend moderno consumindo backend Python robusto via APIs. | `React` `Node.js` `Flutter` `Python` |
 | **[FluencyForge](https://github.com/vdfs89/fluencyforge)** | Plataforma EdTech multi-agente com RAG para personalização pedagógica em tempo real e memória de longo prazo. | `LangGraph` `FastAPI` `RAG` |
 | **[Harmoniz.AI](https://github.com/vdfs89/Harmoniz.AI)** | Engine de performance humana correlacionando dados biométricos via análise preditiva + pipeline de LLM. | `Python` `LLM Pipeline` `Data Analysis` |
 
