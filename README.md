@@ -218,3 +218,12 @@ Orquestrador Stateful (LangGraph)
 ---
 
 <p align="center"><i>"A maturidade de quem operou sistemas que não podem parar — aplicada a agentes de IA confiáveis para o mundo real."</i></p>
+
+---
+
+## 📊 GitHub Activity
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=vdfs89&show_icons=true&theme=dark&hide_border=true&count_private=true" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=vdfs89&layout=compact&theme=dark&hide_border=true" alt="Top Languages" />
+</p>
