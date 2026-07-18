@@ -1,11 +1,19 @@
-<p align="left">
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=00ff41&height=200&section=header&text=Vitor%20Silva&fontSize=50&fontColor=ffffff&desc=AI%20Software%20Engineer&descAlignY=70&descAlign=50" alt="Vitor Silva - AI Software Engineer" />
+</p>
+
+<p align="center">
   <a href="#english">🇺🇸 English</a> · <a href="#portugues">🇧🇷 Português</a>
 </p>
 
 <a name="english"></a>
 
+<p align="center">
+  <b>Building production-grade AI systems with LangGraph • FastAPI • Python • RAG • Multi-Agent Systems</b>
+</p>
+
 ### Hi, I'm Vitor Silva 👋
-# Machine Learning Engineer · Applied AI · Agentic Systems
+# AI Software Engineer | LLM Engineering • Agentic AI • Backend Python
 
 > I build AI systems that don't break in production.
 
@@ -15,25 +23,81 @@ I bring **15 years of mission-critical operations** (high-volume SLAs, fleet log
 
 The governance pain large companies are fighting in production *today* — hallucination control, auditability, cost vs. accuracy — is exactly what my authored projects are architected to solve.
 
+## What I Build
+
+✔ **Multi-Agent AI Platforms**  
+✔ **Production-ready FastAPI Backends**  
+✔ **Retrieval-Augmented Generation (RAG)**  
+✔ **LLM Guardrails & AI Governance**  
+✔ **Cloud-native APIs**  
+
 ---
 
-### 🚀 Featured Projects
+### 🚀 Production-Grade AI Platforms
 
-| Project | What it solves | Stack |
-|---------|----------------|-------|
-| **[MestreGrana](https://github.com/vdfs89/InvestimentoDIO)** | Multi-agent financial advisor with a **multi-LLM "judge" system** — guardrails that audit and mitigate hallucinations before they reach the user. Advanced RAG + state-graph orchestration. | `LangGraph` `FastAPI` `Python` `MongoDB` |
-| **Aether Oncology** | Full-stack healthcare app — modern frontend consuming a robust Python backend via APIs. | `React` `Node.js` `Flutter` `Python` |
-| **[FluencyForge](https://github.com/vdfs89/fluencyforge)** | Multi-agent EdTech platform with RAG for real-time pedagogical personalization and stateful long-term memory. | `LangGraph` `FastAPI` `RAG` |
-| **[Harmoniz.AI](https://github.com/vdfs89/Harmoniz.AI)** | Human-performance engine correlating biometric data via predictive analysis + LLM pipeline. | `Python` `LLM Pipeline` `Data Analysis` |
+#### 💰 [MestreGrana: Multi-Agent Financial Platform](https://github.com/vdfs89/InvestimentoDIO)
+**What it solves:** Mitigating LLM hallucinations in high-stakes financial advice using a multi-LLM "judge" system.
+**Metrics/Impact:** Orchestrates **4 specialized agents**, ensuring **100% audited outputs** with sub-second RAG retrieval.
+**Stack:** `LangGraph` `FastAPI` `Python` `MongoDB`
+
+<details>
+<summary><b>View Architecture</b></summary>
+
+```text
+User 
+ ↓ 
+FastAPI 
+ ↓ 
+LangGraph Supervisor
+ ├── Financial Agent
+ ├── Retrieval Agent
+ ├── Judge Agent
+ └── Report Agent
+ ↓ 
+MongoDB
+```
+</details>
+
+#### 🎓 [FluencyForge: Multi-Agent EdTech Platform](https://github.com/vdfs89/fluencyforge)
+**What it solves:** Real-time pedagogical personalization using RAG and stateful long-term memory.
+**Metrics/Impact:** Dynamic generation of learning paths across **multiple integrated AI tools** maintaining continuous context.
+**Stack:** `LangGraph` `FastAPI` `RAG`
+
+<details>
+<summary><b>View Architecture</b></summary>
+
+```text
+User Request 
+ ↓ 
+FastAPI Gateway
+ ↓ 
+Stateful Orchestrator (LangGraph)
+ ├── Context Retrieval (Vector DB)
+ ├── Curriculum Agent
+ └── Assessment Agent
+```
+</details>
+
+#### 🧬 Aether Oncology: Clinical Healthcare Platform
+**What it solves:** Modern frontend interface consuming a robust Python backend via APIs for clinical data.
+**Metrics/Impact:** Seamless API integration connecting complex healthcare logic to responsive frontends.
+**Stack:** `React` `Node.js` `Flutter` `Python` `FastAPI`
+
+#### 🔬 [Harmoniz.AI: Human-Performance Engine](https://github.com/vdfs89/Harmoniz.AI)
+**What it solves:** Correlating biometric data via predictive analysis and LLM pipelines.
+**Metrics/Impact:** Processing diverse data streams for unified predictive insights.
+**Stack:** `Python` `LLM Pipeline` `Data Analysis`
 
 ---
 
 ### 🛠️ Core Stack
 
-**AI & Agents** — LangGraph · LangChain · Advanced RAG · Multi-LLM Guardrails · LLM Orchestration
-**Backend** — Python · FastAPI · Async · Docker · PostgreSQL · MongoDB · REST APIs
-**Frontend** — React · Node.js · Flutter / Dart
-**Engineering** — Clean Architecture · SOLID · Git / CI-CD · Linux/WSL · Data Governance · MLOps
+* **AI & Agents:** LangGraph, LangChain, Advanced RAG, Multi-LLM Guardrails, LLM Orchestration
+* **Backend:** Python, FastAPI, Async, REST APIs
+* **Databases:** PostgreSQL, MongoDB, Vector DBs
+* **Cloud & DevOps:** AWS, Azure, Google Cloud, Docker, GitHub Actions, CI/CD, MLOps
+* **Frontend:** React, Node.js, Flutter / Dart
+* **Engineering:** Clean Architecture, SOLID, Git, Linux/WSL, Data Governance
 
 ---
 
@@ -42,6 +106,7 @@ The governance pain large companies are fighting in production *today* — hallu
 - 💼 **LinkedIn:** [/in/vitorsilva-aieng](https://www.linkedin.com/in/vitorsilva-aieng/)
 - 📍 Curitiba, Brazil · open to international remote
 
+### 📈 GitHub Activity
 <p align="left">
   <img height="165" src="https://github-readme-stats.vercel.app/api?username=vdfs89&show_icons=true&theme=dark&bg_color=000000&border_color=00ff41&title_color=00ff41&icon_color=00cc33&text_color=b8e0b8&include_all_commits=true&count_private=true" />
   <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=vdfs89&layout=compact&theme=dark&bg_color=000000&border_color=00ff41&title_color=00ff41&text_color=b8e0b8" />
@@ -52,8 +117,12 @@ The governance pain large companies are fighting in production *today* — hallu
 
 <a name="portugues"></a>
 
+<p align="center">
+  <b>Construindo sistemas de IA para produção com LangGraph • FastAPI • Python • RAG • Multi-Agent Systems</b>
+</p>
+
 ### Olá, eu sou o Vitor Silva 👋
-# Machine Learning Engineer · IA Aplicada · Sistemas Agênticos
+# AI Software Engineer | LLM Engineering • Agentic AI • Backend Python
 
 > Eu construo sistemas de IA que não quebram em produção.
 
@@ -63,25 +132,81 @@ Trago **15 anos de operações de missão crítica** (SLAs de alta volumetria, l
 
 A dor de governança que grandes empresas enfrentam em produção *hoje* — controle de alucinação, auditabilidade, custo vs. precisão — é exatamente o que meus projetos autorais foram arquitetados para resolver.
 
+## O que eu construo
+
+✔ **Plataformas de IA Multiagente**  
+✔ **Backends FastAPI prontos para produção**  
+✔ **Retrieval-Augmented Generation (RAG)**  
+✔ **Guardrails e Governança para LLMs**  
+✔ **APIs Cloud-native**  
+
 ---
 
-### 🚀 Projetos em Destaque
+### 🚀 Plataformas de IA em Produção
 
-| Projeto | O que resolve | Stack |
-|---------|---------------|-------|
-| **[MestreGrana](https://github.com/vdfs89/InvestimentoDIO)** | Consultor financeiro multi-agente com **sistema de LLMs-juízes** — guardrails que auditam e mitigam alucinações antes de chegar ao usuário. RAG avançado + orquestração por grafos de estado. | `LangGraph` `FastAPI` `Python` `MongoDB` |
-| **Aether Oncology** | Aplicação full stack na saúde — frontend moderno consumindo backend Python robusto via APIs. | `React` `Node.js` `Flutter` `Python` |
-| **[FluencyForge](https://github.com/vdfs89/fluencyforge)** | Plataforma EdTech multi-agente com RAG para personalização pedagógica em tempo real e memória de longo prazo. | `LangGraph` `FastAPI` `RAG` |
-| **[Harmoniz.AI](https://github.com/vdfs89/Harmoniz.AI)** | Engine de performance humana correlacionando dados biométricos via análise preditiva + pipeline de LLM. | `Python` `LLM Pipeline` `Data Analysis` |
+#### 💰 [MestreGrana: Plataforma Financeira Multiagente](https://github.com/vdfs89/InvestimentoDIO)
+**O que resolve:** Mitigação de alucinações em conselhos financeiros usando um sistema "juiz" com múltiplos LLMs.
+**Métricas/Impacto:** Orquestração de **4 agentes especializados**, garantindo **100% das saídas auditadas** com recuperação RAG de baixa latência.
+**Stack:** `LangGraph` `FastAPI` `Python` `MongoDB`
+
+<details>
+<summary><b>Ver Arquitetura</b></summary>
+
+```text
+Usuário 
+ ↓ 
+FastAPI 
+ ↓ 
+LangGraph Supervisor
+ ├── Agente Financeiro
+ ├── Agente de Retrieval
+ ├── Agente Juiz
+ └── Agente de Relatório
+ ↓ 
+MongoDB
+```
+</details>
+
+#### 🎓 [FluencyForge: Plataforma EdTech Multiagente](https://github.com/vdfs89/fluencyforge)
+**O que resolve:** Personalização pedagógica em tempo real usando RAG e memória de longo prazo com preservação de estado.
+**Métricas/Impacto:** Geração dinâmica de trilhas de aprendizado conectando **múltiplas ferramentas de IA**.
+**Stack:** `LangGraph` `FastAPI` `RAG`
+
+<details>
+<summary><b>Ver Arquitetura</b></summary>
+
+```text
+Requisição do Usuário 
+ ↓ 
+Gateway FastAPI
+ ↓ 
+Orquestrador Stateful (LangGraph)
+ ├── Retrieval de Contexto (Vector DB)
+ ├── Agente Curricular
+ └── Agente de Avaliação
+```
+</details>
+
+#### 🧬 Aether Oncology: Sistema Clínico Healthcare
+**O que resolve:** Interface frontend moderna consumindo um backend Python robusto via APIs para dados clínicos.
+**Métricas/Impacto:** Integração fluida de API conectando lógicas complexas de saúde a interfaces responsivas.
+**Stack:** `React` `Node.js` `Flutter` `Python` `FastAPI`
+
+#### 🔬 [Harmoniz.AI: Engine de Performance Humana](https://github.com/vdfs89/Harmoniz.AI)
+**O que resolve:** Correlação de dados biométricos via análise preditiva e pipelines de LLM.
+**Métricas/Impacto:** Processamento de múltiplos fluxos de dados para insights preditivos unificados.
+**Stack:** `Python` `LLM Pipeline` `Data Analysis`
 
 ---
 
 ### 🛠️ Stack Principal
 
-**IA & Agentes** — LangGraph · LangChain · RAG avançado · Multi-LLM Guardrails · LLM Orchestration
-**Backend** — Python · FastAPI · Async · Docker · PostgreSQL · MongoDB · APIs REST
-**Frontend** — React · Node.js · Flutter / Dart
-**Engenharia** — Clean Architecture · SOLID · Git / CI-CD · Linux/WSL · Governança de Dados · MLOps
+* **IA & Agentes:** LangGraph, LangChain, RAG avançado, Multi-LLM Guardrails, LLM Orchestration
+* **Backend:** Python, FastAPI, Async, APIs REST
+* **Bancos de Dados:** PostgreSQL, MongoDB, Vector DBs
+* **Cloud & DevOps:** AWS, Azure, Google Cloud, Docker, GitHub Actions, CI/CD, MLOps
+* **Frontend:** React, Node.js, Flutter / Dart
+* **Engenharia:** Clean Architecture, SOLID, Git, Linux/WSL, Governança de Dados
 
 ---
 

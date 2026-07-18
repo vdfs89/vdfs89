@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
 
-# Sitemap
 Sitemap: https://vitorsilva.page/sitemap.xml
-
-# Crawl-delay (opcional — ajuda a não sobrecarregar GitHub Pages)
-Crawl-delay: 10
