@@ -589,7 +589,7 @@
                             <div class="ps"><span class="ps-k">AI_STACK</span><span class="ps-v">LangGraph / RAG</span></div>
                             <div class="ps"><span class="ps-k">BACKEND</span><span class="ps-v">FastAPI / Python</span></div>
                             <div class="ps"><span class="ps-k">LOCATION</span><span class="ps-v">Curitiba / Remote</span></div>
-                            <div class="ps"><span class="ps-k">GITHUB</span><span class="ps-v" style="text-align:right;"><a href="https://github.com/vdfs89" target="_blank" rel="noreferrer">vdfs89 →</a><br><span style="font-size:0.65rem; color:var(--muted); font-weight:normal;">38 repositories<br>Production AI · Active development</span></span></div>
+                            <div class="ps"><span class="ps-k">GITHUB</span><span class="ps-v" style="text-align:right;"><a href="https://github.com/vdfs89" target="_blank" rel="noreferrer">vdfs89 →</a><br><span id="gh-stats" style="font-size:0.65rem; color:var(--muted); font-weight:normal;">38 repositories &middot; 245 commits<br>Production AI &middot; Active development</span></span></div>
                         </div>
                     </div>
                 </div>
@@ -1314,5 +1314,31 @@ const io=new IntersectionObserver(entries=>{
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
+
+<!-- GitHub Stats Fetcher -->
+<script>
+async function fetchGitHubStats() {
+    try {
+        const repoRes = await fetch('https://api.github.com/users/vdfs89');
+        const repoData = await repoRes.json();
+        const repos = repoData.public_repos || 38;
+
+        const commitRes = await fetch('https://api.github.com/search/commits?q=author:vdfs89', {
+            headers: { 'Accept': 'application/vnd.github.cloak-preview+json' }
+        });
+        const commitData = await commitRes.json();
+        const commits = commitData.total_count || 245;
+
+        const ghStats = document.getElementById('gh-stats');
+        if (ghStats) {
+            ghStats.innerHTML = `${repos} repos &middot; ${commits} commits<br>Production AI &middot; Active development`;
+        }
+    } catch (e) {
+        console.error('Error fetching GitHub stats', e);
+    }
+}
+window.addEventListener('DOMContentLoaded', fetchGitHubStats);
+</script>
+
 </body>
 </html>
