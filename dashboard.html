@@ -1002,7 +1002,20 @@ body{
     </button>
   </nav>
 
+
+  <nav class="lang-toggle-dash" style="padding: 10px 20px; font-size: 11px; font-family: var(--font-mono); display: flex; gap: 8px; justify-content: center; border-top: 1px solid #1c1c1c; align-items: center;">
+    <style>
+      .lang-toggle-dash a { color: var(--txt-dim); text-decoration: none; transition: color 0.2s; }
+      .lang-toggle-dash a:hover { color: var(--neon); }
+      .lang-toggle-dash a.active-lang { color: var(--neon); font-weight: bold; }
+    </style>
+    <a href="dashboard.en.html" class="">EN</a> &middot;
+    <a href="dashboard.pt.html" class="active-lang">PT</a> &middot;
+    <a href="dashboard.es.html" class="">ES</a>
+  </nav>
+
   <div class="sidebar__footer">
+
     <span class="status-online"><span class="dot"></span>ONLINE</span>
     <span id="anoAtual">2026</span>
   </div>
@@ -1139,7 +1152,7 @@ const DADOS = {
 
   metricas: [
     { valor: 15,  sufixo: "",   label: "Anos de operações de missão crítica" },
-    { valor: 4,   sufixo: "",   label: "Projetos de IA em produção" },
+    { valor: 7,   sufixo: "",   label: "Projetos de IA em produção" },
     { valor: 3,   sufixo: "",   label: "Idiomas (PT · EN · ES)" },
     { valor: 80, sufixo: "", label: "Certificados de educação contínua" }
   ],
