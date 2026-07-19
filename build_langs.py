@@ -41,24 +41,24 @@ def main():
         
         # Meta & Titles
         '<title>Vitor Silva | AI Software Engineer | Backend AI Engineer</title>': (
-            '<title>Vitor Silva | Engenheiro de IA Sênior | LangGraph, RAG & FastAPI</title>',
-            '<title>Vitor Silva | Ingeniero de IA Senior | LangGraph, RAG y FastAPI</title>'
+            '<title>Vitor Silva | Engenheiro de IA | LangGraph, RAG & FastAPI</title>',
+            '<title>Vitor Silva | Ingeniero de IA | LangGraph, RAG y FastAPI</title>'
         ),
         'content="AI Software Engineer specialized in LangGraph, FastAPI, Agentic AI, RAG, Multi-Agent Systems and Production AI."': (
             'content="Engenheiro de IA especializado em LangGraph, FastAPI, Agentic AI, RAG, Sistemas Multiagentes e IA em Produção."',
             'content="Ingeniero de IA especializado en LangGraph, FastAPI, Agentic AI, RAG, Sistemas Multiagente e IA en Producción."'
         ),
         '<meta property="og:title" content="Vitor Silva | AI Software Engineer">': (
-            '<meta property="og:title" content="Vitor Silva | Engenheiro de IA Sênior">',
-            '<meta property="og:title" content="Vitor Silva | Ingeniero de IA Senior">'
+            '<meta property="og:title" content="Vitor Silva | Engenheiro de IA">',
+            '<meta property="og:title" content="Vitor Silva | Ingeniero de IA">'
         ),
         'content="AI Software Engineer specialized in LangGraph, FastAPI, Agentic AI, RAG, and Multi-Agent Systems."': (
             'content="Engenheiro de IA especializado em LangGraph, FastAPI, Agentic AI, RAG e Sistemas Multiagentes."',
             'content="Ingeniero de IA especializado en LangGraph, FastAPI, Agentic AI, RAG y Sistemas Multiagente."'
         ),
         '<meta name="twitter:title" content="Vitor Silva | AI Software Engineer">': (
-            '<meta name="twitter:title" content="Vitor Silva | Engenheiro de IA Sênior">',
-            '<meta name="twitter:title" content="Vitor Silva | Ingeniero de IA Senior">'
+            '<meta name="twitter:title" content="Vitor Silva | Engenheiro de IA">',
+            '<meta name="twitter:title" content="Vitor Silva | Ingeniero de IA">'
         ),
         'content="Building production-grade AI systems with LangGraph, FastAPI and RAG."': (
             'content="Construindo sistemas de IA em nível de produção com LangGraph, FastAPI e RAG."',
@@ -583,9 +583,9 @@ def main():
         'Vamos construir o<br>próximo nível?',
         '¿Construimos el<br>siguiente nivel?'
     ),
-    'Open to AI Engineer or Solutions Architect positions. Professional maturity + cutting-edge AI stack for your team.': (
-        'Aberto a posições de Engenheiro de IA ou Arquiteto de Soluções. Maturidade profissional + stack de IA de ponta para o seu time.',
-        'Abierto a posiciones de Ingeniero de IA o Arquitecto de Soluciones. Madurez profesional + stack de IA de vanguardia para su equipo.'
+    'Open to AI Engineer positions. AI Engineer working end-to-end across architecture, backend and ML systems. Professional maturity + cutting-edge AI stack for your team.': (
+        'Aberto a posições de Engenheiro de IA. AI Engineer trabalhando de ponta a ponta em arquitetura, backend e sistemas de ML. Maturidade profissional + stack de IA de ponta para o seu time.',
+        'Abierto a posiciones de Ingeniero de IA. AI Engineer trabajando de extremo a extremo en arquitectura, backend y sistemas de ML. Madurez profesional + stack de IA de vanguardia para su equipo.'
     )
 
 }
