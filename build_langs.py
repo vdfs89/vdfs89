@@ -586,7 +586,11 @@ def main():
         'Aberto a posições de Engenheiro de IA. AI Engineer trabalhando de ponta a ponta em arquitetura, backend e sistemas de ML. Maturidade profissional + stack de IA de ponta para o seu time.',
         'Abierto a posiciones de Ingeniero de IA. AI Engineer trabajando de extremo a extremo en arquitectura, backend y sistemas de ML. Madurez profesional + stack de IA de vanguardia para su equipo.'
     )
-
+,
+    "The real challenge isn't building AI — it's trusting it in production. My projects target governance, guardrails and hallucination control.": (
+        "O verdadeiro desafio não é construir IA — é confiar nela em produção. Meus projetos focam em governança, guardrails e controle de alucinação.",
+        "El verdadero desafío no es construir IA — es confiar en ella en producción. Mis proyectos se centran en gobernanza, guardrails y control de alucinaciones."
+    )
 }
 
     # Generate EN
