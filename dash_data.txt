@@ -1,0 +1,465 @@
+const DATA = {
+
+  /* ── Identity / Overview ── */
+  nome: "VITOR SILVA — AI ENGINEER",
+  localizacao: "Curitiba, PR, Brazil",
+  disponibilidade: "AVAILABLE FOR OPPORTUNITIES",
+
+  metricas: [
+    { valor: 15,  sufixo: "",   label: "Years of mission-critical operations" },
+    { valor: 4,   sufixo: "",   label: "AI projects in production" },
+    { valor: 3,   sufixo: "",   label: "Languages (PT · EN · ES)" },
+    { valor: 80, sufixo: "", label: "Continuous education certificates" }
+  ],
+
+  posicionamento:
+    "15 years of mission-critical operations (SLA governance, " +
+    "data auditing, logistics management) applied to reliable, " +
+    "governed, and production-ready agentic AI systems.",
+
+  ultimoDeploy: {
+    nome: "MestreGrana",
+    status: "LIVE",
+    descricao: "Multi-agent financial advisor — LangGraph orchestration + multi-LLM judge in production.",
+    link: "https://mestregrana.com.br"
+  },
+
+  links: {
+    linkedin:  "https://linkedin.com/in/vitorsilva",
+    github:    "https://github.com/vitorsilva",
+    portfolio: "https://vitorsilva.engineer",
+    email:     "mailto:mkmillhouse89@gmail.com"
+  },
+
+  /* ── Profile ── */
+  resumoExecutivo:
+    "AI Engineer with 15 years of operational maturity. I build scalable, " +
+    "reliable multi-agent systems and APIs, bringing a mission-critical " +
+    "mindset to AI engineering.",
+
+  dados: [
+    { k: "Location",    v: "Curitiba, PR, Brazil" },
+    { k: "Availability",v: "Remote · Full-time/Contract · International" },
+    { k: "Languages",   v: "Native PT-BR · Fluent EN · Intermediate ES" },
+    { k: "Focus",       v: "Agentic AI · RAG · LLM Systems · MLOps" }
+  ],
+
+  diretrizes: [
+    { k: "Target Model", v: "Remote Contract/Full-time" },
+    { k: "Rate/Salary",  v: "To be discussed" },           /* NÃO exibir valores */
+    { k: "Core Pillars", v: "AI Engineering · Backend · Architecture" }
+  ],
+
+  pilares: [
+    "Multi-agent systems governance",
+    "Production-ready RAG",
+    "Multi-LLM guardrails",
+    "Scalable FastAPI APIs",
+    "LLM pipelines observability"
+  ],
+
+  /* ── Experience (timeline) ── */
+  experiencia: [
+    {
+      periodo: "2024 — PRESENT",
+      cargo: "AI Engineer & Solutions Architect",
+      org: "Independent",
+      badge: "EXPERT",
+      bullets: [
+        "Building production-grade agentic AI systems",
+        "Multi-agent orchestration architecture with guardrails and auditing",
+        "Deployment and operation of LLM APIs with end-to-end observability"
+      ],
+      stack: ["LangGraph", "LangChain", "FastAPI", "RAG", "Docker"]
+    },
+    {
+      periodo: "2020 — 2024",
+      cargo: "Operations Analyst — SLA Governance & Data Auditing",
+      org: "ECT (Correios)",
+      badge: "ADVANCED",
+      bullets: [
+        "SLA governance over large-scale corporate contracts",
+        "Operational data auditing with high financial impact",
+        "Technical focal point for corporate system implementations"
+      ],
+      stack: []
+    },
+    {
+      periodo: "2016 — 2020",
+      cargo: "Operations Analyst — Fleet & Logistics Management",
+      org: "ECT (Correios)",
+      badge: "INTERMEDIATE",
+      bullets: [
+        "Fleet and logistics management covering nationwide routes",
+        "Consolidation of operational data for decision-making"
+      ],
+      stack: []
+    },
+    {
+      periodo: "2011 — 2016",
+      cargo: "Operations Technician",
+      org: "ECT (Correios)",
+      badge: "JUNIOR",
+      bullets: [
+        "Base operations in mission-critical environments",
+        "Ensured SLA guarantee and large-scale operational continuity"
+      ],
+      stack: []
+    }
+  ],
+
+  /* ── Education ── */
+  formacao: [
+    {
+      curso: "Postgraduate in Machine Learning Engineering",
+      instituicao: "FIAP",
+      status: "IN PROGRESS",
+      progresso: 40,
+      previsao: "2027",
+      foco: "MLOps, model deployment and ML pipelines in production.",
+      disciplinas: ["MLOps", "Deep Learning", "Data Engineering", "Cloud ML"]
+    },
+    {
+      curso: "BSc in Computer Science",
+      instituicao: "Faculdade Descomplica Digital",
+      status: "IN PROGRESS",
+      progresso: 50,
+      previsao: "2026",
+      foco: "Formal foundations in algorithms, systems and distributed computing.",
+      disciplinas: ["Algorithms", "Data Structures", "Databases", "Networks"]
+    }
+  ],
+
+  /* ── Projects (filter categories: ai | fullstack | pipeline) ── */
+  projetos: [
+    {
+      nome: "MESTREGRANA",
+      tags: ["FLAGSHIP", "PRODUCTION"],
+      flagship: true,
+      categorias: ["ai"],
+      descricao: "Multi-agent financial advisor — financial consulting with specialized agents and audited responses.",
+      arquitetura:
+        "<strong>LangGraph</strong> orchestration coordinating specialized agents; " +
+        "<strong>multi-LLM judge</strong> system for quality and security guardrails; <strong>RAG</strong> with " +
+        "embeddings for knowledge base grounding; <strong>governance and auditing</strong> layer " +
+        "logging and validating every response before delivery.",
+      stack: ["LangGraph", "LangChain", "FastAPI", "PostgreSQL", "RAG", "Docker"],
+      metricas: [
+        { k: "Latency p95", v: "< 2s" },
+        { k: "Uptime", v: "99.9%" },
+        { k: "Accuracy (judge)", v: "> 95%" }
+      ],
+      diagrama:
+"┌─────────┐    ┌──────────────┐    ┌────────────────┐\n" +
+"│  User   │───▶│   FastAPI    │───▶│   LangGraph    │\n" +
+"└─────────┘    │   Gateway    │    │  Orchestrator  │\n" +
+"               └──────────────┘    └───────┬────────┘\n" +
+"                       ┌───────────────────┼───────────────────┐\n" +
+"                       ▼                   ▼                   ▼\n" +
+"               ┌──────────────┐    ┌──────────────┐    ┌──────────────┐\n" +
+"               │     RAG      │    │    Judge     │    │  Governance  │\n" +
+"               │  Embeddings  │    │  Multi-LLM   │    │  & Auditing  │\n" +
+"               └──────┬───────┘    └──────┬───────┘    └──────┬───────┘\n" +
+"                      └───────────────────┼───────────────────┘\n" +
+"                                          ▼\n" +
+"                                ┌──────────────────┐\n" +
+"                                │ Validated Answer │\n" +
+"                                └──────────────────┘",
+      links: [
+        { label: "GitHub", url: "https://github.com/vitorsilva/mestregrana" },
+        { label: "Live Demo", url: "https://mestregrana.com.br", solid: true }
+      ]
+    },
+    {
+      nome: "FLUENCYFORGE",
+      tags: ["EDTECH", "MULTI-AGENT"],
+      flagship: false,
+      categorias: ["ai"],
+      descricao: "Edtech language learning platform with conversational agents, correction, and adaptive progression.",
+      arquitetura:
+        "Multi-agent system with tutor, evaluator, and curriculum planner roles; " +
+        "structured feedback pipeline by student level.",
+      stack: ["LangChain", "FastAPI", "Python", "MongoDB"],
+      metricas: [{ k: "Status", v: "In Development" }],
+      diagrama: null,
+      links: []
+    },
+    {
+      nome: "AETHER ONCOLOGY",
+      tags: ["HEALTHCARE", "FULL-STACK"],
+      flagship: false,
+      categorias: ["fullstack"],
+      descricao: "Full-stack oncology support platform — patient tracking, clinical data, and mobile.",
+      arquitetura:
+        "React web frontend, Flutter mobile app, Node.js API, and Python auxiliary services.",
+      stack: ["React", "Node.js", "Flutter", "Python"],
+      metricas: [{ k: "Demo", v: "Available" }],
+      diagrama: null,
+      links: [
+        { label: "GitHub", url: "#" },
+        { label: "Demo", url: "#", solid: true }
+      ]
+    },
+    {
+      nome: "HARMONIZ.AI",
+      tags: ["LLM PIPELINE"],
+      flagship: false,
+      categorias: ["pipeline"],
+      descricao: "LLM pipeline for data harmonization and enrichment with automated staged validation.",
+      arquitetura:
+        "Staged pipeline with extraction, LLM normalization, rule-based validation, and auditable persistence.",
+      stack: ["Python", "LangChain", "PostgreSQL", "Docker"],
+      metricas: [{ k: "Status", v: "MVP" }],
+      diagrama: null,
+      links: [{ label: "GitHub", url: "#" }]
+    }
+  ],
+
+  filtrosProjetos: [
+    { id: "todos",     label: "ALL" },
+    { id: "ai",        label: "AI/AGENTS" },
+    { id: "fullstack", label: "FULL-STACK" },
+    { id: "pipeline",  label: "PIPELINE" }
+  ],
+
+  stackCompleto: [
+    { grupo: "AI/LLM",   itens: ["LangGraph", "LangChain", "RAG", "Embeddings", "Multi-agent"] },
+    { grupo: "Backend",  itens: ["Python", "FastAPI", "Node.js"] },
+    { grupo: "Data",     itens: ["PostgreSQL", "MongoDB"] },
+    { grupo: "Frontend", itens: ["React", "Flutter"] },
+    { grupo: "Infra",    itens: ["Docker", "GCP/AWS"] }
+  ],
+
+  /* ── Certifications ── */
+  certDestaque: {
+    nome: "AWS Certified AI Practitioner (AIF-C01)",
+    status: "IN PROGRESS",
+    progresso: 55,
+    plano: ["AWS Skill Builder", "Udemy", "Mocks"],
+    previsao: "2026-Q4"
+  },
+
+  /* categories: ai | backend | data | soft | dev | outros */
+  cursos: [
+    { nome: "Data Visualization in Neo4j Browser", inst: "DIO", horas: "1h", data: "2026-05-26", cat: "data" },
+    { nome: "Data Analyst: 10 Essential Professional Competencies", inst: "LinkedIn Learning", horas: "1h", data: "2026-05-21", cat: "data" },
+    { nome: "Introduction to Santander Experience 2025 - 2nd Semester", inst: "DIO", horas: "1h", data: "2026-05-18", cat: "dev" },
+    { nome: "Installing Neo4j Desktop Environment", inst: "DIO", horas: "1h", data: "2026-05-07", cat: "data" },
+    { nome: "Using Software Development Copilots", inst: "DIO", horas: "1h", data: "2026-05-02", cat: "ai" },
+    { nome: "Introduction to Graph Database and Neo4j", inst: "DIO", horas: "1h", data: "2026-04-30", cat: "data" },
+    { nome: "Introduction to Low-Code Development", inst: "DIO", horas: "1h", data: "2026-04-28", cat: "ai" },
+    { nome: "Natural or Fake Natty? How to Win in the Generative AI Era!", inst: "DIO", horas: "1h", data: "2026-04-25", cat: "ai" },
+    { nome: "Welcome to Bradesco - GenAI & Data", inst: "DIO", horas: "1h", data: "2026-04-02", cat: "ai" },
+    { nome: "Prompt Engineering Techniques", inst: "DIO", horas: "1h", data: "2026-03-31", cat: "ai" },
+    { nome: "Computer Vision", inst: "DIO", horas: "1h", data: "2026-03-27", cat: "ai" },
+    { nome: "Practical Applications of Artificial Intelligence", inst: "DIO", horas: "1h", data: "2026-02-24", cat: "ai" },
+    { nome: "Welcome to Microsoft Acceleration - Azure AI Agents", inst: "DIO", horas: "1h", data: "2026-02-19", cat: "ai" },
+    { nome: "Final Project Challenge — Build your Virtual Assistant with Generative AI", inst: "DIO", horas: "1h", data: "2026-02-19", cat: "ai" },
+    { nome: "Welcome to Santander Bootcamp 2026 - Rust AI Developer", inst: "DIO", horas: "1h", data: "2026-02-19", cat: "backend" },
+    { nome: "What are Generative AIs", inst: "DIO", horas: "1h", data: "2026-02-13", cat: "ai" },
+    { nome: "Welcome to Bootcamp: Neo4j - Data Analysis with Graphs", inst: "DIO", horas: "1h", data: "2026-02-07", cat: "data" },
+    { nome: "DIO Bootcamps: Free Education and Employability Together!", inst: "DIO", horas: "1h", data: "2026-01-26", cat: "dev" },
+    { nome: "Accelerate your Learning with AI: Explore the Power of NotebookLM", inst: "DIO", horas: "1h", data: "2026-01-11", cat: "ai" },
+    { nome: "Data Visualization: How to Convey Information Effectively", inst: "LinkedIn Learning", horas: "2h", data: "2026-01-01", cat: "data" },
+    { nome: "Introduction to Prompt Engineering", inst: "DIO", horas: "1h", data: "2025-12-24", cat: "ai" },
+    { nome: "Bradesco - GenAI & Data", inst: "DIO", horas: "1h", data: "2025-12-17", cat: "ai" },
+    { nome: "Cybersecurity for Leaders: How to Handle a Cyber Attack", inst: "LinkedIn Learning", horas: "1h", data: "2025-12-05", cat: "outros" },
+    { nome: "Fundamentals of Business Intelligence (BI)", inst: "DIO", horas: "1h", data: "2025-11-28", cat: "data" },
+    { nome: "Introduction to Machine Learning for Beginners Bootcamp", inst: "DIO", horas: "1h", data: "2025-11-27", cat: "ai" },
+    { nome: "Positivity and Emotional Intelligence", inst: "Udemy", horas: "1h", data: "2025-11-26", cat: "soft" },
+    { nome: "The COMPLETE Guide to High Productivity + 4 Extra Courses", inst: "Udemy", horas: "1h", data: "2025-11-25", cat: "soft" },
+    { nome: "Graph-Oriented Modeling Best Practices (Modeling and Performance)", inst: "DIO", horas: "1h", data: "2025-11-21", cat: "data" },
+    { nome: "Essential Aspects of Strategic Business Analysis", inst: "LinkedIn Learning", horas: "1h", data: "2025-11-21", cat: "outros" },
+    { nome: "Associating Generative AI Concepts", inst: "DIO", horas: "1h", data: "2025-11-16", cat: "ai" },
+    { nome: "Introduction to Artificial Intelligence", inst: "DIO", horas: "1h", data: "2025-11-14", cat: "ai" },
+    { nome: "Elevate your life with NLP", inst: "Udemy", horas: "1h", data: "2025-11-13", cat: "soft" },
+    { nome: "Algorithms and Machine Learning", inst: "DIO", horas: "1h", data: "2025-11-11", cat: "ai" },
+    { nome: "Natural Language Processing", inst: "DIO", horas: "1h", data: "2025-10-17", cat: "ai" },
+    { nome: "Indispensable Competencies for your First 90 Days in Management", inst: "LinkedIn Learning", horas: "1h", data: "2025-10-17", cat: "soft" },
+    { nome: "Using Microsoft Copilot to Write SQL Queries", inst: "DIO", horas: "1h", data: "2025-10-13", cat: "ai" },
+    { nome: "The AI Era: Machine Learning, LLMs, Generative AI and Agents", inst: "DIO", horas: "1h", data: "2025-10-12", cat: "ai" },
+    { nome: "Fundamentals of Large Language Models", inst: "DIO", horas: "1h", data: "2025-10-10", cat: "ai" },
+    { nome: "Working with Microsoft Copilot", inst: "DIO", horas: "1h", data: "2025-10-07", cat: "ai" },
+    { nome: "Applications and Impact of AI in Today's World", inst: "DIO", horas: "1h", data: "2025-10-04", cat: "ai" },
+    { nome: "Nexa - Fundamentals of Generative AI with Bedrock", inst: "DIO", horas: "1h", data: "2025-09-28", cat: "ai" },
+    { nome: "Introduction to Gamification", inst: "Udemy", horas: "1h", data: "2025-09-19", cat: "soft" },
+    { nome: "How to Build and Lead Inclusive IT Teams", inst: "LinkedIn Learning", horas: "1h", data: "2025-09-12", cat: "soft" },
+    { nome: "Introduction to Microsoft Acceleration - Data Architecture AI", inst: "DIO", horas: "1h", data: "2025-09-02", cat: "ai" },
+    { nome: "Development Environment and First Steps with Python", inst: "DIO", horas: "1h", data: "2025-08-17", cat: "backend" },
+    { nome: "Storytelling that Sells: Product Narrative with AI", inst: "LinkedIn Learning", horas: "1h", data: "2025-08-08", cat: "soft" },
+    { nome: "Solving Calculations with Python", inst: "DIO", horas: "1h", data: "2025-08-04", cat: "backend" },
+    { nome: "How to Improve IT Support in Hybrid Environments", inst: "LinkedIn Learning", horas: "1h", data: "2025-08-02", cat: "outros" },
+    { nome: "Welcome to Accenture - Python for Data Analysis and Automation", inst: "DIO", horas: "1h", data: "2025-07-18", cat: "data" },
+    { nome: "Conditional and Repetition Structures in Python", inst: "DIO", horas: "1h", data: "2025-07-13", cat: "backend" },
+    { nome: "Applying Decisions and Repetitions in Practice", inst: "DIO", horas: "1h", data: "2025-07-10", cat: "outros" },
+    { nome: "Coaching Leadership in 7 Days", inst: "Udemy", horas: "1h", data: "2025-07-09", cat: "soft" },
+    { nome: "Business English for Portuguese Natives: Pronunciation", inst: "LinkedIn Learning", horas: "1h", data: "2025-07-06", cat: "soft" },
+    { nome: "Negotiate like a Wolf - Sales Techniques", inst: "Udemy", horas: "1h", data: "2025-07-05", cat: "soft" },
+    { nome: "Shyness: Become the center of attention in 30 days", inst: "Udemy", horas: "1h", data: "2025-06-30", cat: "soft" },
+    { nome: "Types of Operators with Python", inst: "DIO", horas: "1h", data: "2025-06-26", cat: "backend" },
+    { nome: "Code Versioning with Git and GitHub", inst: "DIO", horas: "1h", data: "2025-06-20", cat: "backend" },
+    { nome: "How to Promote Emotional Engagement of your Employees", inst: "LinkedIn Learning", horas: "1h", data: "2025-06-16", cat: "soft" },
+    { nome: "Creating an ETL Process with Excel and Power Query", inst: "DIO", horas: "1h", data: "2025-06-06", cat: "data" },
+    { nome: "Strategic Positioning for High Potential Professionals", inst: "LinkedIn Learning", horas: "1h", data: "2025-06-04", cat: "soft" },
+    { nome: "Explainable Artificial Intelligence (xAI) with Python", inst: "Udemy", horas: "1h", data: "2025-06-04", cat: "ai" },
+    { nome: "Mastering Python Functions", inst: "DIO", horas: "1h", data: "2025-05-23", cat: "backend" },
+    { nome: "Project Challenges: Create a Winning Portfolio", inst: "DIO", horas: "1h", data: "2025-05-17", cat: "dev" },
+    { nome: "Introduction to Relational Databases", inst: "DIO", horas: "1h", data: "2025-04-26", cat: "data" },
+    { nome: "How to Become an Inspiring Leader and Attract the Best Talent", inst: "LinkedIn Learning", horas: "2h", data: "2025-04-26", cat: "soft" },
+    { nome: "Code Challenges: Perfect Your Logic and Computational Thinking", inst: "DIO", horas: "1h", data: "2025-04-16", cat: "backend" },
+    { nome: "Working with Lists in Python", inst: "DIO", horas: "1h", data: "2025-04-14", cat: "backend" },
+    { nome: "Manipulating Strings with Python", inst: "DIO", horas: "1h", data: "2025-04-12", cat: "backend" },
+    { nome: "Introduction to Excel 365", inst: "DIO", horas: "1h", data: "2025-04-12", cat: "data" },
+    { nome: "Games, Microlearning and Gamification in Education", inst: "Udemy", horas: "1h", data: "2025-04-10", cat: "soft" },
+    { nome: "Voice Chatting with ChatGPT Using Whisper (OpenAI) and Python", inst: "DIO", horas: "1h", data: "2025-04-01", cat: "ai" },
+    { nome: "Learning to Use Dictionaries in Python", inst: "DIO", horas: "1h", data: "2025-03-27", cat: "backend" },
+    { nome: "Understanding Banking Operations with Python", inst: "DIO", horas: "1h", data: "2025-03-13", cat: "backend" },
+    { nome: "ForteMente - Personal Development", inst: "Udemy", horas: "1h", data: "2025-02-24", cat: "soft" },
+    { nome: "Programming Fundamentals with Python", inst: "DIO", horas: "1h", data: "2025-02-21", cat: "backend" },
+    { nome: "Getting to Know Tuples in Python", inst: "DIO", horas: "1h", data: "2025-02-19", cat: "backend" },
+    { nome: "Exploring Sets in Python", inst: "DIO", horas: "1h", data: "2025-02-07", cat: "backend" },
+    { nome: "Building Solutions with Functions in Python", inst: "DIO", horas: "1h", data: "2025-01-20", cat: "backend" },
+    { nome: "Getting to Know the Python Programming Language", inst: "DIO", horas: "1h", data: "2025-01-16", cat: "backend" },
+    { nome: "Collection Manipulation and Functions in Python", inst: "DIO", horas: "1h", data: "2025-01-16", cat: "backend" }
+  ],
+
+  filtrosCursos: [
+    { id: "todos",   label: "ALL" },
+    { id: "ai",      label: "AI/ML" },
+    { id: "backend", label: "BACKEND" },
+    { id: "data",    label: "DATA" },
+    { id: "soft",    label: "SOFT SKILLS" },
+    { id: "dev",     label: "DEV" },
+    { id: "outros",  label: "OTHER" }
+  ],
+
+  /* hours by area */
+  horasPorArea: [
+    { area: "AI/ML",       horas: 27 },
+    { area: "Backend",     horas: 18 },
+    { area: "Soft Skills", horas: 17 },
+    { area: "Data",        horas: 13 },
+    { area: "Other",      horas: 4 },
+    { area: "Dev",         horas: 3 }
+  ],
+
+  /* skills certified in DIO (real profile XP) */
+  habilidades: [
+    { nome: "Leadership", xp: 720 },
+    { nome: "Personal Marketing", xp: 480 },
+    { nome: "Amazon Bedrock", xp: 480 },
+    { nome: "Generative AI", xp: 480 },
+    { nome: "Python", xp: 468 },
+    { nome: "Artificial Intelligence (AI)", xp: 440 },
+    { nome: "Whisper", xp: 240 },
+    { nome: "Growth Mindset", xp: 240 },
+    { nome: "Microsoft Fabric", xp: 240 },
+    { nome: "Data Science", xp: 240 },
+    { nome: "Continuous Learning", xp: 240 },
+    { nome: "Neo4j", xp: 172 },
+    { nome: "LLMs", xp: 60 },
+    { nome: "GitHub", xp: 40 },
+    { nome: "SQL", xp: 36 },
+    { nome: "Systems Architecture", xp: 32 },
+    { nome: "Low-code", xp: 24 },
+    { nome: "ETL", xp: 16 },
+    { nome: "Microsoft Copilot", xp: 16 },
+    { nome: "Data", xp: 12 },
+    { nome: "Prompt Engineering", xp: 12 },
+    { nome: "Excel", xp: 12 }
+  ],
+
+  /* ── Achievements ── */
+  conquistas: [
+    { nome: "80th certificate completed — Data Visualization in Neo4j Browser", cat: "certificacao", data: "2026-05-26", icone: "award" },
+    { nome: "58 achievements unlocked on DIO",            cat: "formacao",     data: "2026", icone: "layers" },
+    { nome: "22 skills with certified XP on DIO",      cat: "formacao",     data: "2026", icone: "book" },
+    { nome: "4 projects published on DIO",                  cat: "projeto",      data: "2026", icone: "git" },
+    { nome: "12 courses completed on LinkedIn Learning",     cat: "formacao",     data: "2026", icone: "clock" },
+    { nome: "10 courses completed on Udemy",                 cat: "formacao",     data: "2026", icone: "clock" },
+    { nome: "MestreGrana in production [ LIVE ]",           cat: "projeto",      data: "2026", icone: "rocket" }
+  ],
+
+  filtrosConquistas: [
+    { id: "todos",        label: "ALL" },
+    { id: "projeto",      label: "PROJECTS" },
+    { id: "formacao",     label: "EDUCATION" },
+    { id: "certificacao", label: "CERTIFICATIONS" },
+    { id: "comunidade",   label: "COMMUNITY" }
+  ],
+
+  /* ── AI Assistant — local knowledge base (no external API) ── */
+  chat: {
+    saudacao:
+      "Hi! I'm vitor_ai, the portfolio assistant. I can talk about " +
+      "projects, tech stack, experience, education, or contact. What do you want to know?",
+    sugestoes: [
+      "What is the flagship project?",
+      "What is your main tech stack?",
+      "Experience summary",
+      "How to get in touch?"
+    ],
+    regras: [
+      {
+        keywords: ["mestregrana", "flagship", "project", "projects", "portfolio"],
+        resposta:
+          "The flagship project is MESTREGRANA [ PRODUCTION ] — a multi-agent financial advisor " +
+          "with LangGraph orchestration, multi-LLM judge for guardrails, RAG with embeddings, and " +
+          "a governance/auditing layer for responses. Other projects: FluencyForge (multi-agent " +
+          "edtech), Aether Oncology (healthcare full-stack), and Harmoniz.AI (LLM pipeline). " +
+          "Check the Projects & Tech Stack section for details."
+      },
+      {
+        keywords: ["stack", "technology", "technologies", "tool", "language", "framework", "tech"],
+        resposta:
+          "Main stack: AI/LLM → LangGraph, LangChain, RAG, Embeddings, Multi-agent · " +
+          "Backend → Python, FastAPI, Node.js · Data → PostgreSQL, MongoDB · " +
+          "Frontend → React, Flutter · Infra → Docker, GCP/AWS."
+      },
+      {
+        keywords: ["experience", "ect", "correios", "career", "work", "job", "trajectory"],
+        resposta:
+          "Experience summary: 15 years of mission-critical operations at ECT/Correios " +
+          "(SLA governance, data auditing, fleet and logistics management), and since 2024 " +
+          "working as an independent AI Engineer, building production agentic AI systems " +
+          "with LangGraph, FastAPI, RAG, and Docker."
+      },
+      {
+        keywords: ["education", "degree", "fiap", "college", "study", "graduation", "postgrad", "university"],
+        resposta:
+          "Education in progress: Postgraduate in ML Engineering (FIAP) and BSc in " +
+          "Computer Science. Also, 80 continuous education certificates " +
+          "(DIO, LinkedIn Learning, and Udemy) and the AWS AI Practitioner " +
+          "(AIF-C01) certification in progress."
+      },
+      {
+        keywords: ["certification", "certifications", "aws", "aif", "certificate"],
+        resposta:
+          "Current certification focus: AWS Certified AI Practitioner (AIF-C01) [ IN PROGRESS ], " +
+          "with a study plan: AWS Skill Builder → Udemy → Mocks. Besides that, there are 80 " +
+          "completed certificates across DIO, LinkedIn Learning, and Udemy — details in the " +
+          "Certifications section."
+      },
+      {
+        keywords: ["contact", "email", "e-mail", "linkedin", "github", "talk", "hire", "opportunity"],
+        resposta:
+          "To get in touch: email mkmillhouse89@gmail.com or use the LinkedIn, " +
+          "GitHub, and Portfolio buttons in the Overview section. Vitor is [ AVAILABLE FOR " +
+          "OPPORTUNITIES ] in a remote contract/full-time model, including international roles."
+      },
+      {
+        keywords: ["language", "languages", "english", "spanish", "portuguese"],
+        resposta:
+          "Languages: Native Portuguese, Fluent English, and Intermediate Spanish."
+      },
+      {
+        keywords: ["hi", "hello", "hey", "good morning", "good afternoon", "good evening"],
+        resposta:
+          "Hello! 👋 Ask me about the flagship project, tech stack, experience, or how to get in touch."
+      }
+    ],
+    fallback:
+      "Hmm, I don't have an answer for that yet. Try asking about: projects, " +
+      "tech stack, experience, education, certifications, or contact — or use the suggestions above. :)"
+  }
+};

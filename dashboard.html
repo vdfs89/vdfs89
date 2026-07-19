@@ -1264,88 +1264,135 @@ const DADOS = {
 
   /* ── Projects (filter categories: ai | fullstack | pipeline) ── */
   projetos: [
-    {
-      nome: "MESTREGRANA",
-      tags: ["FLAGSHIP", "PRODUCTION"],
-      flagship: true,
-      categorias: ["ai"],
-      descricao: "Consultor financeiro multiagente — consultoria financeira com agentes especializados e respostas auditadas.",
-      arquitetura:
-        "<strong>LangGraph</strong> orchestration coordinating specialized agents; " +
-        "<strong>multi-LLM judge</strong> system for quality and security guardrails; <strong>RAG</strong> with " +
-        "embeddings for knowledge base grounding; <strong>governance and auditing</strong> layer " +
-        "logging and validating every response before delivery.",
-      stack: ["LangGraph", "LangChain", "FastAPI", "PostgreSQL", "RAG", "Docker"],
-      metricas: [
-        { k: "Latency p95", v: "< 2s" },
-        { k: "Uptime", v: "99.9%" },
-        { k: "Accuracy (judge)", v: "> 95%" }
-      ],
-      diagrama:
-"┌─────────┐    ┌──────────────┐    ┌────────────────┐\n" +
-"│  User   │───▶│   FastAPI    │───▶│   LangGraph    │\n" +
-"└─────────┘    │   Gateway    │    │  Orchestrator  │\n" +
-"               └──────────────┘    └───────┬────────┘\n" +
-"                       ┌───────────────────┼───────────────────┐\n" +
-"                       ▼                   ▼                   ▼\n" +
-"               ┌──────────────┐    ┌──────────────┐    ┌──────────────┐\n" +
-"               │     RAG      │    │    Judge     │    │  Governance  │\n" +
-"               │  Embeddings  │    │  Multi-LLM   │    │  & Auditing  │\n" +
-"               └──────┬───────┘    └──────┬───────┘    └──────┬───────┘\n" +
-"                      └───────────────────┼───────────────────┘\n" +
-"                                          ▼\n" +
-"                                ┌──────────────────┐\n" +
-"                                │ Validated Answer │\n" +
+      {
+        nome: "MESTREGRANA",
+        tags: ["FLAGSHIP", "PRODUCTION"],
+        flagship: true,
+        categorias: ["ai"],
+        descricao: "Consultor financeiro multiagente — consultoria financeira com agentes especializados e respostas auditadas.",
+        arquitetura: "LangGraph orchestration coordinating specialized agents; multi-LLM judge system for quality and security guardrails; RAG with embeddings for knowledge base grounding; governance and auditing layer logging and validating every response before delivery.",
+        stack: ["LangGraph", "FastAPI", "Python", "RAG", "Multi-LLM", "MongoDB"],
+        metricas: [
+          { k: "Latency p95", v: "< 2s" },
+          { k: "Uptime", v: "99.9%" },
+          { k: "Accuracy (judge)", v: "> 95%" }
+        ],
+        diagrama:
+"┌─────────┐    ┌──────────────┐    ┌────────────────┐
+" +
+"│  User   │───▶│   FastAPI    │───▶│   LangGraph    │
+" +
+"└─────────┘    │   Gateway    │    │  Orchestrator  │
+" +
+"               └──────────────┘    └───────┬────────┘
+" +
+"                       ┌───────────────────┼───────────────────┐
+" +
+"                       ▼                   ▼                   ▼
+" +
+"               ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+" +
+"               │     RAG      │    │    Judge     │    │  Governance  │
+" +
+"               │  Embeddings  │    │  Multi-LLM   │    │  & Auditing  │
+" +
+"               └──────┬───────┘    └──────┬───────┘    └──────┬───────┘
+" +
+"                      └───────────────────┼───────────────────┘
+" +
+"                                          ▼
+" +
+"                                ┌──────────────────┐
+" +
+"                                │ Validated Answer │
+" +
 "                                └──────────────────┘",
-      links: [
-        { label: "GitHub", url: "https://github.com/vitorsilva/mestregrana" },
-        { label: "Live Demo", url: "https://mestregrana.com.br", solid: true }
-      ]
-    },
-    {
-      nome: "FLUENCYFORGE",
-      tags: ["EDTECH", "MULTI-AGENT"],
-      flagship: false,
-      categorias: ["ai"],
-      descricao: "Plataforma edtech de aprendizado de idiomas com agentes conversacionais, correção e progressão adaptativa.",
-      arquitetura:
-        "Multi-agent system with tutor, evaluator, and curriculum planner roles; " +
-        "structured feedback pipeline by student level.",
-      stack: ["LangChain", "FastAPI", "Python", "MongoDB"],
-      metricas: [{ k: "Status", v: "Em Desenvolvimento" }],
-      diagrama: null,
-      links: []
-    },
-    {
-      nome: "AETHER ONCOLOGY",
-      tags: ["HEALTHCARE", "FULL-STACK"],
-      flagship: false,
-      categorias: ["fullstack"],
-      descricao: "Plataforma full-stack de suporte oncológico — acompanhamento de pacientes, dados clínicos e mobile.",
-      arquitetura:
-        "Frontend web React, app mobile Flutter, API Node.js e serviços auxiliares em Python.",
-      stack: ["React", "Node.js", "Flutter", "Python"],
-      metricas: [{ k: "Demo", v: "Available" }],
-      diagrama: null,
-      links: [
-        { label: "GitHub", url: "#" },
-        { label: "Demo", url: "#", solid: true }
-      ]
-    },
-    {
-      nome: "HARMONIZ.AI",
-      tags: ["LLM PIPELINE"],
-      flagship: false,
-      categorias: ["pipeline"],
-      descricao: "Pipeline LLM para harmonização e enriquecimento de dados com validação automatizada em estágios.",
-      arquitetura:
-        "Pipeline em estágios com extração, normalização LLM, validação baseada em regras e persistência auditável.",
-      stack: ["Python", "LangChain", "PostgreSQL", "Docker"],
-      metricas: [{ k: "Status", v: "MVP" }],
-      diagrama: null,
-      links: [{ label: "GitHub", url: "#" }]
-    }
-  ],
+        links: [
+          { label: "GitHub", url: "https://github.com/vdfs89/InvestimentoDIO" },
+          { label: "Live Demo", url: "https://mestregrana.streamlit.app/", solid: true }
+        ]
+      },
+      {
+        nome: "FLUENCYFORGE",
+        tags: ["EDTECH", "MULTI-AGENT"],
+        flagship: false,
+        categorias: ["ai"],
+        descricao: "Plataforma edtech de aprendizado de idiomas com agentes conversacionais, correção e progressão adaptativa.",
+        arquitetura: "Sistema multiagente com papéis de tutor, avaliador e planejador de currículo; pipeline de feedback estruturado por nível do aluno.",
+        stack: ["LangGraph", "FastAPI", "RAG", "Flutter"],
+        metricas: [{ k: "Status", v: "DESTAQUE" }],
+        diagrama: null,
+        links: [
+          { label: "Live Demo", url: "https://fluencyforge.streamlit.app/", solid: true }
+        ]
+      },
+      {
+        nome: "TWINRANK AI",
+        tags: ["E-COMMERCE", "DEEP LEARNING"],
+        flagship: false,
+        categorias: ["ai"],
+        descricao: "Sistemas de recomendação baseados em popularidade falham na personalização.",
+        arquitetura: "Two-Tower Neural Network built on PyTorch for collaborative filtering.",
+        stack: ["PyTorch", "Two-Tower NN", "MLOps"],
+        metricas: [{ k: "Status", v: "EM DESENV" }],
+        diagrama: null,
+        links: [{ label: "GitHub", url: "https://github.com/vdfs89" }]
+      },
+      {
+        nome: "AETHER ONCOLOGY",
+        tags: ["HEALTHCARE", "FULL-STACK"],
+        flagship: false,
+        categorias: ["fullstack"],
+        descricao: "Plataforma full-stack de suporte oncológico — acompanhamento de pacientes, dados clínicos e mobile.",
+        arquitetura: "Frontend web React, app mobile Flutter, API Node.js e serviços auxiliares em Python.",
+        stack: ["React", "Node.js", "Flutter", "Python"],
+        metricas: [{ k: "Status", v: "2026" }],
+        diagrama: null,
+        links: [
+          { label: "GitHub", url: "https://github.com/vdfs89/Aether_Oncology" },
+          { label: "Demo", url: "https://aetheroncology.vercel.app/", solid: true }
+        ]
+      },
+      {
+        nome: "VEKTORWORK",
+        tags: ["SAAS", "ORCHESTRATION"],
+        flagship: false,
+        categorias: ["fullstack"],
+        descricao: "Freelancers dependem de ferramentas cloud de alto custo para fluxos de trabalho complexos, sem propriedade dos dados.",
+        arquitetura: "Self-hosted automation platform with n8n, Docker Compose, PostgreSQL, and Redis.",
+        stack: ["n8n", "Docker", "Self-Hosted"],
+        metricas: [{ k: "Status", v: "PRIVADO" }],
+        diagrama: null,
+        links: [{ label: "GitHub", url: "https://github.com/vdfs89" }]
+      },
+      {
+        nome: "RETENTIA",
+        tags: ["B2B SAAS", "PREDICTIVE"],
+        flagship: false,
+        categorias: ["ai", "data"],
+        descricao: "Motor Preditivo de Churn. Altas taxas de churn em plataformas SaaS devido ao suporte reativo.",
+        arquitetura: "Predictive churn modeling using Machine Learning, XGBoost, and FastAPI.",
+        stack: ["Machine Learning", "XGBoost", "Churn"],
+        metricas: [{ k: "Status", v: "ATIVO" }],
+        diagrama: null,
+        links: [
+          { label: "GitHub", url: "https://github.com/vdfs89/RetentIA" },
+          { label: "Demo", url: "https://retentia.vitorsilva.page/", solid: true }
+        ]
+      },
+      {
+        nome: "HARMONIZ.AI",
+        tags: ["HEALTHTECH", "DADOS"],
+        flagship: false,
+        categorias: ["pipeline"],
+        descricao: "Pipeline LLM para harmonização e enriquecimento de dados com validação automatizada em estágios.",
+        arquitetura: "Pipeline em estágios com extração, normalização LLM, validação baseada em regras e persistência auditável.",
+        stack: ["Python", "LLMs", "Data Engineering"],
+        metricas: [{ k: "Status", v: "2026" }],
+        diagrama: null,
+        links: [{ label: "GitHub", url: "#" }]
+      }
+    ],
 
   filtrosProjetos: [
     { id: "todos",     label: "TODOS" },

@@ -1,63 +1,129 @@
-with open(r'd:\vdfs89\vdfs89\dashboard.html', 'r', encoding='utf-8') as f:
-    lines = f.readlines()
+import json
+import re
 
-for i in range(len(lines)):
-    if 'nome: "VITOR SILVA — AI ENGINEER"' in lines[i]:
-        lines[i] = lines[i].replace('nome: "VITOR SILVA — AI ENGINEER"', 'nome: "VITOR SILVA — AI ENGINEER & ML ENGINEER"')
-        break # Only replace the first one!
+with open(r'd:\vdfs89\vdfs89\dashboard.en.html', 'r', encoding='utf-8') as f:
+    content = f.read()
 
-for i in range(len(lines)):
-    if 'disponibilidade: "AVAILABLE FOR OPPORTUNITIES"' in lines[i]:
-        lines[i] = lines[i].replace('AVAILABLE FOR OPPORTUNITIES', 'Open to remote opportunities (Brazil & global)')
-        break
+# We want to replace the `projetos: [ ... ]` part of DATA with ALL the projects
+projects_replacement = r'''projetos: [
+      {
+        nome: "MESTREGRANA",
+        tags: ["FLAGSHIP", "PRODUCTION"],
+        flagship: true,
+        categorias: ["ai"],
+        descricao: "Multi-agent financial advisor — financial consulting with specialized agents and audited responses.",
+        arquitetura: "LangGraph orchestration coordinating specialized agents; multi-LLM judge system for quality and security guardrails; RAG with embeddings for knowledge base grounding; governance and auditing layer logging and validating every response before delivery.",
+        stack: ["LangGraph", "FastAPI", "Python", "RAG", "Multi-LLM", "MongoDB"],
+        metricas: [
+          { k: "Latency p95", v: "< 2s" },
+          { k: "Uptime", v: "99.9%" },
+          { k: "Accuracy (judge)", v: "> 95%" }
+        ],
+        diagrama:
+"┌─────────┐    ┌──────────────┐    ┌────────────────┐\n" +
+"│  User   │───▶│   FastAPI    │───▶│   LangGraph    │\n" +
+"└─────────┘    │   Gateway    │    │  Orchestrator  │\n" +
+"               └──────────────┘    └───────┬────────┘\n" +
+"                       ┌───────────────────┼───────────────────┐\n" +
+"                       ▼                   ▼                   ▼\n" +
+"               ┌──────────────┐    ┌──────────────┐    ┌──────────────┐\n" +
+"               │     RAG      │    │    Judge     │    │  Governance  │\n" +
+"               │  Embeddings  │    │  Multi-LLM   │    │  & Auditing  │\n" +
+"               └──────┬───────┘    └──────┬───────┘    └──────┬───────┘\n" +
+"                      └───────────────────┼───────────────────┘\n" +
+"                                          ▼\n" +
+"                                ┌──────────────────┐\n" +
+"                                │ Validated Answer │\n" +
+"                                └──────────────────┘",
+        links: [
+          { label: "GitHub", url: "https://github.com/vdfs89/InvestimentoDIO" },
+          { label: "Live Demo", url: "https://mestregrana.streamlit.app/", solid: true }
+        ]
+      },
+      {
+        nome: "FLUENCYFORGE",
+        tags: ["EDTECH", "MULTI-AGENT"],
+        flagship: false,
+        categorias: ["ai"],
+        descricao: "Edtech language learning platform with conversational agents, correction, and adaptive progression.",
+        arquitetura: "Multi-agent system with tutor, evaluator, and curriculum planner roles; structured feedback pipeline by student level.",
+        stack: ["LangGraph", "FastAPI", "RAG", "Flutter"],
+        metricas: [{ k: "Status", v: "DESTAQUE" }],
+        diagrama: null,
+        links: [
+          { label: "Live Demo", url: "https://fluencyforge.streamlit.app/", solid: true }
+        ]
+      },
+      {
+        nome: "TWINRANK AI",
+        tags: ["E-COMMERCE", "DEEP LEARNING"],
+        flagship: false,
+        categorias: ["ai"],
+        descricao: "Popularity-based recommendation systems fail in personalization.",
+        arquitetura: "Two-Tower Neural Network built on PyTorch for collaborative filtering.",
+        stack: ["PyTorch", "Two-Tower NN", "MLOps"],
+        metricas: [{ k: "Status", v: "EM DESENV" }],
+        diagrama: null,
+        links: [{ label: "GitHub", url: "https://github.com/vdfs89" }]
+      },
+      {
+        nome: "AETHER ONCOLOGY",
+        tags: ["HEALTHCARE", "FULL-STACK"],
+        flagship: false,
+        categorias: ["fullstack"],
+        descricao: "Full-stack oncology support platform — patient tracking, clinical data, and mobile.",
+        arquitetura: "React web frontend, Flutter mobile app, Node.js API, and Python auxiliary services.",
+        stack: ["React", "Node.js", "Flutter", "Python"],
+        metricas: [{ k: "Status", v: "2026" }],
+        diagrama: null,
+        links: [
+          { label: "GitHub", url: "https://github.com/vdfs89/Aether_Oncology" },
+          { label: "Demo", url: "https://aetheroncology.vercel.app/", solid: true }
+        ]
+      },
+      {
+        nome: "VEKTORWORK",
+        tags: ["SAAS", "ORCHESTRATION"],
+        flagship: false,
+        categorias: ["fullstack"],
+        descricao: "Freelancers rely on high-cost cloud tools for complex workflows, without data ownership.",
+        arquitetura: "Self-hosted automation platform with n8n, Docker Compose, PostgreSQL, and Redis.",
+        stack: ["n8n", "Docker", "Self-Hosted"],
+        metricas: [{ k: "Status", v: "PRIVADO" }],
+        diagrama: null,
+        links: [{ label: "GitHub", url: "https://github.com/vdfs89" }]
+      },
+      {
+        nome: "RETENTIA",
+        tags: ["B2B SAAS", "PREDICTIVE"],
+        flagship: false,
+        categorias: ["ai", "data"],
+        descricao: "Predictive Churn Engine. High churn rates in SaaS platforms due to reactive support.",
+        arquitetura: "Predictive churn modeling using Machine Learning, XGBoost, and FastAPI.",
+        stack: ["Machine Learning", "XGBoost", "Churn"],
+        metricas: [{ k: "Status", v: "ATIVO" }],
+        diagrama: null,
+        links: [
+          { label: "GitHub", url: "https://github.com/vdfs89/RetentIA" },
+          { label: "Demo", url: "https://retentia.vitorsilva.page/", solid: true }
+        ]
+      },
+      {
+        nome: "HARMONIZ.AI",
+        tags: ["HEALTHTECH", "DATA"],
+        flagship: false,
+        categorias: ["pipeline"],
+        descricao: "LLM pipeline for data harmonization and enrichment with automated staged validation.",
+        arquitetura: "Staged pipeline with extraction, LLM normalization, rule-based validation, and auditable persistence.",
+        stack: ["Python", "LLMs", "Data Engineering"],
+        metricas: [{ k: "Status", v: "2026" }],
+        diagrama: null,
+        links: [{ label: "GitHub", url: "#" }]
+      }
+    ],'''
 
-for i in range(len(lines)):
-    if '{ valor: 15,  sufixo: "",   label: "Years of mission-critical operations" }' in lines[i]:
-        lines[i] = lines[i].replace('sufixo: ""', 'sufixo: "+"')
-        break
+content = re.sub(r'projetos:\s*\[.*?\],\s*filtrosProjetos:', projects_replacement + '\n\n  filtrosProjetos:', content, flags=re.DOTALL)
 
-for i in range(len(lines)):
-    if 'cargo: "AI Engineer & Solutions Architect"' in lines[i]:
-        lines[i] = lines[i].replace('cargo: "AI Engineer & Solutions Architect"', 'cargo: "AI Engineer & ML Engineer"')
-        break
-
-resume = "AI Engineer working end-to-end across architecture, backend and ML systems. I build scalable, reliable multi-agent systems and APIs, bringing a mission-critical mindset to AI engineering."
-
-for i in range(len(lines)):
-    if 'resumoExecutivo:' in lines[i]:
-        lines[i+1] = f'    "{resume}",\n'
-        lines[i+2] = ''
-        lines[i+3] = ''
-        break
-
-# Add lang-toggle CSS if not exists
-css_to_add = '''
-/* ════════════════════════════════════
-   LANG TOGGLE
-════════════════════════════════════ */
-.lang-toggle {
-    display: flex; gap: 0.5rem; align-items: center; justify-content: center; margin-bottom: 15px;
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
-    color: var(--muted);
-}
-.lang-toggle a { color: inherit; text-decoration: none; transition: color .2s; }
-.lang-toggle a:hover { color: var(--green-dim); }
-.lang-toggle a.active-lang { color: var(--green); text-shadow: var(--glow-text); }
-'''
-
-content = "".join(lines)
-if '.lang-toggle' not in content:
-    content = content.replace('</style>', css_to_add + '\n</style>')
-
-# Add lang-toggle to sidebar__nav
-if 'lang-toggle' not in content.split('<nav class="sidebar__nav"')[1]:
-    nav_html = '''<nav class="sidebar__nav" aria-label="Navegação principal" id="navPrincipal">
-    <nav class="lang-toggle">
-        <a href="dashboard.en.html" class="__EN_ACTIVE__">EN</a> &middot;
-        <a href="dashboard.pt.html" class="__PT_ACTIVE__">PT</a> &middot;
-        <a href="dashboard.es.html" class="__ES_ACTIVE__">ES</a>
-    </nav>'''
-    content = content.replace('<nav class="sidebar__nav" aria-label="Navegação principal" id="navPrincipal">', nav_html)
-
-with open(r'd:\vdfs89\vdfs89\dashboard.html', 'w', encoding='utf-8') as f:
+with open(r'd:\vdfs89\vdfs89\dashboard.en.html', 'w', encoding='utf-8') as f:
     f.write(content)
+print('Replaced projetos in dashboard.en.html')
