@@ -2,7 +2,7 @@ import os
 
 def main():
     base_dir = "d:/vdfs89/vdfs89"
-    with open(os.path.join(base_dir, 'dashboard.html'), 'r', encoding='utf-8') as f:
+    with open(os.path.join(base_dir, 'dashboard.en.html'), 'r', encoding='utf-8') as f:
         content = f.read()
 
     replacements = {
@@ -115,6 +115,18 @@ def main():
         # Education
         'Postgraduate in Machine Learning Engineering': ('Pós-Graduação em Machine Learning Engineering', 'Postgrado en Machine Learning Engineering'),
         'IN PROGRESS': ('EM ANDAMENTO', 'EN CURSO'),
+        'Popularity-based recommendation systems fail in personalization.': (
+            'Sistemas de recomendação baseados em popularidade falham na personalização.',
+            'Los sistemas de recomendación basados en popularidad fallan en la personalización.'
+        ),
+        'Freelancers rely on high-cost cloud tools for complex workflows, without data ownership.': (
+            'Freelancers dependem de ferramentas cloud de alto custo para fluxos de trabalho complexos, sem propriedade dos dados.',
+            'Los freelancers dependen de herramientas en la nube de alto costo para flujos de trabajo complejos, sin propiedad de los datos.'
+        ),
+        'Predictive Churn Engine. High churn rates in SaaS platforms due to reactive support.': (
+            'Motor Preditivo de Churn. Altas taxas de churn em plataformas SaaS devido ao suporte reativo.',
+            'Motor Predictivo de Churn. Altas tasas de churn en plataformas SaaS debido al soporte reactivo.'
+        ),
         'MLOps, model deployment and ML pipelines in production.': ('MLOps, implantação de modelos e pipelines de ML em produção.', 'MLOps, despliegue de modelos y pipelines de ML en producción.'),
         'BSc in Computer Science': ('Bacharelado em Ciência da Computação', 'Licenciatura en Ciencias de la Computación'),
         'Formal foundations in algorithms, systems and distributed computing.': ('Fundamentos formais em algoritmos, sistemas e computação distribuída.', 'Fundamentos formales en algoritmos, sistemas y computación distribuida.'),

@@ -589,29 +589,17 @@ def main():
 
 }
 
-    # Generate EN
-    en_content = content.replace('__EN_ACTIVE__', 'active-lang').replace('__PT_ACTIVE__', '').replace('__ES_ACTIVE__', '')
+
+    with open(os.path.join(base_dir, 'index.en.html'), 'r', encoding='utf-8') as f:
+        html_content = f.read()
+    
+    for en, (pt, es) in sorted(replacements.items(), key=lambda x: len(x[1][0]), reverse=True):
+        if pt and pt != en:
+            html_content = html_content.replace(pt, en)
+            
     with open(os.path.join(base_dir, 'index.en.html'), 'w', encoding='utf-8') as f:
-        f.write(en_content)
-    # Generate PT
-    pt_content = content.replace('__EN_ACTIVE__', '').replace('__PT_ACTIVE__', 'active-lang').replace('__ES_ACTIVE__', '')
-    for en, (pt, es) in replacements.items():
-        pt_content = pt_content.replace(en, pt)
-    with open(os.path.join(base_dir, 'index.pt.html'), 'w', encoding='utf-8') as f:
-        f.write(pt_content)
+        f.write(html_content)
         
-    # Default index is PT
-    with open(os.path.join(base_dir, 'index.html'), 'w', encoding='utf-8') as f:
-        f.write(pt_content)
-
-    # Generate ES
-    es_content = content.replace('__EN_ACTIVE__', '').replace('__PT_ACTIVE__', '').replace('__ES_ACTIVE__', 'active-lang')
-    for en, (pt, es) in replacements.items():
-        es_content = es_content.replace(en, es)
-    with open(os.path.join(base_dir, 'index.es.html'), 'w', encoding='utf-8') as f:
-        f.write(es_content)
-
-    print("Success! Created index.en.html, index.pt.html, index.es.html, and updated index.html.")
-
+    print('Translated index.en.html to English')
 if __name__ == '__main__':
     main()

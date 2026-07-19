@@ -939,19 +939,6 @@ body{
 @media (prefers-reduced-motion: reduce){
   *, *::before, *::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
 }
-
-/* ════════════════════════════════════
-   LANG TOGGLE
-════════════════════════════════════ */
-.lang-toggle {
-    display: flex; gap: 0.5rem; align-items: center; justify-content: center; margin-bottom: 15px;
-    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
-    color: var(--muted);
-}
-.lang-toggle a { color: inherit; text-decoration: none; transition: color .2s; }
-.lang-toggle a:hover { color: var(--green-dim); }
-.lang-toggle a.active-lang { color: var(--green); text-shadow: var(--glow-text); }
-
 </style>
 </head>
 <body>
@@ -976,11 +963,6 @@ body{
   </div>
 
   <nav class="sidebar__nav" aria-label="Navegação principal" id="navPrincipal">
-    <nav class="lang-toggle">
-        <a href="dashboard.en.html" class="">EN</a> &middot;
-        <a href="dashboard.pt.html" class="">PT</a> &middot;
-        <a href="dashboard.es.html" class="active-lang">ES</a>
-    </nav>
     <a href="index.html" class="nav-item" aria-label="Back to Portfolio" style="text-decoration: none; color: var(--neon); border: 1px solid var(--neon-dim); margin-bottom: 15px; justify-content: center; letter-spacing: 0.05em; font-weight: 600;">
       <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
       BACK
@@ -1151,12 +1133,12 @@ body{
 const DATOS = {
 
   /* ── Identity / Overview ── */
-  nome: "VITOR SILVA — AI ENGINEER & ML ENGINEER",
+  nome: "VITOR SILVA — AI ENGINEER",
   localizacao: "Curitiba, PR, Brasil",
-  disponibilidade: "Abierto a oportunidades remotas (Brasil y global)",
+  disponibilidade: "DISPONIBLE PARA OPORTUNIDADES",
 
   metricas: [
-    { valor: 15,  sufixo: "+",   label: "Años de operaciones de misión crítica" },
+    { valor: 15,  sufixo: "",   label: "Años de operaciones de misión crítica" },
     { valor: 4,   sufixo: "",   label: "Proyectos de IA en producción" },
     { valor: 3,   sufixo: "",   label: "Idiomas (PT · EN · ES)" },
     { valor: 80, sufixo: "", label: "Certificados de educación continua" }
@@ -1177,13 +1159,15 @@ const DATOS = {
   links: {
     linkedin:  "https://linkedin.com/in/vitorsilva",
     github:    "https://github.com/vitorsilva",
-    portfolio: "https://vitorsilva.page",
+    portfolio: "https://vitorsilva.engineer",
     email:     "mailto:mkmillhouse89@gmail.com"
   },
 
   /* ── Profile ── */
   resumoExecutivo:
-    "Ingeniero de IA trabajando de extremo a extremo en arquitectura, backend y sistemas de ML. Construyo sistemas multiagente y APIs escalables y confiables, aportando una mentalidad de misión crítica a la ingeniería de IA.",
+    "AI Engineer with 15 years of operational maturity. I build scalable, " +
+    "reliable multi-agent systems and APIs, bringing a mission-critical " +
+    "mindset to AI engineering.",
 
   dados: [
     { k: "Location",    v: "Curitiba, PR, Brasil" },
@@ -1210,7 +1194,7 @@ const DATOS = {
   experiencia: [
     {
       periodo: "2024 — PRESENTE",
-      cargo: "AI Engineer & ML Engineer",
+      cargo: "AI Engineer & Solutions Architect",
       org: "Independiente",
       badge: "EXPERT",
       bullets: [

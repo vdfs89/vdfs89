@@ -568,6 +568,8 @@
             
             
             
+            
+            
 
             <a class="btn btn-solid btn-sm" href="mailto:mkmillhouse89@gmail.com">CONTACT</a>
         </div>
@@ -660,7 +662,7 @@
             <div class="wrap">
                 <div class="prompt reveal">PROJECTS</div>
                 <h2 class="sec-title reveal">Arquiteturas que<br><span class="g">geram valor de negócio.</span></h2>
-                <p class="sec-desc reveal">O verdadeiro desafio não é construir IA — é confiar nela em produção. Meus projetos focam em governança, guardrails e controle de alucinações.</p>
+                <p class="sec-desc reveal">The real challenge isn't building AI — it's trusting it in production. My projects target governance, guardrails and hallucination control.</p>
 
                 <div class="bento">
 
@@ -673,15 +675,21 @@
                             <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Alto risco de alucinação e falta de governança na IA generativa para aconselhamento financeiro.</p>
                             
                             <strong style="color: var(--green);">Arquitetura:</strong>
-                            <pre style="background: rgba(0,255,65,0.05); padding: 1rem; border: 1px solid rgba(0,255,65,0.2); border-radius: 4px; font-size: 0.75rem; color: var(--text); overflow-x: auto; margin-top: 0.5rem; margin-bottom: 1rem;">User
- ↓
-FastAPI
- ↓
-LangGraph Supervisor
- ├── Finance Agent
- ├── Research Agent
- ├── Judge Agent
- └── Report Agent</pre>
+                            <pre style="background: rgba(0,255,65,0.05); padding: 1rem; border: 1px solid rgba(0,255,65,0.2); border-radius: 4px; font-size: 0.75rem; color: var(--text); overflow-x: auto; margin-top: 0.5rem; margin-bottom: 1rem;">┌─────────┐    ┌──────────────┐    ┌────────────────┐
+│  User   │───▶│   FastAPI    │───▶│   LangGraph    │
+└─────────┘    │   Gateway    │    │  Orchestrator  │
+               └──────────────┘    └───────┬────────┘
+                       ┌───────────────────┼───────────────────┐
+                       ▼                   ▼                   ▼
+               ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+               │     RAG      │    │    Judge     │    │  Governance  │
+               │  Embeddings  │    │  Multi-LLM   │    │  & Auditing  │
+               └──────┬───────┘    └──────┬───────┘    └──────┬───────┘
+                      └───────────────────┼───────────────────┘
+                                          ▼
+                                ┌──────────────────┐
+                                │ Validated Answer │
+                                └──────────────────┘</pre>
                             
                             <strong style="color: var(--green);">Solução Técnica:</strong>
                             <ul style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem;">
@@ -939,7 +947,7 @@ LangGraph Orchestrator
                     <div class="timeline">
                         <div class="tl reveal">
                             <span class="tl-dot tl-dot-g"></span>
-                            <div class="tl-date">2011 → PRESENTEEEE</div>
+                            <div class="tl-date">2011 → PRESENTEEE</div>
                             <div class="tl-title">📦 Brazilian Postal & Telegraph Service (ECT)</div>
                             <div class="tl-sub">Suporte Operacional · Curitiba, PR</div>
                             <p class="tl-copy">Mentalidade de confiabilidade forjada através de operações de alta pressão e resolução de problemas em ambientes que não toleram falhas.</p>
