@@ -386,7 +386,209 @@ def main():
         'CURRENT_PROFILE': ('PERFIL_ATUAL', 'PERFIL_ACTUAL'),
         'AVAILABLE': ('DISPONÍVEL', 'DISPONIBLE'),
         'FOCUS': ('FOCO', 'ENFOQUE')
-    }
+    ,
+    'Operational maturity.<br><span class="g">Cutting-edge stack.</span>': (
+        'Maturidade operacional.<br><span class="g">Stack de ponta.</span>',
+        'Madurez operativa.<br><span class="g">Stack de vanguardia.</span>'
+    ),
+    'Most AI Engineers have the code. Few have 15 years of mission-critical ops teaching real systemic resilience.': (
+        'A maioria dos Engenheiros de IA tem o código. Poucos têm 15 anos de operações de missão crítica ensinando resiliência sistêmica real.',
+        'La mayoría de los Ingenieros de IA tienen el código. Pocos tienen 15 años de operaciones de misión crítica enseñando resiliencia sistémica real.'
+    ),
+    '2011 → PRESENT': (
+        '2011 → PRESENTE',
+        '2011 → PRESENTE'
+    ),
+    'Operational Support · Curitiba, PR': (
+        'Suporte Operacional · Curitiba, PR',
+        'Soporte Operativo · Curitiba, PR'
+    ),
+    'Reliability mindset forged through high-pressure operations and problem-solving in environments that do not tolerate failures.': (
+        'Mentalidade de confiabilidade forjada através de operações de alta pressão e resolução de problemas em ambientes que não toleram falhas.',
+        'Mentalidad de fiabilidad forjada a través de operaciones de alta presión y resolución de problemas en entornos que no toleran fallos.'
+    ),
+    'SLA guarantee and large-scale operational continuity': (
+        'Garantia de SLA e continuidade operacional em larga escala',
+        'Garantía de SLA y continuidad operativa a gran escala'
+    ),
+    'Technical focal point for corporate system implementation': (
+        'Ponto focal técnico para implementação de sistemas corporativos',
+        'Punto focal técnico para la implementación de sistemas corporativos'
+    ),
+    'Analytical profile for real-time failure mitigation': (
+        'Perfil analítico para mitigação de falhas em tempo real',
+        'Perfil analítico para mitigación de fallos en tiempo real'
+    ),
+    '2023 → 2026': (
+        '2023 → 2026',
+        '2023 → 2026'
+    ),
+    'BSc in Computer Science': (
+        'Bacharelado em Ciência da Computação',
+        'Licenciatura en Ciencias de la Computación'
+    ),
+    'Formal foundations in algorithms, systems and distributed computing': (
+        'Fundamentos formais em algoritmos, sistemas e computação distribuída',
+        'Fundamentos formales en algoritmos, sistemas y computación distribuida'
+    ),
+    'Complementary tracks: MLOps, FastAPI and Data Engineering': (
+        'Trilhas complementares: MLOps, FastAPI e Engenharia de Dados',
+        'Pistas complementarias: MLOps, FastAPI e Ingeniería de Datos'
+    ),
+    '2026 → 2027': (
+        '2026 → 2027',
+        '2026 → 2027'
+    ),
+    'MLOps, model deployment and ML pipelines in production': (
+        'MLOps, deploy de modelos e pipelines de ML em produção',
+        'MLOps, despliegue de modelos y pipelines de ML en producción'
+    ),
+    'Scalable AI system architecture and model governance': (
+        'Arquitetura de sistemas de IA escaláveis e governança de modelos',
+        'Arquitectura de sistemas de IA escalables y gobernanza de modelos'
+    ),
+    '2024 → NOW': (
+        '2024 → AGORA',
+        '2024 → AHORA'
+    ),
+    'Independent projects · Open to Opportunities': (
+        'Projetos independentes · Aberto a Oportunidades',
+        'Proyectos independientes · Abierto a Oportunidades'
+    ),
+    'Stateful agentic systems with memory and LangGraph orchestration': (
+        'Sistemas agênticos stateful com memória e orquestração LangGraph',
+        'Sistemas agénticos stateful con memoria y orquestación LangGraph'
+    ),
+    'FastAPI services with async patterns and high performance': (
+        'Serviços FastAPI com padrões assíncronos e alto desempenho',
+        'Servicios FastAPI con patrones asíncronos y alto rendimiento'
+    ),
+    'RAG pipelines designed for real use cases with semantic precision': (
+        'Pipelines RAG projetados para casos de uso reais com precisão semântica',
+        'Pipelines RAG diseñados para casos de uso reales con precisión semántica'
+    ),
+    'Delivery Under Pressure': (
+        'Entrega Sob Pressão',
+        'Entrega Bajo Presión'
+    ),
+    '15 years of zero-downtime tolerance translate into defensive code and architectures that degrade gracefully.': (
+        '15 anos de tolerância zero a inatividade se traduzem em código defensivo e arquiteturas que degradam suavemente.',
+        '15 años de tolerancia cero a inactividad se traducen en código defensivo y arquitecturas que se degradan suavemente.'
+    ),
+    'Product Vision, Not Just Code': (
+        'Visão de Produto, Não Apenas Código',
+        'Visión de Producto, No Sólo Código'
+    ),
+    'I understand business processes because I operated them. I design systems that solve the real problem.': (
+        'Entendo processos de negócio porque os operei. Desenho sistemas que resolvem o problema real.',
+        'Entiendo los procesos de negocio porque los operé. Diseño sistemas que resuelven el problema real.'
+    ),
+    'Modern Stack, Engineer Mindset': (
+        'Stack Moderna, Mentalidade de Engenheiro',
+        'Stack Moderna, Mentalidad de Ingeniero'
+    ),
+    'LangGraph, RAG, FastAPI — not as buzzwords, but applied in projects with measurable business objectives.': (
+        'LangGraph, RAG, FastAPI — não como buzzwords, mas aplicados em projetos com objetivos de negócio mensuráveis.',
+        'LangGraph, RAG, FastAPI — no como palabras de moda, sino aplicados en proyectos con objetivos de negocio medibles.'
+    ),
+    'Certifications': (
+        'Certificações',
+        'Certificaciones'
+    ),
+    'Tools.<br><span class="g">Not just buzzwords.</span>': (
+        'Ferramentas.<br><span class="g">Não apenas buzzwords.</span>',
+        'Herramientas.<br><span class="g">No solo palabras de moda.</span>'
+    ),
+    'Global freelancer.<br><span class="g">Available now.</span>': (
+        'Freelancer global.<br><span class="g">Disponível agora.</span>',
+        'Freelancer global.<br><span class="g">Disponible ahora.</span>'
+    ),
+    'I work remotely with clients in Brazil and worldwide. Production-grade AI stack, product-quality delivery.': (
+        'Trabalho remotamente com clientes no Brasil e no mundo. Stack de IA em nível de produção, entrega com qualidade de produto.',
+        'Trabajo de forma remota con clientes en Brasil y en todo el mundo. Stack de IA de nivel de producción, entrega con calidad de producto.'
+    ),
+    'Agentic Systems with LangGraph': (
+        'Sistemas Agênticos com LangGraph',
+        'Sistemas Agénticos con LangGraph'
+    ),
+    'Architecture and development of stateful agents with memory, multi-agent orchestration and robust decision flows.': (
+        'Arquitetura e desenvolvimento de agentes stateful com memória, orquestração multi-agente e fluxos de decisão robustos.',
+        'Arquitectura y desarrollo de agentes stateful con memoria, orquestación multiagente y flujos de decisión robustos.'
+    ),
+    'RAG & Retrieval Pipelines': (
+        'RAG & Pipelines de Recuperação',
+        'RAG & Pipelines de Recuperación'
+    ),
+    'High-fidelity semantic retrieval pipelines for Q&A, support and enterprise knowledge bases.': (
+        'Pipelines de recuperação semântica de alta fidelidade para Q&A, suporte e bases de conhecimento corporativas.',
+        'Pipelines de recuperación semántica de alta fidelidad para Q&A, soporte y bases de conocimiento corporativas.'
+    ),
+    'AI Guardrails & Governance': (
+        'Guardrails & Governança de IA',
+        'Guardrails & Gobernanza de IA'
+    ),
+    'Multi-LLM audit systems that mitigate hallucinations before they reach the user. Cost control and groundedness.': (
+        'Sistemas de auditoria Multi-LLM que mitigam alucinações antes de chegarem ao usuário. Controle de custos e fundamentação.',
+        'Sistemas de auditoría Multi-LLM que mitigan las alucinaciones antes de que lleguen al usuario. Control de costes y fundamentación.'
+    ),
+    'FastAPI & Python Backend': (
+        'Backend Python & FastAPI',
+        'Backend Python & FastAPI'
+    ),
+    'High-performance async backends integrating AI models, databases and external services.': (
+        'Backends assíncronos de alta performance integrando modelos de IA, bancos de dados e serviços externos.',
+        'Backends asíncronos de alto rendimiento que integran modelos de IA, bases de datos y servicios externos.'
+    ),
+    'AI Architecture Consulting': (
+        'Consultoria em Arquitetura de IA',
+        'Consultoría en Arquitectura de IA'
+    ),
+    'Architecture review, model selection, cost vs. accuracy trade-offs and implementation roadmap for teams adopting AI.': (
+        'Revisão de arquitetura, seleção de modelos, trade-offs de custo vs precisão e roadmap de implementação para times adotando IA.',
+        'Revisión de arquitectura, selección de modelos, trade-offs de coste vs precisión y roadmap de implementación para equipos que adoptan IA.'
+    ),
+    'Remote Global': (
+        'Global Remoto',
+        'Global Remoto'
+    ),
+    'Remote, based in Brazil — available for clients in Brazil and worldwide. Fluent English for technical communication.': (
+        'Remoto, baseado no Brasil — disponível para clientes no Brasil e no mundo. Inglês fluente para comunicação técnica.',
+        'Remoto, con base en Brasil — disponible para clientes en Brasil y en todo el mundo. Inglés fluido para comunicación técnica.'
+    ),
+    'TALK ABOUT A PROJECT →': (
+        'CONVERSAR SOBRE UM PROJETO →',
+        'HABLAR DE UN PROYECTO →'
+    ),
+    'How to hire an AI freelancer with LangGraph?': (
+        'Como contratar um freelancer de IA com LangGraph?',
+        '¿Cómo contratar a un freelancer de IA con LangGraph?'
+    ),
+    'What does a Machine Learning Engineer freelancer do?': (
+        'O que faz um engenheiro de machine learning freelancer?',
+        '¿Qué hace un ingeniero de machine learning freelancer?'
+    ),
+    'Do you work with international clients?': (
+        'Você trabalha com clientes internacionais?',
+        '¿Trabajas con clientes internacionales?'
+    ),
+    'What is the difference between RAG and a regular chatbot?': (
+        'Qual a diferença entre RAG e um chatbot comum?',
+        '¿Cuál es la diferencia entre RAG y un chatbot común?'
+    ),
+    'INITIATE CONVERSATION': (
+        'INICIAR CONVERSA',
+        'INICIAR CONVERSACIÓN'
+    ),
+    "Let's build the<br>next level?": (
+        'Vamos construir o<br>próximo nível?',
+        '¿Construimos el<br>siguiente nivel?'
+    ),
+    'Open to AI Engineer or Solutions Architect positions. Professional maturity + cutting-edge AI stack for your team.': (
+        'Aberto a posições de Engenheiro de IA ou Arquiteto de Soluções. Maturidade profissional + stack de IA de ponta para o seu time.',
+        'Abierto a posiciones de Ingeniero de IA o Arquitecto de Soluciones. Madurez profesional + stack de IA de vanguardia para su equipo.'
+    )
+
+}
 
     # Generate EN
     en_content = content.replace('__EN_ACTIVE__', 'active-lang').replace('__PT_ACTIVE__', '').replace('__ES_ACTIVE__', '')
