@@ -23,15 +23,19 @@ def main():
     if '.lang-toggle' not in content:
         content = content.replace('</style>', css_to_add + '</style>')
     
-    # 2. Add nav toggle
+    # 2. Add or update nav toggle
+    import re
+    # Remove any existing nav lang-toggle so we can insert the templated one
+    content = re.sub(r'<nav class="lang-toggle">.*?</nav>', '', content, flags=re.DOTALL)
+    
     nav_toggle_html = '''
             <nav class="lang-toggle">
                 <a href="index.en.html" class="__EN_ACTIVE__">EN</a> &middot;
                 <a href="index.pt.html" class="__PT_ACTIVE__">PT</a> &middot;
                 <a href="index.es.html" class="__ES_ACTIVE__">ES</a>
             </nav>'''
-    if 'class="lang-toggle"' not in content:
-        content = content.replace('</nav>', '</nav>' + nav_toggle_html, 1)
+    # Append it to the main nav
+    content = content.replace('</nav>', '</nav>' + nav_toggle_html, 1)
 
     # Dictionary for replacements: English -> Portuguese -> Spanish
     # Structure: EN: (PT, ES)
@@ -594,15 +598,15 @@ def main():
     en_content = content.replace('__EN_ACTIVE__', 'active-lang').replace('__PT_ACTIVE__', '').replace('__ES_ACTIVE__', '')
     with open(os.path.join(base_dir, 'index.en.html'), 'w', encoding='utf-8') as f:
         f.write(en_content)
-    # Default index is EN
-    with open(os.path.join(base_dir, 'index.html'), 'w', encoding='utf-8') as f:
-        f.write(en_content)
-
     # Generate PT
     pt_content = content.replace('__EN_ACTIVE__', '').replace('__PT_ACTIVE__', 'active-lang').replace('__ES_ACTIVE__', '')
     for en, (pt, es) in replacements.items():
         pt_content = pt_content.replace(en, pt)
     with open(os.path.join(base_dir, 'index.pt.html'), 'w', encoding='utf-8') as f:
+        f.write(pt_content)
+        
+    # Default index is PT
+    with open(os.path.join(base_dir, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(pt_content)
 
     # Generate ES
