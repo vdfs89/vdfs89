@@ -37,7 +37,7 @@ I bring **15 years of mission-critical operations** into modern AI engineering �
 **Impact:** 4 specialized agents • 100% audited outputs • sub-200ms RAG retrieval • zero unvalidated responses in production
 **Stack:** `LangGraph` `FastAPI` `Python` `MongoDB` `RAG`
 
-### 🎓 [FluencyForge — Multi-Agent EdTech Platform](https://github.com/vdfs89/fluency-forge)
+### 🎓 [FluencyForge — Multi-Agent EdTech Platform](https://fluencyforge.streamlit.app/)
 **Problem:** Static learning paths fail to adapt to real user progress and context.
 **Solution:** Stateful LangGraph orchestrator with long-term memory and real-time RAG personalization.
 **Impact:** Dynamic curriculum generation • continuous context across sessions • multi-tool AI integration

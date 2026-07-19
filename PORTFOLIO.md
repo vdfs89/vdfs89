@@ -7,101 +7,141 @@ Curitiba - PR, Brazil (Open to Remote / Hybrid / Global Opportunities)
 
 ---
 
-## 🚀 Proposta de Valor (Executive Summary)
+## 🚀 Executive Summary
 
-**Como a maturidade operacional de missão crítica se traduz em engenharia de IA robusta.**
+**How mission-critical operational maturity translates into robust AI engineering.**
 
-Transição de carreira estratégica consolidada por **15 anos de liderança em processos e operações de missão crítica** nos Correios (ECT), onde o gerenciamento de riscos, a resiliência operacional sob pressão e o cumprimento de SLAs rigorosos eram as métricas diárias de sucesso. Atualmente na reta final de **Ciência da Computação** e especializando-me em **Machine Learning Engineering pela FIAP**, trago essa mentalidade de alta confiabilidade corporativa para a engenharia de software avançada.
+A strategic career transition consolidated by **15 years of leadership in processes and mission-critical operations** at the Brazilian Postal Service (ECT), where risk management, operational resilience under pressure, and strict SLA compliance were the daily metrics of success. Currently in the final stretch of my **BSc in Computer Science** and specializing in **Machine Learning Engineering at FIAP**, I bring this mindset of high corporate reliability to advanced software engineering.
 
-Minha especialização é a filosofia **AI-First**: não apenas integrar APIs de LLMs em produtos convencionais, mas estruturar novos paradigmas de sistemas complexos. Sou especialista na criação de **arquiteturas agênticas assíncronas com LangGraph**, mitigação determinística de alucinações em sistemas RAG corporativos, processamento inteligente de documentos (IDP) e na estruturação de esteiras sólidas de observabilidade e avaliação contínua. 
+My specialization is the **AI-First** philosophy: not just integrating LLM APIs into conventional products, but structuring new paradigms for complex systems. I am an expert in creating **asynchronous agentic architectures with LangGraph**, deterministic hallucination mitigation in enterprise RAG systems, intelligent document processing (IDP), and structuring solid pipelines for observability and continuous evaluation.
 
 ---
 
-## 🛠️ Grid de Hard Skills (Arquitetura & Engenharia)
+## 🛠️ Hard Skills Grid (Architecture & Engineering)
 
 ```
 ┌───────────────────────────────────────┐   ┌───────────────────────────────────────┐
-│     INTELIGÊNCIA ARTIFICIAL (AI)      │   │         BACKEND & INTEGRAÇÃO          │
+│       ARTIFICIAL INTELLIGENCE (AI)    │   │         BACKEND & INTEGRATION         │
 ├───────────────────────────────────────┤   ├───────────────────────────────────────┤
-│ • Orquestração Multi-Agente(LangGraph) │   │ • Python (FastAPI, Streamlit, Flask)  │
-│ • Mitigação Avançada de Alucinações   │   │ • Node.js (JavaScript / TypeScript)   │
-│ • Pipelines RAG & Chunking Semântico  │   │ • Programação Assíncrona/Concorrência │
-│ • Governança & Curadoria de Dados     │   │ • Protocolos Web (REST, WebSockets)   │
-│ • Observabilidade (LangSmith & Evals) │   │ • State-Machine Logic & Determinismo  │
+│ • Multi-Agent Orchestration(LangGraph)│   │ • Python (FastAPI, Streamlit, Flask)  │
+│ • Advanced Hallucination Mitigation   │   │ • Node.js (JavaScript / TypeScript)   │
+│ • RAG Pipelines & Semantic Chunking   │   │ • Async Programming / Concurrency     │
+│ • Data Governance & Curation          │   │ • Web Protocols (REST, WebSockets)    │
+│ • Observability (LangSmith & Evals)   │   │ • State-Machine Logic & Determinism   │
 └───────────────────────────────────────┘   └───────────────────────────────────────┘
 ┌───────────────────────────────────────┐   ┌───────────────────────────────────────┐
-│     INFRAESTRUTURA & MLOPs            │   │          BANCOS DE DADOS              │
+│       INFRASTRUCTURE & MLOPs          │   │               DATABASES               │
 ├───────────────────────────────────────┤   ├───────────────────────────────────────┤
-│ • Containerização (Docker)            │   │ • Bancos Vetoriais(Pinecone, PGVector) │
+│ • Containerization (Docker)           │   │ • Vector DBs (Pinecone, PGVector)     │
 │ • Cloud Computing (Azure Services)    │   │ • NoSQL (MongoDB)                     │
-│ • CI/CD Automático (GitHub Actions)   │   │ • Relacionais (PostgreSQL)            │
-│ • Arquitetura Serverless              │   │ • Pipelines ETL de Ingestão Complexa  │
-│ • Monitoramento de Métricas de Deriva │   │ • Modelagem de Dados Não Estruturados │
+│ • Automated CI/CD (GitHub Actions)    │   │ • Relational (PostgreSQL)             │
+│ • Serverless Architecture             │   │ • Complex Ingestion ETL Pipelines     │
+│ • Data Drift Metrics Monitoring       │   │ • Unstructured Data Modeling          │
 └───────────────────────────────────────┘   └───────────────────────────────────────┘
 ```
 
 ---
 
-## 🏆 Projetos Vitrine (Showcase de Engenharia)
+## 🏆 Engineering Showcase (Featured Projects)
 
-### 📈 1. MestreGrana — Orquestrador Multi-Agente Financeiro
-*Plataforma avançada de inteligência financeira estruturada em uma rede de agentes autônomos especialistas para planejamento e auditoria regulatória.*
+### 📈 1. MestreGrana — Financial Multi-Agent Orchestrator
+*Advanced financial intelligence platform structured on a network of autonomous specialist agents for planning and regulatory auditing.*
 
-*   **Stack Principal:** Python, LangGraph, Streamlit, MongoDB.
-*   **A Abordagem de Negócio:** Substitui o prompt engineering linear por um comitê de agentes (planejadores, auditores e validadores) que trabalham de forma colaborativa para estruturar planejamentos de investimento robustos e em total conformidade regulatória.
-*   **⚡ O Desafio Técnico Superado:** 
-    *   *Mitigação de Alucinação:* Em finanças, uma alucinação de dados pode custar milhões ou violar regras regulatórias. Desenvolvi um loop determinístico de validação cruzada no LangGraph, onde um Agente de Compliance analisa as saídas geradas confrontando-as com APIs de mercado estruturadas e regras fixas. Se houver discrepância de dados superiores a 0%, o fluxo é reiniciado de forma auto-corretiva.
-    *   *Persistência de Estado Complexo:* Implementei um sistema de checkpointing customizado do LangGraph no MongoDB, permitindo salvar o estado exato da conversa e das árvores de decisão. Isso garante que interrupções de conexão ou sessões assíncronas de longa duração possam ser retomadas sem perda de progresso histórico.
-*   **Links:** 🐙 [Código no GitHub](https://github.com/vdfs89/MestreGrana) | 🌐 [Demo Ativa](https://mestregrana.streamlit.app/)
-
----
-
-### 🎓 2. FluencyForge — Tutor Adaptativo de Inglês Técnico
-*Ecossistema inteligente que cria percursos de aprendizagem de inglês para tecnologia baseado nas dificuldades e contexto em tempo real do usuário.*
-
-*   **Stack Principal:** FastAPI, Flutter, LangGraph, PostgreSQL.
-*   **A Abordagem de Negócio:** Um ecossistema móvel e backend voltado para o aprendizado focado em negócios de tecnologia, medindo a retenção e o progresso do usuário através de interações contextuais personalizadas.
-*   **⚡ O Desafio Técnico Superado:** 
-    *   *Streaming Assíncrono e Latência:* A resposta a conversas em tempo real requer processamento de altíssima velocidade. Solucionei a latência implementando streaming de dados bi-direcional utilizando endpoints assíncronos no FastAPI integrados a streams de áudio/texto no Flutter. O processamento pesado da avaliação gramatical roda de forma não-bloqueante no background, permitindo que a voz ou texto de resposta seja gerado em partes (tokens) antes mesmo que a análise completa termine, reduzindo o tempo percebido de resposta para menos de 800ms.
-*   **Links:** 🐙 [Código no GitHub](https://github.com/vdfs89/fluency-forge) | 🌐 [Demo Ativa](https://fluencyforge.streamlit.app/)
+*   **Core Stack:** Python, LangGraph, Streamlit, MongoDB.
+*   **The Business Approach:** Replaces linear prompt engineering with a committee of agents (planners, auditors, and validators) working collaboratively to structure robust investment plans in full regulatory compliance.
+*   **⚡ The Technical Challenge Overcome:** 
+    *   *Hallucination Mitigation:* In finance, data hallucination can cost millions or violate regulatory rules. I developed a deterministic cross-validation loop in LangGraph, where a Compliance Agent analyzes generated outputs by confronting them with structured market APIs and fixed rules. If there is a data discrepancy greater than 0%, the flow self-corrects and restarts.
+    *   *Complex State Persistence:* Implemented a custom LangGraph checkpointing system in MongoDB, allowing the exact state of the conversation and decision trees to be saved. This ensures that connection interruptions or long-running async sessions can be resumed without losing historical progress.
+*   **Links:** 🐙 [GitHub Code](https://github.com/vdfs89/MestreGrana) | 🌐 [Live Demo](https://mestregrana.streamlit.app/)
 
 ---
 
-### 🏥 3. Aether Oncology — Cockpit Clínico & Diagnóstico Preditivo
-*Plataforma médica de alta densidade para diagnóstico oncológico, integrando modelos de Deep Learning explicáveis (XAI - Explainable AI) a uma interface clínica premium e interativa.*
+### 🎓 2. FluencyForge — Adaptive Technical English Tutor
+*Intelligent ecosystem that creates tech-English learning paths based on the user's real-time difficulties and context.*
 
-*   **Stack Principal:** Next.js, PyTorch, FastAPI, Tailwind CSS, Docker.
-*   **A Abordagem de Negócio:** Substitui terminais de diagnóstico confusos por um cockpit clínico de alta densidade visual (bento-grid de dados clínicos, estrela-guia de visualização tridimensional e XAI) que entrega prognósticos rápidos de tumores com explicações auditáveis para oncologistas.
-*   **⚡ O Desafio Técnico Superado:** 
-    *   *Explicabilidade do Modelo (XAI) e Latência de Inferência:* Integrar previsões de redes neurais profundas (PyTorch) em tempo real sem comprometer a confiança clínica. Desenvolvi um pipeline assíncrono no FastAPI que processa exames e gera mapas de calor explicativos (gradientes integrados) de atribuição de pixels, retornando o payload em menos de 1.2 segundos.
-    *   *Renderização de Estrela-Guia Interativa (GPU):* Projetar um dashboard clínico de alta fidelidade mantendo a interface leve e responsiva. Contornei o gargalo na main thread do navegador delegando o cálculo vetorial de física e renderização da estrela-guia dinâmica ("Lotus Pulsante") para shaders acelerados por GPU em WebGL, garantindo 60fps estáveis.
-*   **Links:** 🐙 [Código no GitHub](https://github.com/vdfs89/Aether_Oncology)
-
----
-
-## ⏳ Linha do Tempo Profissional
-
-### 🎓 Formação Acadêmica de Vanguarda
-*   **Pós-Graduação em Machine Learning Engineering**
-    *   *FIAP* | Cursando
-    *   *Foco prático:* MLOps, deep learning, engenharia de atributos, implantação escalável de LLMs corporativos e avaliação contínua contra desvio de dados (data drift).
-*   **Bacharelado em Ciência da Computação**
-    *   *Descomplica Faculdade Digital* | Último Ano (Conclusão 2026)
-    *   *Foco prático:* Sólida base em estruturas de dados complexas, análise de complexidade algorítmica, teoria da computação e segurança de dados.
-
-### 🏢 Liderança & Governança Operacional
-*   **Gestor de Processos e Operações de Missão Crítica**
-    *   *Correios (ECT)* | 2011 — Presente (15 Anos)
-    *   *Core Delivery:* Coordenação técnica e gerenciamento de equipes de operação de alta pressão. Responsável por SLA crítico de entregas, auditorias federais, mitigação de riscos operacionais complexos e garantia de conformidade legal absoluta.
-    *   *Transposição Tecnológica:* Esta profunda experiência operacional confere a maturidade necessária para desenhar softwares sob a ótica de confiabilidade extrema, resiliência do sistema e logs defensivos estruturados contra falhas.
+*   **Core Stack:** FastAPI, Flutter, LangGraph, PostgreSQL.
+*   **The Business Approach:** A mobile and backend ecosystem aimed at tech-business learning, measuring user retention and progress through personalized contextual interactions.
+*   **⚡ The Technical Challenge Overcome:** 
+    *   *Async Streaming and Latency:* Real-time conversation response requires extremely high-speed processing. I solved latency by implementing bi-directional data streaming using async endpoints in FastAPI integrated with audio/text streams in Flutter. The heavy processing of grammar evaluation runs non-blocking in the background, allowing the response voice or text to be generated in parts (tokens) even before the full analysis finishes, reducing perceived response time to under 800ms.
+*   **Links:** 🌐 [Live Demo](https://fluencyforge.streamlit.app/)
 
 ---
 
-## 📬 Contato Direto
+### 🏥 3. Aether Oncology — Clinical Cockpit & Predictive Diagnostics
+*High-density medical platform for oncological diagnostics, integrating Explainable AI (XAI) deep learning models with a premium, interactive clinical interface.*
 
-Estou sempre aberto a conversar com **CTOs, Engineering Managers e Fundadores de Startups** que buscam engenheiros focados na criação de produtos reais e sistemas de IA robustos.
+*   **Core Stack:** Next.js, PyTorch, FastAPI, Tailwind CSS, Docker.
+*   **The Business Approach:** Replaces confusing diagnostic terminals with a high-density visual clinical cockpit (bento-grid of clinical data, 3D guide star visualization, and XAI) that delivers fast tumor prognostics with auditable explanations for oncologists.
+*   **⚡ The Technical Challenge Overcome:** 
+    *   *Model Explainability (XAI) and Inference Latency:* Integrating deep neural network (PyTorch) predictions in real-time without compromising clinical trust. I developed an async pipeline in FastAPI that processes exams and generates explanatory heatmaps (integrated gradients) of pixel attribution, returning the payload in under 1.2 seconds.
+    *   *Interactive Guide Star Rendering (GPU):* Designing a high-fidelity clinical dashboard while keeping the interface lightweight and responsive. I bypassed the browser's main thread bottleneck by delegating the vector physics calculation and rendering of the dynamic guide star ("Pulsating Lotus") to GPU-accelerated WebGL shaders, ensuring a stable 60fps.
+*   **Links:** 🐙 [GitHub Code](https://github.com/vdfs89/Aether_Oncology)
+
+---
+
+### 📈 4. Harmoniz.AI — Biometric Data Correlator
+*Correlation of complex biometric data with LLM pipelines to optimize human performance.*
+
+*   **Core Stack:** Python, Pandas, LLM Pipeline, Streamlit.
+*   **Links:** 🐙 [GitHub Code](https://github.com/vdfs89/Harmoniz.AI) | 🌐 [Live Demo](https://harmonizai.streamlit.app/)
+
+---
+
+### 🛒 5. TwinRank AI — Deep Learning Recommendation
+*Two-Tower Neural Network for E-commerce recommendations.*
+
+*   **Core Stack:** PyTorch, FastAPI, DVC, MLflow.
+*   **Status:** IN DEVELOPMENT
+
+---
+
+### ⚙️ 6. VektorWork — AI Orchestration SaaS
+*Self-hosted automation platform for freelancers.*
+
+*   **Core Stack:** n8n, Docker Compose, PostgreSQL, Redis.
+*   **Status:** Private Repository
+
+---
+
+### 🔮 7. RetentIA — Predictive Churn Engine
+*Predictive churn engine for B2B SaaS using Machine Learning.*
+
+*   **Core Stack:** Python, Scikit-learn, XGBoost, FastAPI.
+*   **Status:** Private Repository
+
+---
+
+### 🏥 8. AIClinicOS — Clinic Management OS
+*Modern intelligent OS for clinic data and patient care management.*
+
+*   **Core Stack:** Next.js, Tailwind, Supabase.
+*   **Links:** 🌐 [Live Demo](https://ai-clinic-os.vercel.app/)
+
+---
+
+## ⏳ Professional Timeline
+
+### 🎓 Cutting-Edge Academic Background
+*   **Postgraduate in Machine Learning Engineering**
+    *   *FIAP* | Ongoing
+    *   *Practical focus:* MLOps, deep learning, feature engineering, scalable deployment of enterprise LLMs, and continuous evaluation against data drift.
+*   **BSc in Computer Science**
+    *   *Descomplica Digital University* | Senior Year (Graduation 2026)
+    *   *Practical focus:* Solid foundation in complex data structures, algorithmic complexity analysis, theory of computation, and data security.
+
+### 🏢 Leadership & Operational Governance
+*   **Process and Mission-Critical Operations Manager**
+    *   *Brazilian Postal Service (ECT)* | 2011 — Present (15 Years)
+    *   *Core Delivery:* Technical coordination and management of high-pressure operational teams. Responsible for critical delivery SLAs, federal audits, complex operational risk mitigation, and absolute legal compliance assurance.
+    *   *Technological Transposition:* This deep operational experience grants the maturity needed to design software from the perspective of extreme reliability, system resilience, and structured defensive logs against failures.
+
+---
+
+## 📬 Direct Contact
+
+I am always open to speaking with **CTOs, Engineering Managers, and Startup Founders** looking for engineers focused on creating real products and robust AI systems.
 
 *   💼 **LinkedIn:** [linkedin.com/in/vitorsilva-aieng](https://www.linkedin.com/in/vitorsilva-aieng/)
 *   🐙 **GitHub:** [github.com/vdfs89](https://github.com/vdfs89)
-*   🌐 **Website Pessoal:** [vitorsilva.page](https://vitorsilva.page/)
-*   ✉️ **E-mail:** [vitor_diogo89@hotmail.com](mailto:vitor_diogo89@hotmail.com)
+*   🌐 **Personal Website:** [vitorsilva.page](https://vitorsilva.page/)
+*   ✉️ **Email:** [vitor_diogo89@hotmail.com](mailto:vitor_diogo89@hotmail.com)
