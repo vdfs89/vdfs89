@@ -25,6 +25,15 @@ DETECT_SCRIPT = """    <script>
 """
 
 
+def join_string_literals(html):
+    """Collapse JS string concatenations ("a " + "b") into one literal.
+
+    The translation table is keyed on whole sentences, so a sentence split
+    across several literals never matched and shipped untranslated.
+    """
+    return re.sub(r'"[ \t]*\+\s*\n\s*"', '', html)
+
+
 def with_lang_detect(en_html, pt_file, es_file):
     """Root page is English plus a one-shot browser-language redirect."""
     script = DETECT_SCRIPT.replace('__PT__', pt_file).replace('__ES__', es_file)
@@ -228,8 +237,51 @@ def main():
         "Hmm, I don't have an answer for that yet. Try asking about: projects, tech stack, experience, education, certifications, or contact — or use the suggestions above. :)": (
             'Hmm, ainda não tenho uma resposta para isso. Tente perguntar sobre: projetos, stack, experiência, formação, certificações ou contato — ou use as sugestões acima. :)',
             'Hmm, todavía no tengo una respuesta para eso. Intenta preguntar sobre: proyectos, stack, experiencia, educación, certificaciones o contacto — o usa las sugerencias anteriores. :)'
-        )
+        ),
+
+        # aria-labels (matched with the attribute so the words are not
+        # replaced anywhere else on the page)
+        'aria-label="Overview"': ('aria-label="Visão Geral"', 'aria-label="Visión General"'),
+        'aria-label="Profile"': ('aria-label="Perfil"', 'aria-label="Perfil"'),
+        'aria-label="Experience"': ('aria-label="Experiência"', 'aria-label="Experiencia"'),
+        'aria-label="Education"': ('aria-label="Formação"', 'aria-label="Educación"'),
+        'aria-label="Projects & Tech Stack"': ('aria-label="Projetos e Tech Stack"', 'aria-label="Proyectos y Tech Stack"'),
+        'aria-label="Projects and Tech Stack"': ('aria-label="Projetos e Tech Stack"', 'aria-label="Proyectos y Tech Stack"'),
+        'aria-label="Certifications"': ('aria-label="Certificações"', 'aria-label="Certificaciones"'),
+        'aria-label="Achievements"': ('aria-label="Conquistas"', 'aria-label="Logros"'),
+        'aria-label="Filter projects"': ('aria-label="Filtrar projetos"', 'aria-label="Filtrar proyectos"'),
+        'aria-label="Filter courses by category"': ('aria-label="Filtrar cursos por categoria"', 'aria-label="Filtrar cursos por categoría"'),
+        'aria-label="Filter achievements"': ('aria-label="Filtrar conquistas"', 'aria-label="Filtrar logros"'),
+        'aria-label="Question for assistant"': ('aria-label="Pergunta para o assistente"', 'aria-label="Pregunta para el asistente"'),
+        'aria-label="AI Assistant"': ('aria-label="Assistente de IA"', 'aria-label="Asistente de IA"'),
+        'aria-label="Back to Portfolio"': ('aria-label="Voltar ao Portfólio"', 'aria-label="Volver al Portafolio"'),
+        'aria-label="Open navigation menu"': ('aria-label="Abrir menu de navegação"', 'aria-label="Abrir menú de navegación"'),
+        'aria-label="Main navigation"': ('aria-label="Navegação principal"', 'aria-label="Navegación principal"'),
+
+        # project architecture notes and assistant header
+        'LangGraph orchestration coordinating specialized agents; multi-LLM judge system for quality and security guardrails; RAG with embeddings for knowledge base grounding; governance and auditing layer logging and validating every response before delivery.': (
+            'Orquestração LangGraph coordenando agentes especializados; sistema de júri multi-LLM para guardrails de qualidade e segurança; RAG com embeddings para ancoragem na base de conhecimento; camada de governança e auditoria registrando e validando cada resposta antes da entrega.',
+            'Orquestación LangGraph coordinando agentes especializados; sistema de jurado multi-LLM para guardrails de calidad y seguridad; RAG con embeddings para anclaje en la base de conocimiento; capa de gobernanza y auditoría que registra y valida cada respuesta antes de la entrega.'
+        ),
+        'Two-Tower Neural Network built on PyTorch for collaborative filtering.': (
+            'Rede neural Two-Tower construída em PyTorch para filtragem colaborativa.',
+            'Red neuronal Two-Tower construida en PyTorch para filtrado colaborativo.'
+        ),
+        'Self-hosted automation platform with n8n, Docker Compose, PostgreSQL, and Redis.': (
+            'Plataforma de automação self-hosted com n8n, Docker Compose, PostgreSQL e Redis.',
+            'Plataforma de automatización self-hosted con n8n, Docker Compose, PostgreSQL y Redis.'
+        ),
+        'Predictive churn modeling using Machine Learning, XGBoost, and FastAPI.': (
+            'Modelagem preditiva de churn usando Machine Learning, XGBoost e FastAPI.',
+            'Modelado predictivo de churn usando Machine Learning, XGBoost y FastAPI.'
+        ),
+        'vitor_ai — portfolio assistant v1.0': (
+            'vitor_ai — assistente do portfólio v1.0',
+            'vitor_ai — asistente del portafolio v1.0'
+        ),
     }
+
+    content = join_string_literals(content)
 
     # The source page ships a rendered toggle; restore the placeholders so each
     # variant can mark its own link active.

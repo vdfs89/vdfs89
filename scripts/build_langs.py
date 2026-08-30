@@ -630,7 +630,8 @@ def main():
     "The real challenge isn't building AI — it's trusting it in production. My projects target governance, guardrails and hallucination control.": (
         "O verdadeiro desafio não é construir IA — é confiar nela em produção. Meus projetos focam em governança, guardrails e controle de alucinação.",
         "El verdadero desafío no es construir IA — es confiar en ella en producción. Mis proyectos se centran en gobernanza, guardrails y control de alucinaciones."
-    )
+    ),
+    'View Projects': ('Ver Projetos', 'Ver Proyectos'),
 }
 
     # Generate EN
