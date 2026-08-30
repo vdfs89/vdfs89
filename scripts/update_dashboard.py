@@ -1,7 +1,13 @@
+import os
+
+# Repository root: the parent of scripts/
+REPO_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DASHBOARD = os.path.join(REPO_DIR, 'dashboard.en.html')
+
 import json
 import re
 
-with open(r'd:\vdfs89\vdfs89\dashboard.en.html', 'r', encoding='utf-8') as f:
+with open(DASHBOARD, 'r', encoding='utf-8') as f:
     content = f.read()
 
 # We want to replace the `projetos: [ ... ]` part of DATA with ALL the projects
@@ -124,6 +130,6 @@ projects_replacement = r'''projetos: [
 
 content = re.sub(r'projetos:\s*\[.*?\],\s*filtrosProjetos:', projects_replacement + '\n\n  filtrosProjetos:', content, flags=re.DOTALL)
 
-with open(r'd:\vdfs89\vdfs89\dashboard.en.html', 'w', encoding='utf-8') as f:
+with open(DASHBOARD, 'w', encoding='utf-8', newline='\n') as f:
     f.write(content)
 print('Replaced projetos in dashboard.en.html')

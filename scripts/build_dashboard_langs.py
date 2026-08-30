@@ -1,4 +1,7 @@
 import os
+
+# Repository root: the parent of scripts/
+REPO_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 import re
 
 
@@ -29,7 +32,7 @@ def with_lang_detect(en_html, pt_file, es_file):
     return en_html.replace(charset, charset + '\n' + script, 1)
 
 def main():
-    base_dir = "d:/vdfs89/vdfs89"
+    base_dir = REPO_DIR
     with open(os.path.join(base_dir, 'dashboard.en.html'), 'r', encoding='utf-8') as f:
         content = f.read()
 
