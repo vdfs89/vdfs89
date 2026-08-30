@@ -63,6 +63,26 @@ I bring **15 years of mission-critical operations** into modern AI engineering �
 
 ---
 
+### 🛒 [TwinRank AI — Two-Tower Recommender](https://github.com/vdfs89)
+**Problem:** Popularity-based recommendation systems collapse into generic suggestions and fail at real personalization.
+**Solution:** Two-Tower neural collaborative filtering with a versioned, reproducible training pipeline.
+**Impact:** Deep-learning ranking over user/item embeddings • DVC-tracked datasets • MLflow experiment tracking • FastAPI serving
+**Stack:** `PyTorch` `Two-Tower NN` `FastAPI` `DVC` `MLflow`
+
+### ⚙️ [VektorWork — Self-Hosted AI Orchestration](https://github.com/vdfs89)
+**Problem:** Freelancers depend on high-cost cloud automation tools and give up ownership of their own data.
+**Solution:** Self-hosted workflow platform with containerized orchestration and full data residency.
+**Impact:** Reproducible Docker Compose stack • PostgreSQL + Redis backing services • no vendor lock-in
+**Stack:** `n8n` `Docker Compose` `PostgreSQL` `Redis`
+
+### 🏥 [AIClinicOS — Clinic Management SaaS](https://ai-clinic-os.vercel.app/)
+**Problem:** Modern clinics juggle patient data across disconnected tools, costing time on every appointment.
+**Solution:** Full-stack operating system for clinics with integrated scheduling, records, and AI-assisted workflows.
+**Impact:** Next.js app with server-side rendering • Supabase auth and persistence • live production deployment
+**Stack:** `Next.js` `TypeScript` `Tailwind` `Supabase`
+
+---
+
 ## 🛠️ Core Stack
 
 | Domain | Technologies |
@@ -85,6 +105,14 @@ I bring **15 years of mission-critical operations** into modern AI engineering �
 
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=vdfs89&theme=dark&hide_border=true" alt="GitHub Streak" />
+</p>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/vdfs89/vdfs89/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/vdfs89/vdfs89/output/github-contribution-grid-snake.svg" />
+    <img src="https://raw.githubusercontent.com/vdfs89/vdfs89/output/github-contribution-grid-snake.svg" alt="Contribution graph snake animation" />
+  </picture>
 </p>
 
 ---

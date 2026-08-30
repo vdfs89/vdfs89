@@ -7,7 +7,7 @@ const DATA = {
 
   metricas: [
     { valor: 15,  sufixo: "",   label: "Years of mission-critical operations" },
-    { valor: 4,   sufixo: "",   label: "AI projects in production" },
+    { valor: 8,   sufixo: "",   label: "AI projects" },
     { valor: 3,   sufixo: "",   label: "Languages (PT · EN · ES)" },
     { valor: 80, sufixo: "", label: "Continuous education certificates" }
   ],

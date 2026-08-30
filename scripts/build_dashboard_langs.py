@@ -1,4 +1,32 @@
 import os
+import re
+
+
+DETECT_SCRIPT = """    <script>
+    /* Root page serves English. Send pt-* / es-* browsers to their variant once
+       per session; picking a language from the toggle sticks for the session. */
+    (function () {
+        try {
+            if (sessionStorage.getItem('langChosen')) return;
+            var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            var target = lang.indexOf('pt') === 0 ? '__PT__'
+                       : lang.indexOf('es') === 0 ? '__ES__'
+                       : null;
+            if (target) {
+                sessionStorage.setItem('langChosen', '1');
+                location.replace(target);
+            }
+        } catch (e) { /* storage blocked: stay on English */ }
+    })();
+    </script>
+"""
+
+
+def with_lang_detect(en_html, pt_file, es_file):
+    """Root page is English plus a one-shot browser-language redirect."""
+    script = DETECT_SCRIPT.replace('__PT__', pt_file).replace('__ES__', es_file)
+    charset = '<meta charset="UTF-8">'
+    return en_html.replace(charset, charset + '\n' + script, 1)
 
 def main():
     base_dir = "d:/vdfs89/vdfs89"
@@ -61,7 +89,7 @@ def main():
         'Open to remote opportunities (Brazil & global)': ('Aberto a oportunidades remotas (Brasil e global)', 'Abierto a oportunidades remotas (Brasil y global)'),
         'AVAILABLE FOR OPPORTUNITIES': ('DISPONÍVEL PARA OPORTUNIDADES', 'DISPONIBLE PARA OPORTUNIDADES'),
         'Years of mission-critical operations': ('Anos de operações de missão crítica', 'Años de operaciones de misión crítica'),
-        'AI projects in production': ('Projetos de IA em produção', 'Proyectos de IA en producción'),
+        'AI projects': ('Projetos de IA', 'Proyectos de IA'),
         'Languages (PT · EN · ES)': ('Idiomas (PT · EN · ES)', 'Idiomas (PT · EN · ES)'),
         'Continuous education certificates': ('Certificados de educação contínua', 'Certificados de educación continua'),
 
@@ -200,6 +228,15 @@ def main():
         )
     }
 
+    # The source page ships a rendered toggle; restore the placeholders so each
+    # variant can mark its own link active.
+    content = re.sub(r'<a href="dashboard\.en\.html" class="[^"]*">',
+                     '<a href="dashboard.en.html" class="__EN_ACTIVE__">', content)
+    content = re.sub(r'<a href="dashboard\.pt\.html" class="[^"]*">',
+                     '<a href="dashboard.pt.html" class="__PT_ACTIVE__">', content)
+    content = re.sub(r'<a href="dashboard\.es\.html" class="[^"]*">',
+                     '<a href="dashboard.es.html" class="__ES_ACTIVE__">', content)
+
     pt_content = content
     es_content = content
     en_content = content
@@ -217,16 +254,16 @@ def main():
     pt_content = pt_content.replace('<html lang="en"', '<html lang="pt-BR"')
     es_content = es_content.replace('<html lang="en"', '<html lang="es"')
 
-    with open(os.path.join(base_dir, 'dashboard.en.html'), 'w', encoding='utf-8') as f:
+    with open(os.path.join(base_dir, 'dashboard.en.html'), 'w', encoding='utf-8', newline='\n') as f:
         f.write(en_content)
-    with open(os.path.join(base_dir, 'dashboard.pt.html'), 'w', encoding='utf-8') as f:
+    with open(os.path.join(base_dir, 'dashboard.pt.html'), 'w', encoding='utf-8', newline='\n') as f:
         f.write(pt_content)
-    with open(os.path.join(base_dir, 'dashboard.es.html'), 'w', encoding='utf-8') as f:
+    with open(os.path.join(base_dir, 'dashboard.es.html'), 'w', encoding='utf-8', newline='\n') as f:
         f.write(es_content)
         
-    # Save default dashboard as PT, as requested by the user ("PT primeiro")
-    with open(os.path.join(base_dir, 'dashboard.html'), 'w', encoding='utf-8') as f:
-        f.write(pt_content)
+    # Default dashboard is EN + browser-language detection (see with_lang_detect)
+    with open(os.path.join(base_dir, 'dashboard.html'), 'w', encoding='utf-8', newline='\n') as f:
+        f.write(with_lang_detect(en_content, 'dashboard.pt.html', 'dashboard.es.html'))
 
 if __name__ == '__main__':
     main()

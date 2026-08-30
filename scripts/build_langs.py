@@ -1,5 +1,42 @@
 import os
 
+
+DETECT_SCRIPT = """    <script>
+    /* Root page serves English. Send pt-* / es-* browsers to their variant once
+       per session; picking a language from the toggle sticks for the session. */
+    (function () {
+        try {
+            if (sessionStorage.getItem('langChosen')) return;
+            var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            var target = lang.indexOf('pt') === 0 ? '__PT__'
+                       : lang.indexOf('es') === 0 ? '__ES__'
+                       : null;
+            if (target) {
+                sessionStorage.setItem('langChosen', '1');
+                location.replace(target);
+            }
+        } catch (e) { /* storage blocked: stay on English */ }
+    })();
+    </script>
+"""
+
+
+CANONICAL = '<link rel="canonical" href="https://vitorsilva.page/">'
+OG_URL = '<meta property="og:url" content="https://vitorsilva.page/">'
+
+
+def localize_urls(html, filename):
+    """Each translated page is canonical to itself, not to the English root."""
+    html = html.replace(CANONICAL, CANONICAL.replace('page/"', 'page/' + filename + '"'))
+    return html.replace(OG_URL, OG_URL.replace('page/"', 'page/' + filename + '"'))
+
+
+def with_lang_detect(en_html, pt_file, es_file):
+    """Root page is English plus a one-shot browser-language redirect."""
+    script = DETECT_SCRIPT.replace('__PT__', pt_file).replace('__ES__', es_file)
+    charset = '<meta charset="UTF-8">'
+    return en_html.replace(charset, charset + '\n' + script, 1)
+
 def main():
     base_dir = "d:/vdfs89/vdfs89"
     with open(os.path.join(base_dir, 'index.en.html'), 'r', encoding='utf-8') as f:
@@ -26,7 +63,7 @@ def main():
     # 2. Add or update nav toggle
     import re
     # Remove any existing nav lang-toggle so we can insert the templated one
-    content = re.sub(r'<nav class="lang-toggle">.*?</nav>', '', content, flags=re.DOTALL)
+    content = re.sub(r'\s*<nav class="lang-toggle">.*?</nav>', '', content, flags=re.DOTALL)
     
     nav_toggle_html = '''
             <nav class="lang-toggle">
@@ -595,27 +632,27 @@ def main():
 
     # Generate EN
     en_content = content.replace('__EN_ACTIVE__', 'active-lang').replace('__PT_ACTIVE__', '').replace('__ES_ACTIVE__', '')
-    with open(os.path.join(base_dir, 'index.en.html'), 'w', encoding='utf-8') as f:
+    with open(os.path.join(base_dir, 'index.en.html'), 'w', encoding='utf-8', newline='\n') as f:
         f.write(en_content)
     # Generate PT
     pt_content = content.replace('__EN_ACTIVE__', '').replace('__PT_ACTIVE__', 'active-lang').replace('__ES_ACTIVE__', '')
     for en, (pt, es) in replacements.items():
         pt_content = pt_content.replace(en, pt)
-    with open(os.path.join(base_dir, 'index.pt.html'), 'w', encoding='utf-8') as f:
-        f.write(pt_content)
+    with open(os.path.join(base_dir, 'index.pt.html'), 'w', encoding='utf-8', newline='\n') as f:
+        f.write(localize_urls(pt_content, 'index.pt.html'))
         
-    # Default index is PT
-    with open(os.path.join(base_dir, 'index.html'), 'w', encoding='utf-8') as f:
-        f.write(pt_content)
+    # Default index is EN + browser-language detection (see with_lang_detect)
+    with open(os.path.join(base_dir, 'index.html'), 'w', encoding='utf-8', newline='\n') as f:
+        f.write(with_lang_detect(en_content, 'index.pt.html', 'index.es.html'))
 
     # Generate ES
     es_content = content.replace('__EN_ACTIVE__', '').replace('__PT_ACTIVE__', '').replace('__ES_ACTIVE__', 'active-lang')
     for en, (pt, es) in replacements.items():
         es_content = es_content.replace(en, es)
-    with open(os.path.join(base_dir, 'index.es.html'), 'w', encoding='utf-8') as f:
-        f.write(es_content)
+    with open(os.path.join(base_dir, 'index.es.html'), 'w', encoding='utf-8', newline='\n') as f:
+        f.write(localize_urls(es_content, 'index.es.html'))
 
-    print("Success! Created index.en.html, index.pt.html, index.es.html, and updated index.html.")
+    print("Success! Created index.en.html, index.pt.html, index.es.html, and updated index.html (EN default).")
 
 if __name__ == '__main__':
     main()
