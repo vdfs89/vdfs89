@@ -423,6 +423,7 @@ async function boot() {
   // ── inércia do ponteiro: alvo perseguido, inclinação vinda da velocidade ──
   let targetX = 0, targetY = 0, curX = 0, curY = 0, prevX = 0, tilt = 0;
   let touched = false;
+  let queued = false;
 
   stage.addEventListener('pointermove', (e) => {
     const r = stage.getBoundingClientRect();
@@ -430,6 +431,8 @@ async function boot() {
     targetX = ((e.clientX - r.left) / r.width - 0.5) * 2;
     targetY = ((e.clientY - r.top) / r.height - 0.5) * 2;
     if (!touched) { touched = true; hint.textContent = 'Gire com o cursor'; }
+    // sob movimento reduzido não há laço contínuo: cada gesto pede um quadro
+    if (reduced.matches && !queued) { queued = true; requestAnimationFrame(frame); }
   });
 
   stage.addEventListener('pointerleave', () => { targetX = 0; targetY = 0; });
@@ -459,22 +462,28 @@ async function boot() {
   let firstFrame = false;
 
   function frame(now) {
-    // Com movimento reduzido a cena é estática: desenha um quadro e encerra o
-    // laço, em vez de gastar GPU redesenhando a mesma imagem para sempre.
-    if (!reduced.matches) requestAnimationFrame(frame);
+    // Movimento reduzido tira a animação ambiente, não a interação que a
+    // própria pessoa provoca: sob ele o laço só roda enquanto o cursor mexe.
+    if (reduced.matches) queued = false; else requestAnimationFrame(frame);
     if (!visible) { last = now; frames = 0; return; }
 
-    if (!reduced.matches) {
+    if (reduced.matches) {
+      // sem inércia: o objeto acompanha o cursor direto, sem balanço
+      curX = targetX;
+      curY = targetY;
+      prevX = curX;
+      tilt = 0;
+    } else {
       curX += (targetX - curX) * 0.085;
       curY += (targetY - curY) * 0.085;
       const vx = curX - prevX;
       prevX = curX;
       tilt += (Math.max(-0.28, Math.min(0.28, vx * 3.2)) - tilt) * 0.12;
-
-      group.rotation.y = curX * 1.25;
-      group.rotation.x = curY * 0.45;
-      group.rotation.z = tilt;
     }
+
+    group.rotation.y = curX * 1.25;
+    group.rotation.x = curY * 0.45;
+    group.rotation.z = tilt;
 
     renderer.render(scene, camera);
 
