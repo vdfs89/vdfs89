@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Frasco — herói 3D | Vitor Silva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap">
+
+<style>
+  /* Tríade rígida: fundo, corpo, realce. Nada além. */
+  :root {
+    --ground: #0E0D10;
+    --body: #1A181D;
+    --line: #2E2B33;
+    --text: #EDEAE4;
+    --muted: #8C8794;
+    --highlight: #C8963E;
+
+    --font-display: "Bodoni Moda", Georgia, serif;
+    --font-body: "Instrument Sans", system-ui, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 1080px; margin: 0 auto; padding: clamp(2rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2.5rem); }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--highlight);
+    margin: 0 0 1rem;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2rem, 5.5vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -.015em;
+    margin: 0 0 1rem;
+    text-wrap: balance;
+  }
+
+  .lede { max-width: 60ch; color: var(--muted); margin: 0 0 2.5rem; }
+
+  /* ── palco ── */
+
+  .stage {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    max-height: 70svh;
+    border: 1px solid var(--line);
+    background: var(--body);
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  @media (max-width: 640px) { .stage { aspect-ratio: 4 / 5; } }
+
+  .stage canvas { display: block; width: 100%; height: 100%; }
+
+  /* O 2D é o estado inicial. O 3D precisa se provar antes de aparecer. */
+  #fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity .6s ease;
+  }
+
+  #fallback svg { width: clamp(90px, 16vw, 150px); height: auto; overflow: visible; }
+  #fallback .glass { fill: none; stroke: var(--muted); stroke-width: 2.4; stroke-linejoin: round; }
+  #fallback .juice { fill: var(--highlight); opacity: .75; }
+  #fallback .cap { fill: var(--muted); }
+
+  #webgl { position: absolute; inset: 0; opacity: 0; transition: opacity .7s ease; }
+  #webgl.ready { opacity: 1; }
+
+  .hint {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    pointer-events: none;
+  }
+
+  /* ── ficha técnica ── */
+
+  .spec {
+    margin-top: 1px;
+    border: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--line);
+  }
+
+  .spec div { background: var(--body); padding: .9rem 1rem; }
+
+  .spec dt {
+    font-family: var(--font-mono);
+    font-size: .64rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 .3rem;
+  }
+
+  .spec dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    font-variant-numeric: tabular-nums;
+    color: var(--text);
+  }
+
+  .spec dd span { color: var(--muted); font-size: .75rem; }
+
+  .notes { margin-top: 2.5rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.8rem; }
+  .notes h2 { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .13em; text-transform: uppercase; color: var(--highlight); margin: 0 0 .5rem; }
+  .notes p { margin: 0; color: var(--muted); font-size: .92rem; }
+
+  footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); font-family: var(--font-mono); font-size: .7rem; color: var(--muted); }
+  footer a { color: var(--highlight); }
+
+  @media (prefers-reduced-motion: reduce) {
+    #webgl, #fallback { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <p class="eyebrow">Demonstração técnica · objeto herói</p>
+  <h1>Um frasco que reage à luz e ao ponteiro.</h1>
+  <p class="lede">
+    O 3D só se paga quando o comprador precisa ver o objeto girar para decidir —
+    joalheria, perfumaria, destilado premium. Esta página existe para medir esse
+    custo com números reais, não com adjetivos.
+  </p>
+
+  <div class="stage" id="stage">
+    <div id="fallback">
+      <svg viewBox="0 0 48 96" aria-label="Frasco">
+        <path class="glass" d="M8 30 h32 v46 a10 10 0 0 1 -10 10 h-12 a10 10 0 0 1 -10 -10 z"/>
+        <path class="juice" d="M9.2 56 h29.6 v20 a9 9 0 0 1 -9 9 h-11.6 a9 9 0 0 1 -9 -9 z"/>
+        <path class="glass" d="M18 30 v-10 h12 v10"/>
+        <rect class="cap" x="15" y="6" width="18" height="12" rx="2"/>
+      </svg>
+    </div>
+    <div id="webgl"></div>
+    <span class="hint" id="hint">Carregando…</span>
+  </div>
+
+  <dl class="spec">
+    <div><dt>Biblioteca na rede</dt><dd id="mWeight">—</dd></div>
+    <div><dt>Quadros por segundo</dt><dd id="mFps">—</dd></div>
+    <div><dt>Triângulos</dt><dd id="mTris">—</dd></div>
+    <div><dt>Chamadas de desenho</dt><dd id="mCalls">—</dd></div>
+    <div><dt>Modo</dt><dd id="mMode">—</dd></div>
+  </dl>
+
+  <div class="notes">
+    <div>
+      <h2>Geometria procedural</h2>
+      <p>Nenhum modelo é baixado. O frasco é construído em código a partir de
+        cilindros facetados — custa bytes, não megabytes, e o número de faces é
+        decidido no carregamento conforme o aparelho.</p>
+    </div>
+    <div>
+      <h2>Degradação honesta</h2>
+      <p>O desenho 2D é o estado inicial e só some depois do primeiro quadro 3D
+        efetivamente renderizado. Sem WebGL, sem contexto ou com o contexto
+        perdido no meio, ele volta — o visitante nunca vê um retângulo preto.</p>
+    </div>
+    <div>
+      <h2>Custo sob controle</h2>
+      <p>Em aparelho modesto a refração de vidro é trocada por um material
+        metálico com reflexo, que custa uma fração do quadro. O laço de
+        renderização para quando a cena sai da tela.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Demonstração técnica autoral. O frasco é genérico e não representa
+      produto ou marca real. <a href="/">vitorsilva.page</a></p>
+  </footer>
+</div>
+
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js" } }
+</script>
+
+<script type="module">
+const stage = document.getElementById('stage');
+const holder = document.getElementById('webgl');
+const fallback = document.getElementById('fallback');
+const hint = document.getElementById('hint');
+const out = {
+  weight: document.getElementById('mWeight'),
+  fps: document.getElementById('mFps'),
+  tris: document.getElementById('mTris'),
+  calls: document.getElementById('mCalls'),
+  mode: document.getElementById('mMode')
+};
+
+const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+
+function giveUp(reason) {
+  holder.classList.remove('ready');
+  fallback.style.opacity = '1';
+  hint.textContent = reason;
+  out.mode.textContent = '2D';
+}
+
+function hasWebGL() {
+  try {
+    const c = document.createElement('canvas');
+    return !!(window.WebGLRenderingContext && (c.getContext('webgl2') || c.getContext('webgl')));
+  } catch (e) { return false; }
+}
+
+// boot() é assíncrona: uma exceção lá dentro vira rejeição não tratada e
+// deixaria a página presa em "Carregando…" sem dizer o motivo.
+addEventListener('unhandledrejection', (e) => {
+  console.error('frasco:', e.reason);
+  giveUp('cena não montou');
+});
+addEventListener('error', (e) => {
+  console.error('frasco:', e.message);
+  giveUp('cena não montou');
+});
+
+if (!hasWebGL()) {
+  giveUp('WebGL indisponível');
+} else {
+  boot();
+}
+
+async function boot() {
+  let THREE;
+  try {
+    // Um CDN pode pendurar sem erro e sem resolver. Sem prazo, a página fica
+    // presa em "Carregando…" para sempre; com prazo, ela cai no 2D e segue.
+    THREE = await Promise.race([
+      import('three'),
+      new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('tempo esgotado')), 8000))
+    ]);
+  } catch (e) {
+    console.error('frasco:', e);
+    giveUp('biblioteca não carregou');
+    return;
+  }
+
+  // Aparelho modesto: troca refração por reflexo, que custa uma fração do quadro.
+  const lowEnd =
+    (navigator.deviceMemory && navigator.deviceMemory <= 4) ||
+    (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4) ||
+    /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  const facets = lowEnd ? 8 : 12;
+
+  // Nunca confiar na medida do elemento antes do layout assentar: um renderer
+  // criado com dimensão zero produz framebuffer inválido e tela em branco.
+  function measure() {
+    const r = stage.getBoundingClientRect();
+    return {
+      w: Math.max(1, Math.round(stage.clientWidth || r.width || 640)),
+      h: Math.max(1, Math.round(stage.clientHeight || r.height || 400))
+    };
+  }
+
+  let dim = measure();
+
+  const renderer = new THREE.WebGLRenderer({ antialias: !lowEnd, alpha: true });
+  renderer.setPixelRatio(Math.min(devicePixelRatio || 1, lowEnd ? 1.5 : 2));
+  renderer.setSize(dim.w, dim.h);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.1;
+  holder.appendChild(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(38, dim.w / dim.h, 0.1, 60);
+  camera.position.set(0, 0.35, 7.6);
+
+  // Ambiente gerado em código: vidro precisa de algo para refratar.
+  // Sem envMap, transmissão renderiza chapado e escuro.
+  function environment() {
+    const c = document.createElement('canvas');
+    c.width = 512; c.height = 256;
+    const g = c.getContext('2d');
+    const sky = g.createLinearGradient(0, 0, 0, 256);
+    sky.addColorStop(0, '#3A3640');
+    sky.addColorStop(0.5, '#141318');
+    sky.addColorStop(1, '#0A090C');
+    g.fillStyle = sky;
+    g.fillRect(0, 0, 512, 256);
+    // faixa de luz principal
+    const key = g.createRadialGradient(150, 70, 5, 150, 70, 120);
+    key.addColorStop(0, '#FFF6E2');
+    key.addColorStop(1, 'rgba(255,246,226,0)');
+    g.fillStyle = key;
+    g.fillRect(0, 0, 512, 256);
+    // contraluz âmbar
+    const rim = g.createRadialGradient(400, 150, 5, 400, 150, 110);
+    rim.addColorStop(0, '#C8963E');
+    rim.addColorStop(1, 'rgba(200,150,62,0)');
+    g.fillStyle = rim;
+    g.fillRect(0, 0, 512, 256);
+
+    const tex = new THREE.CanvasTexture(c);
+    tex.mapping = THREE.EquirectangularReflectionMapping;
+    tex.colorSpace = THREE.SRGBColorSpace;
+    const pmrem = new THREE.PMREMGenerator(renderer);
+    const env = pmrem.fromEquirectangular(tex).texture;
+    pmrem.dispose();
+    tex.dispose();
+    return env;
+  }
+
+  const env = environment();
+  scene.environment = env;
+
+  // Vidro precisa de algo atrás para refratar. Sem um fundo na cena, a
+  // transmissão amostra o vazio e o material lê como creme opaco.
+  const backdrop = new THREE.Mesh(
+    new THREE.SphereGeometry(24, 16, 10),
+    new THREE.MeshBasicMaterial({ map: env ? null : null, color: 0x1A181D, side: THREE.BackSide })
+  );
+  (function paintBackdrop() {
+    const c = document.createElement('canvas');
+    c.width = 256; c.height = 256;
+    const g = c.getContext('2d');
+    const grad = g.createLinearGradient(0, 0, 0, 256);
+    grad.addColorStop(0, '#2A2730');
+    grad.addColorStop(0.55, '#17161B');
+    grad.addColorStop(1, '#0C0B0F');
+    g.fillStyle = grad;
+    g.fillRect(0, 0, 256, 256);
+    const glow = g.createRadialGradient(70, 90, 4, 70, 90, 90);
+    glow.addColorStop(0, 'rgba(255,244,225,0.55)');
+    glow.addColorStop(1, 'rgba(255,244,225,0)');
+    g.fillStyle = glow;
+    g.fillRect(0, 0, 256, 256);
+    const tex = new THREE.CanvasTexture(c);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    backdrop.material.map = tex;
+    backdrop.material.color.set(0xFFFFFF);
+    backdrop.material.needsUpdate = true;
+  })();
+  scene.add(backdrop);
+
+  const group = new THREE.Group();
+  scene.add(group);
+
+  const glass = lowEnd
+    ? new THREE.MeshStandardMaterial({ color: 0xBFAE93, metalness: 0.85, roughness: 0.18, envMapIntensity: 1.5 })
+    : new THREE.MeshPhysicalMaterial({
+        color: 0xF3E8D2,
+        metalness: 0,
+        roughness: 0.06,
+        transmission: 1,
+        thickness: 1.4,
+        ior: 1.5,
+        envMapIntensity: 1.4
+      });
+
+  const body = new THREE.Mesh(new THREE.CylinderGeometry(1.05, 1.15, 2.5, facets), glass);
+  group.add(body);
+
+  const shoulder = new THREE.Mesh(new THREE.CylinderGeometry(0.42, 1.05, 0.5, facets), glass);
+  shoulder.position.y = 1.5;
+  group.add(shoulder);
+
+  const neck = new THREE.Mesh(new THREE.CylinderGeometry(0.34, 0.34, 0.55, facets), glass);
+  neck.position.y = 2.02;
+  group.add(neck);
+
+  const cap = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.44, 0.44, 0.5, facets),
+    new THREE.MeshStandardMaterial({ color: 0xC8963E, metalness: 1, roughness: 0.28, envMapIntensity: 1.2 })
+  );
+  cap.position.y = 2.5;
+  group.add(cap);
+
+  // o líquido: fica dentro do vidro e dá o que refratar
+  const juice = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.94, 1.04, 1.5, facets),
+    new THREE.MeshStandardMaterial({ color: 0xB07C2A, roughness: 0.35, metalness: 0.1, envMapIntensity: 0.8 })
+  );
+  juice.position.y = -0.5;
+  group.add(juice);
+
+  const key = new THREE.DirectionalLight(0xFFF3DE, 2.2);
+  key.position.set(4, 5, 3);
+  scene.add(key);
+
+  const rim = new THREE.DirectionalLight(0xC8963E, 1.4);
+  rim.position.set(-5, -1, -3);
+  scene.add(rim);
+
+  // ── inércia do ponteiro: alvo perseguido, inclinação vinda da velocidade ──
+  let targetX = 0, targetY = 0, curX = 0, curY = 0, prevX = 0, tilt = 0;
+  let touched = false;
+
+  stage.addEventListener('pointermove', (e) => {
+    const r = stage.getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) return;
+    targetX = ((e.clientX - r.left) / r.width - 0.5) * 2;
+    targetY = ((e.clientY - r.top) / r.height - 0.5) * 2;
+    if (!touched) { touched = true; hint.textContent = 'Gire com o cursor'; }
+  });
+
+  stage.addEventListener('pointerleave', () => { targetX = 0; targetY = 0; });
+
+  // ── medição ──
+  let frames = 0, last = performance.now(), fpsShown = 0;
+
+  function measureWeight() {
+    const entry = performance.getEntriesByType('resource')
+      .find(e => e.name.includes('three.module.js'));
+    if (!entry) { out.weight.textContent = '—'; return; }
+    // Duas medidas diferentes, e as duas importam: o que trafega (comprimido)
+    // e o que o celular precisa interpretar (descompactado).
+    const net = Math.round(entry.transferSize / 1024);
+    const raw = Math.round(entry.decodedBodySize / 1024);
+    out.weight.innerHTML = net > 0
+      ? net + ' <span>KB na rede · ' + raw + ' KB para interpretar</span>'
+      : raw + ' <span>KB para interpretar · veio do cache</span>';
+  }
+
+  let visible = true;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => { visible = e.isIntersecting; }, { threshold: 0.02 })
+      .observe(stage);
+  }
+
+  let firstFrame = false;
+
+  function frame(now) {
+    // Com movimento reduzido a cena é estática: desenha um quadro e encerra o
+    // laço, em vez de gastar GPU redesenhando a mesma imagem para sempre.
+    if (!reduced.matches) requestAnimationFrame(frame);
+    if (!visible) { last = now; frames = 0; return; }
+
+    if (!reduced.matches) {
+      curX += (targetX - curX) * 0.085;
+      curY += (targetY - curY) * 0.085;
+      const vx = curX - prevX;
+      prevX = curX;
+      tilt += (Math.max(-0.28, Math.min(0.28, vx * 3.2)) - tilt) * 0.12;
+
+      group.rotation.y = curX * 1.25;
+      group.rotation.x = curY * 0.45;
+      group.rotation.z = tilt;
+    }
+
+    renderer.render(scene, camera);
+
+    if (!firstFrame) {
+      firstFrame = true;
+      holder.classList.add('ready');
+      fallback.style.opacity = '0';
+      hint.textContent = reduced.matches ? 'Movimento reduzido' : 'Mova o cursor';
+      out.mode.textContent = lowEnd ? '3D leve' : '3D vidro';
+      if (reduced.matches) out.fps.innerHTML = '<span>quadro estático</span>';
+      out.tris.textContent = renderer.info.render.triangles.toLocaleString('pt-BR');
+      out.calls.textContent = renderer.info.render.calls;
+      measureWeight();
+    }
+
+    if (reduced.matches) return;
+
+    frames++;
+    if (now - last >= 1000) {
+      fpsShown = Math.round((frames * 1000) / (now - last));
+      out.fps.textContent = fpsShown;
+      frames = 0;
+      last = now;
+    }
+  }
+  requestAnimationFrame(frame);
+
+  renderer.domElement.addEventListener('webglcontextlost', (e) => {
+    e.preventDefault();
+    giveUp('contexto perdido');
+  });
+
+  function applySize() {
+    dim = measure();
+    camera.aspect = dim.w / dim.h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(dim.w, dim.h);
+    // sob movimento reduzido o laço já parou: redesenha o quadro estático
+    if (reduced.matches) renderer.render(scene, camera);
+  }
+
+  addEventListener('resize', applySize);
+
+  // o palco pode ganhar altura depois do primeiro quadro (fontes, layout):
+  // reagir ao elemento é mais confiável que reagir à janela
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(applySize).observe(stage);
+  }
+}
+</script>
+
+</body>
+</html>
