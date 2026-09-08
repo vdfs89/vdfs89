@@ -1,0 +1,24 @@
+name: Testes
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-pipeline:
+    name: Pipeline de build
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Sem dependência: a suíte usa só a biblioteca padrão.
+      - name: Rodar a suíte
+        run: python -m unittest discover -s tests -v
