@@ -6,9 +6,9 @@
     <meta name="color-scheme" content="dark">
 
         <!-- ═══ PRIMARY SEO ═══ -->
-    <title>Vitor Silva | Ingeniero de IA | LangGraph, RAG y FastAPI</title>
-    <meta name="description" content="Ingeniero de IA especializado en LangGraph, FastAPI, Agentic AI, RAG, Sistemas Multiagente e IA en Producción.">
-    <meta name="keywords" content="Vitor Silva, AI Software Engineer, Backend AI Engineer, LangGraph, RAG, FastAPI, Python, LLM Orchestration, Agentic AI, Multi-LLM Guardrails, MLOps, AI Engineer Curitiba, AI Architecture">
+    <title>Vitor Silva | Desarrollador Full Stack e IA | Python, FastAPI, React</title>
+    <meta name="description" content="Desarrollador Full Stack e IA junior con 14 años en operaciones críticas. Python, FastAPI, React, Next.js, LangGraph y RAG. Abierto a puestos remotos.">
+    <meta name="keywords" content="Vitor Silva, Full Stack Developer, AI Developer, Junior Developer, Python, FastAPI, React, Next.js, LangGraph, RAG, LLM, Curitiba, Remote">
     <meta name="author" content="Vitor Silva">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://vitorsilva.page/index.es.html">
@@ -24,15 +24,15 @@
 
     <!-- ═══ OPEN GRAPH ═══ -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Vitor Silva | Ingeniero de IA">
-    <meta property="og:description" content="Ingeniero de IA especializado en LangGraph, FastAPI, Agentic AI, RAG y Sistemas Multiagente.">
+    <meta property="og:title" content="Vitor Silva | Desarrollador Full Stack e IA">
+    <meta property="og:description" content="Desarrollador Full Stack e IA junior. Python, FastAPI, React, LangGraph y RAG. Abierto a puestos remotos.">
     <meta property="og:url" content="https://vitorsilva.page/index.es.html">
     <meta property="og:image" content="https://vitorsilva.page/og-image.png">
 
     <!-- ═══ TWITTER CARD ═══ -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vitor Silva | Ingeniero de IA">
-    <meta name="twitter:description" content="Construyendo sistemas de IA a nivel de producción con LangGraph, FastAPI y RAG.">
+    <meta name="twitter:title" content="Vitor Silva | Desarrollador Full Stack e IA">
+    <meta name="twitter:description" content="Desarrollador full stack junior construyendo aplicaciones con IA en Python, FastAPI y React.">
     <meta name="twitter:image" content="https://vitorsilva.page/og-image.png">
 
     <!-- ═══ JSON-LD — Person Schema ═══ -->
@@ -41,7 +41,7 @@
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Vitor Silva",
-      "jobTitle": "AI Software Engineer",
+      "jobTitle": "Full Stack and AI Developer",
       "url": "https://vitorsilva.page",
       "sameAs": [
         "https://github.com/vdfs89",
@@ -50,6 +50,8 @@
       "knowsAbout": [
         "Python",
         "FastAPI",
+        "React",
+        "Next.js",
         "LangGraph",
         "LangChain",
         "Generative AI",
@@ -75,7 +77,7 @@
         --green-dim:   #00cc33;
         --green-dark:  #006622;
         --green-faint: rgba(0,255,65,0.05);
-        --muted:       #2e5c2e;
+        --muted:       #4f8a4f; /* 5.1:1 on black — was #2e5c2e at 2.7:1, under WCAG AA */
         --text:        #b8e0b8;
         --mono:        'IBM Plex Mono', monospace;
         --display:     'Syne', sans-serif;
@@ -435,6 +437,27 @@
     .footer-in { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.68rem; color: var(--muted); flex-wrap: wrap; }
 
     /* ════════════════════════════════════
+       FOOTER COLUMNS
+    ════════════════════════════════════ */
+    .footer-cols {
+        display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.1fr; gap: 2rem;
+        padding: 2.6rem 0 1.8rem;
+    }
+    .fcol h3 {
+        font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--green-dim); margin-bottom: 0.9rem; font-weight: 600;
+    }
+    .fcol ul { list-style: none; display: grid; gap: 0.45rem; }
+    .fcol a, .fcol li { font-size: 0.76rem; color: var(--muted); text-decoration: none; }
+    .fcol a { transition: color .2s, text-shadow .2s; }
+    .fcol a:hover { color: var(--green); text-shadow: var(--glow-text); }
+    .fcol-about p { font-size: 0.78rem; color: var(--muted); line-height: 1.8; max-width: 34ch; margin-top: 0.8rem; }
+    .fbrand { font-family: var(--display); font-weight: 900; font-size: 1.1rem; color: var(--green); text-shadow: var(--glow-text); letter-spacing: 0.04em; }
+
+    @media (max-width: 820px) { .footer-cols { grid-template-columns: 1fr 1fr; gap: 1.6rem; } }
+    @media (max-width: 480px) { .footer-cols { grid-template-columns: 1fr; } }
+
+    /* ════════════════════════════════════
        SCROLL REVEAL
     ════════════════════════════════════ */
     .reveal { opacity: 0; transform: translateY(20px); transition: opacity .7s ease, transform .7s ease; }
@@ -513,6 +536,143 @@
     }
     
     /* ════════════════════════════════════
+       HERO VISUAL — portrait frame + HUD panels
+    ════════════════════════════════════ */
+    .hero-visual { position: relative; display: grid; place-items: center; min-height: 430px; }
+
+    .portrait {
+        position: relative; z-index: 1; width: min(320px, 78%); aspect-ratio: 3 / 4;
+        background: var(--black-card);
+        border: 1px solid var(--border-c); border-radius: 2px;
+        box-shadow: var(--glow-box);
+        display: grid; place-items: center; overflow: hidden;
+    }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    /* Placeholder until a real photo exists: swap the <div> for an <img>. */
+    .portrait-empty {
+        text-align: center; padding: 1.2rem;
+        font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--muted); line-height: 2;
+    }
+    .portrait-empty b { display: block; color: var(--green-dim); font-size: 1.6rem; letter-spacing: 0; margin-bottom: 0.4rem; }
+
+    /* Rotating ring behind the portrait. Sibling of .portrait, not a child:
+       a child with a negative z-index would sit behind the parent's own
+       background and never show. */
+    .portrait-ring {
+        position: absolute; width: min(430px, 96%); aspect-ratio: 1; border-radius: 50%;
+        background: conic-gradient(from 0deg, transparent 0 58%, rgba(0,255,65,0.22) 76%, var(--green) 88%, transparent 97%);
+        opacity: 0.85; filter: drop-shadow(0 0 8px rgba(0,255,65,0.45));
+        animation: ring-spin 16s linear infinite;
+    }
+    /* The mask leaves only a 2px rim of the gradient visible: a thin arc of
+       light travelling around the portrait, not a glowing disc. */
+    .portrait-ring::after {
+        content: ''; position: absolute; inset: 2px; border-radius: 50%;
+        background: var(--black);
+    }
+    @keyframes ring-spin { to { transform: rotate(360deg); } }
+
+    .hud {
+        position: absolute; width: 195px; z-index: 2;
+        background: rgba(8,8,8,0.94); backdrop-filter: blur(6px);
+        border: 1px solid var(--border-c); border-radius: 2px;
+        box-shadow: var(--glow-box); padding: 0.75rem 0.85rem;
+    }
+    .hud-a { top: 0.5rem; right: -0.5rem; }
+    .hud-b { bottom: 0.5rem; left: -0.5rem; }
+    .hud-k {
+        display: flex; justify-content: space-between; align-items: center; gap: 0.5rem;
+        font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--muted); margin-bottom: 0.45rem;
+    }
+    .hud-v { font-size: 0.72rem; color: var(--green); font-weight: 600; line-height: 1.5; }
+    .hud-code { font-size: 0.62rem; line-height: 1.75; color: #3a6e3a; }
+    .hud-code .kw { color: var(--green); }
+    .hud-code .str { color: var(--text); }
+
+    /* Sparkline: heights are set inline so the shape stays editable in markup. */
+    .spark { display: flex; align-items: flex-end; gap: 2px; height: 32px; margin-top: 0.5rem; }
+    .spark i {
+        flex: 1; display: block; border-radius: 1px;
+        background: linear-gradient(to top, rgba(0,255,65,0.12), var(--green));
+        box-shadow: 0 0 5px rgba(0,255,65,0.45);
+    }
+
+    /* Stacked layout: the HUDs join the flow and the ring is dropped — its
+       absolute position is anchored to the grid cell, not to the portrait, so
+       it would sit a row below the photo. */
+    @media (max-width: 1080px) {
+        .hero-visual { grid-template-columns: 1fr; min-height: 0; margin-top: 2.5rem; gap: 1rem; }
+        .hud { position: static; width: 100%; }
+        .portrait-ring { display: none; }
+    }
+
+    /* ════════════════════════════════════
+       ARCHITECTURE DIAGRAM
+       Inline SVG: scales on a phone, which the old <pre> could not.
+    ════════════════════════════════════ */
+    /* An SVG scales its text down with the viewBox, so on a phone a 680-unit
+       diagram would render 15px labels at ~7px. Below the floor the diagram
+       scrolls inside its own box instead of shrinking further. */
+    .arch-wrap { overflow-x: auto; margin: 0.6rem 0 1.2rem; }
+    .arch { display: block; width: 100%; height: auto; }
+    .arch-wide { min-width: 520px; }
+    .arch rect { fill: rgba(0,255,65,0.05); stroke: rgba(0,255,65,0.3); stroke-width: 1; }
+    .arch .out rect { fill: rgba(0,255,65,0.12); stroke: rgba(0,255,65,0.65); }
+    .arch path { fill: none; stroke: rgba(0,255,65,0.45); stroke-width: 1.2; }
+    .arch .n-t { fill: var(--green); font: 600 15px var(--mono); letter-spacing: 0.03em; }
+    .arch .n-s { fill: var(--muted); font: 400 12px var(--mono); }
+
+    /* ════════════════════════════════════
+       STACK TABS + PROFICIENCY BARS
+    ════════════════════════════════════ */
+    .stack-tabs { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 1.4rem; }
+    .stab {
+        font-family: var(--mono); font-size: 0.65rem; font-weight: 600;
+        letter-spacing: 0.12em; text-transform: uppercase;
+        padding: 0.55rem 0.95rem; cursor: pointer;
+        background: var(--black-card); border: 1px solid var(--border-c); border-radius: 2px;
+        color: var(--muted); transition: color .2s, border-color .2s, background .2s;
+    }
+    .stab:hover { color: var(--green-dim); }
+    .stab[aria-selected="true"] {
+        color: var(--green); background: rgba(0,255,65,0.08);
+        border-color: rgba(0,255,65,0.5); box-shadow: var(--glow-box);
+    }
+
+    .spanel[hidden] { display: none; }
+    .bars { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2rem; }
+    .bar-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.35rem; }
+    .bar-name { font-size: 0.78rem; color: var(--text); }
+    .bar-pct  { font-size: 0.68rem; color: var(--green-dim); }
+    .bar-track { height: 6px; background: rgba(0,255,65,0.06); border: 1px solid rgba(0,255,65,0.13); border-radius: 2px; overflow: hidden; }
+    .bar-fill {
+        display: block; height: 100%; width: 0;
+        background: linear-gradient(90deg, var(--green-dark), var(--green));
+        box-shadow: 0 0 8px rgba(0,255,65,0.45);
+        transition: width 1s cubic-bezier(.2,.8,.2,1);
+    }
+    @media (prefers-reduced-motion: reduce) { .bar-fill { transition: none; } .portrait-ring { animation: none; } }
+    @media (max-width: 700px) { .bars { grid-template-columns: 1fr; } }
+
+    /* ════════════════════════════════════
+       METRICS BAND
+    ════════════════════════════════════ */
+    .metrics { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0.9rem; }
+    .mcell {
+        background: var(--black-card); border: 1px solid var(--border-c); border-radius: 2px;
+        box-shadow: var(--glow-box); padding: 1.15rem 1.1rem;
+        transition: box-shadow .3s, border-color .3s, transform .3s;
+    }
+    .mcell:hover { box-shadow: var(--glow-hover); border-color: rgba(0,255,65,0.45); transform: translateY(-3px); }
+    .mcell-num { font-family: var(--display); font-weight: 900; font-size: 2.1rem; line-height: 1; color: var(--green); text-shadow: var(--glow-text); }
+    .mcell-lbl { display: block; margin-top: 0.45rem; font-size: 0.57rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); line-height: 1.6; }
+
+    @media (max-width: 960px) { .metrics { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 580px) { .metrics { grid-template-columns: repeat(2, 1fr); } .mcell { padding: 0.9rem; } .mcell-num { font-size: 1.7rem; } }
+
+    /* ════════════════════════════════════
        LANG TOGGLE
     ════════════════════════════════════ */
     .lang-toggle {
@@ -557,10 +717,10 @@
 
             <nav class="nav" id="navMenu">
                 <a href="#about">SOBRE MÍ</a>
+                <a href="#services">QUÉ HAGO</a>
+                <a href="#stack">STACK</a>
                 <a href="#projects">PROYECTOS</a>
                 <a href="#experience">EXPERIENCIA</a>
-                <a href="#stack">STACK</a>
-                <a href="#services">SERVICIOS</a>
                 <a href="#contact">CONTACTO</a>
                 <a href="dashboard.html">DASHBOARD</a>
             </nav>
@@ -577,7 +737,7 @@
             
             
 
-            <a class="btn btn-solid btn-sm" href="mailto:mkmillhouse89@gmail.com">CONTACT</a>
+            <a class="btn btn-solid btn-sm" href="mailto:mkmillhouse89@gmail.com">CONTACTO</a>
         </div>
     </header>
 
@@ -588,7 +748,7 @@
             <div class="wrap">
                 <div class="boot-line reveal">
                     <span class="ok">SYSTEM.OK</span> <span>──</span>
-                    <span class="ok">AI_ENGINEER.INIT</span> <span>──</span>
+                    <span class="ok">FULLSTACK_AI.INIT</span> <span>──</span>
                     <span class="ok">LANGGRAPH.LOADED</span> <span>──</span>
                     <span class="ok">RAG.READY</span> <span>──</span>
                     <span class="ok">ABIERTO A OPORTUNIDADES</span>
@@ -596,36 +756,53 @@
 
                 <div class="hero-grid">
                     <div class="reveal">
-                        <p class="hero-role">Ingeniero de IA Construyendo Sistemas Multiagente en Producción</p>
+                        <p class="hero-role">Desarrollador Full Stack e IA Junior</p>
                         <h1 class="hero-name">VITOR<br>SILVA<span class="cursor"></span></h1>
-                        <p class="hero-sub">Diseño, construyo e implemento agentes de IA escalables, observables y rentables que aportan valor real al negocio.</p>
-                        <p class="hero-copy">Desde orquestraciones multiagente stateful con LangGraph hasta pipelines RAG de alta fidelidad, transformo requisitos complejos en software confiable.</p>
+                        <p class="hero-sub">Construyo aplicaciones web de extremo a extremo — Python y FastAPI en el back-end, React y Next.js en el front-end — y uso IA donde realmente aporta.</p>
+                        <p class="hero-copy">Tras 14 años en operaciones críticas en Correios, construyo software como operaba: medido, documentado y diseñado para no fallar.</p>
                         <div class="hero-actions">
                             <a class="btn btn-solid" href="#projects">Ver Proyectos →</a>
-                            <a class="btn" href="mailto:vitor_diogo89@hotmail.com">Agendar una Reunión</a>
-                        </div>
-                        <div class="stats">
-                            <div class="stat"><div class="stat-num">15+</div><span class="stat-lbl">Años ECT</span></div>
-                            <div class="stat"><div class="stat-num">8</div><span class="stat-lbl">Proyectos IA</span></div>
-                            <div class="stat"><div class="stat-num" style="text-shadow:var(--glow-text);">∞</div><span class="stat-lbl">Ambición</span></div>
+                            <a class="btn" href="mailto:mkmillhouse89@gmail.com">Ponerse en contacto</a>
                         </div>
                     </div>
 
-                    <div class="hero-panel reveal d1">
-                        <div class="panel-top">
-                            <span>PERFIL_ACTUAL</span>
-                            <span class="status-pill"><span class="sdot"></span><span>DISPONIBLE</span></span>
+                    <div class="hero-visual reveal d1">
+                        <span class="portrait-ring" aria-hidden="true"></span>
+                        <div class="portrait">
+                            <!-- Replace this block with <img src="assets/vitor.webp" alt="Vitor Silva"> -->
+                            <div class="portrait-empty"><b>&lt;/&gt;</b>La foto va aquí</div>
                         </div>
-                        <div class="prompt" style="margin-bottom:0.4rem;"><span>ENFOQUE</span></div>
-                        <p class="panel-title">Sistemas de IA con valor de negocio claro.</p>
-                        <p class="panel-copy" >Agentes, pipelines de RAG y herramientas operativas que equilibran la profundidad técnica con resultados reales.</p>
-                        <div class="panel-stats">
-                            <div class="ps"><span class="ps-k">AI_STACK</span><span class="ps-v">LangGraph / RAG</span></div>
-                            <div class="ps"><span class="ps-k">BACKEND</span><span class="ps-v">FastAPI / Python</span></div>
-                            <div class="ps"><span class="ps-k">LOCATION</span><span class="ps-v">Curitiba / Remote</span></div>
-                            <div class="ps"><span class="ps-k">GITHUB</span><span class="ps-v" style="text-align:right;"><a href="https://github.com/vdfs89" target="_blank" rel="noreferrer">vdfs89 →</a><br><span id="gh-stats" style="font-size:0.65rem; color:var(--muted); font-weight:normal;">38 repositorios &middot; 245 commits<br>IA en Producción &middot; Dev Activo</span></span></div>
+
+                        <div class="hud hud-a">
+                            <div class="hud-k"><span>Estado del sistema</span><span class="sdot"></span></div>
+                            <p class="hud-v">Abierto a oportunidades</p>
+                            <p class="hud-code">Curitiba, PR &middot; remoto</p>
+                        </div>
+
+                        <div class="hud hud-b">
+                            <div class="hud-k"><span>Actividad</span><span>GitHub</span></div>
+                            <p class="hud-v"><a href="https://github.com/vdfs89" target="_blank" rel="noreferrer" style="color:inherit; text-decoration:none;">vdfs89 &rarr;</a></p>
+                            <div class="spark" aria-hidden="true">
+                                <i style="height:28%"></i><i style="height:44%"></i><i style="height:36%"></i>
+                                <i style="height:58%"></i><i style="height:49%"></i><i style="height:71%"></i>
+                                <i style="height:63%"></i><i style="height:86%"></i><i style="height:74%"></i>
+                                <i style="height:100%"></i>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ METRICS ══ -->
+        <section class="sec" id="metrics" style="padding-top:0;">
+            <div class="wrap">
+                <div class="metrics reveal">
+                    <div class="mcell"><div class="mcell-num">14</div><span class="mcell-lbl">Años en operación crítica</span></div>
+                    <div class="mcell"><div class="mcell-num">30</div><span class="mcell-lbl">Personas lideradas</span></div>
+                    <div class="mcell"><div class="mcell-num">8</div><span class="mcell-lbl">Proyectos de IA entregados</span></div>
+                    <div class="mcell"><div class="mcell-num">18</div><span class="mcell-lbl">Pruebas automatizadas en CI</span></div>
+                    <div class="mcell"><div class="mcell-num">30%</div><span class="mcell-lbl">Menos fallos operativos</span></div>
                 </div>
             </div>
         </section>
@@ -639,7 +816,7 @@
                 <h2 class="sec-title reveal">Ingeniería de <span class="g">Producto,</span><br>No Sólo <span class="g">Código.</span></h2>
                 <div class="about-grid">
                     <div class="card acard reveal">
-                        <p>Con más de 15 años de experiencia en operaciones de misión crítica, no solo escribo scripts — diseño sistemas resilientes. He pasado más de una década gestionando logística de alta presión donde el tiempo de inactividad significa fracaso total. Esa madurez operativa es la base de mi ingeniería.</p>
+                        <p>Con más de 14 años de experiencia en operaciones de misión crítica, no solo escribo scripts — diseño sistemas resilientes. He pasado más de una década gestionando logística de alta presión donde el tiempo de inactividad significa fracaso total. Esa madurez operativa es la base de mi ingeniería.</p>
                         <p>Me enfoco en sistemas observables, con degradación elegante y fáciles de mantener. Construyo soluciones para resolver el problema de negocio real, no solo el desafío técnico.</p>
                         <div class="highlights">
                             <div class="hl"><span class="hl-k">15+ Años</span><span class="hl-v">Mentalidad de operación y confiabilidad</span></div>
@@ -650,12 +827,251 @@
                     <div style="display:grid; gap:0.8rem;">
                         <div class="card acard reveal d1">
                             <div class="prompt" style="margin-bottom:0.5rem;"><span>MISIÓN CRÍTICA</span></div>
-                            <p>Operé 15 años en entornos de tolerancia cero a fallos. Esa mentalidad se traduce en código defensivo, manejo robusto de errores y arquitecturas construidas para la resiliencia.</p>
+                            <p>Operé 14 años en entornos de tolerancia cero a fallos. Esa mentalidad se traduce en código defensivo, manejo robusto de errores y arquitecturas construidas para la resiliencia.</p>
                         </div>
                         <div class="card acard reveal d2">
                             <div class="prompt" style="margin-bottom:0.5rem;"><span>PRODUCTO, NO SÓLO CÓDIGO</span></div>
                             <p>Entiendo los procesos de negocio porque los gestioné durante más de una década. Diseño soluciones que ofrecen resultados en el mundo real.</p>
                         </div>
+                        <div class="card acard reveal d3">
+                            <div class="prompt" style="margin-bottom:0.5rem;"><span>PERFIL</span></div>
+                            <div class="panel-stats" style="border-top:none; padding-top:0;">
+                                <div class="ps"><span class="ps-k">AI_STACK</span><span class="ps-v">LangGraph / RAG</span></div>
+                                <div class="ps"><span class="ps-k">BACKEND</span><span class="ps-v">FastAPI / Python</span></div>
+                                <div class="ps"><span class="ps-k">LOCATION</span><span class="ps-v">Curitiba / Remote</span></div>
+                                <div class="ps"><span class="ps-k">GITHUB</span><span class="ps-v"><a href="https://github.com/vdfs89" target="_blank" rel="noreferrer">vdfs89 &rarr;</a></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="sep">
+
+        <!-- ══ SERVICES ══ -->
+        <section class="sec" id="services">
+            <div class="wrap">
+                <div class="prompt reveal">QUÉ HAGO</div>
+                <h2 class="sec-title reveal">Lo que aporto<br><span class="g">a su equipo.</span></h2>
+                <p class="sec-desc reveal">Remoto ante todo, con base en Curitiba. Abierto a puestos de desarrollador full stack e IA junior.</p>
+
+                <div class="srv-grid reveal">
+                    <div class="srv">
+                        <div class="srv-icon">🖥️</div>
+                        <div class="srv-title">Aplicaciones Web Full Stack</div>
+                        <p class="srv-copy">Front-ends en React y Next.js sobre APIs en Python o Node, con autenticación, base de datos y pipeline de despliegue.</p>
+                    </div>
+                    <div class="srv">
+                        <div class="srv-icon">⚡</div>
+                        <div class="srv-title">Backend Python & FastAPI</div>
+                        <p class="srv-copy">Backends asíncronos de alto rendimiento que integran modelos de IA, bases de datos y servicios externos.</p>
+                    </div>
+                    <div class="srv">
+                        <div class="srv-icon">🤖</div>
+                        <div class="srv-title">Sistemas Agénticos con LangGraph</div>
+                        <p class="srv-copy">Arquitectura y desarrollo de agentes stateful con memoria, orquestación multiagente y flujos de decisión robustos.</p>
+                    </div>
+                    <div class="srv">
+                        <div class="srv-icon">🔍</div>
+                        <div class="srv-title">RAG & Pipelines de Recuperación</div>
+                        <p class="srv-copy">Pipelines de recuperación semántica de alta fidelidad para Q&A, soporte y bases de conocimiento corporativas.</p>
+                    </div>
+                    <div class="srv">
+                        <div class="srv-icon">🛡️</div>
+                        <div class="srv-title">Guardrails & Gobernanza de IA</div>
+                        <p class="srv-copy">Sistemas de auditoría Multi-LLM que mitigan las alucinaciones antes de que lleguen al usuario. Control de costes y fundamentación.</p>
+                    </div>
+                    <div class="srv">
+                        <div class="srv-icon">⚙️</div>
+                        <div class="srv-title">De la Operación al Software</div>
+                        <p class="srv-copy">Convierto procesos operativos en software: mapeo el flujo, encuentro dónde falla y automatizo la parte repetitiva.</p>
+                    </div>
+                    <div class="srv srv-remote">
+                        <div>
+                            <div class="srv-title">🌐 Remoto ante todo</div>
+                            <p class="srv-copy">Con base en Curitiba, Brasil. Disponible para puestos remotos en Brasil y en el exterior. Inglés técnico.</p>
+                        </div>
+                        <a class="btn btn-solid" href="#contact">PONERSE EN CONTACTO →</a>
+                    </div>
+                </div>
+
+                <div class="prompt" style="margin-top:2rem;"><span>PREGUNTAS FRECUENTES QUESTIONS</span></div>
+                <div class="faq reveal">
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" onclick="toggleFaq(this)">¿Buscas un puesto junior?</button>
+                        <p class="faq-a">Sí. Busco un puesto de desarrollador full stack o IA junior, remoto o híbrido en Curitiba. Aporto 14 años de experiencia en operaciones y un portafolio de proyectos que construí y publiqué.</p>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" onclick="toggleFaq(this)">¿Qué puedes hacer desde el primer día?</button>
+                        <p class="faq-a">Construir y entregar funcionalidades de extremo a extremo en un stack Python y React, escribir pruebas y documentar lo que construyo. TypeScript y cloud son donde aún estoy creciendo.</p>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" onclick="toggleFaq(this)">¿Trabajas con equipos internacionales?</button>
+                        <p class="faq-a">Sí. Leo inglés técnico con fluidez y me siento cómodo con el trabajo remoto y asíncrono.</p>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-q" type="button" onclick="toggleFaq(this)">¿Cuál es la diferencia entre RAG y un chatbot común?</button>
+                        <p class="faq-a">A regular chatbot answers from what the model was trained on — it can hallucinate or be outdated. RAG retrieves real information from your data before answering, ensuring accuracy and traceability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="sep">
+
+        <!-- ══ STACK ══ -->
+        <section class="sec" id="stack">
+            <div class="wrap">
+                <div class="prompt reveal">TECH STACK</div>
+                <h2 class="sec-title reveal">Herramientas.<br><span class="g">No solo palabras de moda.</span></h2>
+
+                <div class="stack-tabs reveal" role="tablist" aria-label="Categorías de tecnología">
+                    <button class="stab" type="button" role="tab" id="tab-ai" aria-controls="panel-ai" aria-selected="true">IA / ML</button>
+                    <button class="stab" type="button" role="tab" id="tab-back" aria-controls="panel-back" aria-selected="false">Backend &amp; APIs</button>
+                    <button class="stab" type="button" role="tab" id="tab-front" aria-controls="panel-front" aria-selected="false">Front-end</button>
+                    <button class="stab" type="button" role="tab" id="tab-data" aria-controls="panel-data" aria-selected="false">Datos e Infra</button>
+                    <button class="stab" type="button" role="tab" id="tab-cloud" aria-controls="panel-cloud" aria-selected="false">Cloud y Herramientas</button>
+                </div>
+
+                <div class="spanel" id="panel-ai" role="tabpanel" aria-labelledby="tab-ai">
+                    <div class="bars">
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">LangGraph</span><span class="bar-pct">75%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="75"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">LangChain</span><span class="bar-pct">75%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="75"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">RAG Pipelines</span><span class="bar-pct">70%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="70"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Prompt Engineering</span><span class="bar-pct">80%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="80"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Gemini / Llama 3</span><span class="bar-pct">65%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="65"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">LLM Orchestration</span><span class="bar-pct">70%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="70"></span></div>
+                            </div>
+                    </div>
+                </div>
+                <div class="spanel" id="panel-back" role="tabpanel" aria-labelledby="tab-back" hidden>
+                    <div class="bars">
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Python 3</span><span class="bar-pct">85%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="85"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">FastAPI</span><span class="bar-pct">75%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="75"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">SQLAlchemy</span><span class="bar-pct">60%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="60"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Docker</span><span class="bar-pct">60%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="60"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Linux / WSL</span><span class="bar-pct">65%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="65"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Clean Architecture</span><span class="bar-pct">55%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="55"></span></div>
+                            </div>
+                    </div>
+                </div>
+                <div class="spanel" id="panel-front" role="tabpanel" aria-labelledby="tab-front" hidden>
+                    <div class="bars">
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">HTML &amp; CSS</span><span class="bar-pct">80%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="80"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">JavaScript</span><span class="bar-pct">70%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="70"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">React</span><span class="bar-pct">60%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="60"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Next.js</span><span class="bar-pct">55%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="55"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">TypeScript</span><span class="bar-pct">50%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="50"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">WebGL</span><span class="bar-pct">45%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="45"></span></div>
+                            </div>
+                    </div>
+                </div>
+                <div class="spanel" id="panel-data" role="tabpanel" aria-labelledby="tab-data" hidden>
+                    <div class="bars">
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">PostgreSQL</span><span class="bar-pct">65%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="65"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">MongoDB</span><span class="bar-pct">65%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="65"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">ETL Pipelines</span><span class="bar-pct">60%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="60"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Análisis de Datos</span><span class="bar-pct">65%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="65"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Airflow</span><span class="bar-pct">45%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="45"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Snowflake</span><span class="bar-pct">35%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="35"></span></div>
+                            </div>
+                    </div>
+                </div>
+                <div class="spanel" id="panel-cloud" role="tabpanel" aria-labelledby="tab-cloud" hidden>
+                    <div class="bars">
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Git &amp; CI/CD</span><span class="bar-pct">80%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="80"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Oracle Cloud</span><span class="bar-pct">55%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="55"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">SOLID / DDD</span><span class="bar-pct">55%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="55"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">AWS / GCP / Azure</span><span class="bar-pct">45%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="45"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Flutter &amp; Dart</span><span class="bar-pct">40%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="40"></span></div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-top"><span class="bar-name">Airflow / Cron</span><span class="bar-pct">45%</span></div>
+                                <div class="bar-track"><span class="bar-fill" data-pct="45"></span></div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -681,21 +1097,54 @@
                             <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Alto riesgo de alucinación y falta de gobernanza en IA generativa para asesoramiento financiero.</p>
                             
                             <strong style="color: var(--green);">Arquitectura:</strong>
-                            <pre style="background: rgba(0,255,65,0.05); padding: 1rem; border: 1px solid rgba(0,255,65,0.2); border-radius: 4px; font-size: 0.75rem; color: var(--text); overflow-x: auto; margin-top: 0.5rem; margin-bottom: 1rem;">┌─────────┐    ┌──────────────┐    ┌────────────────┐
-│  User   │───▶│   FastAPI    │───▶│   LangGraph    │
-└─────────┘    │   Gateway    │    │  Orchestrator  │
-               └──────────────┘    └───────┬────────┘
-                       ┌───────────────────┼───────────────────┐
-                       ▼                   ▼                   ▼
-               ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-               │     RAG      │    │    Judge     │    │  Governance  │
-               │  Embeddings  │    │  Multi-LLM   │    │  & Auditing  │
-               └──────┬───────┘    └──────┬───────┘    └──────┬───────┘
-                      └───────────────────┼───────────────────┘
-                                          ▼
-                                ┌──────────────────┐
-                                │ Validated Answer │
-                                └──────────────────┘</pre>
+                            <div class="arch-wrap">
+                                <svg class="arch arch-wide" viewBox="0 0 680 464" role="img" aria-labelledby="mgTitle mgDesc">
+                                    <title id="mgTitle">Arquitectura de MestreGrana</title>
+                                    <desc id="mgDesc">The question enters through a FastAPI gateway and reaches the LangGraph orchestrator, which fans out to retrieval, a multi-LLM judge and a governance layer; the three converge into a validated answer.</desc>
+                                    <defs>
+                                        <marker id="archArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </marker>
+                                    </defs>
+
+                                    <g><rect x="120" y="40" width="180" height="56" rx="2"/>
+                                        <text class="n-t" x="210" y="62" text-anchor="middle" dominant-baseline="central">Usuario</text>
+                                        <text class="n-s" x="210" y="80" text-anchor="middle" dominant-baseline="central">Pregunta</text></g>
+
+                                    <g><rect x="380" y="40" width="180" height="56" rx="2"/>
+                                        <text class="n-t" x="470" y="62" text-anchor="middle" dominant-baseline="central">FastAPI</text>
+                                        <text class="n-s" x="470" y="80" text-anchor="middle" dominant-baseline="central">Gateway HTTP</text></g>
+
+                                    <g><rect x="240" y="156" width="200" height="56" rx="2"/>
+                                        <text class="n-t" x="340" y="178" text-anchor="middle" dominant-baseline="central">LangGraph</text>
+                                        <text class="n-s" x="340" y="196" text-anchor="middle" dominant-baseline="central">Orquestador stateful</text></g>
+
+                                    <g><rect x="40" y="272" width="170" height="56" rx="2"/>
+                                        <text class="n-t" x="125" y="294" text-anchor="middle" dominant-baseline="central">RAG</text>
+                                        <text class="n-s" x="125" y="312" text-anchor="middle" dominant-baseline="central">Embeddings</text></g>
+
+                                    <g><rect x="255" y="272" width="170" height="56" rx="2"/>
+                                        <text class="n-t" x="340" y="294" text-anchor="middle" dominant-baseline="central">Jurado</text>
+                                        <text class="n-s" x="340" y="312" text-anchor="middle" dominant-baseline="central">Multi-LLM</text></g>
+
+                                    <g><rect x="470" y="272" width="170" height="56" rx="2"/>
+                                        <text class="n-t" x="555" y="294" text-anchor="middle" dominant-baseline="central">Gobernanza</text>
+                                        <text class="n-s" x="555" y="312" text-anchor="middle" dominant-baseline="central">Auditoría</text></g>
+
+                                    <g class="out"><rect x="240" y="388" width="200" height="56" rx="2"/>
+                                        <text class="n-t" x="340" y="410" text-anchor="middle" dominant-baseline="central">Respuesta validada</text>
+                                        <text class="n-s" x="340" y="428" text-anchor="middle" dominant-baseline="central">Auditada antes de entregar</text></g>
+
+                                    <path d="M310 68 L370 68" marker-end="url(#archArrow)"/>
+                                    <path d="M470 106 L470 131 L340 131 L340 146" marker-end="url(#archArrow)"/>
+                                    <path d="M340 222 L340 242 L125 242 L125 262" marker-end="url(#archArrow)"/>
+                                    <path d="M340 222 L340 262" marker-end="url(#archArrow)"/>
+                                    <path d="M340 222 L340 242 L555 242 L555 262" marker-end="url(#archArrow)"/>
+                                    <path d="M125 338 L125 358 L340 358 L340 378" marker-end="url(#archArrow)"/>
+                                    <path d="M340 338 L340 378" marker-end="url(#archArrow)"/>
+                                    <path d="M555 338 L555 358 L340 358 L340 378" marker-end="url(#archArrow)"/>
+                                </svg>
+                            </div>
                             
                             <strong style="color: var(--green);">Solución Técnica:</strong>
                             <ul style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem;">
@@ -734,14 +1183,41 @@
                             <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">La personalización de la enseñanza a escala alcanza los límites de contexto del LLM.</p>
                             
                             <strong style="color: var(--green);">Arquitectura:</strong>
-                            <pre style="background: rgba(0,255,65,0.05); padding: 1rem; border: 1px solid rgba(0,255,65,0.2); border-radius: 4px; font-size: 0.75rem; color: var(--text); overflow-x: auto; margin-top: 0.5rem; margin-bottom: 1rem;">User Request
- ↓
-FastAPI Gateway
- ↓
-LangGraph Orchestrator
- ├── Context Retrieval (Vector DB)
- ├── Curriculum Agent
- └── Assessment Agent</pre>
+                            <div class="arch-wrap">
+                                <svg class="arch" viewBox="0 0 400 392" role="img" aria-labelledby="ffTitle ffDesc">
+                                    <title id="ffTitle">Arquitectura de FluencyForge</title>
+                                    <desc id="ffDesc">A request passes through the FastAPI gateway to the LangGraph orchestrator, which drives three branches: context retrieval from a vector database, a curriculum agent and an assessment agent.</desc>
+                                    <defs>
+                                        <marker id="ffArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </marker>
+                                    </defs>
+
+                                    <g><rect x="20" y="20" width="230" height="44" rx="2"/>
+                                        <text class="n-t" x="135" y="42" text-anchor="middle" dominant-baseline="central">Solicitud del usuario</text></g>
+
+                                    <g><rect x="20" y="100" width="230" height="44" rx="2"/>
+                                        <text class="n-t" x="135" y="122" text-anchor="middle" dominant-baseline="central">Gateway FastAPI</text></g>
+
+                                    <g><rect x="20" y="180" width="230" height="44" rx="2"/>
+                                        <text class="n-t" x="135" y="202" text-anchor="middle" dominant-baseline="central">Orquestador LangGraph</text></g>
+
+                                    <g><rect x="70" y="256" width="310" height="34" rx="2"/>
+                                        <text class="n-s" x="88" y="273" dominant-baseline="central">Recuperación de contexto (Vector DB)</text></g>
+
+                                    <g><rect x="70" y="302" width="310" height="34" rx="2"/>
+                                        <text class="n-s" x="88" y="319" dominant-baseline="central">Agente de currículo</text></g>
+
+                                    <g><rect x="70" y="348" width="310" height="34" rx="2"/>
+                                        <text class="n-s" x="88" y="365" dominant-baseline="central">Agente de evaluación</text></g>
+
+                                    <path d="M135 64 L135 90" marker-end="url(#ffArrow)"/>
+                                    <path d="M135 144 L135 170" marker-end="url(#ffArrow)"/>
+                                    <path d="M40 224 L40 365 L60 365" marker-end="url(#ffArrow)"/>
+                                    <path d="M40 273 L60 273" marker-end="url(#ffArrow)"/>
+                                    <path d="M40 319 L60 319" marker-end="url(#ffArrow)"/>
+                                </svg>
+                            </div>
                             
                             <strong style="color: var(--green);">Solución:</strong>
                             <ul style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem;">
@@ -844,16 +1320,12 @@ LangGraph Orchestrator
                             <strong style="color: var(--green);">Tech Stack:</strong>
                             <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Python, Scikit-learn, XGBoost, FastAPI</p>
                         </div>
-                        <div style="margin-top: 1rem; margin-bottom: 1rem; display: flex; gap: 0.5rem;">
-                            <a href="https://retentia.vitorsilva.page/" target="_blank" class="btn btn-solid btn-sm">▶ Ver Demo</a>
-                        </div>
                         <div class="tags">
                             <span class="tag">Machine Learning</span><span class="tag">XGBoost</span><span class="tag">Churn</span>
                         </div>
                         <div class="bc-footer">
                             <span>Motor Predictivo de Churn</span>
                             <div class="bc-links">
-                                <a href="https://retentia.vitorsilva.page/" target="_blank" rel="noreferrer">DEMO →</a>
                                 <a href="https://github.com/vdfs89/RetentIA" target="_blank" rel="noreferrer">GITHUB →</a>
                             </div>
                         </div>
@@ -891,7 +1363,7 @@ LangGraph Orchestrator
                         <h3 class="bc-title">AIClinicOS</h3>
                         <div style="margin-top: 1rem; margin-bottom: 1.5rem;">
                             <strong style="color: var(--green);">Problema de Negocio:</strong>
-                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Modern clinics need intelligent OS to manage data and patient care efficiently.</p>
+                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Las clínicas modernas necesitan un sistema inteligente para gestionar datos y atención con eficiencia.</p>
                             
                             <strong style="color: var(--green);">Tech Stack:</strong>
                             <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Next.js, Tailwind, Supabase</p>
@@ -918,42 +1390,20 @@ LangGraph Orchestrator
 
         <hr class="sep">
 
-        
         <hr class="sep">
-        <!-- ══ ENGINEERING HIGHLIGHTS ══ -->
-        <section class="sec" id="production">
-            <div class="wrap">
-                <div class="prompt reveal">ENGINEERING HIGHLIGHTS</div>
-                <h2 class="sec-title reveal">Aspectos Destacados de <span class="g">Ingeniería.</span></h2>
-                <div class="vp-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top:2rem;">
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ Async FastAPI</span></div>
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ JWT</span></div>
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ Docker</span></div>
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ CI/CD</span></div>
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ PostgreSQL</span></div>
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ MongoDB</span></div>
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ LangGraph</span></div>
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ Redis</span></div>
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ AWS</span></div>
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ RAG</span></div>
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ OpenAI</span></div>
-                    <div class="vp" style="justify-content:center; padding: 1.5rem;"><span class="vp-title" style="color:var(--green); font-size:1rem;">✓ Gemini</span></div>
-                </div>
-            </div>
-        </section>
 
         <!-- ══ EXPERIENCE ══ -->
         <section class="sec" id="experience">
             <div class="wrap">
                 <div class="prompt reveal">EXPERIENCE</div>
                 <h2 class="sec-title reveal">Madurez operativa.<br><span class="g">Stack de vanguardia.</span></h2>
-                <p class="sec-desc reveal">La mayoría de los Ingenieros de IA tienen el código. Pocos tienen 15 años de operaciones de misión crítica enseñando resiliencia sistémica real.</p>
+                <p class="sec-desc reveal">Muchos juniors saben escribir código. Pocos pasaron 14 años en operaciones críticas aprendiendo qué hace resiliente a un sistema.</p>
 
                 <div class="exp-grid">
                     <div class="timeline">
                         <div class="tl reveal">
                             <span class="tl-dot tl-dot-g"></span>
-                            <div class="tl-date">2011 → PRESENTEEE</div>
+                            <div class="tl-date">2011 → PRESENTE</div>
                             <div class="tl-title">📦 Brazilian Postal & Telegraph Service (ECT)</div>
                             <div class="tl-sub">Soporte Operativo · Curitiba, PR</div>
                             <p class="tl-copy">Mentalidad de fiabilidad forjada a través de operaciones de alta presión y resolución de problemas en entornos que no toleran fallos.</p>
@@ -986,8 +1436,8 @@ LangGraph Orchestrator
                         <div class="tl reveal d3">
                             <span class="tl-dot tl-dot-a"></span>
                             <div class="tl-date">2024 → AHORA</div>
-                            <div class="tl-title">AI Engineer</div>
-                              <p class="tl-copy">AI Engineer working end-to-end across architecture, backend and ML systems.</p>
+                            <div class="tl-title">Desarrollador Full Stack e IA</div>
+                              <p class="tl-copy">Construyendo aplicaciones web y sistemas de IA de extremo a extremo: back-end, front-end y despliegue.</p>
                             <div class="tl-sub">Proyectos independientes · Abierto a Oportunidades</div>
                             <ul class="tl-list">
                                 <li>Sistemas agénticos stateful con memoria y orquestación LangGraph</li>
@@ -1000,7 +1450,7 @@ LangGraph Orchestrator
                     <div class="vp-grid reveal d1">
                         <div class="vp"><span class="vp-icon">🎯</span>
                             <div><div class="vp-title">Entrega Bajo Presión</div>
-                                 <div class="vp-copy">15 años de tolerancia cero a inactividad se traducen en código defensivo y arquitecturas que se degradan suavemente.</div></div>
+                                 <div class="vp-copy">14 años de tolerancia cero a inactividad se traducen en código defensivo y arquitecturas que se degradan suavemente.</div></div>
                         </div>
                         <div class="vp"><span class="vp-icon">🧠</span>
                             <div><div class="vp-title">Visión de Producto, No Sólo Código</div>
@@ -1024,136 +1474,14 @@ LangGraph Orchestrator
 
         <hr class="sep">
 
-        <!-- ══ STACK ══ -->
-        <section class="sec" id="stack">
-            <div class="wrap">
-                <div class="prompt reveal">TECH STACK</div>
-                <h2 class="sec-title reveal">Herramientas.<br><span class="g">No solo palabras de moda.</span></h2>
-
-                <div class="stack-grid">
-                    <div class="sc reveal">
-                        <div class="sc-cat">IA / ML</div>
-                        <div class="sc-items">
-                            <span class="sc-i top">LangGraph</span>
-                            <span class="sc-i top">LangChain</span>
-                            <span class="sc-i top">RAG Pipelines</span>
-                            <span class="sc-i">Gemini / Llama 3</span>
-                            <span class="sc-i">Prompt Engineering</span>
-                            <span class="sc-i">LLM Orchestration</span>
-                        </div>
-                    </div>
-                    <div class="sc reveal d1">
-                        <div class="sc-cat">BACKEND &amp; APIs</div>
-                        <div class="sc-items">
-                            <span class="sc-i top">Python 3 (Advanced)</span>
-                            <span class="sc-i top">FastAPI</span>
-                            <span class="sc-i">SQLAlchemy</span>
-                            <span class="sc-i">Docker</span>
-                            <span class="sc-i">Linux / WSL</span>
-                            <span class="sc-i">Clean Architecture</span>
-                        </div>
-                    </div>
-                    <div class="sc reveal d2">
-                        <div class="sc-cat">DATA &amp; INFRA</div>
-                        <div class="sc-items">
-                            <span class="sc-i top">MongoDB</span>
-                            <span class="sc-i top">PostgreSQL</span>
-                            <span class="sc-i">Snowflake</span>
-                            <span class="sc-i">Airflow</span>
-                            <span class="sc-i">Data Analysis</span>
-                            <span class="sc-i">ETL Pipelines</span>
-                        </div>
-                    </div>
-                    <div class="sc reveal d3">
-                        <div class="sc-cat">CLOUD &amp; MOBILE</div>
-                        <div class="sc-items">
-                            <span class="sc-i top">Oracle Cloud</span>
-                            <span class="sc-i">AWS / GCP / Azure</span>
-                            <span class="sc-i">Flutter &amp; Dart</span>
-                            <span class="sc-i">Git &amp; CI/CD</span>
-                            <span class="sc-i">SOLID / DDD</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="sep">
-
-        <!-- ══ SERVICES ══ -->
-        <section class="sec" id="services">
-            <div class="wrap">
-                <div class="prompt reveal">SERVICES</div>
-                <h2 class="sec-title reveal">Freelancer global.<br><span class="g">Disponible ahora.</span></h2>
-                <p class="sec-desc reveal">Trabajo de forma remota con clientes en Brasil y en todo el mundo. Stack de IA de nivel de producción, entrega con calidad de producto.</p>
-
-                <div class="srv-grid reveal">
-                    <div class="srv">
-                        <div class="srv-icon">🤖</div>
-                        <div class="srv-title">Sistemas Agénticos con LangGraph</div>
-                        <p class="srv-copy">Arquitectura y desarrollo de agentes stateful con memoria, orquestación multiagente y flujos de decisión robustos.</p>
-                    </div>
-                    <div class="srv">
-                        <div class="srv-icon">🔍</div>
-                        <div class="srv-title">RAG & Pipelines de Recuperación</div>
-                        <p class="srv-copy">Pipelines de recuperación semántica de alta fidelidad para Q&A, soporte y bases de conocimiento corporativas.</p>
-                    </div>
-                    <div class="srv">
-                        <div class="srv-icon">🛡️</div>
-                        <div class="srv-title">Guardrails & Gobernanza de IA</div>
-                        <p class="srv-copy">Sistemas de auditoría Multi-LLM que mitigan las alucinaciones antes de que lleguen al usuario. Control de costes y fundamentación.</p>
-                    </div>
-                    <div class="srv">
-                        <div class="srv-icon">⚡</div>
-                        <div class="srv-title">Backend Python & FastAPI</div>
-                        <p class="srv-copy">Backends asíncronos de alto rendimiento que integran modelos de IA, bases de datos y servicios externos.</p>
-                    </div>
-                    <div class="srv">
-                        <div class="srv-icon">📊</div>
-                        <div class="srv-title">Consultoría en Arquitectura de IA</div>
-                        <p class="srv-copy">Revisión de arquitectura, selección de modelos, trade-offs de coste vs precisión y roadmap de implementación para equipos que adoptan IA.</p>
-                    </div>
-                    <div class="srv srv-remote">
-                        <div>
-                            <div class="srv-title">🌐 Global Remoto</div>
-                            <p class="srv-copy">Remoto, con base en Brasil — disponible para clientes en Brasil y en todo el mundo. Inglés fluido para comunicación técnica.</p>
-                        </div>
-                        <a class="btn btn-solid" href="#contact">HABLAR DE UN PROYECTO →</a>
-                    </div>
-                </div>
-
-                <div class="prompt" style="margin-top:2rem;"><span>PREGUNTAS FRECUENTES QUESTIONS</span></div>
-                <div class="faq reveal">
-                    <div class="faq-item">
-                        <button class="faq-q" type="button" onclick="toggleFaq(this)">¿Cómo contratar a un freelancer de IA con LangGraph?</button>
-                        <p class="faq-a">Reach out via email or LinkedIn. Describe the business problem and technical context. Within 24h we schedule an alignment call to define scope, timeline and budget.</p>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" type="button" onclick="toggleFaq(this)">¿Qué hace un ingeniero de machine learning freelancer?</button>
-                        <p class="faq-a">Designs and implements AI systems for real use: autonomous agents, RAG pipelines, hallucination guardrails, ML APIs and LLM integrations (GPT, Gemini, Llama).</p>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" type="button" onclick="toggleFaq(this)">¿Trabajas con clientes internacionales?</button>
-                        <p class="faq-a">Yes. I serve clients remotely in any country. Technical communication in Portuguese and English. Available for international contracts via Deel, Remote or direct.</p>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-q" type="button" onclick="toggleFaq(this)">¿Cuál es la diferencia entre RAG y un chatbot común?</button>
-                        <p class="faq-a">A regular chatbot answers from what the model was trained on — it can hallucinate or be outdated. RAG retrieves real information from your data before answering, ensuring accuracy and traceability.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="sep">
-
         <!-- ══ CONTACT ══ -->
         <section class="sec" id="contact">
             <div class="wrap">
-                <div class="prompt reveal" style="justify-content:center;">CONTACT</div>
+                <div class="prompt reveal" style="justify-content:center;">CONTACTO</div>
                 <div class="contact-box reveal">
                     <div class="prompt" style="justify-content:center; margin-bottom:0.4rem;"><span>INICIAR CONVERSACIÓN</span></div>
                     <h2 class="contact-title">¿Construimos el<br>siguiente nivel?</h2>
-                    <p class="contact-copy">Abierto a posiciones de Ingeniero de IA. AI Engineer trabajando de extremo a extremo en arquitectura, backend y sistemas de ML. Madurez profesional + stack de IA de vanguardia para su equipo.</p>
+                    <p class="contact-copy">Abierto a puestos de desarrollador full stack e IA junior, remoto o híbrido en Curitiba. Catorce años de disciplina operativa, más software que construí y publiqué.</p>
                     <div class="contact-acts">
                         <a class="btn btn-solid" href="mailto:mkmillhouse89@gmail.com">EMAIL →</a>
                         <a class="btn" href="https://www.linkedin.com/in/vitorsilva-aieng/" target="_blank" rel="noreferrer">LINKEDIN →</a>
@@ -1166,10 +1494,47 @@ LangGraph Orchestrator
     </main>
 
     <footer class="footer">
-        <div class="wrap footer-in">
-            <span>VITOR_SILVA &copy; 2026</span>
-            <span>AI Software Engineer</span>
-            <span>CURITIBA, PR · BRAZIL ☕</span>
+        <div class="wrap">
+            <div class="footer-cols">
+                <div class="fcol fcol-about">
+                    <span class="fbrand">VITOR_SILVA</span>
+                    <p>Construyendo sistemas de IA que se sostienen en producción, con la disciplina operativa de quien cuidó sistemas críticos durante catorce años.</p>
+                </div>
+                <div class="fcol">
+                    <h3>Navegar</h3>
+                    <ul>
+                        <li><a href="#about">Sobre mí</a></li>
+                        <li><a href="#services">Qué hago</a></li>
+                        <li><a href="#stack">Stack</a></li>
+                        <li><a href="#projects">Proyectos</a></li>
+                        <li><a href="#experience">Experiencia</a></li>
+                    </ul>
+                </div>
+                <div class="fcol">
+                    <h3>Stack</h3>
+                    <ul>
+                        <li>Python &middot; FastAPI</li>
+                        <li>LangGraph &middot; RAG</li>
+                        <li>React &middot; Next.js</li>
+                        <li>PostgreSQL &middot; MongoDB</li>
+                        <li>Docker &middot; GitHub Actions</li>
+                    </ul>
+                </div>
+                <div class="fcol">
+                    <h3>En otros sitios</h3>
+                    <ul>
+                        <li><a href="mailto:mkmillhouse89@gmail.com">mkmillhouse89@gmail.com</a></li>
+                        <li><a href="https://github.com/vdfs89" target="_blank" rel="noreferrer">github.com/vdfs89</a></li>
+                        <li><a href="https://www.linkedin.com/in/vitorsilva-aieng/" target="_blank" rel="noreferrer">LinkedIn</a></li>
+                        <li><a href="dashboard.es.html">Dashboard</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-in" style="border-top:1px solid rgba(0,255,65,0.08); padding-top:1.1rem;">
+                <span>VITOR_SILVA &copy; 2026</span>
+                <span>Desarrollador Full Stack e IA</span>
+                <span>CURITIBA, PR · BRAZIL ☕</span>
+            </div>
         </div>
     </footer>
 
@@ -1229,6 +1594,45 @@ const io=new IntersectionObserver(entries=>{
     entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('v');});
 },{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ═══ Stack tabs ═══ */
+(function(){
+    const tabs=[...document.querySelectorAll('.stab')];
+    if(!tabs.length) return;
+
+    function fill(panel){
+        panel.querySelectorAll('.bar-fill').forEach(b=>{ b.style.width=b.dataset.pct+'%'; });
+    }
+    function select(tab){
+        tabs.forEach(t=>{
+            const on=t===tab;
+            t.setAttribute('aria-selected',on?'true':'false');
+            const panel=document.getElementById(t.getAttribute('aria-controls'));
+            if(panel){ panel.hidden=!on; if(on) fill(panel); }
+        });
+    }
+    tabs.forEach(t=>t.addEventListener('click',()=>select(t)));
+
+    /* Arrow keys move between tabs, as the tablist role promises. */
+    document.querySelector('.stack-tabs').addEventListener('keydown',e=>{
+        const i=tabs.indexOf(document.activeElement);
+        if(i<0) return;
+        let n=null;
+        if(e.key==='ArrowRight') n=(i+1)%tabs.length;
+        if(e.key==='ArrowLeft')  n=(i-1+tabs.length)%tabs.length;
+        if(n===null) return;
+        e.preventDefault(); tabs[n].focus(); select(tabs[n]);
+    });
+
+    /* Bars grow when the section first scrolls into view, not on load. */
+    const first=document.querySelector('.spanel:not([hidden])');
+    if(first){
+        const barObs=new IntersectionObserver((entries,obs)=>{
+            entries.forEach(e=>{ if(e.isIntersecting){ fill(first); obs.disconnect(); } });
+        },{threshold:.25});
+        barObs.observe(first);
+    }
+})();
 </script>
 
 <!-- GitHub Stats Fetcher -->

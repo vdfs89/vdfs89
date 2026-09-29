@@ -84,52 +84,17 @@ def main():
         '<html lang="en"': ('<html lang="pt-BR"', '<html lang="es"'),
         
         # Meta & Titles
-        '<title>Vitor Silva | AI Software Engineer | Backend AI Engineer</title>': (
-            '<title>Vitor Silva | Engenheiro de IA | LangGraph, RAG & FastAPI</title>',
-            '<title>Vitor Silva | Ingeniero de IA | LangGraph, RAG y FastAPI</title>'
-        ),
-        'content="AI Software Engineer specialized in LangGraph, FastAPI, Agentic AI, RAG, Multi-Agent Systems and Production AI."': (
-            'content="Engenheiro de IA especializado em LangGraph, FastAPI, Agentic AI, RAG, Sistemas Multiagentes e IA em Produção."',
-            'content="Ingeniero de IA especializado en LangGraph, FastAPI, Agentic AI, RAG, Sistemas Multiagente e IA en Producción."'
-        ),
-        '<meta property="og:title" content="Vitor Silva | AI Software Engineer">': (
-            '<meta property="og:title" content="Vitor Silva | Engenheiro de IA">',
-            '<meta property="og:title" content="Vitor Silva | Ingeniero de IA">'
-        ),
-        'content="AI Software Engineer specialized in LangGraph, FastAPI, Agentic AI, RAG, and Multi-Agent Systems."': (
-            'content="Engenheiro de IA especializado em LangGraph, FastAPI, Agentic AI, RAG e Sistemas Multiagentes."',
-            'content="Ingeniero de IA especializado en LangGraph, FastAPI, Agentic AI, RAG y Sistemas Multiagente."'
-        ),
-        '<meta name="twitter:title" content="Vitor Silva | AI Software Engineer">': (
-            '<meta name="twitter:title" content="Vitor Silva | Engenheiro de IA">',
-            '<meta name="twitter:title" content="Vitor Silva | Ingeniero de IA">'
-        ),
-        'content="Building production-grade AI systems with LangGraph, FastAPI and RAG."': (
-            'content="Construindo sistemas de IA em nível de produção com LangGraph, FastAPI e RAG."',
-            'content="Construyendo sistemas de IA a nivel de producción con LangGraph, FastAPI y RAG."'
-        ),
 
         # Nav
         '<a href="#about">ABOUT</a>': ('<a href="#about">SOBRE</a>', '<a href="#about">SOBRE MÍ</a>'),
         '<a href="#projects">PROJECTS</a>': ('<a href="#projects">PROJETOS</a>', '<a href="#projects">PROYECTOS</a>'),
         '<a href="#experience">EXPERIENCE</a>': ('<a href="#experience">EXPERIÊNCIA</a>', '<a href="#experience">EXPERIENCIA</a>'),
         '<a href="#stack">STACK</a>': ('<a href="#stack">STACK</a>', '<a href="#stack">STACK</a>'),
-        '<a href="#services">SERVICES</a>': ('<a href="#services">SERVIÇOS</a>', '<a href="#services">SERVICIOS</a>'),
         '<a href="#contact">CONTACT</a>': ('<a href="#contact">CONTATO</a>', '<a href="#contact">CONTACTO</a>'),
         
         # Hero
         'OPEN TO OPPORTUNITIES': ('ABERTO A OPORTUNIDADES', 'ABIERTO A OPORTUNIDADES'),
-        'AI Engineer Building Production-Grade Agentic Systems': ('Engenheiro de IA Construindo Sistemas Multiagentes em Produção', 'Ingeniero de IA Construyendo Sistemas Multiagente en Producción'),
-        'I design, build, and deploy scalable, observable, and cost-efficient AI agents that deliver real-world business value.': (
-            'Eu projeto, construo e implemento agentes de IA escaláveis, observáveis e com eficiência de custo que entregam valor real de negócio.',
-            'Diseño, construyo e implemento agentes de IA escalables, observables y rentables que aportan valor real al negocio.'
-        ),
-        'From stateful multi-agent orchestrations with LangGraph to high-fidelity RAG pipelines, I turn complex requirements into reliable software.': (
-            'Desde orquestrações multiagentes stateful com LangGraph até pipelines RAG de alta fidelidade, eu transformo requisitos complexos em software confiável.',
-            'Desde orquestraciones multiagente stateful con LangGraph hasta pipelines RAG de alta fidelidad, transformo requisitos complejos en software confiable.'
-        ),
         'View Projects &rarr;': ('Ver Projetos &rarr;', 'Ver Proyectos &rarr;'),
-        'Book a Discovery Call': ('Agendar uma Reunião', 'Agendar una Reunión'),
         
         'Years ECT': ('Anos ECT', 'Años ECT'),
         'AI Projects': ('Projetos IA', 'Proyectos IA'),
@@ -153,8 +118,8 @@ def main():
             'Transformo operaciones en sistemas de software robustos.'
         ),
         'With 15 years leading high-pressure operations at ECT, I learned that failure is not an option in mission-critical environments.': (
-            'Com 15 anos liderando operações de alta pressão nos Correios (ECT), aprendi que falhas não são uma opção em ambientes de missão crítica.',
-            'Con 15 años liderando operaciones de alta presión en ECT, aprendí que los fallos no son una opción en entornos de misión crítica.'
+            'Com 14 anos liderando operações de alta pressão nos Correios (ECT), aprendi que falhas não são uma opção em ambientes de missão crítica.',
+            'Con 14 años liderando operaciones de alta presión en ECT, aprendí que los fallos no son una opción en entornos de misión crítica.'
         ),
         'I bring this exact rigor to AI Engineering. My focus is on deterministic outcomes, comprehensive observability (LangSmith/Evals), and hallucination mitigation in agentic workflows.': (
             'Trago exatamente esse rigor para a Engenharia de IA. Meu foco está em resultados determinísticos, observabilidade abrangente (LangSmith/Evals) e mitigação de alucinações em fluxos multiagentes.',
@@ -307,10 +272,6 @@ def main():
             'Projetando APIs escaláveis com FastAPI, gerenciando estados complexos e construindo pipelines de processamento assíncrono.',
             'Diseñando APIs escalables con FastAPI, gestionando estados complejos y construyendo pipelines de procesamiento asíncrono.'
         ),
-        'Remote, based in Brazil &mdash; available for clients in Brazil and worldwide. Fluent English for technical communication.': (
-            'Remoto, baseado no Brasil &mdash; disponível para clientes no Brasil e globalmente. Inglês fluente.',
-            'Remoto, con base en Brasil &mdash; disponible para clientes globales. Inglés fluido para comunicación técnica.'
-        ),
         
         # Contact / Footer
         'START A PROJECT': ('INICIAR UM PROJETO', 'INICIAR UN PROYECTO'),
@@ -350,25 +311,25 @@ def main():
         'Engineering <span class="g">Product,</span><br>Not Just <span class="g">Code.</span>': ('Engenharia de <span class="g">Produto,</span><br>Não Apenas <span class="g">Código.</span>', 'Ingeniería de <span class="g">Producto,</span><br>No Sólo <span class="g">Código.</span>'),
         'Architectures that<br><span class="g">generate business value.</span>': ('Arquiteturas que<br><span class="g">geram valor de negócio.</span>', 'Arquitecturas que<br><span class="g">generan valor de negocio.</span>'),
         
-        'With 15+ years of mission-critical operations experience, I don\'t just write scripts—I architect resilient systems. I\'ve spent over a decade managing high-pressure logistics where downtime means total failure. That operational maturity is the foundation of my engineering.': (
-            'Com mais de 15 anos de experiência em operações de missão crítica, eu não escrevo apenas scripts — eu arquiteto sistemas resilientes. Passei mais de uma década gerenciando logística de alta pressão, onde a inatividade significa falha total. Essa maturidade operacional é a base da minha engenharia.',
-            'Con más de 15 años de experiencia en operaciones de misión crítica, no solo escribo scripts — diseño sistemas resilientes. He pasado más de una década gestionando logística de alta presión donde el tiempo de inactividad significa fracaso total. Esa madurez operativa es la base de mi ingeniería.'
+        'With 14 years of mission-critical operations experience, I don\'t just write scripts—I architect resilient systems. I\'ve spent over a decade managing high-pressure logistics where downtime means total failure. That operational maturity is the foundation of my engineering.': (
+            'Com mais de 14 anos de experiência em operações de missão crítica, eu não escrevo apenas scripts — eu arquiteto sistemas resilientes. Passei mais de uma década gerenciando logística de alta pressão, onde a inatividade significa falha total. Essa maturidade operacional é a base da minha engenharia.',
+            'Con más de 14 años de experiencia en operaciones de misión crítica, no solo escribo scripts — diseño sistemas resilientes. He pasado más de una década gestionando logística de alta presión donde el tiempo de inactividad significa fracaso total. Esa madurez operativa es la base de mi ingeniería.'
         ),
         'I focus on systems that are observable, gracefully degrading, and maintainable. I build solutions to solve the real business problem, not just the technical challenge.': (
             'Foco em sistemas observáveis, de degradação suave e fáceis de manter. Construo soluções para resolver o problema real de negócio, não apenas o desafio técnico.',
             'Me enfoco en sistemas observables, con degradación elegante y fáciles de mantener. Construyo soluciones para resolver el problema de negocio real, no solo el desafío técnico.'
         ),
         
-        '15+ Years': ('15+ Anos', '15+ Años'),
+        '14 Years': ('15+ Anos', '15+ Años'),
         'Operations and reliability mindset': ('Mentalidade de operação e confiabilidade', 'Mentalidad de operación y confiabilidad'),
         'AI Systems': ('Sistemas de IA', 'Sistemas de IA'),
         'Agents, RAG, orchestration, data pipelines': ('Agentes, RAG, orquestração, pipelines de dados', 'Agentes, RAG, orquestración, pipelines de datos'),
         'Available for global opportunities': ('Disponível para oportunidades globais', 'Disponible para oportunidades globales'),
         
         'MISSION CRITICAL': ('MISSÃO CRÍTICA', 'MISIÓN CRÍTICA'),
-        'I operated for 15 years in zero-tolerance-for-failure environments. That mindset translates to defensive coding, robust error handling, and architectures built for resilience.': (
-            'Operei 15 anos em ambientes de tolerância zero a falhas. Essa mentalidade se traduz em código defensivo, tratamento robusto de erros e arquiteturas construídas para resiliência.',
-            'Operé 15 años en entornos de tolerancia cero a fallos. Esa mentalidad se traduce en código defensivo, manejo robusto de errores y arquitecturas construidas para la resiliencia.'
+        'I operated for 14 years in zero-tolerance-for-failure environments. That mindset translates to defensive coding, robust error handling, and architectures built for resilience.': (
+            'Operei 14 anos em ambientes de tolerância zero a falhas. Essa mentalidade se traduz em código defensivo, tratamento robusto de erros e arquiteturas construídas para resiliência.',
+            'Operé 14 años en entornos de tolerancia cero a fallos. Esa mentalidad se traduce en código defensivo, manejo robusto de errores y arquitecturas construidas para la resiliencia.'
         ),
         'PRODUCT, NOT JUST CODE': ('PRODUTO, NÃO APENAS CÓDIGO', 'PRODUCTO, NO SÓLO CÓDIGO'),
         'I understand business processes because I managed them for over a decade. I design solutions that deliver real-world outcomes.': (
@@ -429,10 +390,6 @@ def main():
     'Operational maturity.<br><span class="g">Cutting-edge stack.</span>': (
         'Maturidade operacional.<br><span class="g">Stack de ponta.</span>',
         'Madurez operativa.<br><span class="g">Stack de vanguardia.</span>'
-    ),
-    'Most AI Engineers have the code. Few have 15 years of mission-critical ops teaching real systemic resilience.': (
-        'A maioria dos Engenheiros de IA tem o código. Poucos têm 15 anos de operações de missão crítica ensinando resiliência sistêmica real.',
-        'La mayoría de los Ingenieros de IA tienen el código. Pocos tienen 15 años de operaciones de misión crítica enseñando resiliencia sistémica real.'
     ),
     '2011 → PRESENT': (
         '2011 → PRESENTE',
@@ -510,9 +467,9 @@ def main():
         'Entrega Sob Pressão',
         'Entrega Bajo Presión'
     ),
-    '15 years of zero-downtime tolerance translate into defensive code and architectures that degrade gracefully.': (
-        '15 anos de tolerância zero a inatividade se traduzem em código defensivo e arquiteturas que degradam suavemente.',
-        '15 años de tolerancia cero a inactividad se traducen en código defensivo y arquitecturas que se degradan suavemente.'
+    '14 years of zero-downtime tolerance translate into defensive code and architectures that degrade gracefully.': (
+        '14 anos de tolerância zero a inatividade se traduzem em código defensivo e arquiteturas que degradam suavemente.',
+        '14 años de tolerancia cero a inactividad se traducen en código defensivo y arquitecturas que se degradan suavemente.'
     ),
     'Product Vision, Not Just Code': (
         'Visão de Produto, Não Apenas Código',
@@ -537,14 +494,6 @@ def main():
     'Tools.<br><span class="g">Not just buzzwords.</span>': (
         'Ferramentas.<br><span class="g">Não apenas buzzwords.</span>',
         'Herramientas.<br><span class="g">No solo palabras de moda.</span>'
-    ),
-    'Global freelancer.<br><span class="g">Available now.</span>': (
-        'Freelancer global.<br><span class="g">Disponível agora.</span>',
-        'Freelancer global.<br><span class="g">Disponible ahora.</span>'
-    ),
-    'I work remotely with clients in Brazil and worldwide. Production-grade AI stack, product-quality delivery.': (
-        'Trabalho remotamente com clientes no Brasil e no mundo. Stack de IA em nível de produção, entrega com qualidade de produto.',
-        'Trabajo de forma remota con clientes en Brasil y en todo el mundo. Stack de IA de nivel de producción, entrega con calidad de producto.'
     ),
     'Agentic Systems with LangGraph': (
         'Sistemas Agênticos com LangGraph',
@@ -578,38 +527,6 @@ def main():
         'Backends assíncronos de alta performance integrando modelos de IA, bancos de dados e serviços externos.',
         'Backends asíncronos de alto rendimiento que integran modelos de IA, bases de datos y servicios externos.'
     ),
-    'AI Architecture Consulting': (
-        'Consultoria em Arquitetura de IA',
-        'Consultoría en Arquitectura de IA'
-    ),
-    'Architecture review, model selection, cost vs. accuracy trade-offs and implementation roadmap for teams adopting AI.': (
-        'Revisão de arquitetura, seleção de modelos, trade-offs de custo vs precisão e roadmap de implementação para times adotando IA.',
-        'Revisión de arquitectura, selección de modelos, trade-offs de coste vs precisión y roadmap de implementación para equipos que adoptan IA.'
-    ),
-    'Remote Global': (
-        'Global Remoto',
-        'Global Remoto'
-    ),
-    'Remote, based in Brazil — available for clients in Brazil and worldwide. Fluent English for technical communication.': (
-        'Remoto, baseado no Brasil — disponível para clientes no Brasil e no mundo. Inglês fluente para comunicação técnica.',
-        'Remoto, con base en Brasil — disponible para clientes en Brasil y en todo el mundo. Inglés fluido para comunicación técnica.'
-    ),
-    'TALK ABOUT A PROJECT →': (
-        'CONVERSAR SOBRE UM PROJETO →',
-        'HABLAR DE UN PROYECTO →'
-    ),
-    'How to hire an AI freelancer with LangGraph?': (
-        'Como contratar um freelancer de IA com LangGraph?',
-        '¿Cómo contratar a un freelancer de IA con LangGraph?'
-    ),
-    'What does a Machine Learning Engineer freelancer do?': (
-        'O que faz um engenheiro de machine learning freelancer?',
-        '¿Qué hace un ingeniero de machine learning freelancer?'
-    ),
-    'Do you work with international clients?': (
-        'Você trabalha com clientes internacionais?',
-        '¿Trabajas con clientes internacionales?'
-    ),
     'What is the difference between RAG and a regular chatbot?': (
         'Qual a diferença entre RAG e um chatbot comum?',
         '¿Cuál es la diferencia entre RAG y un chatbot común?'
@@ -622,16 +539,207 @@ def main():
         'Vamos construir o<br>próximo nível?',
         '¿Construimos el<br>siguiente nivel?'
     ),
-    'Open to AI Engineer positions. AI Engineer working end-to-end across architecture, backend and ML systems. Professional maturity + cutting-edge AI stack for your team.': (
-        'Aberto a posições de Engenheiro de IA. AI Engineer trabalhando de ponta a ponta em arquitetura, backend e sistemas de ML. Maturidade profissional + stack de IA de ponta para o seu time.',
-        'Abierto a posiciones de Ingeniero de IA. AI Engineer trabajando de extremo a extremo en arquitectura, backend y sistemas de ML. Madurez profesional + stack de IA de vanguardia para su equipo.'
-    )
-,
     "The real challenge isn't building AI — it's trusting it in production. My projects target governance, guardrails and hallucination control.": (
         "O verdadeiro desafio não é construir IA — é confiar nela em produção. Meus projetos focam em governança, guardrails e controle de alucinação.",
         "El verdadero desafío no es construir IA — es confiar en ella en producción. Mis proyectos se centran en gobernanza, guardrails y control de alucinaciones."
     ),
     'View Projects': ('Ver Projetos', 'Ver Proyectos'),
+    # These come after the contact paragraph above on purpose: that paragraph
+    # contains the same sentence, and replacing the short form first would stop
+    # the longer key from ever matching.
+    'Modern clinics need intelligent OS to manage data and patient care efficiently.': (
+        'Clínicas modernas precisam de um sistema inteligente para gerir dados e atendimento com eficiência.',
+        'Las clínicas modernas necesitan un sistema inteligente para gestionar datos y atención con eficiencia.'
+    ),
+    'mkmillhouse89@gmail.com">CONTACT</a>': (
+        'mkmillhouse89@gmail.com">CONTATO</a>',
+        'mkmillhouse89@gmail.com">CONTACTO</a>'
+    ),
+    # Architecture diagrams. Keyed with the closing tag so short words like
+    # "User" or "Judge" cannot match prose elsewhere on the page.
+    '>User</text>': ('>Usuário</text>', '>Usuario</text>'),
+    '>Question</text>': ('>Pergunta</text>', '>Pregunta</text>'),
+    '>HTTP gateway</text>': ('>Gateway HTTP</text>', '>Gateway HTTP</text>'),
+    '>Stateful orchestrator</text>': ('>Orquestrador stateful</text>', '>Orquestador stateful</text>'),
+    '>Embeddings</text>': ('>Embeddings</text>', '>Embeddings</text>'),
+    '>Judge</text>': ('>Júri</text>', '>Jurado</text>'),
+    '>Governance</text>': ('>Governança</text>', '>Gobernanza</text>'),
+    '>Auditing</text>': ('>Auditoria</text>', '>Auditoría</text>'),
+    '>Validated answer</text>': ('>Resposta validada</text>', '>Respuesta validada</text>'),
+    '>Audited before delivery</text>': ('>Auditada antes de entregar</text>', '>Auditada antes de entregar</text>'),
+    '>User request</text>': ('>Requisição do usuário</text>', '>Solicitud del usuario</text>'),
+    '>FastAPI gateway</text>': ('>Gateway FastAPI</text>', '>Gateway FastAPI</text>'),
+    '>LangGraph orchestrator</text>': ('>Orquestrador LangGraph</text>', '>Orquestador LangGraph</text>'),
+    '>Context retrieval (Vector DB)</text>': ('>Recuperação de contexto (Vector DB)</text>', '>Recuperación de contexto (Vector DB)</text>'),
+    '>Curriculum agent</text>': ('>Agente de currículo</text>', '>Agente de currículo</text>'),
+    '>Assessment agent</text>': ('>Agente de avaliação</text>', '>Agente de evaluación</text>'),
+    'MestreGrana architecture': ('Arquitetura do MestreGrana', 'Arquitectura de MestreGrana'),
+    'FluencyForge architecture': ('Arquitetura do FluencyForge', 'Arquitectura de FluencyForge'),
+    # Repositioning: junior full stack and AI developer
+    '<title>Vitor Silva | Full Stack and AI Developer | Python, FastAPI, React</title>': (
+        '<title>Vitor Silva | Desenvolvedor Full Stack e IA | Python, FastAPI, React</title>',
+        '<title>Vitor Silva | Desarrollador Full Stack e IA | Python, FastAPI, React</title>'
+    ),
+    'content="Junior Full Stack and AI developer with 14 years in critical operations. Python, FastAPI, React, Next.js, LangGraph and RAG. Open to remote roles."': (
+        'content="Desenvolvedor Full Stack e IA júnior com 14 anos em operações críticas. Python, FastAPI, React, Next.js, LangGraph e RAG. Aberto a vagas remotas."',
+        'content="Desarrollador Full Stack e IA junior con 14 años en operaciones críticas. Python, FastAPI, React, Next.js, LangGraph y RAG. Abierto a puestos remotos."'
+    ),
+    '<meta property="og:title" content="Vitor Silva | Full Stack and AI Developer">': (
+        '<meta property="og:title" content="Vitor Silva | Desenvolvedor Full Stack e IA">',
+        '<meta property="og:title" content="Vitor Silva | Desarrollador Full Stack e IA">'
+    ),
+    'content="Junior Full Stack and AI developer. Python, FastAPI, React, LangGraph and RAG. Open to remote roles."': (
+        'content="Desenvolvedor Full Stack e IA júnior. Python, FastAPI, React, LangGraph e RAG. Aberto a vagas remotas."',
+        'content="Desarrollador Full Stack e IA junior. Python, FastAPI, React, LangGraph y RAG. Abierto a puestos remotos."'
+    ),
+    '<meta name="twitter:title" content="Vitor Silva | Full Stack and AI Developer">': (
+        '<meta name="twitter:title" content="Vitor Silva | Desenvolvedor Full Stack e IA">',
+        '<meta name="twitter:title" content="Vitor Silva | Desarrollador Full Stack e IA">'
+    ),
+    'content="Junior full stack developer building AI applications with Python, FastAPI and React."': (
+        'content="Desenvolvedor full stack júnior construindo aplicações com IA em Python, FastAPI e React."',
+        'content="Desarrollador full stack junior construyendo aplicaciones con IA en Python, FastAPI y React."'
+    ),
+    '<a href="#services">WHAT I DO</a>': (
+        '<a href="#services">O QUE FAÇO</a>',
+        '<a href="#services">QUÉ HAGO</a>'
+    ),
+    '<p class="hero-role">Junior Full Stack and AI Developer</p>': (
+        '<p class="hero-role">Desenvolvedor Full Stack e IA Júnior</p>',
+        '<p class="hero-role">Desarrollador Full Stack e IA Junior</p>'
+    ),
+    'I build web applications end to end — Python and FastAPI on the back end, React and Next.js on the front — and add AI where it earns its place.': (
+        'Construo aplicações web de ponta a ponta — Python e FastAPI no back-end, React e Next.js no front-end — e uso IA onde ela realmente agrega.',
+        'Construyo aplicaciones web de extremo a extremo — Python y FastAPI en el back-end, React y Next.js en el front-end — y uso IA donde realmente aporta.'
+    ),
+    'After 14 years running critical operations at Correios, I build software the way I ran operations: measured, documented and designed not to fail.': (
+        'Depois de 14 anos em operações críticas nos Correios, construo software do jeito que operava: medido, documentado e projetado para não falhar.',
+        'Tras 14 años en operaciones críticas en Correios, construyo software como operaba: medido, documentado y diseñado para no fallar.'
+    ),
+    '<a class="btn" href="mailto:mkmillhouse89@gmail.com">Get in touch</a>': (
+        '<a class="btn" href="mailto:mkmillhouse89@gmail.com">Entrar em contato</a>',
+        '<a class="btn" href="mailto:mkmillhouse89@gmail.com">Ponerse en contacto</a>'
+    ),
+    '<div class="prompt reveal">WHAT I DO</div>': (
+        '<div class="prompt reveal">O QUE FAÇO</div>',
+        '<div class="prompt reveal">QUÉ HAGO</div>'
+    ),
+    'What I bring<br><span class="g">to your team.</span>': (
+        'O que eu levo<br><span class="g">para o seu time.</span>',
+        'Lo que aporto<br><span class="g">a su equipo.</span>'
+    ),
+    'Remote-first, based in Curitiba. Open to junior full stack and AI developer roles.': (
+        'Remoto em primeiro lugar, baseado em Curitiba. Aberto a vagas de desenvolvedor full stack e IA júnior.',
+        'Remoto ante todo, con base en Curitiba. Abierto a puestos de desarrollador full stack e IA junior.'
+    ),
+    'Are you looking for a junior role?': (
+        'Você busca uma vaga júnior?',
+        '¿Buscas un puesto junior?'
+    ),
+    'Yes. I am looking for a junior full stack or AI developer position, remote or hybrid in Curitiba. I bring 14 years of operations experience and a portfolio of projects I built and shipped.': (
+        'Sim. Busco uma vaga de desenvolvedor full stack ou IA júnior, remota ou híbrida em Curitiba. Trago 14 anos de experiência em operações e um portfólio de projetos que construí e coloquei no ar.',
+        'Sí. Busco un puesto de desarrollador full stack o IA junior, remoto o híbrido en Curitiba. Aporto 14 años de experiencia en operaciones y un portafolio de proyectos que construí y publiqué.'
+    ),
+    'What can you do from day one?': (
+        'O que você entrega desde o primeiro dia?',
+        '¿Qué puedes hacer desde el primer día?'
+    ),
+    'Build and ship features end to end on a Python and React stack, write tests and document what I build. TypeScript and cloud are where I am still growing.': (
+        'Construir e entregar funcionalidades de ponta a ponta numa stack Python e React, escrever testes e documentar o que construo. TypeScript e cloud são onde ainda estou crescendo.',
+        'Construir y entregar funcionalidades de extremo a extremo en un stack Python y React, escribir pruebas y documentar lo que construyo. TypeScript y cloud son donde aún estoy creciendo.'
+    ),
+    'Do you work with international teams?': (
+        'Você trabalha com times internacionais?',
+        '¿Trabajas con equipos internacionales?'
+    ),
+    'Yes. I read technical English fluently and I am comfortable with remote, asynchronous work.': (
+        'Sim. Leio inglês técnico com fluência e me sinto confortável com trabalho remoto e assíncrono.',
+        'Sí. Leo inglés técnico con fluidez y me siento cómodo con el trabajo remoto y asíncrono.'
+    ),
+    'Plenty of juniors can write the code. Few have spent 14 years in mission-critical operations learning what makes a system resilient.': (
+        'Muitos juniores sabem escrever código. Poucos passaram 14 anos em operações críticas aprendendo o que torna um sistema resiliente.',
+        'Muchos juniors saben escribir código. Pocos pasaron 14 años en operaciones críticas aprendiendo qué hace resiliente a un sistema.'
+    ),
+    '<div class="tl-title">Full Stack and AI Developer</div>': (
+        '<div class="tl-title">Desenvolvedor Full Stack e IA</div>',
+        '<div class="tl-title">Desarrollador Full Stack e IA</div>'
+    ),
+    'Building web applications and AI systems end to end: back end, front end and deployment.': (
+        'Construindo aplicações web e sistemas de IA de ponta a ponta: back-end, front-end e deploy.',
+        'Construyendo aplicaciones web y sistemas de IA de extremo a extremo: back-end, front-end y despliegue.'
+    ),
+    'Open to junior full stack and AI developer roles, remote or hybrid in Curitiba. Fourteen years of operational discipline, plus software I built and shipped.': (
+        'Aberto a vagas de desenvolvedor full stack e IA júnior, remoto ou híbrido em Curitiba. Quatorze anos de disciplina operacional, mais software que construí e coloquei no ar.',
+        'Abierto a puestos de desarrollador full stack e IA junior, remoto o híbrido en Curitiba. Catorce años de disciplina operativa, más software que construí y publiqué.'
+    ),
+    '<span>Full Stack and AI Developer</span>': (
+        '<span>Desenvolvedor Full Stack e IA</span>',
+        '<span>Desarrollador Full Stack e IA</span>'
+    ),
+    '<a href="#services">What I do</a>': (
+        '<a href="#services">O que faço</a>',
+        '<a href="#services">Qué hago</a>'
+    ),
+    'Full Stack Web Applications': (
+        'Aplicações Web Full Stack',
+        'Aplicaciones Web Full Stack'
+    ),
+    'React and Next.js front ends over Python or Node APIs, with authentication, a database and a deploy pipeline.': (
+        'Front-ends em React e Next.js sobre APIs em Python ou Node, com autenticação, banco de dados e pipeline de deploy.',
+        'Front-ends en React y Next.js sobre APIs en Python o Node, con autenticación, base de datos y pipeline de despliegue.'
+    ),
+    'Operations to Software': (
+        'Da Operação ao Software',
+        'De la Operación al Software'
+    ),
+    'I turn operational processes into software: map the flow, find where it fails and automate the repetitive part.': (
+        'Transformo processos operacionais em software: mapeio o fluxo, encontro onde ele falha e automatizo a parte repetitiva.',
+        'Convierto procesos operativos en software: mapeo el flujo, encuentro dónde falla y automatizo la parte repetitiva.'
+    ),
+    '🌐 Remote-first': (
+        '🌐 Remoto em primeiro lugar',
+        '🌐 Remoto ante todo'
+    ),
+    'Based in Curitiba, Brazil. Available for remote roles in Brazil and abroad. Technical English.': (
+        'Baseado em Curitiba, Brasil. Disponível para vagas remotas no Brasil e no exterior. Inglês técnico.',
+        'Con base en Curitiba, Brasil. Disponible para puestos remotos en Brasil y en el exterior. Inglés técnico.'
+    ),
+    '>GET IN TOUCH →</a>': (
+        '>ENTRAR EM CONTATO →</a>',
+        '>PONERSE EN CONTACTO →</a>'
+    ),
+    # Footer columns
+    'Building AI systems that hold up in production, with the operational discipline of someone who ran critical systems for fourteen years.': (
+        'Construindo sistemas de IA que se sustentam em produção, com a disciplina operacional de quem cuidou de sistemas críticos por quatorze anos.',
+        'Construyendo sistemas de IA que se sostienen en producción, con la disciplina operativa de quien cuidó sistemas críticos durante catorce años.'
+    ),
+    '<h3>Navigate</h3>': ('<h3>Navegar</h3>', '<h3>Navegar</h3>'),
+    '<h3>Elsewhere</h3>': ('<h3>Em outros lugares</h3>', '<h3>En otros sitios</h3>'),
+    '<a href="#about">About</a>': ('<a href="#about">Sobre</a>', '<a href="#about">Sobre mí</a>'),
+    '<a href="#projects">Projects</a>': ('<a href="#projects">Projetos</a>', '<a href="#projects">Proyectos</a>'),
+    '<a href="#experience">Experience</a>': ('<a href="#experience">Experiência</a>', '<a href="#experience">Experiencia</a>'),
+    '<a href="dashboard.html">Dashboard</a>': ('<a href="dashboard.pt.html">Dashboard</a>', '<a href="dashboard.es.html">Dashboard</a>'),
+    # Stack tabs
+    'aria-label="Technology categories"': ('aria-label="Categorias de tecnologia"', 'aria-label="Categorías de tecnología"'),
+    '>Data &amp; Infra<': ('>Dados &amp; Infra<', '>Datos e Infra<'),
+    '>Cloud &amp; Tools<': ('>Cloud &amp; Ferramentas<', '>Cloud y Herramientas<'),
+    '>Data Analysis<': ('>Análise de Dados<', '>Análisis de Datos<'),
+    '<span>PROFILE</span>': ('<span>PERFIL</span>', '<span>PERFIL</span>'),
+    # Hero visual + metrics band
+    'Photo goes here': ('Foto entra aqui', 'La foto va aquí'),
+    '<span>System status</span>': ('<span>Status do sistema</span>', '<span>Estado del sistema</span>'),
+    'Open to opportunities': ('Aberto a oportunidades', 'Abierto a oportunidades'),
+    'Curitiba, PR &middot; remote': ('Curitiba, PR &middot; remoto', 'Curitiba, PR &middot; remoto'),
+    '<span>Activity</span>': ('<span>Atividade</span>', '<span>Actividad</span>'),
+    'Years in critical operations': ('Anos em operação crítica', 'Años en operación crítica'),
+    'People led': ('Pessoas lideradas', 'Personas lideradas'),
+    'AI projects shipped': ('Projetos de IA entregues', 'Proyectos de IA entregados'),
+    'Automated tests in CI': ('Testes automatizados em CI', 'Pruebas automatizadas en CI'),
+    'Fewer operational failures': ('Menos falhas operacionais', 'Menos fallos operativos'),
+    'justify-content:center;">CONTACT</div>': (
+        'justify-content:center;">CONTATO</div>',
+        'justify-content:center;">CONTACTO</div>'
+    ),
 }
 
     # Generate EN

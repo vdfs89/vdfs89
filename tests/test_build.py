@@ -164,19 +164,25 @@ class Translation(unittest.TestCase):
             )
 
 
+PROJECT_METRIC = re.compile(
+    r'mcell-num">(\d+)</div><span class="mcell-lbl">'
+    r'(?:AI projects shipped|Projetos de IA entregues|Proyectos de IA entregados)'
+)
+
+
 class ProjectCount(unittest.TestCase):
     """README dizia 5, dashboard dizia 7, o site mostrava 8 cards."""
 
     def test_hero_count_is_the_same_everywhere(self):
         counts = set()
         for name in INDEX:
-            found = re.search(r'stat-num">(\d+)</div>', read_root(name))
+            found = PROJECT_METRIC.search(read_root(name))
             self.assertIsNotNone(found, name + " perdeu o contador do topo")
             counts.add(found.group(1))
         self.assertEqual(len(counts), 1, "as páginas divergem no número de projetos: " + str(counts))
 
     def test_dashboard_counter_matches_the_hero(self):
-        hero = re.search(r'stat-num">(\d+)</div>', read_root("index.en.html")).group(1)
+        hero = PROJECT_METRIC.search(read_root("index.en.html")).group(1)
         # ancorado no rótulo: o primeiro `valor:` do dashboard é o de anos de
         # operação, não o de projetos
         counter = re.compile(
@@ -190,7 +196,7 @@ class ProjectCount(unittest.TestCase):
 
     def test_project_cards_match_the_counter(self):
         cards = len(re.findall(r'class="bc-title"', read_root("index.en.html")))
-        hero = int(re.search(r'stat-num">(\d+)</div>', read_root("index.en.html")).group(1))
+        hero = int(PROJECT_METRIC.search(read_root("index.en.html")).group(1))
         self.assertEqual(cards, hero, "o número anunciado não bate com os cards na página")
 
 
