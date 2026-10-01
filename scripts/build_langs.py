@@ -646,6 +646,11 @@ def main():
         'Landing page de alta conversão para um e-book, baseada em 58 fontes científicas.',
         'Landing page de alta conversión para un e-book, basada en 58 fuentes científicas.'
     ),
+    # Corrected after the user confirmed the figures
+    'People led, covering the supervisor': (
+        'Pessoas lideradas, cobrindo o supervisor',
+        'Personas lideradas, cubriendo al supervisor'
+    ),
     # Repositioning: junior full stack and AI developer
     '<title>Vitor Silva | Full Stack and AI Developer | Python, FastAPI, React</title>': (
         '<title>Vitor Silva | Desenvolvedor Full Stack e IA | Python, FastAPI, React</title>',
@@ -803,7 +808,6 @@ def main():
     'Curitiba, PR &middot; remote': ('Curitiba, PR &middot; remoto', 'Curitiba, PR &middot; remoto'),
     '<span>Activity</span>': ('<span>Atividade</span>', '<span>Actividad</span>'),
     'Years in critical operations': ('Anos em operação crítica', 'Años en operación crítica'),
-    'People led': ('Pessoas lideradas', 'Personas lideradas'),
     'Automated tests in CI': ('Testes automatizados em CI', 'Pruebas automatizadas en CI'),
     'Fewer operational failures': ('Menos falhas operacionais', 'Menos fallos operativos'),
     'justify-content:center;">CONTACT</div>': (
