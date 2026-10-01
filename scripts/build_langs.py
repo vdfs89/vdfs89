@@ -181,10 +181,6 @@ def main():
             'Two-Tower Neural Network para recomendaciones de E-commerce.'
         ),
         
-        'Self-hosted automation platform for freelancers.': (
-            'Plataforma de automação self-hosted para freelancers.',
-            'Plataforma de automatización self-hosted para freelancers.'
-        ),
         
         'Predictive churn engine for B2B SaaS using Machine Learning.': (
             'Motor preditivo de churn para B2B SaaS usando Machine Learning.',
@@ -373,8 +369,6 @@ def main():
         
         'SAAS &middot; AI ORCHESTRATION': ('SAAS &middot; ORQUESTRAÇÃO DE IA', 'SAAS &middot; ORQUESTACIÓN DE IA'),
         'PRIVATE': ('PRIVADO', 'PRIVADO'),
-        'Freelancers depend on high-cost cloud tools for complex workflows with no data ownership.': ('Freelancers dependem de ferramentas cloud de alto custo para fluxos de trabalho complexos, sem propriedade dos dados.', 'Los freelancers dependen de herramientas en la nube de alto costo para flujos de trabajo complejos sin propiedad de datos.'),
-        'Self-Hosted Automation Platform': ('Plataforma de Automação Self-Hosted', 'Plataforma de Automatización Self-Hosted'),
         
         'B2B SAAS &middot; PREDICTIVE': ('B2B SAAS &middot; PREDITIVO', 'B2B SAAS &middot; PREDICTIVO'),
         'High churn rates in SaaS platforms due to reactive support.': ('Altas taxas de churn em plataformas SaaS devido ao suporte reativo.', 'Altas tasas de churn en plataformas SaaS debido al soporte reactivo.'),
@@ -575,6 +569,83 @@ def main():
     '>Assessment agent</text>': ('>Agente de avaliação</text>', '>Agente de evaluación</text>'),
     'MestreGrana architecture': ('Arquitetura do MestreGrana', 'Arquitectura de MestreGrana'),
     'FluencyForge architecture': ('Arquitetura do FluencyForge', 'Arquitectura de FluencyForge'),
+    # Projects added to the portfolio
+    '>Projects built</span>': (
+        '>Projetos construídos</span>',
+        '>Proyectos construidos</span>'
+    ),
+    'Recall@10 vs 0.0034 for the popularity baseline on the RetailRocket dataset. Part of the gain comes from repeated items; the model still leads on pure discovery.': (
+        'Recall@10 contra 0,0034 do baseline de popularidade no dataset RetailRocket. Parte do ganho vem de itens repetidos; o modelo continua à frente em descoberta pura.',
+        'Recall@10 frente a 0,0034 del baseline de popularidad en el dataset RetailRocket. Parte de la ganancia viene de ítems repetidos; el modelo sigue liderando en descubrimiento puro.'
+    ),
+    'recall at a cost-weighted threshold. ROC-AUC 0.845, nearly identical to XGBoost; the value is the threshold calibrated to the cost of a missed churner.': (
+        'recall com limiar ponderado por custo. ROC-AUC 0,845, quase idêntico ao do XGBoost; o valor está no limiar calibrado ao custo de deixar um churner passar.',
+        'recall con umbral ponderado por costo. ROC-AUC 0,845, casi idéntico al de XGBoost; el valor está en el umbral calibrado al costo de dejar pasar a un cliente que se va.'
+    ),
+    '>VIDEO →</a>': (
+        '>VÍDEO →</a>',
+        '>VIDEO →</a>'
+    ),
+    "B2B service operations need one governed platform for leads, contracts and payments, with each organization's data kept apart.": (
+        'Operações B2B de serviços precisam de uma plataforma única e governada para leads, contratos e pagamentos, com os dados de cada organização isolados.',
+        'Las operaciones B2B de servicios necesitan una plataforma única y gobernada para leads, contratos y pagos, con los datos de cada organización aislados.'
+    ),
+    'cross-tenant isolation checks passed on a test database. Row-level security is not yet enabled in production.': (
+        'verificações de isolamento entre organizações aprovadas em um banco de testes. O isolamento por linha (RLS) ainda não está ativo em produção.',
+        'verificaciones de aislamiento entre organizaciones aprobadas en una base de pruebas. La seguridad por fila (RLS) aún no está activa en producción.'
+    ),
+    '<span>Multi-tenant B2B Platform</span>': (
+        '<span>Plataforma B2B Multi-tenant</span>',
+        '<span>Plataforma B2B Multi-tenant</span>'
+    ),
+    'A hospital needs incoming medical reports triaged by urgency, with a model that can be retrained, monitored and served fast.': (
+        'Um hospital precisa triar laudos médicos por urgência, com um modelo que possa ser retreinado, monitorado e servido com rapidez.',
+        'Un hospital necesita clasificar informes médicos por urgencia, con un modelo que pueda reentrenarse, monitorearse y servirse rápido.'
+    ),
+    'p95 API latency on the baseline model (200 requests). Macro F1 of 0.62 on heuristic urgency labels.': (
+        'latência p95 da API no modelo baseline (200 requisições). F1 macro de 0,62 em rótulos de urgência heurísticos.',
+        'latencia p95 de la API en el modelo baseline (200 solicitudes). F1 macro de 0,62 con etiquetas de urgencia heurísticas.'
+    ),
+    '<span>End-to-End MLOps Pipeline</span>': (
+        '<span>Pipeline MLOps de Ponta a Ponta</span>',
+        '<span>Pipeline MLOps de Extremo a Extremo</span>'
+    ),
+    "Generic training apps ignore the user's goal and equipment, and give no clear view of progress.": (
+        'Apps de treino genéricos ignoram o objetivo e o equipamento do usuário e não mostram a evolução com clareza.',
+        'Las apps de entrenamiento genéricas ignoran el objetivo y el equipamiento del usuario y no muestran la evolución con claridad.'
+    ),
+    '<span>Workout Tracker App</span>': (
+        '<span>App de Acompanhamento de Treino</span>',
+        '<span>App de Seguimiento de Entrenamiento</span>'
+    ),
+    'AI tools for careers and freelancing send sensitive data, like CVs and expectations, to third-party clouds.': (
+        'Ferramentas de IA para carreira e freelas enviam dados sensíveis, como currículos e pretensões, para nuvens de terceiros.',
+        'Las herramientas de IA para carrera y freelance envían datos sensibles, como currículos y expectativas, a nubes de terceros.'
+    ),
+    '<span>Privacy-First Multi-Agent Platform</span>': (
+        '<span>Plataforma Multiagente com Privacidade em Primeiro Lugar</span>',
+        '<span>Plataforma Multiagente con Privacidad Primero</span>'
+    ),
+    '<span>ALSO BUILT</span>': (
+        '<span>TAMBÉM CONSTRUÍ</span>',
+        '<span>TAMBIÉN CONSTRUÍ</span>'
+    ),
+    'Long-term memory and retrieval layer for an AI agent: vector search plus PostgreSQL state.': (
+        'Camada de memória de longo prazo e recuperação para um agente de IA: busca vetorial e estado em PostgreSQL.',
+        'Capa de memoria de largo plazo y recuperación para un agente de IA: búsqueda vectorial y estado en PostgreSQL.'
+    ),
+    'Space action game built with Unity and C#, my first game.': (
+        'Jogo de ação espacial feito em Unity e C#, meu primeiro jogo.',
+        'Juego de acción espacial hecho en Unity y C#, mi primer juego.'
+    ),
+    'Molecular structures modeled as graphs, in Python.': (
+        'Estruturas moleculares modeladas como grafos, em Python.',
+        'Estructuras moleculares modeladas como grafos, en Python.'
+    ),
+    'High-conversion landing page for an e-book, built on 58 scientific sources.': (
+        'Landing page de alta conversão para um e-book, baseada em 58 fontes científicas.',
+        'Landing page de alta conversión para un e-book, basada en 58 fuentes científicas.'
+    ),
     # Repositioning: junior full stack and AI developer
     '<title>Vitor Silva | Full Stack and AI Developer | Python, FastAPI, React</title>': (
         '<title>Vitor Silva | Desenvolvedor Full Stack e IA | Python, FastAPI, React</title>',
@@ -733,7 +804,6 @@ def main():
     '<span>Activity</span>': ('<span>Atividade</span>', '<span>Actividad</span>'),
     'Years in critical operations': ('Anos em operação crítica', 'Años en operación crítica'),
     'People led': ('Pessoas lideradas', 'Personas lideradas'),
-    'AI projects shipped': ('Projetos de IA entregues', 'Proyectos de IA entregados'),
     'Automated tests in CI': ('Testes automatizados em CI', 'Pruebas automatizadas en CI'),
     'Fewer operational failures': ('Menos falhas operacionais', 'Menos fallos operativos'),
     'justify-content:center;">CONTACT</div>': (

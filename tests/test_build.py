@@ -140,8 +140,8 @@ class Translation(unittest.TestCase):
     ENGLISH_LEFTOVERS = [
         "portfolio assistant",
         "View Projects",
-        "AI projects",
-        "Self-hosted automation platform",
+        "Projects built",
+        "Two isolated modes",
         "Two-Tower Neural Network built on PyTorch",
         'aria-label="Overview"',
         'aria-label="Filter projects"',
@@ -166,7 +166,7 @@ class Translation(unittest.TestCase):
 
 PROJECT_METRIC = re.compile(
     r'mcell-num">(\d+)</div><span class="mcell-lbl">'
-    r'(?:AI projects shipped|Projetos de IA entregues|Proyectos de IA entregados)'
+    r'(?:Projects built|Projetos construídos|Proyectos construidos)'
 )
 
 
@@ -187,7 +187,7 @@ class ProjectCount(unittest.TestCase):
         # operação, não o de projetos
         counter = re.compile(
             r'valor:\s*(\d+),\s*sufixo:\s*"",\s*label:\s*'
-            r'"(?:AI projects|Projetos de IA|Proyectos de IA)"'
+            r'"(?:Projects built|Projetos construídos|Proyectos construidos)"'
         )
         for name in DASHBOARD:
             found = counter.search(read_root(name))

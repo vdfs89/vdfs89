@@ -70,7 +70,6 @@ def main():
 
         # Section 3
         '<h2 class="secao-titulo">Experience</h2>': ('<h2 class="secao-titulo">Experiência</h2>', '<h2 class="secao-titulo">Experiencia</h2>'),
-        '15 years of mission-critical ops → production AI systems': ('15 anos de operações críticas → sistemas de IA em produção', '15 años de operaciones críticas → sistemas de IA en producción'),
 
         # Section 4
         '<h2 class="secao-titulo">Education</h2>': ('<h2 class="secao-titulo">Formação</h2>', '<h2 class="secao-titulo">Educación</h2>'),
@@ -101,14 +100,9 @@ def main():
         'Open to remote opportunities (Brazil & global)': ('Aberto a oportunidades remotas (Brasil e global)', 'Abierto a oportunidades remotas (Brasil y global)'),
         'AVAILABLE FOR OPPORTUNITIES': ('DISPONÍVEL PARA OPORTUNIDADES', 'DISPONIBLE PARA OPORTUNIDADES'),
         'Years of mission-critical operations': ('Anos de operações de missão crítica', 'Años de operaciones de misión crítica'),
-        'AI projects': ('Projetos de IA', 'Proyectos de IA'),
         'Languages (PT · EN · ES)': ('Idiomas (PT · EN · ES)', 'Idiomas (PT · EN · ES)'),
         'Continuous education certificates': ('Certificados de educação contínua', 'Certificados de educación continua'),
 
-        '15 years of mission-critical operations (SLA governance, data auditing, logistics management) applied to reliable, governed, and production-ready agentic AI systems.': (
-            '15 anos de operações de missão crítica (governança de SLA, auditoria de dados, gestão logística) aplicados a sistemas de IA agênticos confiáveis, governados e prontos para produção.',
-            '15 años de operaciones de misión crítica (gobernanza de SLA, auditoría de datos, gestión logística) aplicados a sistemas de IA agénticos confiables, gobernados y listos para producción.'
-        ),
         
         'Multi-agent financial advisor — LangGraph orchestration + multi-LLM judge in production.': (
             'Consultor financeiro multiagente — Orquestração LangGraph + juiz multi-LLM em produção.',
@@ -158,10 +152,6 @@ def main():
         'Popularity-based recommendation systems fail in personalization.': (
             'Sistemas de recomendação baseados em popularidade falham na personalização.',
             'Los sistemas de recomendación basados en popularidad fallan en la personalización.'
-        ),
-        'Freelancers rely on high-cost cloud tools for complex workflows, without data ownership.': (
-            'Freelancers dependem de ferramentas cloud de alto custo para fluxos de trabalho complexos, sem propriedade dos dados.',
-            'Los freelancers dependen de herramientas en la nube de alto costo para flujos de trabajo complejos, sin propiedad de los datos.'
         ),
         'Predictive Churn Engine. High churn rates in SaaS platforms due to reactive support.': (
             'Motor Preditivo de Churn. Altas taxas de churn em plataformas SaaS devido ao suporte reativo.',
@@ -267,10 +257,6 @@ def main():
             'Rede neural Two-Tower construída em PyTorch para filtragem colaborativa.',
             'Red neuronal Two-Tower construida en PyTorch para filtrado colaborativo.'
         ),
-        'Self-hosted automation platform with n8n, Docker Compose, PostgreSQL, and Redis.': (
-            'Plataforma de automação self-hosted com n8n, Docker Compose, PostgreSQL e Redis.',
-            'Plataforma de automatización self-hosted con n8n, Docker Compose, PostgreSQL y Redis.'
-        ),
         'Predictive churn modeling using Machine Learning, XGBoost, and FastAPI.': (
             'Modelagem preditiva de churn usando Machine Learning, XGBoost e FastAPI.',
             'Modelado predictivo de churn usando Machine Learning, XGBoost y FastAPI.'
@@ -279,6 +265,60 @@ def main():
             'vitor_ai — assistente do portfólio v1.0',
             'vitor_ai — asistente del portafolio v1.0'
         ),
+    # Projects added to the portfolio
+    'Projects built': (
+        'Projetos construídos',
+        'Proyectos construidos'
+    ),
+    '14 years of mission-critical ops → production AI systems': (
+        '14 anos de operações críticas → sistemas de IA em produção',
+        '14 años de operaciones críticas → sistemas de IA en producción'
+    ),
+    '14 years of mission-critical operations (SLA governance, data auditing, logistics management) applied to reliable, governed, and production-ready agentic AI systems.': (
+        '14 anos de operações de missão crítica (governança de SLA, auditoria de dados, gestão logística) aplicados a sistemas de IA agênticos confiáveis, governados e prontos para produção.',
+        '14 años de operaciones de misión crítica (gobernanza de SLA, auditoría de datos, gestión logística) aplicados a sistemas de IA agénticos confiables, gobernados y listos para producción.'
+    ),
+    'Multi-tenant B2B platform in production: leads, marketplace contracts, Stripe escrow and real-time chat.': (
+        'Plataforma B2B multi-tenant em produção: leads, contratos de marketplace, custódia via Stripe e chat em tempo real.',
+        'Plataforma B2B multi-tenant en producción: leads, contratos de marketplace, custodia vía Stripe y chat en tiempo real.'
+    ),
+    'FastAPI backend and Next.js 15 frontend over PostgreSQL, with RBAC, transactional outbox, audit trail and Redis rate limiting.': (
+        'Backend FastAPI e frontend Next.js 15 sobre PostgreSQL, com RBAC, transactional outbox, trilha de auditoria e rate limiting em Redis.',
+        'Backend FastAPI y frontend Next.js 15 sobre PostgreSQL, con RBAC, transactional outbox, pista de auditoría y rate limiting en Redis.'
+    ),
+    'Medical text triage classifier served by API, with retraining orchestrated in Airflow and monitoring in Grafana.': (
+        'Classificador de triagem de textos médicos servido por API, com retreino orquestrado no Airflow e monitoramento no Grafana.',
+        'Clasificador de triaje de textos médicos servido por API, con reentrenamiento orquestado en Airflow y monitoreo en Grafana.'
+    ),
+    'TF-IDF and logistic regression baseline exported to ONNX Runtime; FastAPI service in Docker with Prometheus metrics; CI runs lint, tests and image build.': (
+        'Baseline TF-IDF com regressão logística exportado para ONNX Runtime; serviço FastAPI em Docker com métricas Prometheus; o CI roda lint, testes e build da imagem.',
+        'Baseline TF-IDF con regresión logística exportado a ONNX Runtime; servicio FastAPI en Docker con métricas Prometheus; el CI ejecuta lint, pruebas y build de la imagen.'
+    ),
+    'Workout app with personalized plans, timer-driven sessions and progress charts.': (
+        'App de treino com planos personalizados, sessões com cronômetro e gráficos de evolução.',
+        'App de entrenamiento con planes personalizados, sesiones con cronómetro y gráficos de evolución.'
+    ),
+    'Flutter app with local Hive storage, exercise search through ExerciseDB and AI suggestions with an offline fallback.': (
+        'App Flutter com armazenamento local em Hive, busca de exercícios via ExerciseDB e sugestões de IA com fallback offline.',
+        'App Flutter con almacenamiento local en Hive, búsqueda de ejercicios vía ExerciseDB y sugerencias de IA con fallback offline.'
+    ),
+    'AI tools for careers and freelancing send sensitive data to third-party clouds.': (
+        'Ferramentas de IA para carreira e freelas enviam dados sensíveis para nuvens de terceiros.',
+        'Las herramientas de IA para carrera y freelance envían datos sensibles a nubes de terceros.'
+    ),
+    'Two isolated modes: a local career pipeline on Ollama and a cloud freelance pipeline, both orchestrated in LangGraph behind FastAPI.': (
+        'Dois modos isolados: um pipeline de carreira local em Ollama e um pipeline de freelas na nuvem, ambos orquestrados em LangGraph atrás do FastAPI.',
+        'Dos modos aislados: un pipeline de carrera local en Ollama y un pipeline de freelance en la nube, ambos orquestados en LangGraph detrás de FastAPI.'
+    ),
+    # AIClinicOS
+    'Clinic operating system connecting scheduling, records and AI-assisted workflows in one flow.': (
+        'Sistema operacional para clínicas que conecta agenda, prontuário e fluxos assistidos por IA em um único fluxo.',
+        'Sistema operativo para clínicas que conecta agenda, historia clínica y flujos asistidos por IA en un solo flujo.'
+    ),
+    'Next.js and TypeScript app with Tailwind, using Supabase for authentication and persistence, deployed on Vercel.': (
+        'App em Next.js e TypeScript com Tailwind, usando Supabase para autenticação e persistência, publicado na Vercel.',
+        'App en Next.js y TypeScript con Tailwind, usando Supabase para autenticación y persistencia, publicada en Vercel.'
+    ),
     }
 
     content = join_string_literals(content)

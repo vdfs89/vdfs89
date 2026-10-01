@@ -1066,7 +1066,7 @@ body{
   <!-- SEÇÃO 3 — EXPERIÊNCIA -->
   <section class="secao" id="secao-experiencia" aria-label="Experiência">
     <h2 class="secao-titulo">Experiência</h2>
-    <p class="secao-sub">15 anos de operações críticas → sistemas de IA em produção</p>
+    <p class="secao-sub">14 anos de operações críticas → sistemas de IA em produção</p>
     <div class="timeline" id="timelineExp"></div>
   </section>
 
@@ -1151,14 +1151,14 @@ const DADOS = {
   disponibilidade: "DISPONÍVEL PARA OPORTUNIDADES",
 
   metricas: [
-    { valor: 15,  sufixo: "",   label: "Anos de operações de missão crítica" },
-    { valor: 8,   sufixo: "",   label: "Projetos de IA" },
+    { valor: 14,  sufixo: "",   label: "Anos de operações de missão crítica" },
+    { valor: 11,  sufixo: "",   label: "Projetos construídos" },
     { valor: 3,   sufixo: "",   label: "Idiomas (PT · EN · ES)" },
     { valor: 80, sufixo: "", label: "Certificados de educação contínua" }
   ],
 
   posicionamento:
-    "15 anos de operações de missão crítica (governança de SLA, auditoria de dados, gestão logística) aplicados a sistemas de IA agênticos confiáveis, governados e prontos para produção.",
+    "14 anos de operações de missão crítica (governança de SLA, auditoria de dados, gestão logística) aplicados a sistemas de IA agênticos confiáveis, governados e prontos para produção.",
 
   ultimoDeploy: {
     nome: "MestreGrana",
@@ -1176,7 +1176,7 @@ const DADOS = {
 
   /* ── Profile ── */
   resumoExecutivo:
-    "AI Engineer with 15 years of operational maturity. I build scalable, reliable multi-agent systems and APIs, bringing a mission-critical mindset to AI engineering.",
+    "AI Engineer with 14 years of operational maturity. I build scalable, reliable multi-agent systems and APIs, bringing a mission-critical mindset to AI engineering.",
 
   dados: [
     { k: "Location",    v: "Curitiba, PR, Brasil" },
@@ -1330,7 +1330,11 @@ const DADOS = {
         stack: ["PyTorch", "Two-Tower NN", "MLOps"],
         metricas: [{ k: "Status", v: "EM DESENV" }],
         diagrama: null,
-        links: [{ label: "GitHub", url: "https://github.com/vdfs89" }]
+        links: [
+          { label: "GitHub", url: "https://github.com/vdfs89/TwinRankAI" },
+          { label: "Demo", url: "https://twinrankai.streamlit.app/", solid: true },
+          { label: "Video", url: "https://youtu.be/YUeemzMXzqA" }
+        ]
       },
       {
         nome: "AETHER ONCOLOGY",
@@ -1349,15 +1353,15 @@ const DADOS = {
       },
       {
         nome: "VEKTORWORK",
-        tags: ["SAAS", "ORCHESTRATION"],
+        tags: ["AI AGENTS", "PRIVACY-FIRST"],
         flagship: false,
-        categorias: ["fullstack"],
-        descricao: "Freelancers dependem de ferramentas cloud de alto custo para fluxos de trabalho complexos, sem propriedade dos dados.",
-        arquitetura: "Plataforma de automação self-hosted com n8n, Docker Compose, PostgreSQL e Redis.",
-        stack: ["n8n", "Docker", "Self-Hosted"],
+        categorias: ["ai", "fullstack"],
+        descricao: "Ferramentas de IA para carreira e freelas enviam dados sensíveis para nuvens de terceiros.",
+        arquitetura: "Dois modos isolados: um pipeline de carreira local em Ollama e um pipeline de freelas na nuvem, ambos orquestrados em LangGraph atrás do FastAPI.",
+        stack: ["LangGraph", "Ollama", "FastAPI", "Flutter"],
         metricas: [{ k: "Status", v: "PRIVADO" }],
         diagrama: null,
-        links: [{ label: "GitHub", url: "https://github.com/vdfs89" }]
+        links: []
       },
       {
         nome: "RETENTIA",
@@ -1370,8 +1374,7 @@ const DADOS = {
         metricas: [{ k: "Status", v: "ATIVO" }],
         diagrama: null,
         links: [
-          { label: "GitHub", url: "https://github.com/vdfs89/RetentIA" },
-          { label: "Demo", url: "https://retentia.vitorsilva.page/", solid: true }
+          { label: "GitHub", url: "https://github.com/vdfs89/RetentIA" }
         ]
       },
       {
@@ -1385,6 +1388,54 @@ const DADOS = {
         metricas: [{ k: "Status", v: "2026" }],
         diagrama: null,
         links: [{ label: "GitHub", url: "#" }]
+      },
+      {
+        nome: "RANKIUM SYSTEMS",
+        tags: ["B2B PLATFORM", "MULTI-TENANT"],
+        flagship: false,
+        categorias: ["fullstack"],
+        descricao: "Plataforma B2B multi-tenant em produção: leads, contratos de marketplace, custódia via Stripe e chat em tempo real.",
+        arquitetura: "Backend FastAPI e frontend Next.js 15 sobre PostgreSQL, com RBAC, transactional outbox, trilha de auditoria e rate limiting em Redis.",
+        stack: ["FastAPI", "Next.js", "PostgreSQL", "Stripe"],
+        metricas: [{ k: "Status", v: "LIVE" }],
+        diagrama: null,
+        links: [{ label: "Demo", url: "https://rankiumsystems.com.br/", solid: true }]
+      },
+      {
+        nome: "VITORIUM",
+        tags: ["HEALTHCARE", "MLOPS"],
+        flagship: false,
+        categorias: ["ai", "pipeline"],
+        descricao: "Classificador de triagem de textos médicos servido por API, com retreino orquestrado no Airflow e monitoramento no Grafana.",
+        arquitetura: "Baseline TF-IDF com regressão logística exportado para ONNX Runtime; serviço FastAPI em Docker com métricas Prometheus; o CI roda lint, testes e build da imagem.",
+        stack: ["Python", "FastAPI", "ONNX", "Airflow"],
+        metricas: [{ k: "p95", v: "3.07 ms" }],
+        diagrama: null,
+        links: [{ label: "GitHub", url: "https://github.com/vdfs89/vitorium-mednlp-mlops" }]
+      },
+      {
+        nome: "CORPO EM AÇÃO",
+        tags: ["MOBILE", "FITNESS"],
+        flagship: false,
+        categorias: ["fullstack"],
+        descricao: "App de treino com planos personalizados, sessões com cronômetro e gráficos de evolução.",
+        arquitetura: "App Flutter com armazenamento local em Hive, busca de exercícios via ExerciseDB e sugestões de IA com fallback offline.",
+        stack: ["Flutter", "Dart", "Hive"],
+        metricas: [{ k: "Status", v: "PRIVADO" }],
+        diagrama: null,
+        links: []
+      },
+      {
+        nome: "AICLINICOS",
+        tags: ["HEALTHTECH", "SAAS"],
+        flagship: false,
+        categorias: ["fullstack"],
+        descricao: "Sistema operacional para clínicas que conecta agenda, prontuário e fluxos assistidos por IA em um único fluxo.",
+        arquitetura: "App em Next.js e TypeScript com Tailwind, usando Supabase para autenticação e persistência, publicado na Vercel.",
+        stack: ["Next.js", "TypeScript", "Tailwind", "Supabase"],
+        metricas: [{ k: "Status", v: "PRIVADO" }],
+        diagrama: null,
+        links: [{ label: "Demo", url: "https://ai-clinic-os.vercel.app/", solid: true }]
       }
     ],
 
@@ -1575,7 +1626,7 @@ const DADOS = {
       {
         keywords: ["mestregrana", "flagship", "project", "projects", "portfolio"],
         resposta:
-          "The flagship project is MESTREGRANA [ PRODUCTION ] — a multi-agent financial advisor with LangGraph orchestration, multi-LLM judge for guardrails, RAG with embeddings, and a governance/auditing layer for responses. Other projects: FluencyForge (multi-agent edtech), Aether Oncology (healthcare full-stack), and Harmoniz.AI (LLM pipeline). Check the Projects & Tech Stack section for details."
+          "The flagship project is MESTREGRANA [ PRODUCTION ] — a multi-agent financial advisor with LangGraph orchestration, multi-LLM judge for guardrails, RAG with embeddings, and a governance/auditing layer for responses. Other projects: Rankium Systems (multi-tenant B2B platform in production), FluencyForge (multi-agent edtech), Aether Oncology (healthcare full-stack), Harmoniz.AI (LLM pipeline), VITORIUM (MLOps for medical text) and Corpo em Ação (Flutter app). Check the Projects & Tech Stack section for details."
       },
       {
         keywords: ["stack", "technology", "technologies", "tool", "language", "framework", "tech"],
@@ -1585,7 +1636,7 @@ const DADOS = {
       {
         keywords: ["experience", "ect", "correios", "career", "work", "job", "trajectory"],
         resposta:
-          "Resumo da experiência: 15 years of mission-critical operations at ECT/Correios (SLA governance, data auditing, fleet and logistics management), and since 2024 working as an independent AI Engineer, building production agentic AI systems with LangGraph, FastAPI, RAG, and Docker."
+          "Resumo da experiência: 14 years of mission-critical operations at ECT/Correios (SLA governance, data auditing, fleet and logistics management), and since 2024 working as an independent AI Engineer, building production agentic AI systems with LangGraph, FastAPI, RAG, and Docker."
       },
       {
         keywords: ["education", "degree", "fiap", "college", "study", "graduation", "postgrad", "university"],
@@ -1605,7 +1656,7 @@ const DADOS = {
       {
         keywords: ["language", "languages", "english", "spanish", "portuguese"],
         resposta:
-          "Languages: Native Portuguese, Fluent English, and Intermediate Spanish."
+          "Languages: native Portuguese, technical English (reads documentation fluently) and basic Spanish."
       },
       {
         keywords: ["hi", "hello", "hey", "good morning", "good afternoon", "good evening"],

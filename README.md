@@ -23,7 +23,7 @@
 
 Most AI projects die in the demo. Mine are designed for the part nobody likes to talk about: **reliability, governance, and not hallucinating in front of a real user.**
 
-I bring **15 years of mission-critical operations** into modern AI engineering — someone who understands **LangGraph stateful orchestration and multi-LLM guardrails** *and* what it actually costs when a system fails at scale.
+I bring **14 years of mission-critical operations** into modern AI engineering — someone who understands **LangGraph stateful orchestration and multi-LLM guardrails** *and* what it actually costs when a system fails at scale.
 
 📍 Curitiba, Brazil · **Open to international remote**
 
@@ -58,28 +58,46 @@ I bring **15 years of mission-critical operations** into modern AI engineering �
 ### 📊 [RetentIA — Churn Prediction ML System](https://github.com/vdfs89/RetentIA)
 **Problem:** Customer churn detected too late to act.
 **Solution:** MLP PyTorch model with FastAPI serving and MLflow experiment tracking.
-**Impact:** End-to-end ML pipeline • MLflow tracking • XGBoost + PyTorch comparison • production API
+**Impact:** 89.8% recall at a cost-weighted threshold • ROC-AUC 0.845, nearly identical to XGBoost (the value is the threshold, not the architecture) • MLflow tracking • Prometheus metrics • CI
 **Stack:** `PyTorch` `FastAPI` `MLflow` `XGBoost` `Python` `Docker`
 
 ---
 
-### 🛒 [TwinRank AI — Two-Tower Recommender](https://github.com/vdfs89)
+### 🛒 [TwinRank AI — Two-Tower Recommender](https://github.com/vdfs89/TwinRankAI)
 **Problem:** Popularity-based recommendation systems collapse into generic suggestions and fail at real personalization.
 **Solution:** Two-Tower neural collaborative filtering with a versioned, reproducible training pipeline.
-**Impact:** Deep-learning ranking over user/item embeddings • DVC-tracked datasets • MLflow experiment tracking • FastAPI serving
+**Impact:** Recall@10 of 0.123 vs 0.0034 for the popularity baseline (part of the gain is repeated items; the model still leads on pure discovery) • DVC-tracked datasets • MLflow experiment tracking • FastAPI serving
+**Demo:** [live app](https://twinrankai.streamlit.app/) · [video walkthrough](https://youtu.be/YUeemzMXzqA)
 **Stack:** `PyTorch` `Two-Tower NN` `FastAPI` `DVC` `MLflow`
 
-### ⚙️ [VektorWork — Self-Hosted AI Orchestration](https://github.com/vdfs89)
-**Problem:** Freelancers depend on high-cost cloud automation tools and give up ownership of their own data.
-**Solution:** Self-hosted workflow platform with containerized orchestration and full data residency.
-**Impact:** Reproducible Docker Compose stack • PostgreSQL + Redis backing services • no vendor lock-in
-**Stack:** `n8n` `Docker Compose` `PostgreSQL` `Redis`
+### ⚙️ VektorWork — Privacy-First Multi-Agent Platform *(private repository)*
+**Problem:** AI tools for careers and freelancing send sensitive data, like CVs and expectations, to third-party clouds.
+**Solution:** Two isolated LangGraph pipelines behind a FastAPI gateway: a career mode that runs 100% local on Ollama, and a freelance mode on cloud inference.
+**Impact:** Local-first execution for personal data • a reviewer agent as the quality gate • Flutter and Electron clients
+**Stack:** `FastAPI` `LangGraph` `Ollama` `Flutter` `Playwright` `Docker`
 
 ### 🏥 [AIClinicOS — Clinic Management SaaS](https://ai-clinic-os.vercel.app/)
 **Problem:** Modern clinics juggle patient data across disconnected tools, costing time on every appointment.
 **Solution:** Full-stack operating system for clinics with integrated scheduling, records, and AI-assisted workflows.
 **Impact:** Next.js app with server-side rendering • Supabase auth and persistence • live production deployment
 **Stack:** `Next.js` `TypeScript` `Tailwind` `Supabase`
+
+### 🏢 [Rankium Systems — Multi-Tenant B2B Platform](https://rankiumsystems.com.br/)
+**Problem:** B2B service operations need one governed platform for leads, contracts and payments, with each organization's data kept apart.
+**Solution:** Core platform with identity, organizations, RBAC, billing and audit trail, plus pluggable suites for agency, marketplace and CRM work.
+**Impact:** Live in production • Stripe Connect escrow • real-time chat • 261 cross-tenant isolation checks passing on a test database (row-level security is written and validated, not yet enabled in production)
+**Stack:** `FastAPI` `Next.js` `PostgreSQL` `Redis` `Stripe`
+
+### 🩺 [VITORIUM — MLOps Pipeline for Medical Text](https://github.com/vdfs89/vitorium-mednlp-mlops)
+**Problem:** A hospital needs incoming medical reports triaged by urgency, with a model that can be retrained, monitored and served fast.
+**Solution:** TF-IDF and logistic regression baseline served by FastAPI, exported to ONNX Runtime, retrained through an Airflow DAG and monitored with Prometheus and Grafana.
+**Impact:** p95 API latency of 3.07 ms on the baseline • macro F1 0.62 on heuristic urgency labels (didactic mapping, not clinical) • CI with lint, tests and image build
+**Stack:** `Python` `FastAPI` `ONNX` `Airflow` `Docker` `Prometheus`
+
+### 🏋️ Corpo em Ação — Workout Tracker
+**Problem:** Generic training apps ignore the user's goal and equipment, and give no clear view of progress.
+**Solution:** Flutter app with personalized plans, timer-driven sessions, progress charts and AI suggestions with an offline fallback.
+**Stack:** `Flutter` `Dart` `Hive` `OpenAI API`
 
 ---
 

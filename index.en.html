@@ -609,6 +609,17 @@
     }
 
     /* ════════════════════════════════════
+       ALSO BUILT
+    ════════════════════════════════════ */
+    .also { margin-top: 2.6rem; }
+    .also-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.85rem; }
+    .also-item { background: var(--black-card); border: 1px solid rgba(0,255,65,0.15); border-radius: 2px; padding: 0.95rem 1rem; }
+    .also-item b { display: block; font-size: 0.78rem; color: var(--green); font-weight: 600; margin-bottom: 0.3rem; }
+    .also-item p { font-size: 0.74rem; color: var(--muted); line-height: 1.65; }
+    .also-item a { display: inline-block; margin-top: 0.5rem; font-size: 0.66rem; letter-spacing: 0.08em; color: var(--green); text-decoration: none; }
+    .also-item a:hover { text-shadow: var(--glow-text); }
+
+    /* ════════════════════════════════════
        ARCHITECTURE DIAGRAM
        Inline SVG: scales on a phone, which the old <pre> could not.
     ════════════════════════════════════ */
@@ -800,7 +811,7 @@
                 <div class="metrics reveal">
                     <div class="mcell"><div class="mcell-num">14</div><span class="mcell-lbl">Years in critical operations</span></div>
                     <div class="mcell"><div class="mcell-num">30</div><span class="mcell-lbl">People led</span></div>
-                    <div class="mcell"><div class="mcell-num">8</div><span class="mcell-lbl">AI projects shipped</span></div>
+                    <div class="mcell"><div class="mcell-num">11</div><span class="mcell-lbl">Projects built</span></div>
                     <div class="mcell"><div class="mcell-num">18</div><span class="mcell-lbl">Automated tests in CI</span></div>
                     <div class="mcell"><div class="mcell-num">30%</div><span class="mcell-lbl">Fewer operational failures</span></div>
                 </div>
@@ -1250,13 +1261,19 @@
                             <strong style="color: var(--green);">Tech Stack:</strong>
                             <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">PyTorch, FastAPI, DVC, MLflow</p>
                         </div>
+                        <div class="metric">
+                            <div class="metric-val">0.123</div>
+                            <div class="metric-desc">Recall@10 vs 0.0034 for the popularity baseline on the RetailRocket dataset. Part of the gain comes from repeated items; the model still leads on pure discovery.</div>
+                        </div>
                         <div class="tags">
                             <span class="tag">PyTorch</span><span class="tag">Two-Tower NN</span><span class="tag">MLOps</span>
                         </div>
                         <div class="bc-footer">
                             <span>Neural Collaborative Filtering</span>
                             <div class="bc-links">
-                                <a href="https://github.com/vdfs89" target="_blank" rel="noreferrer">GITHUB →</a>
+                                <a href="https://twinrankai.streamlit.app/" target="_blank" rel="noreferrer">DEMO →</a>
+                                <a href="https://youtu.be/YUeemzMXzqA" target="_blank" rel="noreferrer">VIDEO →</a>
+                                <a href="https://github.com/vdfs89/TwinRankAI" target="_blank" rel="noreferrer">GITHUB →</a>
                             </div>
                         </div>
                     </div>
@@ -1293,19 +1310,16 @@
                         <h3 class="bc-title">VektorWork</h3>
                         <div style="margin-top: 1rem; margin-bottom: 1.5rem;">
                             <strong style="color: var(--green);">Business Problem:</strong>
-                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Freelancers depend on high-cost cloud tools for complex workflows with no data ownership.</p>
+                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">AI tools for careers and freelancing send sensitive data, like CVs and expectations, to third-party clouds.</p>
                             
                             <strong style="color: var(--green);">Tech Stack:</strong>
-                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">n8n, Docker Compose, PostgreSQL, Redis</p>
+                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">FastAPI, LangGraph, Ollama, Flutter, Electron, Playwright, SQLite, Docker</p>
                         </div>
                         <div class="tags">
-                            <span class="tag">n8n</span><span class="tag">Docker</span><span class="tag">Self-Hosted</span>
+                            <span class="tag">LangGraph</span><span class="tag">Ollama</span><span class="tag">FastAPI</span><span class="tag">Flutter</span>
                         </div>
                         <div class="bc-footer">
-                            <span>Self-Hosted Automation Platform</span>
-                            <div class="bc-links">
-                                <a href="https://github.com/vdfs89" target="_blank" rel="noreferrer">GITHUB →</a>
-                            </div>
+                            <span>Privacy-First Multi-Agent Platform</span>
                         </div>
                     </div>
 
@@ -1319,6 +1333,10 @@
                             
                             <strong style="color: var(--green);">Tech Stack:</strong>
                             <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Python, Scikit-learn, XGBoost, FastAPI</p>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-val">89.8%</div>
+                            <div class="metric-desc">recall at a cost-weighted threshold. ROC-AUC 0.845, nearly identical to XGBoost; the value is the threshold calibrated to the cost of a missed churner.</div>
                         </div>
                         <div class="tags">
                             <span class="tag">Machine Learning</span><span class="tag">XGBoost</span><span class="tag">Churn</span>
@@ -1382,8 +1400,103 @@
                         </div>
                     </div>
 
+                    <!-- Rankium Systems -->
+                    <div class="bc b-third reveal d1">
+                        <div class="bc-idx"><span>09 · B2B PLATFORM · MULTI-TENANT</span><span class="badge badge-amber">PRIVATE</span></div>
+                        <h3 class="bc-title">Rankium Systems</h3>
+                        <div style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                            <strong style="color: var(--green);">Business Problem:</strong>
+                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">B2B service operations need one governed platform for leads, contracts and payments, with each organization's data kept apart.</p>
+
+                            <strong style="color: var(--green);">Tech Stack:</strong>
+                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">FastAPI, Next.js 15, PostgreSQL, Redis, Stripe Connect, WebSockets</p>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-val">261/261</div>
+                            <div class="metric-desc">cross-tenant isolation checks passed on a test database. Row-level security is not yet enabled in production.</div>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">FastAPI</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">Stripe</span><span class="tag">Multi-tenant</span>
+                        </div>
+                        <div class="bc-footer">
+                            <span>Multi-tenant B2B Platform</span>
+                            <div class="bc-links">
+                                <a href="https://rankiumsystems.com.br/" target="_blank" rel="noreferrer">DEMO →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VITORIUM -->
+                    <div class="bc b-third reveal d2">
+                        <div class="bc-idx"><span>10 · HEALTHCARE · MLOPS</span></div>
+                        <h3 class="bc-title">VITORIUM</h3>
+                        <div style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                            <strong style="color: var(--green);">Business Problem:</strong>
+                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">A hospital needs incoming medical reports triaged by urgency, with a model that can be retrained, monitored and served fast.</p>
+
+                            <strong style="color: var(--green);">Tech Stack:</strong>
+                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Python, scikit-learn, FastAPI, ONNX Runtime, Airflow, Docker, Prometheus, Grafana</p>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-val">3.07 ms</div>
+                            <div class="metric-desc">p95 API latency on the baseline model (200 requests). Macro F1 of 0.62 on heuristic urgency labels.</div>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">MLOps</span><span class="tag">NLP</span><span class="tag">ONNX</span><span class="tag">Airflow</span><span class="tag">Docker</span>
+                        </div>
+                        <div class="bc-footer">
+                            <span>End-to-End MLOps Pipeline</span>
+                            <div class="bc-links">
+                                <a href="https://github.com/vdfs89/vitorium-mednlp-mlops" target="_blank" rel="noreferrer">GITHUB →</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Corpo em Ação -->
+                    <div class="bc b-third reveal d3">
+                        <div class="bc-idx"><span>11 · MOBILE · FITNESS</span><span class="badge badge-amber">PRIVATE</span></div>
+                        <h3 class="bc-title">Corpo em Ação</h3>
+                        <div style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                            <strong style="color: var(--green);">Business Problem:</strong>
+                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Generic training apps ignore the user's goal and equipment, and give no clear view of progress.</p>
+
+                            <strong style="color: var(--green);">Tech Stack:</strong>
+                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Flutter, Dart, Hive, OpenAI API with offline fallback, ExerciseDB</p>
+                        </div>
+                        <div class="tags">
+                            <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Mobile</span>
+                        </div>
+                        <div class="bc-footer">
+                            <span>Workout Tracker App</span>
+                        </div>
+                    </div>
 
 
+
+                </div>
+
+                <div class="also reveal">
+                    <div class="prompt"><span>ALSO BUILT</span></div>
+                    <div class="also-grid">
+                        <div class="also-item">
+                            <b>Argos-Memory</b>
+                            <p>Long-term memory and retrieval layer for an AI agent: vector search plus PostgreSQL state.</p>
+                        </div>
+                        <div class="also-item">
+                            <b>Stellar Protocol</b>
+                            <p>Space action game built with Unity and C#, my first game.</p>
+                            <a href="https://github.com/vdfs89/Stellar_Protocol" target="_blank" rel="noreferrer">GITHUB →</a>
+                        </div>
+                        <div class="also-item">
+                            <b>Molecular graphs</b>
+                            <p>Molecular structures modeled as graphs, in Python.</p>
+                            <a href="https://github.com/vdfs89/aplicacoes-praticas-de-representacao-de-grafos" target="_blank" rel="noreferrer">GITHUB →</a>
+                        </div>
+                        <div class="also-item">
+                            <b>Seu Corpo, Suas Regras</b>
+                            <p>High-conversion landing page for an e-book, built on 58 scientific sources.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
