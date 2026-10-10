@@ -1,4 +1,4 @@
-# ==============================================================================
+﻿# ==============================================================================
 # HarmonizAI & Neon Terminal Protocol - Git Ignore Config
 # ==============================================================================
 
@@ -74,6 +74,7 @@ build/
 *.ico
 *.pdf
 !og-image.png
+!assets/vitor.jpg
 
 # Obsolete Experimental Themes
 stitch_agentic_neon_terminal/
