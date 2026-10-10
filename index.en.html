@@ -547,7 +547,21 @@
         box-shadow: var(--glow-box);
         display: grid; place-items: center; overflow: hidden;
     }
-    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    /* White-background photo -> green duotone: grayscale, then multiplied over a
+       green fill, so white becomes the theme green and dark stays black. */
+    .portrait { background: #00b82e; }
+    .portrait img {
+        width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+        filter: grayscale(1) contrast(1.12) brightness(0.92);
+        mix-blend-mode: multiply;
+    }
+    /* Soft vignette + faint scanlines so the edges melt into the page. */
+    .portrait::after {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background:
+            repeating-linear-gradient(0deg, rgba(0,0,0,0.10) 0 1px, transparent 1px 3px),
+            radial-gradient(ellipse at 50% 42%, transparent 55%, rgba(0,0,0,0.55) 100%);
+    }
     /* Placeholder until a real photo exists: swap the <div> for an <img>. */
     .portrait-empty {
         text-align: center; padding: 1.2rem;
@@ -780,8 +794,7 @@
                     <div class="hero-visual reveal d1">
                         <span class="portrait-ring" aria-hidden="true"></span>
                         <div class="portrait">
-                            <!-- Replace this block with <img src="assets/vitor.webp" alt="Vitor Silva"> -->
-                            <div class="portrait-empty"><b>&lt;/&gt;</b>Photo goes here</div>
+                            <img src="assets/vitor.jpg" alt="Vitor Silva" width="460" height="460" decoding="async" fetchpriority="high">
                         </div>
 
                         <div class="hud hud-a">

@@ -802,7 +802,6 @@ def main():
     '>Data Analysis<': ('>Análise de Dados<', '>Análisis de Datos<'),
     '<span>PROFILE</span>': ('<span>PERFIL</span>', '<span>PERFIL</span>'),
     # Hero visual + metrics band
-    'Photo goes here': ('Foto entra aqui', 'La foto va aquí'),
     '<span>System status</span>': ('<span>Status do sistema</span>', '<span>Estado del sistema</span>'),
     'Open to opportunities': ('Aberto a oportunidades', 'Abierto a oportunidades'),
     'Curitiba, PR &middot; remote': ('Curitiba, PR &middot; remoto', 'Curitiba, PR &middot; remoto'),
