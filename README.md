@@ -37,17 +37,18 @@ I bring **14 years of mission-critical operations** into modern AI engineering �
 **Impact:** 4 specialized agents • 100% audited outputs • sub-200ms RAG retrieval • zero unvalidated responses in production
 **Stack:** `LangGraph` `FastAPI` `Python` `MongoDB` `RAG`
 
-### 🎓 [FluencyForge — Multi-Agent EdTech Platform](https://fluencyforge.streamlit.app/)
-**Problem:** Static learning paths fail to adapt to real user progress and context.
-**Solution:** Stateful LangGraph orchestrator with long-term memory and real-time RAG personalization.
-**Impact:** Dynamic curriculum generation • continuous context across sessions • multi-tool AI integration
-**Stack:** `LangGraph` `FastAPI` `RAG` `Vector DB` `Python`
+### 🎓 [FluencyForge — AI English Tutor, Online and Offline](https://fluencyforge.streamlit.app/) *(private repository)*
+**Problem:** Learners need conversation practice with instant corrections, and it has to keep working when an LLM provider or the internet drops.
+**Solution:** Streamlit tutor with grammar diffs, voice and flashcards behind a Groq → OpenAI → Gemini → Perplexity fallback chain, plus a Flutter app that switches to an on-device model when offline.
+**Case study:** [vitorsilva.page/fluencyforge](https://vitorsilva.page/fluencyforge/)
+**Stack:** `Python` `Streamlit` `Flutter` `FastAPI` `Supabase` `MediaPipe`
 
-### 🧬 [Aether Oncology — Clinical ML Platform](https://github.com/vdfs89/Aether_Oncology)
-**Problem:** Oncology screening with manual processes creates delays and errors in critical decisions.
-**Solution:** ML pipeline for safe, auditable AI-assisted clinical triage.
-**Impact:** End-to-end ML pipeline • FastAPI backend • React + Flutter frontend • production-ready architecture
-**Stack:** `Python` `FastAPI` `PyTorch` `React` `Flutter` `MLOps`
+### 🧬 [Aether Oncology — Clinical ML Platform with a Documented Null Result](https://github.com/vdfs89/Aether_Oncology)
+**Problem:** Oral-cancer risk support needs a model that actually predicts, and a platform that can prove what it did.
+**Finding:** A 5-fold benchmark against trivial baselines showed ROC-AUC 0.50 for every model: the synthetic dataset has no learnable signal. Inflated metrics were removed and the null result is documented.
+**Engineering:** encrypted, hash-chained audit trail (fail-closed) • Groq → Gemini circuit breaker • PHI scrubbing for Brazilian identifiers • Pandera contracts
+**Case study:** [vitorsilva.page/aether-oncology](https://vitorsilva.page/aether-oncology/)
+**Stack:** `Python` `PyTorch` `FastAPI` `Next.js` `TypeScript` `MLflow`
 
 ### 🍷 [Harmoniz.AI — RAG Recommendation Engine](https://github.com/vdfs89/Harmoniz.AI)
 **Problem:** Generic product recommendations fail to capture nuanced user preferences.
@@ -68,6 +69,7 @@ I bring **14 years of mission-critical operations** into modern AI engineering �
 **Solution:** Two-Tower neural collaborative filtering with a versioned, reproducible training pipeline.
 **Impact:** Recall@10 of 0.123 vs 0.0034 for the popularity baseline (part of the gain is repeated items; the model still leads on pure discovery) • DVC-tracked datasets • MLflow experiment tracking • FastAPI serving
 **Demo:** [live app](https://twinrankai.streamlit.app/) · [video walkthrough](https://youtu.be/YUeemzMXzqA)
+**Case study:** [vitorsilva.page/twinrankai](https://vitorsilva.page/twinrankai/)
 **Stack:** `PyTorch` `Two-Tower NN` `FastAPI` `DVC` `MLflow`
 
 ### ⚙️ VektorWork — Privacy-First Multi-Agent Platform *(private repository)*
@@ -111,7 +113,7 @@ I bring **14 years of mission-critical operations** into modern AI engineering �
 | **ML/MLOps** | PyTorch, Scikit-learn, MLflow, XGBoost, Docker |
 | **Databases** | PostgreSQL, MongoDB, ChromaDB, Vector DBs |
 | **Cloud & DevOps** | AWS, Azure, Google Cloud, Docker, GitHub Actions, CI/CD |
-| **Frontend** | React, Node.js, Flutter / Dart |
+| **Frontend** | Next.js, Streamlit, Flutter / Dart |
 
 ---
 

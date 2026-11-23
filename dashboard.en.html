@@ -1163,14 +1163,14 @@ const DATA = {
   ultimoDeploy: {
     nome: "MestreGrana",
     status: "LIVE",
-    descricao: "Multi-agent financial advisor — LangGraph orchestration + multi-LLM judge in production.",
-    link: "https://mestregrana.com.br"
+    descricao: "Financial mentor with answers grounded in the user's data and a three-provider LLM fallback.",
+    link: "https://mestregrana.streamlit.app/"
   },
 
   links: {
-    linkedin:  "https://linkedin.com/in/vitorsilva",
-    github:    "https://github.com/vitorsilva",
-    portfolio: "https://vitorsilva.engineer",
+    linkedin:  "https://www.linkedin.com/in/vitorsilva-aieng/",
+    github:    "https://github.com/vdfs89",
+    portfolio: "https://vitorsilva.page/",
     email:     "mailto:mkmillhouse89@gmail.com"
   },
 
@@ -1181,7 +1181,7 @@ const DATA = {
   dados: [
     { k: "Location",    v: "Curitiba, PR, Brazil" },
     { k: "Availability",v: "Remote · Full-time/Contract · International" },
-    { k: "Languages",   v: "Native PT-BR · Fluent EN · Intermediate ES" },
+    { k: "Languages",   v: "Native PT-BR · Technical EN · Basic ES" },
     { k: "Focus",       v: "Agentic AI · RAG · LLM Systems · MLOps" }
   ],
 
@@ -1203,18 +1203,18 @@ const DATA = {
   experiencia: [
     {
       periodo: "2024 — PRESENT",
-      cargo: "AI Engineer & Solutions Architect",
-      org: "Independent",
-      badge: "EXPERT",
+      cargo: "Full Stack and AI Developer",
+      org: "Independent projects",
+      badge: "CURRENT",
       bullets: [
-        "Building production-grade agentic AI systems",
-        "Multi-agent orchestration architecture with guardrails and auditing",
-        "Deployment and operation of LLM APIs with end-to-end observability"
+        "ML systems end to end: training, ONNX serving, Airflow retraining, Prometheus alerts",
+        "LLM applications with provider fallback, RAG over real catalogs and LangGraph pipelines",
+        "Case studies where every published metric traces to a file in the repository"
       ],
-      stack: ["LangGraph", "LangChain", "FastAPI", "RAG", "Docker"]
+      stack: ["Python", "FastAPI", "PyTorch", "LangGraph", "Docker"]
     },
     {
-      periodo: "2020 — 2024",
+      periodo: "2020 — 2026",
       cargo: "Operations Analyst — SLA Governance & Data Auditing",
       org: "ECT (Correios)",
       badge: "ADVANCED",
@@ -1275,48 +1275,32 @@ const DATA = {
   projetos: [
       {
         nome: "MESTREGRANA",
-        tags: ["FLAGSHIP", "PRODUCTION"],
+        tags: ["FINTECH", "LLM APP"],
         flagship: true,
         categorias: ["ai"],
-        descricao: "Multi-agent financial advisor — financial consulting with specialized agents and audited responses.",
-        arquitetura: "LangGraph orchestration coordinating specialized agents; multi-LLM judge system for quality and security guardrails; RAG with embeddings for knowledge base grounding; governance and auditing layer logging and validating every response before delivery.",
-        stack: ["LangGraph", "FastAPI", "Python", "RAG", "Multi-LLM", "MongoDB"],
-        metricas: [
-          { k: "Latency p95", v: "< 2s" },
-          { k: "Uptime", v: "99.9%" },
-          { k: "Accuracy (judge)", v: "> 95%" }
-        ],
-        diagrama: `┌─────────┐    ┌──────────────┐    ┌────────────────┐
-│  User   │───▶│   FastAPI    │───▶│   LangGraph    │
-└─────────┘    │   Gateway    │    │  Orchestrator  │
-               └──────────────┘    └───────┬────────┘
-                       ┌───────────────────┼───────────────────┐
-                       ▼                   ▼                   ▼
-               ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
-               │     RAG      │    │    Judge     │    │  Governance  │
-               │  Embeddings  │    │  Multi-LLM   │    │  & Auditing  │
-               └──────┬───────┘    └──────┬───────┘    └──────┬───────┘
-                      └───────────────────┼───────────────────┘
-                                          ▼
-                                ┌──────────────────┐
-                                │ Validated Answer │
-                                └──────────────────┘`,
+        descricao: "Financial education assistant that answers from the user's own profile and transactions, by text or voice.",
+        arquitetura: "Streamlit app with prompts grounded in the user's data and one Groq → Gemini → OpenAI fallback chain shared by the text and voice chat; Neon Postgres for audit and consent records, LGPD consent flow.",
+        stack: ["Python", "Streamlit", "Groq", "Gemini", "OpenAI", "PostgreSQL"],
+        metricas: [{ k: "LLM providers", v: "3, with fallback" }],
+        diagrama: null,
         links: [
+          { label: "Case study", url: "mestregrana/" },
           { label: "GitHub", url: "https://github.com/vdfs89/MestreGrana" },
           { label: "Live Demo", url: "https://mestregrana.streamlit.app/", solid: true }
         ]
       },
       {
         nome: "FLUENCYFORGE",
-        tags: ["EDTECH", "MULTI-AGENT"],
+        tags: ["EDTECH", "CONVERSATIONAL AI"],
         flagship: false,
         categorias: ["ai"],
-        descricao: "Edtech language learning platform with conversational agents, correction, and adaptive progression.",
-        arquitetura: "Multi-agent system with tutor, evaluator, and curriculum planner roles; structured feedback pipeline by student level.",
-        stack: ["LangGraph", "FastAPI", "RAG", "Flutter"],
-        metricas: [{ k: "Status", v: "DESTAQUE" }],
+        descricao: "English conversation tutor with grammar corrections, voice and flashcards, online and offline.",
+        arquitetura: "Streamlit tutor behind a Groq, OpenAI, Gemini and Perplexity fallback chain; Flutter app that switches to an on-device model through MediaPipe when offline.",
+        stack: ["Streamlit", "Flutter", "FastAPI", "Supabase"],
+        metricas: [{ k: "Status", v: "PRIVATE REPO" }],
         diagrama: null,
         links: [
+          { label: "Case study", url: "fluencyforge/" },
           { label: "Live Demo", url: "https://fluencyforge.streamlit.app/", solid: true }
         ]
       },
@@ -1324,13 +1308,14 @@ const DATA = {
         nome: "TWINRANK AI",
         tags: ["E-COMMERCE", "DEEP LEARNING"],
         flagship: false,
-        categorias: ["ai"],
-        descricao: "Popularity-based recommendation systems fail in personalization.",
-        arquitetura: "Two-Tower Neural Network built on PyTorch for collaborative filtering.",
-        stack: ["PyTorch", "Two-Tower NN", "MLOps"],
-        metricas: [{ k: "Status", v: "EM DESENV" }],
+        categorias: ["ai", "pipeline"],
+        descricao: "Two-tower neural recommender trained on 2.2M RetailRocket interactions, evaluated separately for repetition and discovery.",
+        arquitetura: "PyTorch two-tower model in a DVC pipeline tracked by MLflow; FAISS retrieval, Redis cache and a FastAPI service with popularity fallback, validated on a local Kubernetes cluster.",
+        stack: ["PyTorch", "DVC", "MLflow", "FAISS", "FastAPI"],
+        metricas: [{ k: "Recall@10", v: "0.123 (36× popularity)" }],
         diagrama: null,
         links: [
+          { label: "Case study", url: "twinrankai/" },
           { label: "GitHub", url: "https://github.com/vdfs89/TwinRankAI" },
           { label: "Demo", url: "https://twinrankai.streamlit.app/", solid: true },
           { label: "Video", url: "https://youtu.be/YUeemzMXzqA" }
@@ -1338,15 +1323,16 @@ const DATA = {
       },
       {
         nome: "AETHER ONCOLOGY",
-        tags: ["HEALTHCARE", "FULL-STACK"],
+        tags: ["HEALTHTECH", "CLINICAL AI"],
         flagship: false,
-        categorias: ["fullstack"],
-        descricao: "Full-stack oncology support platform — patient tracking, clinical data, and mobile.",
-        arquitetura: "React web frontend, Flutter mobile app, Node.js API, and Python auxiliary services.",
-        stack: ["React", "Node.js", "Flutter", "Python"],
-        metricas: [{ k: "Status", v: "2026" }],
+        categorias: ["ai", "fullstack"],
+        descricao: "Oral-cancer risk platform where a rigorous benchmark proved the dataset had no learnable signal, and the project says so.",
+        arquitetura: "PyTorch classifier with Pandera contracts, calibration and leakage audits; FastAPI backend with an encrypted, hash-chained audit trail and a Groq → Gemini circuit breaker; Next.js frontend.",
+        stack: ["PyTorch", "FastAPI", "Next.js", "MLflow"],
+        metricas: [{ k: "ROC-AUC", v: "0.50 (documented null result)" }],
         diagrama: null,
         links: [
+          { label: "Case study", url: "aether-oncology/" },
           { label: "GitHub", url: "https://github.com/vdfs89/Aether_Oncology" },
           { label: "Demo", url: "https://aetheroncology.vercel.app/", solid: true }
         ]
@@ -1359,35 +1345,40 @@ const DATA = {
         descricao: "AI tools for careers and freelancing send sensitive data to third-party clouds.",
         arquitetura: "Two isolated modes: a local career pipeline on Ollama and a cloud freelance pipeline, both orchestrated in LangGraph behind FastAPI.",
         stack: ["LangGraph", "Ollama", "FastAPI", "Flutter"],
-        metricas: [{ k: "Status", v: "PRIVADO" }],
+        metricas: [{ k: "Status", v: "PRIVATE REPO" }],
         diagrama: null,
-        links: []
+        links: [{ label: "Case study", url: "vektorwork/" }]
       },
       {
         nome: "RETENTIA",
-        tags: ["B2B SAAS", "PREDICTIVE"],
+        tags: ["TELECOM", "PREDICTIVE"],
         flagship: false,
-        categorias: ["ai", "data"],
-        descricao: "Predictive Churn Engine. High churn rates in SaaS platforms due to reactive support.",
-        arquitetura: "Predictive churn modeling using Machine Learning, XGBoost, and FastAPI.",
-        stack: ["Machine Learning", "XGBoost", "Churn"],
-        metricas: [{ k: "Status", v: "ATIVO" }],
+        categorias: ["ai", "pipeline"],
+        descricao: "Telecom churn classifier whose decision threshold is derived from the cost of a missed customer.",
+        arquitetura: "PyTorch MLP compared with logistic regression and XGBoost in MLflow; threshold tuned on validation cost; FastAPI with Pydantic and Pandera validation, Prometheus metrics, Docker and Nginx.",
+        stack: ["PyTorch", "scikit-learn", "XGBoost", "MLflow", "FastAPI"],
+        metricas: [{ k: "Recall", v: "89.8% at threshold 0.37" }],
         diagrama: null,
         links: [
+          { label: "Case study", url: "retentia/" },
           { label: "GitHub", url: "https://github.com/vdfs89/RetentIA" }
         ]
       },
       {
         nome: "HARMONIZ.AI",
-        tags: ["HEALTHTECH", "DATA"],
+        tags: ["RETAIL", "RAG"],
         flagship: false,
-        categorias: ["pipeline"],
-        descricao: "LLM pipeline for data harmonization and enrichment with automated staged validation.",
-        arquitetura: "Staged pipeline with extraction, LLM normalization, rule-based validation, and auditable persistence.",
-        stack: ["Python", "LLMs", "Data Engineering"],
-        metricas: [{ k: "Status", v: "2026" }],
+        categorias: ["ai"],
+        descricao: "Wine sommelier that answers from a real 570-label catalog instead of the model's memory.",
+        arquitetura: "ChromaDB retrieval with price and country filters parsed from the question, a LangChain agent with tools, and a multi-LLM judge mode with fallbacks.",
+        stack: ["LangChain", "ChromaDB", "OpenAI", "Groq", "Gemini"],
+        metricas: [{ k: "Catalog", v: "570 wines" }],
         diagrama: null,
-        links: [{ label: "GitHub", url: "#" }]
+        links: [
+          { label: "Case study", url: "harmoniz/" },
+          { label: "GitHub", url: "https://github.com/vdfs89/Harmoniz.AI" },
+          { label: "Demo", url: "https://harmonizai.streamlit.app/", solid: true }
+        ]
       },
       {
         nome: "RANKIUM SYSTEMS",
@@ -1407,35 +1398,41 @@ const DATA = {
         flagship: false,
         categorias: ["ai", "pipeline"],
         descricao: "Medical text triage classifier served by API, with retraining orchestrated in Airflow and monitoring in Grafana.",
-        arquitetura: "TF-IDF and logistic regression baseline exported to ONNX Runtime; FastAPI service in Docker with Prometheus metrics; CI runs lint, tests and image build.",
-        stack: ["Python", "FastAPI", "ONNX", "Airflow"],
-        metricas: [{ k: "p95", v: "3.07 ms" }],
+        arquitetura: "TF-IDF and logistic regression exported to ONNX Runtime with a parity check that blocks a bad export; FastAPI in Docker with Prometheus alerts tested by promtool; CI publishes the image to GHCR.",
+        stack: ["Python", "FastAPI", "ONNX", "Airflow", "Prometheus"],
+        metricas: [{ k: "ONNX", v: "4.09× inference, 1.35× via API" }],
         diagrama: null,
-        links: [{ label: "GitHub", url: "https://github.com/vdfs89/vitorium-mednlp-mlops" }]
+        links: [
+          { label: "Case study", url: "vitorium/" },
+          { label: "GitHub", url: "https://github.com/vdfs89/vitorium-mednlp-mlops" }
+        ]
       },
       {
         nome: "CORPO EM AÇÃO",
         tags: ["MOBILE", "FITNESS"],
         flagship: false,
         categorias: ["fullstack"],
-        descricao: "Workout app with personalized plans, timer-driven sessions and progress charts.",
-        arquitetura: "Flutter app with local Hive storage, exercise search through ExerciseDB and AI suggestions with an offline fallback.",
-        stack: ["Flutter", "Dart", "Hive"],
-        metricas: [{ k: "Status", v: "PRIVADO" }],
+        descricao: "Workout app with personalized plans, timer-driven sessions and progress charts, built to work without signal.",
+        arquitetura: "Flutter app, local-first on Hive with a sync queue to Firebase, posture feedback from on-device ML Kit pose detection, and AI plans under a usage quota.",
+        stack: ["Flutter", "Dart", "Hive", "Firebase", "ML Kit"],
+        metricas: [{ k: "Status", v: "PRIVATE REPO" }],
         diagrama: null,
-        links: []
+        links: [{ label: "Case study", url: "corpoemacao/" }]
       },
       {
         nome: "AICLINICOS",
         tags: ["HEALTHTECH", "SAAS"],
         flagship: false,
-        categorias: ["fullstack"],
-        descricao: "Clinic operating system connecting scheduling, records and AI-assisted workflows in one flow.",
-        arquitetura: "Next.js and TypeScript app with Tailwind, using Supabase for authentication and persistence, deployed on Vercel.",
-        stack: ["Next.js", "TypeScript", "Tailwind", "Supabase"],
-        metricas: [{ k: "Status", v: "PRIVADO" }],
+        categorias: ["fullstack", "ai"],
+        descricao: "Clinic operating layer (DrPilot OS) coordinating AI agents for scheduling, patient messages, clinical notes and reporting.",
+        arquitetura: "Next.js frontend and FastAPI backend over PostgreSQL on Supabase with row-level security per clinic, an append-only clinical audit log and Redis workers for reminders.",
+        stack: ["Next.js", "FastAPI", "PostgreSQL", "Supabase", "Redis"],
+        metricas: [{ k: "Status", v: "PRIVATE REPO" }],
         diagrama: null,
-        links: [{ label: "Demo", url: "https://ai-clinic-os.vercel.app/", solid: true }]
+        links: [
+          { label: "Case study", url: "aiclinicos/" },
+          { label: "Product page", url: "https://ai-clinic-os.vercel.app/", solid: true }
+        ]
       }
     ],
 
@@ -1447,11 +1444,12 @@ const DATA = {
   ],
 
   stackCompleto: [
-    { grupo: "AI/LLM",   itens: ["LangGraph", "LangChain", "RAG", "Embeddings", "Multi-agent"] },
-    { grupo: "Backend",  itens: ["Python", "FastAPI", "Node.js"] },
-    { grupo: "Data",     itens: ["PostgreSQL", "MongoDB"] },
-    { grupo: "Frontend", itens: ["React", "Flutter"] },
-    { grupo: "Infra",    itens: ["Docker", "GCP/AWS"] }
+    { grupo: "ML",       itens: ["PyTorch", "scikit-learn", "MLflow", "DVC", "ONNX Runtime"] },
+    { grupo: "AI/LLM",   itens: ["LangGraph", "LangChain", "RAG", "ChromaDB", "Multi-LLM"] },
+    { grupo: "Backend",  itens: ["Python", "FastAPI", "Pydantic"] },
+    { grupo: "Data",     itens: ["PostgreSQL", "MongoDB", "Redis"] },
+    { grupo: "Frontend", itens: ["Next.js", "Flutter", "Streamlit"] },
+    { grupo: "Infra",    itens: ["Docker", "Airflow", "Prometheus", "GitHub Actions"] }
   ],
 
   /* ── Certifications ── */
@@ -1601,7 +1599,7 @@ const DATA = {
     { nome: "4 projects published on DIO",                  cat: "projeto",      data: "2026", icone: "git" },
     { nome: "12 courses completed on LinkedIn Learning",     cat: "formacao",     data: "2026", icone: "clock" },
     { nome: "10 courses completed on Udemy",                 cat: "formacao",     data: "2026", icone: "clock" },
-    { nome: "MestreGrana in production [ LIVE ]",           cat: "projeto",      data: "2026", icone: "rocket" }
+    { nome: "MestreGrana demo live on Streamlit",           cat: "projeto",      data: "2026", icone: "rocket" }
   ],
 
   filtrosConquistas: [
@@ -1626,17 +1624,17 @@ const DATA = {
       {
         keywords: ["mestregrana", "flagship", "project", "projects", "portfolio"],
         resposta:
-          "The flagship project is MESTREGRANA [ PRODUCTION ] — a multi-agent financial advisor with LangGraph orchestration, multi-LLM judge for guardrails, RAG with embeddings, and a governance/auditing layer for responses. Other projects: Rankium Systems (multi-tenant B2B platform in production), FluencyForge (multi-agent edtech), Aether Oncology (healthcare full-stack), Harmoniz.AI (LLM pipeline), VITORIUM (MLOps for medical text) and Corpo em Ação (Flutter app). Check the Projects & Tech Stack section for details."
+          "The flagship project is MESTREGRANA — a financial mentor that answers from the user's own data, with a Groq → Gemini → OpenAI fallback chain. Other projects: VITORIUM (MLOps for medical text), TwinRank AI (two-tower recommender), RetentIA (cost-tuned churn model), Aether Oncology (a documented null result), Harmoniz.AI (catalog RAG), VektorWork (LangGraph pipelines), Rankium Systems (multi-tenant B2B platform), AIClinicOS, FluencyForge and Corpo em Ação. Each one has a case study linked in the Projects & Tech Stack section."
       },
       {
         keywords: ["stack", "technology", "technologies", "tool", "language", "framework", "tech"],
         resposta:
-          "Main stack: AI/LLM → LangGraph, LangChain, RAG, Embeddings, Multi-agent · Backend → Python, FastAPI, Node.js · Data → PostgreSQL, MongoDB · Frontend → React, Flutter · Infra → Docker, GCP/AWS."
+          "Main stack: ML → PyTorch, scikit-learn, MLflow, DVC, ONNX · AI/LLM → LangGraph, LangChain, RAG · Backend → Python, FastAPI · Data → PostgreSQL, MongoDB · Frontend → Next.js, Flutter · Infra → Docker, Airflow, Prometheus, GitHub Actions."
       },
       {
         keywords: ["experience", "ect", "correios", "career", "work", "job", "trajectory"],
         resposta:
-          "Experience summary: 14 years of mission-critical operations at ECT/Correios (SLA governance, data auditing, fleet and logistics management), and since 2024 working as an independent AI Engineer, building production agentic AI systems with LangGraph, FastAPI, RAG, and Docker."
+          "Experience summary: 14 years of mission-critical operations at ECT/Correios, 2011 to 2026 (SLA governance, data auditing, fleet and logistics management), and since 2024 building ML and AI systems in independent projects with Python, FastAPI, PyTorch, LangGraph and Docker."
       },
       {
         keywords: ["education", "degree", "fiap", "college", "study", "graduation", "postgrad", "university"],
