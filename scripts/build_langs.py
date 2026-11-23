@@ -375,7 +375,8 @@ def main():
         'Predictive Churn Engine': ('Motor Preditivo de Churn', 'Motor Predictivo de Churn'),
         
         'HEALTHTECH &middot; DATA': ('HEALTHTECH &middot; DADOS', 'HEALTHTECH &middot; DATOS'),
-        'Scalably correlating complex biometric data.': ('Correlacionando de forma escalável dados biométricos complexos.', 'Correlacionando de forma escalable datos biométricos complejos.'),
+        'Generic LLM wine advice invents labels and prices; recommendations have to come from a real catalog.': ('Conselhos genéricos de LLM sobre vinho inventam rótulos e preços; as recomendações precisam vir de um catálogo real.', 'Los consejos genéricos de un LLM sobre vino inventan etiquetas y precios; las recomendaciones deben salir de un catálogo real.'),
+        '<span>Catalog RAG + LLM Judge</span>': ('<span>RAG no Catálogo + Juiz LLM</span>', '<span>RAG sobre el Catálogo + Juez LLM</span>'),
 
         'CURRENT_PROFILE': ('PERFIL_ATUAL', 'PERFIL_ACTUAL'),
         'AVAILABLE': ('DISPONÍVEL', 'DISPONIBLE'),
