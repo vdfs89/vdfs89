@@ -371,7 +371,7 @@ def main():
         'PRIVATE': ('PRIVADO', 'PRIVADO'),
         
         'B2B SAAS &middot; PREDICTIVE': ('B2B SAAS &middot; PREDITIVO', 'B2B SAAS &middot; PREDICTIVO'),
-        'High churn rates in SaaS platforms due to reactive support.': ('Altas taxas de churn em plataformas SaaS devido ao suporte reativo.', 'Altas tasas de churn en plataformas SaaS debido al soporte reactivo.'),
+        'A telecom operator loses customers it could keep, and missing one costs far more than a wasted retention offer.': ('Uma operadora de telecom perde clientes que poderia manter, e deixar passar um custa muito mais que uma oferta de retenção desperdiçada.', 'Una operadora de telecomunicaciones pierde clientes que podría retener, y no detectar uno cuesta mucho más que una oferta de retención desperdiciada.'),
         'Predictive Churn Engine': ('Motor Preditivo de Churn', 'Motor Predictivo de Churn'),
         
         'HEALTHTECH &middot; DATA': ('HEALTHTECH &middot; DADOS', 'HEALTHTECH &middot; DATOS'),
