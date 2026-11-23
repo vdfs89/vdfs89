@@ -364,7 +364,7 @@ def main():
         
         'HEALTHTECH &middot; FULL STACK': ('HEALTHTECH &middot; FULL STACK', 'HEALTHTECH &middot; FULL STACK'),
         'Business Case:': ('Caso de Negócio:', 'Caso de Negocio:'),
-        'Robust clinical data integration for multi-platform interfaces.': ('Integração robusta de dados clínicos para interfaces multiplataforma.', 'Integración robusta de datos clínicos para interfaces multiplataforma.'),
+        'Oral-cancer risk support where a rigorous benchmark proved the dataset had no learnable signal, and the project says so.': ('Apoio ao risco de câncer oral em que um benchmark rigoroso provou que o dataset não tinha sinal aprendível, e o projeto diz isso.', 'Apoyo al riesgo de cáncer oral en el que un benchmark riguroso demostró que el dataset no tenía señal aprendible, y el proyecto lo dice.'),
         'Full Stack &middot; API-Driven': ('Full Stack &middot; API-Driven', 'Full Stack &middot; API-Driven'),
         
         'SAAS &middot; AI ORCHESTRATION': ('SAAS &middot; ORQUESTRAÇÃO DE IA', 'SAAS &middot; ORQUESTACIÓN DE IA'),
@@ -606,6 +606,7 @@ def main():
     '<div class="metric-val">4.09×</div>': ('<div class="metric-val">4,09×</div>', '<div class="metric-val">4,09×</div>'),
     # Case study links: one rule for every project (see scripts/build_cases.py).
     # The PT home points at the PT case page; ES has no case pages, so it keeps EN.
+    '<span>Null Result · Auditable Platform</span>': ('<span>Resultado Nulo · Plataforma Auditável</span>', '<span>Resultado Nulo · Plataforma Auditable</span>'),
     'CASE STUDY →</a>': ('ESTUDO DE CASO →</a>', 'CASO DE ESTUDIO →</a>'),
     '<span>End-to-End MLOps Pipeline</span>': (
         '<span>Pipeline MLOps de Ponta a Ponta</span>',
