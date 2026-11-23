@@ -319,6 +319,117 @@ def main():
         'App em Next.js e TypeScript com Tailwind, usando Supabase para autenticação e persistência, publicado na Vercel.',
         'App en Next.js y TypeScript con Tailwind, usando Supabase para autenticación y persistencia, publicada en Vercel.'
     ),
+    # Projects rewritten to match each repository (see the case studies)
+    "Financial mentor with answers grounded in the user's data and a three-provider LLM fallback.": (
+        'Mentor financeiro com respostas ancoradas nos dados do usuário e fallback entre três provedores de LLM.',
+        'Mentor financiero con respuestas ancladas en los datos del usuario y fallback entre tres proveedores de LLM.'
+    ),
+    'Native PT-BR · Technical EN · Basic ES': ('PT-BR nativo · EN técnico · ES básico', 'PT-BR nativo · EN técnico · ES básico'),
+    'cargo: "Full Stack and AI Developer"': ('cargo: "Desenvolvedor Full Stack e de IA"', 'cargo: "Desarrollador Full Stack y de IA"'),
+    'org: "Independent projects"': ('org: "Projetos independentes"', 'org: "Proyectos independientes"'),
+    'badge: "CURRENT"': ('badge: "ATUAL"', 'badge: "ACTUAL"'),
+    'ML systems end to end: training, ONNX serving, Airflow retraining, Prometheus alerts': (
+        'Sistemas de ML de ponta a ponta: treino, serving com ONNX, retreino no Airflow, alertas no Prometheus',
+        'Sistemas de ML de extremo a extremo: entrenamiento, serving con ONNX, reentrenamiento en Airflow, alertas en Prometheus'
+    ),
+    'LLM applications with provider fallback, RAG over real catalogs and LangGraph pipelines': (
+        'Aplicações com LLM com fallback de provedor, RAG sobre catálogos reais e pipelines em LangGraph',
+        'Aplicaciones con LLM con fallback de proveedor, RAG sobre catálogos reales y pipelines en LangGraph'
+    ),
+    'Case studies where every published metric traces to a file in the repository': (
+        'Estudos de caso em que cada métrica publicada aponta para um arquivo do repositório',
+        'Casos de estudio en los que cada métrica publicada apunta a un archivo del repositorio'
+    ),
+    'MestreGrana demo live on Streamlit': ('Demo do MestreGrana no ar no Streamlit', 'Demo de MestreGrana publicada en Streamlit'),
+    "Financial education assistant that answers from the user's own profile and transactions, by text or voice.": (
+        'Assistente de educação financeira que responde a partir do perfil e das transações do próprio usuário, por texto ou voz.',
+        'Asistente de educación financiera que responde a partir del perfil y las transacciones del propio usuario, por texto o voz.'
+    ),
+    "Streamlit app with prompts grounded in the user's data and one Groq → Gemini → OpenAI fallback chain shared by the text and voice chat; Neon Postgres for audit and consent records, LGPD consent flow.": (
+        'App em Streamlit com prompts ancorados nos dados do usuário e uma cadeia de fallback Groq → Gemini → OpenAI compartilhada pelo chat de texto e de voz; Postgres no Neon para auditoria e consentimento, fluxo de consentimento LGPD.',
+        'App en Streamlit con prompts anclados en los datos del usuario y una cadena de fallback Groq → Gemini → OpenAI compartida por el chat de texto y de voz; Postgres en Neon para auditoría y consentimiento, flujo de consentimiento LGPD.'
+    ),
+    'k: "LLM providers", v: "3, with fallback"': ('k: "Provedores de LLM", v: "3, com fallback"', 'k: "Proveedores de LLM", v: "3, con fallback"'),
+    'English conversation tutor with grammar corrections, voice and flashcards, online and offline.': (
+        'Tutor de conversação em inglês com correção gramatical, voz e flashcards, online e offline.',
+        'Tutor de conversación en inglés con corrección gramatical, voz y flashcards, online y offline.'
+    ),
+    'Streamlit tutor behind a Groq, OpenAI, Gemini and Perplexity fallback chain; Flutter app that switches to an on-device model through MediaPipe when offline.': (
+        'Tutor em Streamlit atrás de uma cadeia de fallback Groq, OpenAI, Gemini e Perplexity; app Flutter que muda para um modelo no aparelho via MediaPipe quando está offline.',
+        'Tutor en Streamlit detrás de una cadena de fallback Groq, OpenAI, Gemini y Perplexity; app Flutter que cambia a un modelo en el dispositivo vía MediaPipe sin conexión.'
+    ),
+    'v: "PRIVATE REPO"': ('v: "REPO PRIVADO"', 'v: "REPO PRIVADO"'),
+    'Two-tower neural recommender trained on 2.2M RetailRocket interactions, evaluated separately for repetition and discovery.': (
+        'Recomendador neural two-tower treinado com 2,2 milhões de interações do RetailRocket, avaliado separando repetição e descoberta.',
+        'Recomendador neuronal two-tower entrenado con 2,2 millones de interacciones de RetailRocket, evaluado separando repetición y descubrimiento.'
+    ),
+    'PyTorch two-tower model in a DVC pipeline tracked by MLflow; FAISS retrieval, Redis cache and a FastAPI service with popularity fallback, validated on a local Kubernetes cluster.': (
+        'Modelo two-tower em PyTorch num pipeline DVC rastreado pelo MLflow; recuperação com FAISS, cache no Redis e API FastAPI com fallback de popularidade, validada num cluster Kubernetes local.',
+        'Modelo two-tower en PyTorch en un pipeline DVC rastreado por MLflow; recuperación con FAISS, caché en Redis y API FastAPI con fallback de popularidad, validada en un clúster Kubernetes local.'
+    ),
+    'v: "0.123 (36× popularity)"': ('v: "0,123 (36× popularidade)"', 'v: "0,123 (36× popularidad)"'),
+    'Oral-cancer risk platform where a rigorous benchmark proved the dataset had no learnable signal, and the project says so.': (
+        'Plataforma de risco de câncer oral em que um benchmark rigoroso provou que o dataset não tinha sinal aprendível, e o projeto diz isso.',
+        'Plataforma de riesgo de cáncer oral en la que un benchmark riguroso demostró que el dataset no tenía señal aprendible, y el proyecto lo dice.'
+    ),
+    'PyTorch classifier with Pandera contracts, calibration and leakage audits; FastAPI backend with an encrypted, hash-chained audit trail and a Groq → Gemini circuit breaker; Next.js frontend.': (
+        'Classificador em PyTorch com contratos Pandera, calibração e auditorias de vazamento; backend FastAPI com trilha de auditoria cifrada e encadeada por hash e circuit breaker Groq → Gemini; frontend Next.js.',
+        'Clasificador en PyTorch con contratos Pandera, calibración y auditorías de fuga; backend FastAPI con pista de auditoría cifrada y encadenada por hash y circuit breaker Groq → Gemini; frontend Next.js.'
+    ),
+    'v: "0.50 (documented null result)"': ('v: "0,50 (resultado nulo documentado)"', 'v: "0,50 (resultado nulo documentado)"'),
+    'Telecom churn classifier whose decision threshold is derived from the cost of a missed customer.': (
+        'Classificador de churn em telecom cujo limiar de decisão é derivado do custo de perder um cliente.',
+        'Clasificador de churn en telecomunicaciones cuyo umbral de decisión se deriva del costo de perder un cliente.'
+    ),
+    'PyTorch MLP compared with logistic regression and XGBoost in MLflow; threshold tuned on validation cost; FastAPI with Pydantic and Pandera validation, Prometheus metrics, Docker and Nginx.': (
+        'MLP em PyTorch comparado com regressão logística e XGBoost no MLflow; limiar ajustado pelo custo na validação; FastAPI com validação Pydantic e Pandera, métricas Prometheus, Docker e Nginx.',
+        'MLP en PyTorch comparado con regresión logística y XGBoost en MLflow; umbral ajustado por costo en validación; FastAPI con validación Pydantic y Pandera, métricas Prometheus, Docker y Nginx.'
+    ),
+    'v: "89.8% at threshold 0.37"': ('v: "89,8% no limiar 0,37"', 'v: "89,8% con umbral 0,37"'),
+    "Wine sommelier that answers from a real 570-label catalog instead of the model's memory.": (
+        'Sommelier de vinhos que responde a partir de um catálogo real de 570 rótulos, e não da memória do modelo.',
+        'Sommelier de vinos que responde a partir de un catálogo real de 570 etiquetas, y no de la memoria del modelo.'
+    ),
+    'ChromaDB retrieval with price and country filters parsed from the question, a LangChain agent with tools, and a multi-LLM judge mode with fallbacks.': (
+        'Busca no ChromaDB com filtros de preço e país tirados da pergunta, um agente LangChain com ferramentas e um modo juiz multi-LLM com fallbacks.',
+        'Búsqueda en ChromaDB con filtros de precio y país extraídos de la pregunta, un agente LangChain con herramientas y un modo juez multi-LLM con fallbacks.'
+    ),
+    'k: "Catalog", v: "570 wines"': ('k: "Catálogo", v: "570 vinhos"', 'k: "Catálogo", v: "570 vinos"'),
+    'TF-IDF and logistic regression exported to ONNX Runtime with a parity check that blocks a bad export; FastAPI in Docker with Prometheus alerts tested by promtool; CI publishes the image to GHCR.': (
+        'TF-IDF e regressão logística exportados para ONNX Runtime com checagem de paridade que barra uma exportação ruim; FastAPI em Docker com alertas do Prometheus testados pelo promtool; o CI publica a imagem no GHCR.',
+        'TF-IDF y regresión logística exportados a ONNX Runtime con verificación de paridad que bloquea una exportación mala; FastAPI en Docker con alertas de Prometheus probadas con promtool; el CI publica la imagen en GHCR.'
+    ),
+    'v: "4.09× inference, 1.35× via API"': ('v: "4,09× inferência, 1,35× via API"', 'v: "4,09× inferencia, 1,35× vía API"'),
+    'Workout app with personalized plans, timer-driven sessions and progress charts, built to work without signal.': (
+        'App de treino com planos personalizados, sessões com cronômetro e gráficos de evolução, feito para funcionar sem sinal.',
+        'App de entrenamiento con planes personalizados, sesiones con cronómetro y gráficos de evolución, hecha para funcionar sin señal.'
+    ),
+    'Flutter app, local-first on Hive with a sync queue to Firebase, posture feedback from on-device ML Kit pose detection, and AI plans under a usage quota.': (
+        'App Flutter local-first no Hive com fila de sincronização para o Firebase, feedback de postura pela detecção de pose do ML Kit no aparelho e planos de IA sob cota de uso.',
+        'App Flutter local-first en Hive con cola de sincronización a Firebase, feedback de postura por la detección de pose de ML Kit en el dispositivo y planes de IA con cuota de uso.'
+    ),
+    'Clinic operating layer (DrPilot OS) coordinating AI agents for scheduling, patient messages, clinical notes and reporting.': (
+        'Camada operacional para clínicas (DrPilot OS) que coordena agentes de IA para agenda, mensagens aos pacientes, notas clínicas e relatórios.',
+        'Capa operativa para clínicas (DrPilot OS) que coordina agentes de IA para agenda, mensajes a pacientes, notas clínicas e informes.'
+    ),
+    'Next.js frontend and FastAPI backend over PostgreSQL on Supabase with row-level security per clinic, an append-only clinical audit log and Redis workers for reminders.': (
+        'Frontend Next.js e backend FastAPI sobre PostgreSQL no Supabase com row-level security por clínica, log de auditoria clínica append-only e workers Redis para lembretes.',
+        'Frontend Next.js y backend FastAPI sobre PostgreSQL en Supabase con row-level security por clínica, registro de auditoría clínica append-only y workers Redis para recordatorios.'
+    ),
+    'label: "Case study"': ('label: "Estudo de caso"', 'label: "Caso de estudio"'),
+    'label: "Product page"': ('label: "Página do produto"', 'label: "Página del producto"'),
+    "The flagship project is MESTREGRANA — a financial mentor that answers from the user's own data, with a Groq → Gemini → OpenAI fallback chain. Other projects: VITORIUM (MLOps for medical text), TwinRank AI (two-tower recommender), RetentIA (cost-tuned churn model), Aether Oncology (a documented null result), Harmoniz.AI (catalog RAG), VektorWork (LangGraph pipelines), Rankium Systems (multi-tenant B2B platform), AIClinicOS, FluencyForge and Corpo em Ação. Each one has a case study linked in the Projects & Tech Stack section.": (
+        'O projeto principal é o MESTREGRANA — um mentor financeiro que responde a partir dos dados do próprio usuário, com cadeia de fallback Groq → Gemini → OpenAI. Outros projetos: VITORIUM (MLOps para textos médicos), TwinRank AI (recomendador two-tower), RetentIA (churn com limiar por custo), Aether Oncology (um resultado nulo documentado), Harmoniz.AI (RAG sobre catálogo), VektorWork (pipelines em LangGraph), Rankium Systems (plataforma B2B multi-tenant), AIClinicOS, FluencyForge e Corpo em Ação. Cada um tem um estudo de caso linkado na seção Projetos & Stack.',
+        'El proyecto principal es MESTREGRANA — un mentor financiero que responde a partir de los datos del propio usuario, con cadena de fallback Groq → Gemini → OpenAI. Otros proyectos: VITORIUM (MLOps para textos médicos), TwinRank AI (recomendador two-tower), RetentIA (churn con umbral por costo), Aether Oncology (un resultado nulo documentado), Harmoniz.AI (RAG sobre catálogo), VektorWork (pipelines en LangGraph), Rankium Systems (plataforma B2B multi-tenant), AIClinicOS, FluencyForge y Corpo em Ação. Cada uno tiene un caso de estudio enlazado en la sección Proyectos & Stack.'
+    ),
+    'Main stack: ML → PyTorch, scikit-learn, MLflow, DVC, ONNX · AI/LLM → LangGraph, LangChain, RAG · Backend → Python, FastAPI · Data → PostgreSQL, MongoDB · Frontend → Next.js, Flutter · Infra → Docker, Airflow, Prometheus, GitHub Actions.': (
+        'Stack principal: ML → PyTorch, scikit-learn, MLflow, DVC, ONNX · IA/LLM → LangGraph, LangChain, RAG · Backend → Python, FastAPI · Dados → PostgreSQL, MongoDB · Frontend → Next.js, Flutter · Infra → Docker, Airflow, Prometheus, GitHub Actions.',
+        'Stack principal: ML → PyTorch, scikit-learn, MLflow, DVC, ONNX · IA/LLM → LangGraph, LangChain, RAG · Backend → Python, FastAPI · Datos → PostgreSQL, MongoDB · Frontend → Next.js, Flutter · Infra → Docker, Airflow, Prometheus, GitHub Actions.'
+    ),
+    'Experience summary: 14 years of mission-critical operations at ECT/Correios, 2011 to 2026 (SLA governance, data auditing, fleet and logistics management), and since 2024 building ML and AI systems in independent projects with Python, FastAPI, PyTorch, LangGraph and Docker.': (
+        'Resumo da experiência: 14 anos de operações de missão crítica na ECT/Correios, de 2011 a 2026 (governança de SLA, auditoria de dados, gestão de frota e logística), e desde 2024 construindo sistemas de ML e IA em projetos independentes com Python, FastAPI, PyTorch, LangGraph e Docker.',
+        'Resumen de experiencia: 14 años de operaciones de misión crítica en ECT/Correios, de 2011 a 2026 (gobernanza de SLA, auditoría de datos, gestión de flota y logística), y desde 2024 construyendo sistemas de ML e IA en proyectos independientes con Python, FastAPI, PyTorch, LangGraph y Docker.'
+    ),
     }
 
     content = join_string_literals(content)
@@ -344,6 +455,8 @@ def main():
     for eng, (pt, es) in replacements.items():
         pt_content = pt_content.replace(eng, pt)
         es_content = es_content.replace(eng, es)
+    # Case study links: the PT dashboard opens the PT case pages; ES has none, so it keeps EN.
+    pt_content = re.sub(r'url: "([\w.-]+)/"', r'url: "\1/index.pt.html"', pt_content)
         
     # Also change HTML lang attribute
     pt_content = pt_content.replace('<html lang="en"', '<html lang="pt-BR"')
