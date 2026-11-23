@@ -604,10 +604,9 @@ def main():
         'Inferencia más rápida con ONNX Runtime (1,35× en la API real), con 100% de paridad de etiquetas. F1 macro de 0,62 con etiquetas de urgencia heurísticas.'
     ),
     '<div class="metric-val">4.09×</div>': ('<div class="metric-val">4,09×</div>', '<div class="metric-val">4,09×</div>'),
-    '<a href="vitorium/">CASE + DEMO →</a>': (
-        '<a href="vitorium/index.pt.html">CASE + DEMO →</a>',
-        '<a href="vitorium/">CASO + DEMO →</a>'
-    ),
+    # Case study links: one rule for every project (see scripts/build_cases.py).
+    # The PT home points at the PT case page; ES has no case pages, so it keeps EN.
+    'CASE STUDY →</a>': ('ESTUDO DE CASO →</a>', 'CASO DE ESTUDIO →</a>'),
     '<span>End-to-End MLOps Pipeline</span>': (
         '<span>Pipeline MLOps de Ponta a Ponta</span>',
         '<span>Pipeline MLOps de Extremo a Extremo</span>'
@@ -825,6 +824,7 @@ def main():
     pt_content = content.replace('__EN_ACTIVE__', '').replace('__PT_ACTIVE__', 'active-lang').replace('__ES_ACTIVE__', '')
     for en, (pt, es) in replacements.items():
         pt_content = pt_content.replace(en, pt)
+    pt_content = re.sub(r'class="case-link" href="([\w.-]+)/"', r'class="case-link" href="\1/index.pt.html"', pt_content)
     with open(os.path.join(base_dir, 'index.pt.html'), 'w', encoding='utf-8', newline='\n') as f:
         f.write(localize_urls(pt_content, 'index.pt.html'))
         
