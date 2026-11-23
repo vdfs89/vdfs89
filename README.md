@@ -31,11 +31,12 @@ I bring **14 years of mission-critical operations** into modern AI engineering �
 
 ## 🚀 Anchor Projects
 
-### 💰 [MestreGrana — Multi-Agent Financial Platform](https://github.com/vdfs89/MestreGrana)
-**Problem:** LLM hallucinations in high-stakes financial advice destroy trust and create legal exposure.
-**Solution:** Multi-LLM judge architecture where every output is audited before reaching the user.
-**Impact:** 4 specialized agents • 100% audited outputs • sub-200ms RAG retrieval • zero unvalidated responses in production
-**Stack:** `LangGraph` `FastAPI` `Python` `MongoDB` `RAG`
+### 💰 [MestreGrana — Financial Mentor with Provider Fallback](https://github.com/vdfs89/MestreGrana)
+**Problem:** Generic AI money advice ignores the person asking, and one LLM provider going down takes the whole chat with it.
+**Solution:** Streamlit assistant that grounds every prompt in the user's own profile and transactions, with a Groq → Gemini → OpenAI fallback chain shared by the text and voice chat.
+**Includes:** dashboard • financial reports • product simulator • LGPD consent • audit log
+**Demo:** [live app](https://mestregrana.streamlit.app/) · **Case study:** [vitorsilva.page/mestregrana](https://vitorsilva.page/mestregrana/)
+**Stack:** `Python` `Streamlit` `Groq` `Gemini` `OpenAI` `PostgreSQL` `MongoDB`
 
 ### 🎓 [FluencyForge — Multi-Agent EdTech Platform](https://fluencyforge.streamlit.app/)
 **Problem:** Static learning paths fail to adapt to real user progress and context.

@@ -1114,84 +1114,38 @@
 
                     <!-- MestreGrana (flagship) -->
                     <div class="bc b-main reveal">
-                        <div class="bc-idx"><span>01 · FINTECH · AI GOVERNANCE</span><span class="badge badge-amber">ATIVO</span></div>
+                        <div class="bc-idx"><span>01 · FINTECH · LLM APP</span><span class="badge badge-amber">ATIVO</span></div>
                         <h3 class="bc-title">MestreGrana</h3>
                         <div style="margin-top: 1rem; margin-bottom: 1.5rem;">
                             <strong style="color: var(--green);">Problema de Negócio:</strong>
-                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Alto risco de alucinação e falta de governança na IA generativa para aconselhamento financeiro.</p>
-                            
-                            <strong style="color: var(--green);">Arquitetura:</strong>
-                            <div class="arch-wrap">
-                                <svg class="arch arch-wide" viewBox="0 0 680 464" role="img" aria-labelledby="mgTitle mgDesc">
-                                    <title id="mgTitle">Arquitetura do MestreGrana</title>
-                                    <desc id="mgDesc">The question enters through a FastAPI gateway and reaches the LangGraph orchestrator, which fans out to retrieval, a multi-LLM judge and a governance layer; the three converge into a validated answer.</desc>
-                                    <defs>
-                                        <marker id="archArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                                            <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </marker>
-                                    </defs>
+                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Conselho financeiro genérico de IA ignora quem pergunta, e um único provedor de LLM fora do ar derruba o chat inteiro.</p>
 
-                                    <g><rect x="120" y="40" width="180" height="56" rx="2"/>
-                                        <text class="n-t" x="210" y="62" text-anchor="middle" dominant-baseline="central">Usuário</text>
-                                        <text class="n-s" x="210" y="80" text-anchor="middle" dominant-baseline="central">Pergunta</text></g>
-
-                                    <g><rect x="380" y="40" width="180" height="56" rx="2"/>
-                                        <text class="n-t" x="470" y="62" text-anchor="middle" dominant-baseline="central">FastAPI</text>
-                                        <text class="n-s" x="470" y="80" text-anchor="middle" dominant-baseline="central">Gateway HTTP</text></g>
-
-                                    <g><rect x="240" y="156" width="200" height="56" rx="2"/>
-                                        <text class="n-t" x="340" y="178" text-anchor="middle" dominant-baseline="central">LangGraph</text>
-                                        <text class="n-s" x="340" y="196" text-anchor="middle" dominant-baseline="central">Orquestrador stateful</text></g>
-
-                                    <g><rect x="40" y="272" width="170" height="56" rx="2"/>
-                                        <text class="n-t" x="125" y="294" text-anchor="middle" dominant-baseline="central">RAG</text>
-                                        <text class="n-s" x="125" y="312" text-anchor="middle" dominant-baseline="central">Embeddings</text></g>
-
-                                    <g><rect x="255" y="272" width="170" height="56" rx="2"/>
-                                        <text class="n-t" x="340" y="294" text-anchor="middle" dominant-baseline="central">Júri</text>
-                                        <text class="n-s" x="340" y="312" text-anchor="middle" dominant-baseline="central">Multi-LLM</text></g>
-
-                                    <g><rect x="470" y="272" width="170" height="56" rx="2"/>
-                                        <text class="n-t" x="555" y="294" text-anchor="middle" dominant-baseline="central">Governança</text>
-                                        <text class="n-s" x="555" y="312" text-anchor="middle" dominant-baseline="central">Auditoria</text></g>
-
-                                    <g class="out"><rect x="240" y="388" width="200" height="56" rx="2"/>
-                                        <text class="n-t" x="340" y="410" text-anchor="middle" dominant-baseline="central">Resposta validada</text>
-                                        <text class="n-s" x="340" y="428" text-anchor="middle" dominant-baseline="central">Auditada antes de entregar</text></g>
-
-                                    <path d="M310 68 L370 68" marker-end="url(#archArrow)"/>
-                                    <path d="M470 106 L470 131 L340 131 L340 146" marker-end="url(#archArrow)"/>
-                                    <path d="M340 222 L340 242 L125 242 L125 262" marker-end="url(#archArrow)"/>
-                                    <path d="M340 222 L340 262" marker-end="url(#archArrow)"/>
-                                    <path d="M340 222 L340 242 L555 242 L555 262" marker-end="url(#archArrow)"/>
-                                    <path d="M125 338 L125 358 L340 358 L340 378" marker-end="url(#archArrow)"/>
-                                    <path d="M340 338 L340 378" marker-end="url(#archArrow)"/>
-                                    <path d="M555 338 L555 358 L340 358 L340 378" marker-end="url(#archArrow)"/>
-                                </svg>
-                            </div>
-                            
                             <strong style="color: var(--green);">Solução Técnica:</strong>
                             <ul style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem; padding-left: 1rem;">
-                                <li>Orquestração stateful via LangGraph para memória de longo prazo.</li>
-                                <li>Sistema LLM "Juiz" para auditar respostas (Guardrails).</li>
+                                <li>Cada prompt leva o perfil, as metas e as últimas transações do usuário, com a instrução de não chutar dados que faltam.</li>
+                                <li>Uma única cadeia de fallback entre Groq, Gemini e OpenAI atende o chat de texto e o de voz.</li>
                             </ul>
+
+                            <strong style="color: var(--green);">Tech Stack:</strong>
+                            <p style="font-size: 0.8rem; color: var(--muted); margin-bottom: 1rem;">Python, Streamlit, Groq, Gemini, OpenAI, PostgreSQL (Neon), MongoDB, gTTS</p>
                         </div>
-                        
+
                         <div class="metric">
-                            <div class="metric-val">Juízes Multi-LLM</div>
-                            <div class="metric-desc">Guardrails de auditoria + mitigação de alucinação em produção</div>
+                            <div class="metric-val">3 LLMs</div>
+                            <div class="metric-desc">Cadeia de fallback Groq → Gemini → OpenAI, para que a queda de um provedor não pare o chat</div>
                         </div>
-                        
+
                         <div style="margin-top: 1rem; margin-bottom: 1rem; display: flex; gap: 0.5rem;">
                             <a href="https://mestregrana.streamlit.app/" target="_blank" class="btn btn-solid btn-sm">▶ Ver Demo</a>
                         </div>
                         <div class="tags">
-                            <span class="tag">LangGraph</span><span class="tag">FastAPI</span><span class="tag">Python</span>
-                            <span class="tag">RAG</span><span class="tag">Multi-LLM</span><span class="tag">MongoDB</span>
+                            <span class="tag">Streamlit</span><span class="tag">Multi-LLM</span><span class="tag">Python</span>
+                            <span class="tag">PostgreSQL</span><span class="tag">Voice</span><span class="tag">LGPD</span>
                         </div>
                         <div class="bc-footer">
-                            <span>Grafos de Estado + Guardrails Multi-LLM</span>
+                            <span>Chat Ancorado + Fallback de Provedor</span>
                             <div class="bc-links">
+                                <a class="case-link" href="mestregrana/index.pt.html">ESTUDO DE CASO →</a>
                                 <a href="https://mestregrana.streamlit.app/" target="_blank" rel="noreferrer">DEMO →</a>
                                 <a href="https://github.com/vdfs89/MestreGrana" target="_blank" rel="noreferrer">GITHUB →</a>
                             </div>

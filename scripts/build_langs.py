@@ -336,18 +336,26 @@ def main():
         'FINTECH &middot; AI GOVERNANCE': ('FINTECH &middot; GOVERNANÇA DE IA', 'FINTECH &middot; GOBERNANZA DE IA'),
         'LIVE': ('ATIVO', 'ACTIVO'),
         'Business Problem:': ('Problema de Negócio:', 'Problema de Negocio:'),
-        'High risk of hallucination and lack of governance in generative AI for financial advice.': (
-            'Alto risco de alucinação e falta de governança na IA generativa para aconselhamento financeiro.',
-            'Alto riesgo de alucinación y falta de gobernanza en IA generativa para asesoramiento financiero.'
+        'Generic AI money advice ignores the person asking, and a single LLM provider going down takes the whole chat with it.': (
+            'Conselho financeiro genérico de IA ignora quem pergunta, e um único provedor de LLM fora do ar derruba o chat inteiro.',
+            'El consejo financiero genérico de una IA ignora a quien pregunta, y un solo proveedor de LLM caído tumba todo el chat.'
         ),
         'Architecture:': ('Arquitetura:', 'Arquitectura:'),
         'Technical Solution:': ('Solução Técnica:', 'Solución Técnica:'),
-        'Stateful orchestration via LangGraph for long-term memory.': ('Orquestração stateful via LangGraph para memória de longo prazo.', 'Orquestración stateful vía LangGraph para memoria a largo plazo.'),
-        '"Judge" LLM system to audit answers (Guardrails).': ('Sistema LLM "Juiz" para auditar respostas (Guardrails).', 'Sistema LLM "Juez" para auditar respuestas (Guardrails).'),
-        'Multi-LLM Judges': ('Juízes Multi-LLM', 'Jueces Multi-LLM'),
-        'Audit guardrails + hallucination mitigation in production': ('Guardrails de auditoria + mitigação de alucinação em produção', 'Guardrails de auditoría + mitigación de alucinación en producción'),
+        "Every prompt carries the user's profile, goals and latest transactions, with an instruction not to guess missing data.": (
+            'Cada prompt leva o perfil, as metas e as últimas transações do usuário, com a instrução de não chutar dados que faltam.',
+            'Cada prompt lleva el perfil, las metas y las últimas transacciones del usuario, con la instrucción de no inventar datos faltantes.'
+        ),
+        'One fallback chain across Groq, Gemini and OpenAI serves both the text and the voice chat.': (
+            'Uma única cadeia de fallback entre Groq, Gemini e OpenAI atende o chat de texto e o de voz.',
+            'Una sola cadena de fallback entre Groq, Gemini y OpenAI atiende el chat de texto y el de voz.'
+        ),
+        'Groq → Gemini → OpenAI fallback chain, so one provider outage does not stop the chat': (
+            'Cadeia de fallback Groq → Gemini → OpenAI, para que a queda de um provedor não pare o chat',
+            'Cadena de fallback Groq → Gemini → OpenAI, para que la caída de un proveedor no detenga el chat'
+        ),
         '▶ Watch Demo': ('▶ Ver Demo', '▶ Ver Demo'),
-        'State Graphs + Multi-LLM Guardrails': ('Grafos de Estado + Guardrails Multi-LLM', 'Grafos de Estado + Guardrails Multi-LLM'),
+        'Grounded Chat + Provider Fallback': ('Chat Ancorado + Fallback de Provedor', 'Chat Anclado + Fallback de Proveedor'),
         
         'EDTECH &middot; AGENTIC AI': ('EDTECH &middot; IA AGÊNTICA', 'EDTECH &middot; IA AGÉNTICA'),
         'FEATURED': ('DESTAQUE', 'DESTACADO'),
