@@ -118,7 +118,7 @@ def diagram(case, i):
             parts.append('<text class="t" x="%.1f" y="%d">%s</text>' % (x + 14, ny + 25, html.escape(title)))
             for j, s in enumerate(subs):
                 parts.append('<text class="s" x="%.1f" y="%d">%s</text>' % (x + 14, ny + 45 + 18 * j, html.escape(s)))
-            if k + 1 < n:
+            if k + 1 < n and lane.get("flow", True):
                 ay = ny + node_h / 2
                 parts.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" marker-end="url(#ar)"/>' % (x + w, ay, x + w + gap - 4, ay))
         y += lane_h + 22
