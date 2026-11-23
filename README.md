@@ -31,7 +31,7 @@ I bring **14 years of mission-critical operations** into modern AI engineering �
 
 ## 🚀 Anchor Projects
 
-### 💰 [MestreGrana — Multi-Agent Financial Platform](https://github.com/vdfs89/InvestimentoDIO)
+### 💰 [MestreGrana — Multi-Agent Financial Platform](https://github.com/vdfs89/MestreGrana)
 **Problem:** LLM hallucinations in high-stakes financial advice destroy trust and create legal exposure.
 **Solution:** Multi-LLM judge architecture where every output is audited before reaching the user.
 **Impact:** 4 specialized agents • 100% audited outputs • sub-200ms RAG retrieval • zero unvalidated responses in production
@@ -91,7 +91,8 @@ I bring **14 years of mission-critical operations** into modern AI engineering �
 ### 🩺 [VITORIUM — MLOps Pipeline for Medical Text](https://github.com/vdfs89/vitorium-mednlp-mlops)
 **Problem:** A hospital needs incoming medical reports triaged by urgency, with a model that can be retrained, monitored and served fast.
 **Solution:** TF-IDF and logistic regression baseline served by FastAPI, exported to ONNX Runtime, retrained through an Airflow DAG and monitored with Prometheus and Grafana.
-**Impact:** p95 API latency of 3.07 ms on the baseline • macro F1 0.62 on heuristic urgency labels (didactic mapping, not clinical) • CI with lint, tests and image build
+**Impact:** 4.09× faster inference with ONNX Runtime (1.35× end-to-end through the API) with 100% label parity • macro F1 0.62 on heuristic urgency labels (didactic mapping, not clinical) • Airflow retraining, promtool-tested alerts, CI publishing to GHCR
+**Case study + live demo:** [vitorsilva.page/vitorium](https://vitorsilva.page/vitorium/)
 **Stack:** `Python` `FastAPI` `ONNX` `Airflow` `Docker` `Prometheus`
 
 ### 🏋️ Corpo em Ação — Workout Tracker
