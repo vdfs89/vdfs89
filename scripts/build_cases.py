@@ -3,7 +3,9 @@
 
 Each project is one module in scripts/cases/<slug>.py exposing a CASE dict;
 the markup is scripts/cases/template.html. Text fields are either a plain
-string (same in both languages) or an (English, Portuguese) tuple.
+string (same in both languages) or an (English, Portuguese) tuple. A diagram
+lane draws arrows between its boxes unless it sets "flow": False, for lanes
+that list parallel parts rather than a sequence.
 
 Integrity rule, same as the project READMEs: every number on a case page must
 come from a versioned file in the project's own repository, and the page
@@ -118,7 +120,7 @@ def diagram(case, i):
             parts.append('<text class="t" x="%.1f" y="%d">%s</text>' % (x + 14, ny + 25, html.escape(title)))
             for j, s in enumerate(subs):
                 parts.append('<text class="s" x="%.1f" y="%d">%s</text>' % (x + 14, ny + 45 + 18 * j, html.escape(s)))
-            if k + 1 < n:
+            if k + 1 < n and lane.get("flow", True):
                 ay = ny + node_h / 2
                 parts.append('<line x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f" marker-end="url(#ar)"/>' % (x + w, ay, x + w + gap - 4, ay))
         y += lane_h + 22
