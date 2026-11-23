@@ -351,10 +351,11 @@ def main():
         
         'EDTECH &middot; AGENTIC AI': ('EDTECH &middot; IA AGÊNTICA', 'EDTECH &middot; IA AGÉNTICA'),
         'FEATURED': ('DESTAQUE', 'DESTACADO'),
-        'Teaching personalization at scale hits LLM context limits.': ('Personalização de ensino em escala atinge os limites de contexto do LLM.', 'La personalización de la enseñanza a escala alcanza los límites de contexto del LLM.'),
+        'Learners need conversation practice with instant corrections, and it has to keep working when an LLM provider or the internet drops.': ('Quem aprende precisa praticar conversação com correção na hora, e isso tem que funcionar mesmo quando um provedor de LLM ou a internet cai.', 'Quien aprende necesita practicar conversación con corrección inmediata, y debe seguir funcionando cuando cae un proveedor de LLM o internet.'),
         'Solution:': ('Solução:', 'Solución:'),
-        'Dynamic RAG coupled with stateful memory to maintain historical context.': ('RAG dinâmico aliado a memória stateful para manter o contexto histórico.', 'RAG dinámico junto con memoria stateful para mantener el contexto histórico.'),
-        'LangGraph + State Management + RAG': ('LangGraph + Gestão de Estado + RAG', 'LangGraph + Gestión de Estado + RAG'),
+        'Web tutor with grammar diffs, flashcards and a Groq, OpenAI, Gemini and Perplexity fallback chain.': ('Tutor web com diff gramatical, flashcards e cadeia de fallback entre Groq, OpenAI, Gemini e Perplexity.', 'Tutor web con diff gramatical, flashcards y cadena de fallback entre Groq, OpenAI, Gemini y Perplexity.'),
+        'Flutter app that switches to an on-device model when offline.': ('App Flutter que muda para um modelo no aparelho quando está offline.', 'App Flutter que cambia a un modelo en el dispositivo cuando está sin conexión.'),
+        'Provider Fallback + On-Device LLM': ('Fallback de Provedor + LLM no Aparelho', 'Fallback de Proveedor + LLM en el Dispositivo'),
         
         'E-COMMERCE &middot; DEEP LEARNING': ('E-COMMERCE &middot; DEEP LEARNING', 'E-COMMERCE &middot; DEEP LEARNING'),
         'IN DEV': ('EM DESENV', 'EN DESARR'),
