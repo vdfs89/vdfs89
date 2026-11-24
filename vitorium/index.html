@@ -515,7 +515,8 @@
         terms.innerHTML = r.top_termos.length
             ? r.top_termos.map(function (t) { return '<span class="term">' + esc(model.termOf(t[0])) + '</span>'; }).join("")
             : '<span class="term" style="opacity:.6">' + T.none + '</span>';
-        meta.innerHTML = T.meta.replace("{ms}", "<b>" + num(ms, 2) + " ms</b>").replace("{n}", "<b>" + r.features_ativas + "</b>");
+        var msText = ms < 0.01 ? "&lt; " + num(0.01, 2) : num(ms, 2);
+        meta.innerHTML = T.meta.replace("{ms}", "<b>" + msText + " ms</b>").replace("{n}", "<b>" + r.features_ativas + "</b>");
         var top = Math.max.apply(null, ORDER.map(function (c) { return r.probabilidades[c]; }));
         warn.style.display = (r.features_ativas < 3 || top < 0.4) ? "block" : "none";
     }
