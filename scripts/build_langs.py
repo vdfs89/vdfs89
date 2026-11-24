@@ -385,10 +385,7 @@ def main():
         'Maturidade operacional.<br><span class="g">Stack de ponta.</span>',
         'Madurez operativa.<br><span class="g">Stack de vanguardia.</span>'
     ),
-    '2011 → PRESENT': (
-        '2011 → PRESENTE',
-        '2011 → PRESENTE'
-    ),
+
     'Operational Support · Curitiba, PR': (
         'Suporte Operacional · Curitiba, PR',
         'Soporte Operativo · Curitiba, PR'
@@ -602,9 +599,14 @@ def main():
         'Um hospital precisa triar laudos médicos por urgência, com um modelo que possa ser retreinado, monitorado e servido com rapidez.',
         'Un hospital necesita clasificar informes médicos por urgencia, con un modelo que pueda reentrenarse, monitorearse y servirse rápido.'
     ),
-    'p95 API latency on the baseline model (200 requests). Macro F1 of 0.62 on heuristic urgency labels.': (
-        'latência p95 da API no modelo baseline (200 requisições). F1 macro de 0,62 em rótulos de urgência heurísticos.',
-        'latencia p95 de la API en el modelo baseline (200 solicitudes). F1 macro de 0,62 con etiquetas de urgencia heurísticas.'
+    'Faster inference with ONNX Runtime (1.35× through the real API), with 100% label parity. Macro F1 of 0.62 on heuristic urgency labels.': (
+        'Inferência mais rápida com ONNX Runtime (1,35× na API real), com 100% de paridade de rótulos. F1 macro de 0,62 em rótulos de urgência heurísticos.',
+        'Inferencia más rápida con ONNX Runtime (1,35× en la API real), con 100% de paridad de etiquetas. F1 macro de 0,62 con etiquetas de urgencia heurísticas.'
+    ),
+    '<div class="metric-val">4.09×</div>': ('<div class="metric-val">4,09×</div>', '<div class="metric-val">4,09×</div>'),
+    '<a href="vitorium/">CASE + DEMO →</a>': (
+        '<a href="vitorium/index.pt.html">CASE + DEMO →</a>',
+        '<a href="vitorium/">CASO + DEMO →</a>'
     ),
     '<span>End-to-End MLOps Pipeline</span>': (
         '<span>Pipeline MLOps de Ponta a Ponta</span>',
